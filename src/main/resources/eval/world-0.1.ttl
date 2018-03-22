@@ -1,0 +1,17 @@
+@prefix world: <http://data.masterthesis.com/dataset/world/>.
+@prefix schema: <http://data.masterthesis.com/schema/world/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+schema:CitizenShape
+	a sh:NodeShape;
+    sh:targetClass schema:Citizen;
+    sh:property [
+    	sh:path schema givenName ;
+        sh:dataType xsd:string;
+        sh:name "given name" ;
+    ] ;
+    sh:property [
+    	sh:path schema:birthDate ;
+        sh:lessThan schema:deathData ;
+    	sh:maxCount 1 ;
+    ] .
