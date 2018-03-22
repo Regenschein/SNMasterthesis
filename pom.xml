@@ -73,11 +73,11 @@
             <systemPath>${project.basedir}/lib/vickey.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>com.AMIECKMiner</groupId>
-            <artifactId>AMIECKMiner</artifactId>
-            <version>2.2.3</version>
+            <groupId>com.shacl-1.1</groupId>
+            <artifactId>shacl-1.1</artifactId>
+            <version>1.1</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/AMIECKMiner.jar</systemPath>
+            <systemPath>${project.basedir}/lib/shacl-1.1.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.SAKeyNonKeys</groupId>
@@ -85,27 +85,6 @@
             <version>2.2.3</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/SAKeyNonKeys.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.Commons-cli12</groupId>
-            <artifactId>commons-cli12</artifactId>
-            <version>1.2</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/commons-cli-1.2.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.nxparser11</groupId>
-            <artifactId>nxparser11</artifactId>
-            <version>1.1</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/nxparser-1.1.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.shacl-1.1</groupId>
-            <artifactId>shacl-1.1</artifactId>
-            <version>1.1</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/shacl-1.1.jar</systemPath>
         </dependency>
     </dependencies>
 

@@ -5,6 +5,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuItem;
 import modelbuilder.Modelbuilder;
 import modelbuilder.ModelbuilderImplementation;
+import modelbuilder.Transformer;
+import modelbuilder.TurtleToTabSepTransformer;
 import querybuilder.Querybuilder;
 import querybuilder.QuerybuilderImplementation;
 import sakey.SAKey;
@@ -62,7 +64,9 @@ public class Controller {
     }
 
     public void loadModel(ActionEvent actionEvent) {
-
+        Transformer t = new TurtleToTabSepTransformer();
+        System.out.println("Dest :D");
+        t.transform("test");
     }
 
     public void generateRdf(ActionEvent actionEvent) {
@@ -93,7 +97,10 @@ public class Controller {
         }if(checkBox_AlmostKey.isSelected()){
             String[] args = new String[2];
             //args[0] = "./src/main/resources/data/museum.tsv";
-            args[0] = "./src/main/resources/data/world-0.1.tsv";
+            //args[0] = "./src/main/resources/data/world-0.1.tsv";
+            System.out.println("./src/main/resources/data/world-0.1.tsv");
+            args[0] = Configuration.getInstance().getPath();
+            System.out.println(args[0]);
             args[1] = "0";
             try {
                 SAKey.main(args);
