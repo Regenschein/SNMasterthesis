@@ -1,12 +1,26 @@
+world:Sebastian	schema:birthDate	"1090-04-28"^^xsd:date
 world:Carl	a	schema:Person
-world:Carl	schema:familyName	"Turnip"@en
+world:Sebastian	schema:familyName	"Sternensänger"@de
 world:Carl	schema:address	world:TurnipsHome
-world:TurnipsHome	schema:adressCity	world:Targ
-world:Carl	schema:givenName	"Karl"@de
-world:TurnipsHome	schema:adressCountry	world:Avurien
+world:Astrid	schema:gender	schema:female
 world:TurnipsHome	schema:adressRegion	world:TimberwoodMountains
+world:Astrid	schema:birthDate	"1091-07-07"^^xsd:date
+world:Carl	schema:familyName	"Rübe"@de
+world:TurnipsHome	schema:streetAddress	"31 Trademann's Valley"@en
+world:Sebastian	schema:givenName	"Sebastian"
+world:Sebastian	a	schema:Person
+world:Astrid	a	schema:Person
+world:Carl	schema:givenName	"Karl"@de
+world:Carl	schema:gender	schema:male
+world:Astrid	schema:familyName	"von Kharg"
+world:Astrid	schema:givenName	"Astrid"
+world:Sebastian	schema:familyName	"Starsinger"@en
+world:Carl	schema:familyName	"Turnip"@en
+world:Sebastian	schema:address	world:Kingshome
+world:TurnipsHome	schema:adressCity	world:Targ
+world:Sebastian	schema:gender	schema:male
+world:Astrid	schema:address	world:RabitsDen
+world:TurnipsHome	schema:adressCountry	world:Avurien
 world:Carl	schema:birthDate	"1022-12-01"^^xsd:date
 world:TurnipsHome	schema:streetAddress	"Handwerkwerweg 31"@de
 world:Carl	schema:givenName	"Carl"@en
-world:Carl	schema:familyName	"Rübe"@de
-world:TurnipsHome	schema:streetAddress	"31 Trademann's Valley"@en

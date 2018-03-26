@@ -4,10 +4,29 @@
 
 world:Carl
     a schema:Person ;
+    schema:gender schema:male;
     schema:givenName "Carl"@en, "Karl"@de ;
     schema:familyName "Turnip"@en, "Rübe"@de ;
     schema:birthDate "1022-12-01"^^xsd:date ;
     schema:address world:TurnipsHome .
+
+world:Sebastian
+    a schema:Person ;
+    schema:gender schema:male;
+    schema:givenName "Sebastian" ;
+    schema:familyName "Starsinger"@en, "Sternensänger"@de ;
+    schema:birthDate "1090-04-28"^^xsd:date ;
+    schema:address world:Kingshome .
+
+world:Astrid
+    a schema:Person ;
+    schema:gender schema:female;
+    schema:givenName "Astrid" ;
+    schema:familyName "von Kharg" ;
+    schema:birthDate "1091-07-07"^^xsd:date ;
+    schema:address world:RabitsDen .
+
+
 
 world:TurnipsHome
     schema:adressCountry world:Avurien ;

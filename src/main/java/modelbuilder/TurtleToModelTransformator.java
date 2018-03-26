@@ -5,6 +5,8 @@ import model.Model;
 import model.Triple;
 
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
@@ -124,6 +126,9 @@ public class TurtleToModelTransformator implements Transformer{
                             sb = new StringBuilder();
                         }
                     }
+                } else {
+                    String[] split = line.split(" ");
+                    Model.getInstance().addPrefix(split[1].substring(0, split[1].length() -1), split[2].substring(0, split[2].length() -2));
                 }
             }
         } catch(FileNotFoundException e) {

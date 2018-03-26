@@ -1,8 +1,11 @@
 package controller;
 
+import com.github.jsonldjava.core.JSONLDProcessingError;
+import fr.inrialpes.exmo.rdfkeys.KeyExtraction;
 import javafx.event.ActionEvent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuItem;
+import keyfinder.KeyfinderImplementation;
 import modelbuilder.*;
 import querybuilder.Querybuilder;
 import querybuilder.QuerybuilderImplementation;
@@ -66,6 +69,8 @@ public class Controller {
         t.transform("test");
         t = new ModelToTabSepTransformator();
         t.transform(Configuration.getInstance().getTsvpath());
+        t = new ModelToN3Transformator();
+        t.transform(Configuration.getInstance().getN3path());
     }
 
     public void generateRdf(ActionEvent actionEvent) {
@@ -85,8 +90,7 @@ public class Controller {
     public void keys(ActionEvent actionEvent) {
         if(checkBox_conditionalKey.isSelected()) {
             String[] args = new String[1];
-            //args[0] = "./src/main/resources/data/museum.tsv";
-            args[0] = "./src/main/resources/data/world-0.1.tsv";
+            args[0] = Configuration.getInstance().getTsvpath();
             try {
                 VICKEY.main(args);
                 System.out.println("Done");
@@ -95,10 +99,7 @@ public class Controller {
             }
         }if(checkBox_AlmostKey.isSelected()){
             String[] args = new String[2];
-            //args[0] = "./src/main/resources/data/museum.tsv";
-            //args[0] = "./src/main/resources/data/world-0.1.tsv";
-            System.out.println("./src/main/resources/data/world-0.1.tsv");
-            args[0] = Configuration.getInstance().getPath();
+            args[0] = Configuration.getInstance().getTsvpath();
             System.out.println(args[0]);
             args[1] = "0";
             try {
@@ -106,6 +107,19 @@ public class Controller {
             } catch (IOException  e) {
                 e.printStackTrace();
             }
+        }
+        String[] args = new String[4];
+        args[0] = "-t";
+        args[1] = "-i";
+        args[2] = Configuration.getInstance().getN3path();
+        //args[2] = Configuration.getInstance().getPath();
+        args[3] = "./src/main/resources/data/";
+        try{
+            //KeyExtraction.main(args);
+            KeyfinderImplementation.main(args);
+            System.out.println("Done");
+        } catch (IOException | JSONLDProcessingError e) {
+            e.printStackTrace();
         }
     }
 

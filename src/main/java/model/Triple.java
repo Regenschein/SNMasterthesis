@@ -50,6 +50,34 @@ public class Triple {
         return(subject + "\t" + predicate + "\t" + object + "\n");
     }
 
+    public String toN3() {
+        Model model = Model.getInstance();
+        String prefixSub = subject.split(":")[0];
+        prefixSub = model.getPrefix(prefixSub);
+        if (predicate.contains(":")){
+            String prefixPred = predicate.split(":")[0];
+            prefixPred = model.getPrefix(prefixPred);
+            predicate = (prefixPred + predicate.split(":")[1] + ">");
+        } else {
+            String prefixPred = "<https:test.uri/";
+            predicate = (prefixPred + predicate + ">");
+        }
+        if (!object.startsWith("\"")){
+            String prefixObj = object.split(":")[0];
+            prefixObj = model.getPrefix(prefixObj);
+            object = (prefixObj + object.split(":")[1] + ">");
+        } else if (object.contains(":")){
+            String literal = object.split("\\^\\^")[0];
+            String prefixObj[] = object.split("\\^\\^")[1].split(":");
+            String prefixObje = model.getPrefix(prefixObj[0]);
+            object = literal + "^^" + prefixObje + prefixObj[1] + ">";
+            System.out.println("OBJECT: " + object);
+        }
+        System.out.println(prefixSub + subject.split(":")[1] + "> " + predicate + " " + object);
+        return (prefixSub + subject.split(":")[1] + "> " + predicate + " " + object + ".\n");
+    }
+
+
     @Override
     public int hashCode() {
 
