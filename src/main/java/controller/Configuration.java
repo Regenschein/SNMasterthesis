@@ -14,6 +14,7 @@ public class Configuration {
     private static String country = "";
     private static String modus = "";
     private static String path = "";
+    private static String tsvpath = "";
 
     private Configuration(){
         parseProperties();
@@ -46,6 +47,7 @@ public class Configuration {
             country = properties.getProperty("country");
             modus = properties.getProperty("modus");
             path = properties.getProperty("path");
+            tsvpath = properties.getProperty("tsvpath");
             locale = new Locale(language, country);
             bundle = ResourceBundle.getBundle("Properties/properties", locale);
         } catch(IOException ignored){
@@ -82,5 +84,8 @@ public class Configuration {
         return path;
     }
 
+    public static String getTsvpath() {
+        return tsvpath;
+    }
 }
 

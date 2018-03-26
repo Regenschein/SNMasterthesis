@@ -9,8 +9,8 @@ import java.util.Set;
 
 public class Model {
 
-    private static final Object instance = new Object();
-    private Set triple = new HashSet();
+    private static Model instance;
+    private Set<Triple> triples = new HashSet<Triple>();
 
     protected Model() {
 
@@ -18,19 +18,23 @@ public class Model {
 
     // Runtime initialization
     // By defualt ThreadSafe
-    public static Object getInstance() {
-        return instance;
+    public static Model getInstance() {
+        if (Model.instance == null) {
+            Model.instance = new Model ();
+        }
+        return Model.instance;
     }
 
-    public void fill(){
-        triple.add("");
+    public void fill(Triple triple){
+        triples.add(triple);
+    }
+
+    public Set<Triple> getTriples(){
+        return triples;
     }
 
     private void addPlus(String fileName){
-
-
         File file = new File(fileName);
-
 
         if (!file.canRead() || !file.isFile())
             System.exit(0);

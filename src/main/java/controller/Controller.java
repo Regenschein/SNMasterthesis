@@ -3,10 +3,7 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuItem;
-import modelbuilder.Modelbuilder;
-import modelbuilder.ModelbuilderImplementation;
-import modelbuilder.Transformer;
-import modelbuilder.TurtleToTabSepTransformer;
+import modelbuilder.*;
 import querybuilder.Querybuilder;
 import querybuilder.QuerybuilderImplementation;
 import sakey.SAKey;
@@ -64,9 +61,11 @@ public class Controller {
     }
 
     public void loadModel(ActionEvent actionEvent) {
-        Transformer t = new TurtleToTabSepTransformer();
+        Transformer t = new TurtleToModelTransformator();
         System.out.println("Dest :D");
         t.transform("test");
+        t = new ModelToTabSepTransformator();
+        t.transform(Configuration.getInstance().getTsvpath());
     }
 
     public void generateRdf(ActionEvent actionEvent) {

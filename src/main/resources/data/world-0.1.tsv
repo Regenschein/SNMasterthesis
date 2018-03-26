@@ -1,36 +1,12 @@
-world:Carl	a	schema:Person 
-world:Carl	schema:givenName	"Karl"@de 
+world:Carl	a	schema:Person
+world:Carl	schema:familyName	"Turnip"@en
+world:Carl	schema:address	world:TurnipsHome
+world:TurnipsHome	schema:adressCity	world:Targ
+world:Carl	schema:givenName	"Karl"@de
+world:TurnipsHome	schema:adressCountry	world:Avurien
+world:TurnipsHome	schema:adressRegion	world:TimberwoodMountains
+world:Carl	schema:birthDate	"1022-12-01"^^xsd:date
+world:TurnipsHome	schema:streetAddress	"Handwerkwerweg 31"@de
 world:Carl	schema:givenName	"Carl"@en
 world:Carl	schema:familyName	"Rübe"@de
-world:Carl	schema:familyName	"Turnip"@en
-world:Carl	schema:birthDate	"1022-12-01"^^xsd:date
-world:Carl	schema:address	world:TurnipsHome
-world:Carl	schema:gender	schema:male
-world:TurnipsHome	schema:adressCountry	world:Avurien
-world:TurnipsHome	schema:adressRegion	world:TimberwoodMountains
-world:TurnipsHome	schema:adressCity	world:Targ
 world:TurnipsHome	schema:streetAddress	"31 Trademann's Valley"@en
-world:TurnipsHome	schema:streetAddress	"Handwerkwerweg 31"@de
-world:Eric	a	schema:Person 
-world:Eric	schema:givenName	"Erik"@de 
-world:Eric	schema:givenName	"Eric"@en
-world:Eric	schema:familyName	"Bieber"@de
-world:Eric	schema:familyName	"Beaver"@en
-world:Eric	schema:birthDate	"1024-12-01"^^xsd:date
-world:Eric	schema:address	world:BeaverHome
-world:Eric	schema:gender	schema:male
-world:TurnipsHome	schema:adressCountry	world:Avurien
-world:TurnipsHome	schema:adressRegion	world:TimberwoodMountains
-world:TurnipsHome	schema:adressCity	world:Targ
-world:TurnipsHome	schema:streetAddress	"34 Trademann's Valley"@en
-world:TurnipsHome	schema:streetAddress	"Handwerkwerweg 34"@de
-world:Astrid	a	schema:Person 
-world:Astrid	schema:givenName	"Astrid"@de 
-world:Astrid	schema:familyName	"Neumond"@de
-world:Astrid	schema:birthDate	"1027-12-01"^^xsd:date
-world:Astrid	schema:address	world:Church
-world:Astrid	schema:gender	schema:female
-world:TurnipsHome	schema:adressCountry	world:Avurien
-world:TurnipsHome	schema:adressRegion	world:Gorgola
-world:TurnipsHome	schema:adressCity	world:Heavensreach
-world:TurnipsHome	schema:streetAddress	"Kirchenstraße 1"@de
