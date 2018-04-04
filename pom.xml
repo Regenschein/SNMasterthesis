@@ -32,15 +32,13 @@
             <groupId>org.apache.jena</groupId>
             <artifactId>apache-jena-libs</artifactId>
             <type>pom</type>
-            <version>2.10.1</version>
+            <version>3.6.0</version>
         </dependency>
-        <!-- we can use this later, when they update it finally o.O
         <dependency>
             <groupId>org.topbraid</groupId>
             <artifactId>shacl</artifactId>
             <version>1.0.1</version>
         </dependency>
-        -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -82,6 +80,7 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/vickey.jar</systemPath>
         </dependency>
+        <!--
         <dependency>
             <groupId>com.shacl-1.1</groupId>
             <artifactId>shacl-1.1</artifactId>
@@ -89,6 +88,7 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/shacl-1.1.jar</systemPath>
         </dependency>
+        -->
         <dependency>
             <groupId>com.SAKeyNonKeys</groupId>
             <artifactId>SAKeyNonKeys</artifactId>

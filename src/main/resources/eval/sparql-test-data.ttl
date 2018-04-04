@@ -1,0 +1,16 @@
+@prefix ex: <http://www.example.org#> .
+
+ex:ValidPerson a ex:Person ;
+	ex:name "torben" .
+
+ex:ValidPerson a ex:Person ;
+	ex:name "klaus" .
+
+ex:ValidPerson2 a ex:Person ;
+    ex:name "jusuf" .
+
+ex:InvalidPerson3 a ex:Person ;
+    ex:name "helga" .
+
+ex:InvalidPerson4 a ex:Person ;
+    ex:name "helga" .

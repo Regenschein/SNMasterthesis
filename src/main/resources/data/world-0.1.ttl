@@ -26,7 +26,13 @@ world:Astrid
     schema:birthDate "1091-07-07"^^xsd:date ;
     schema:address world:RabitsDen .
 
-
+world:Lisa
+    a schema:Person ;
+    schema:gender schema:female;
+    schema:givenName "Lisa" ;
+    schema:givenName "Turnip" ;
+    schema:birthDate "1092-02-12"^^xsd:date ;
+    schema:address world:TurnipsHome.
 
 world:TurnipsHome
     schema:adressCountry world:Avurien ;

@@ -1,10 +1,9 @@
 package modelbuilder;
 
-import com.hp.hpl.jena.rdf.model.*;
-import com.hp.hpl.jena.util.FileManager;
-//import org.apache.jena.rdf.model.*;
-//import org.apache.jena.util.FileManager;
-//import org.apache.jena.vocabulary.RDFS;
+
+import org.apache.jena.rdf.model.*;
+import org.apache.jena.util.FileManager;
+import org.apache.jena.vocabulary.RDFS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,0 +1,54 @@
+# baseURI: http://example.org/hotelratings
+# imports: http://datashapes.org/dash
+# imports: http://topbraid.org/schema/schema-single-range
+# prefix: ex
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix ex: <http://example.org/hotelratings#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/hotelratings>
+  rdf:type owl:Ontology ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports <http://topbraid.org/schema/schema-single-range> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+  sh:declare [
+      rdf:type sh:PrefixDeclaration ;
+      sh:namespace "http://schema.org/"^^xsd:anyURI ;
+      sh:prefix "schema" ;
+    ] ;
+.
+
+ex:HotelBrimbelle
+  rdf:type schema:Hotel ;
+  schema:starRating [
+      rdf:type schema:Rating ;
+      schema:author ex:MirellaBella ;
+      schema:ratingValue 4.5 ;
+    ] ;
+  schema:starRating [
+      rdf:type schema:Rating ;
+      schema:author ex:MirellaBella ;
+      schema:ratingValue 5.0 ;
+    ] ;
+.
+ex:HotelParadiso
+  rdf:type schema:Hotel ;
+  schema:starRating [
+      rdf:type schema:Rating ;
+      schema:author ex:JimCandler ;
+      schema:ratingValue 3.5 ;
+    ] ;
+.
+ex:JimCandler
+  rdf:type schema:Person ;
+.
+ex:MirellaBella
+  rdf:type schema:Person ;
+.
+

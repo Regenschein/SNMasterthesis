@@ -1,0 +1,25 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://www.example.org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+ex:LanguageExamplePropertyShape
+	a sh:PropertyShape ;
+	sh:targetClass ex:Country ;
+	sh:path ex:germanLabel ;
+	sh:sparql [
+		a sh:SPARQLConstraint ;   # This triple is optional
+		sh:message "Values are literals with German language tag." ;
+		sh:prefixes ex: ;
+		sh:select """
+			SELECT $this ?value
+			WHERE {
+				$this $PATH ?value .
+				FILTER (!isLiteral(?value) || !langMatches(lang(?value), "de"))
+			}
+			""" ;
+	] .

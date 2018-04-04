@@ -1,26 +1,18 @@
 package querybuilder;
 
-import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntModelSpec;
-import com.hp.hpl.jena.query.*;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.util.FileManager;
-import com.hp.hpl.jena.vocabulary.OWL;
-import com.hp.hpl.jena.vocabulary.RDFS;
-//import org.apache.jena.ontology.OntModel;
-//import org.apache.jena.ontology.OntModelSpec;
-//import org.apache.jena.query.*;
-//import org.apache.jena.rdf.model.Model;
-//import org.apache.jena.rdf.model.ModelFactory;
-//import org.apache.jena.util.FileManager;
-//import org.apache.jena.vocabulary.OWL;
-//import org.apache.jena.vocabulary.RDFS;
+import org.apache.jena.ontology.OntModel;
+import org.apache.jena.ontology.OntModelSpec;
+import org.apache.jena.query.*;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.util.FileManager;
+import org.apache.jena.vocabulary.OWL;
+import org.apache.jena.vocabulary.RDFS;
 
 public class QuerybuilderImplementation implements Querybuilder{
 
 
-    public void build() {
+    public void build2() {
         OntModel m = getModel();
         loadData( m );
         String prefix = "prefix world: <" + WORLD_NS + ">\n" +
@@ -35,6 +27,41 @@ public class QuerybuilderImplementation implements Querybuilder{
                         "    ?citizen rdfs:label \"Erik\"@de. " +
                         //"    ?citizen rdfs:subClassOf <http://schema.org/Person>. " +
                         "}");
+    }
+
+    public void build() {
+        OntModel m = getModel();
+        loadData( m );
+        String prefix = "prefix world: <" + WORLD_NS + ">\n" +
+                "prefix rdfs: <" + RDFS.getURI() + ">\n" +
+                "prefix owl: <" + OWL.getURI() + ">\n";
+
+        showQuery( m,
+                prefix +
+                    "SELECT ?value (count(?value) as ?count) " +
+                    "WHERE {" +
+                    "    $this $PATH ?value . " +
+                    "    $that $PATH ?value . " +
+                    "   FILTER (?this != ?that) . " +
+                    "}" +
+                    "GROUP BY ?value");
+    }
+
+    public void buildback() {
+        OntModel m = getModel();
+        loadData( m );
+        String prefix = "prefix world: <" + WORLD_NS + ">\n" +
+                "prefix rdfs: <" + RDFS.getURI() + ">\n" +
+                "prefix owl: <" + OWL.getURI() + ">\n";
+
+        showQuery( m,
+                prefix +
+                        "SELECT ?value (count(distinct ?value) as ?count) " +
+                        "WHERE {" +
+                        "    $this $PATH ?value . " +
+                        "            FILTER (?value != \"torben\") " +
+                        "}" +
+                        "GROUP BY ?value");
     }
 
     protected OntModel getModel() {

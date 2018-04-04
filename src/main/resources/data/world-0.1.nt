@@ -1,0 +1,32 @@
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/birthDate> "1090-04-28"^^<http://www.w3.org/2001/XMLSchemadate>.
+<http://data.masterthesis.com/dataset/world/Carl> <https:test.uri/a> <http://data.masterthesis.com/schema/world/Person>.
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/familyName> "Sternensänger"@de.
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/TurnipsHome>.
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/female>.
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/adressRegion> <http://data.masterthesis.com/dataset/world/TimberwoodMountains>.
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/givenName> "Lisa".
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/birthDate> "1091-07-07"^^<http://www.w3.org/2001/XMLSchemadate>.
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/familyName> "Rübe"@de.
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/birthDate> "1092-02-12"^^<http://www.w3.org/2001/XMLSchemadate>.
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/streetAddress> "31 Trademann's Valley"@en.
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/givenName> "Sebastian".
+<http://data.masterthesis.com/dataset/world/Sebastian> <https:test.uri/a> <http://data.masterthesis.com/schema/world/Person>.
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/TurnipsHome.>.
+<http://data.masterthesis.com/dataset/world/Astrid> <https:test.uri/a> <http://data.masterthesis.com/schema/world/Person>.
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/givenName> "Karl"@de.
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/givenName> "Turnip".
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/female>.
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male>.
+<http://data.masterthesis.com/dataset/world/Lisa> <https:test.uri/a> <http://data.masterthesis.com/schema/world/Person>.
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/familyName> "von Kharg".
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/givenName> "Astrid".
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/familyName> "Starsinger"@en.
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/familyName> "Turnip"@en.
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/Kingshome>.
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/adressCity> <http://data.masterthesis.com/dataset/world/Targ>.
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male>.
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/RabitsDen>.
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/adressCountry> <http://data.masterthesis.com/dataset/world/Avurien>.
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/birthDate> "1022-12-01"^^<http://www.w3.org/2001/XMLSchemadate>.
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/streetAddress> "Handwerkwerweg 31"@de.
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/givenName> "Carl"@en.

@@ -1,10 +1,12 @@
 package controller;
 
 import com.github.jsonldjava.core.JSONLDProcessingError;
-import fr.inrialpes.exmo.rdfkeys.KeyExtraction;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.VBox;
 import keyfinder.KeyfinderImplementation;
 import modelbuilder.*;
 import querybuilder.Querybuilder;
@@ -27,6 +29,12 @@ public class Controller {
     public MenuItem edit_selectAll;
     public CheckBox checkBox_AlmostKey;
     public CheckBox checkBox_conditionalKey;
+    public Button btn_generateRdf;
+    public Button btn_loadModel;
+    public Button btn_keys;
+    public Button btn_shacl;
+    public VBox vBox_left_side;
+    public TextArea tA_main;
 
     public Controller(){
         this.controller = this;
@@ -108,12 +116,14 @@ public class Controller {
                 e.printStackTrace();
             }
         }
-        String[] args = new String[4];
+        String[] args = new String[5];
         args[0] = "-t";
         args[1] = "-i";
-        args[2] = Configuration.getInstance().getN3path();
+        //args[2] = Configuration.getInstance().getN3path();
+        args[2] = Configuration.getInstance().getPath();
         //args[2] = Configuration.getInstance().getPath();
-        args[3] = "./src/main/resources/data/";
+        args[3] = "-o";
+        args[4] = "./src/main/resources/data/reuslt.nt";
         try{
             //KeyExtraction.main(args);
             KeyfinderImplementation.main(args);
@@ -126,5 +136,13 @@ public class Controller {
     public void shacl(ActionEvent actionEvent) {
         Shaclbuilder s = new ShaclbuilderImplementation();
         s.build();
+    }
+
+    private void setDesign(){
+        btn_generateRdf = new Button();
+        btn_generateRdf.setMinWidth(vBox_left_side.getPrefWidth());
+        btn_loadModel.setMinWidth(vBox_left_side.getPrefWidth());
+        btn_keys.setMinWidth(vBox_left_side.getPrefWidth());
+        btn_shacl.setMinWidth(vBox_left_side.getPrefWidth());
     }
 }

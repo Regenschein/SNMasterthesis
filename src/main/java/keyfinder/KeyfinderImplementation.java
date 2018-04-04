@@ -1,31 +1,34 @@
 package keyfinder;
 
 import com.github.jsonldjava.core.JSONLDProcessingError;
-import fr.inrialpes.exmo.rdfkeys.KeyExtraction;
 import fr.inrialpes.exmo.rdfkeys.algorithm.*;
 import fr.inrialpes.exmo.rdfkeys.index.Index;
 import fr.inrialpes.exmo.rdfkeys.index.POSIndex;
 import fr.inrialpes.exmo.rdfkeys.index.PSOIndex;
-import fr.inrialpes.exmo.rdfkeys.parser.IndexerStreamRDF;
 import fr.inrialpes.exmo.rdfkeys.renderers.PSetRenderer;
 import fr.inrialpes.exmo.rdfkeys.server.PyServer;
 import fr.inrialpes.exmo.rdfkeys.server.PythonCallback;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
+
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashSet;
 import java.util.Iterator;
+import keyfinder.IndexerStreamRDF;
 import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.cli.*;
 import org.apache.jena.atlas.AtlasException;
+import org.apache.jena.atlas.web.ContentType;
 import org.apache.jena.riot.RDFLanguages;
-import org.apache.jena.riot.RiotReader;
+//import org.apache.jena.riot.RiotReader;
+import org.apache.jena.riot.ReaderRIOT;
+import org.apache.jena.riot.ReaderRIOTFactory;
+import org.apache.jena.riot.adapters.RDFReaderFactoryRIOT;
+import org.apache.jena.riot.system.StreamRDF;
+import org.apache.jena.sparql.util.Context;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import py4j.GatewayServer;
@@ -60,6 +63,7 @@ public class KeyfinderImplementation implements Keyfinder{
                 mimeType=mimeType.substring(0,mimeType.indexOf(';'));
             }
             InputStream input = cnx.getInputStream() ;
+
             RiotReader.parse(input, mimeType==null?null:RDFLanguages.contentTypeToLang(mimeType),handler) ;
             input.close();
         }
@@ -297,7 +301,8 @@ public class KeyfinderImplementation implements Keyfinder{
         options.addOption(properties);
         options.addOption(server);
 
-        CommandLineParser parser = new BasicParser() ;
+        //CommandLineParser parser = new BasicParser() ;
+        CommandLineParser parser = new DefaultParser() ;
 
         // setting up help output
         HelpFormatter hf = new HelpFormatter() ;

@@ -1,0 +1,126 @@
+DEBUG main Jena - Jena initialization
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.util.LocationMapper - Failed to find configuration: file:location-mapping.rdf;file:location-mapping.n3;file:location-mapping.ttl;file:etc/location-mapping.rdf;file:etc/location-mapping.n3;file:etc/location-mapping.ttl
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorURL
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.riot.system.stream.JenaIOEnvironment - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl)
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl, null)
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Not mapped: ./src/main/resources/data/world-0.1.ttl
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Found: ./src/main/resources/data/world-0.1.ttl (LocatorFile)
+DEBUG main Jena - Jena initialization
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.util.LocationMapper - Failed to find configuration: file:location-mapping.rdf;file:location-mapping.n3;file:location-mapping.ttl;file:etc/location-mapping.rdf;file:etc/location-mapping.n3;file:etc/location-mapping.ttl
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorURL
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.riot.system.stream.JenaIOEnvironment - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl)
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl, null)
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Not mapped: ./src/main/resources/data/world-0.1.ttl
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Found: ./src/main/resources/data/world-0.1.ttl (LocatorFile)
+DEBUG main Jena - Jena initialization
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.util.LocationMapper - Failed to find configuration: file:location-mapping.rdf;file:location-mapping.n3;file:location-mapping.ttl;file:etc/location-mapping.rdf;file:etc/location-mapping.n3;file:etc/location-mapping.ttl
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorURL
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.riot.system.stream.JenaIOEnvironment - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl)
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl, null)
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Not mapped: ./src/main/resources/data/world-0.1.ttl
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Found: ./src/main/resources/data/world-0.1.ttl (LocatorFile)
+DEBUG main Jena - Jena initialization
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.util.LocationMapper - Failed to find configuration: file:location-mapping.rdf;file:location-mapping.n3;file:location-mapping.ttl;file:etc/location-mapping.rdf;file:etc/location-mapping.n3;file:etc/location-mapping.ttl
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorURL
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.riot.system.stream.JenaIOEnvironment - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl)
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl, null)
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Not mapped: ./src/main/resources/data/world-0.1.ttl
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Found: ./src/main/resources/data/world-0.1.ttl (LocatorFile)
+DEBUG main Jena - Jena initialization
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.util.LocationMapper - Failed to find configuration: file:location-mapping.rdf;file:location-mapping.n3;file:location-mapping.ttl;file:etc/location-mapping.rdf;file:etc/location-mapping.n3;file:etc/location-mapping.ttl
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorURL
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.riot.system.stream.JenaIOEnvironment - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl)
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl, null)
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Not mapped: ./src/main/resources/data/world-0.1.ttl
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Found: ./src/main/resources/data/world-0.1.ttl (LocatorFile)
+DEBUG main Jena - Jena initialization
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.util.LocationMapper - Failed to find configuration: file:location-mapping.rdf;file:location-mapping.n3;file:location-mapping.ttl;file:etc/location-mapping.rdf;file:etc/location-mapping.n3;file:etc/location-mapping.ttl
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorURL
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.riot.system.stream.JenaIOEnvironment - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl)
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl, null)
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Not mapped: ./src/main/resources/data/world-0.1.ttl
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Found: ./src/main/resources/data/world-0.1.ttl (LocatorFile)
+DEBUG main Jena - Jena initialization
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.util.LocationMapper - Failed to find configuration: file:location-mapping.rdf;file:location-mapping.n3;file:location-mapping.ttl;file:etc/location-mapping.rdf;file:etc/location-mapping.n3;file:etc/location-mapping.ttl
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorURL
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.riot.system.stream.JenaIOEnvironment - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl)
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl, null)
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Not mapped: ./src/main/resources/data/world-0.1.ttl
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Found: ./src/main/resources/data/world-0.1.ttl (LocatorFile)
+DEBUG main Jena - Jena initialization
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.util.LocationMapper - Failed to find configuration: file:location-mapping.rdf;file:location-mapping.n3;file:location-mapping.ttl;file:etc/location-mapping.rdf;file:etc/location-mapping.n3;file:etc/location-mapping.ttl
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorURL
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.riot.system.stream.JenaIOEnvironment - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl)
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl, null)
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Not mapped: ./src/main/resources/data/world-0.1.ttl
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Found: ./src/main/resources/data/world-0.1.ttl (LocatorFile)
+DEBUG main Jena - Jena initialization
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.util.LocationMapper - Failed to find configuration: file:location-mapping.rdf;file:location-mapping.n3;file:location-mapping.ttl;file:etc/location-mapping.rdf;file:etc/location-mapping.n3;file:etc/location-mapping.ttl
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorFile
+DEBUG main org.apache.jena.util.FileManager - Add location: LocatorURL
+DEBUG main org.apache.jena.util.FileManager - Add location: ClassLoaderLocator
+DEBUG main org.apache.jena.riot.system.stream.JenaIOEnvironment - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.info - System architecture: 64 bit
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl)
+DEBUG main org.apache.jena.util.FileManager - readModel(model,./src/main/resources/data/world-0.1.ttl, null)
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Not mapped: ./src/main/resources/data/world-0.1.ttl
+DEBUG main org.apache.jena.riot.system.stream.StreamManager - Found: ./src/main/resources/data/world-0.1.ttl (LocatorFile)
