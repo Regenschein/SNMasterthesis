@@ -14,9 +14,13 @@ import querybuilder.QuerybuilderImplementation;
 import sakey.SAKey;
 import shaclbuilder.Shaclbuilder;
 import shaclbuilder.ShaclbuilderImplementation;
-import vickey.VICKEY;
+import keyfinder.VICKEY;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -35,6 +39,7 @@ public class Controller {
     public Button btn_shacl;
     public VBox vBox_left_side;
     public TextArea tA_main;
+    public CheckBox checkBox_EntitiyKey;
 
     public Controller(){
         this.controller = this;
@@ -99,6 +104,7 @@ public class Controller {
         if(checkBox_conditionalKey.isSelected()) {
             String[] args = new String[1];
             args[0] = Configuration.getInstance().getTsvpath();
+            //args[0] = "./src/main/resources/data/museum.tsv";
             try {
                 VICKEY.main(args);
                 System.out.println("Done");
@@ -108,28 +114,46 @@ public class Controller {
         }if(checkBox_AlmostKey.isSelected()){
             String[] args = new String[2];
             args[0] = Configuration.getInstance().getTsvpath();
+            args[0] = "./src/main/resources/data/museum.tsv";
             System.out.println(args[0]);
-            args[1] = "0";
+            args[1] = "1";
             try {
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                System.out.println("Computing the non-keys");
+                PrintStream ps = new PrintStream(baos);
+                // IMPORTANT: Save the old System.out!
+                PrintStream old = System.out;
+                // Tell Java to use your special stream
+                System.setOut(ps);
+                // We do our stuff
                 SAKey.main(args);
+                // Put things back
+                System.out.flush();
+                // Restore everything
+                System.setOut(old);
+                // Show what happened
+                String[] sakeyOutput = baos.toString().split("\n");
+                for (String s : sakeyOutput)
+                    System.out.println("SAKEY " + s);
             } catch (IOException  e) {
                 e.printStackTrace();
             }
-        }
-        String[] args = new String[5];
-        args[0] = "-t";
-        args[1] = "-i";
-        //args[2] = Configuration.getInstance().getN3path();
-        args[2] = Configuration.getInstance().getPath();
-        //args[2] = Configuration.getInstance().getPath();
-        args[3] = "-o";
-        args[4] = "./src/main/resources/data/reuslt.nt";
-        try{
-            //KeyExtraction.main(args);
-            KeyfinderImplementation.main(args);
-            System.out.println("Done");
-        } catch (IOException | JSONLDProcessingError e) {
-            e.printStackTrace();
+        }if(checkBox_EntitiyKey.isSelected()){
+            String[] args = new String[5];
+            args[0] = "-t";
+            args[1] = "-i";
+            //args[2] = Configuration.getInstance().getN3path();
+            args[2] = Configuration.getInstance().getPath();
+            //args[2] = Configuration.getInstance().getPath();
+            args[3] = "-o";
+            args[4] = "./src/main/resources/data/reuslt.nt";
+            try{
+                //KeyExtraction.main(args);
+                KeyfinderImplementation.main(args);
+                System.out.println("Done");
+            } catch (IOException | JSONLDProcessingError | NoClassDefFoundError e) {
+                //e.printStackTrace();
+            }
         }
     }
 
@@ -144,5 +168,10 @@ public class Controller {
         btn_loadModel.setMinWidth(vBox_left_side.getPrefWidth());
         btn_keys.setMinWidth(vBox_left_side.getPrefWidth());
         btn_shacl.setMinWidth(vBox_left_side.getPrefWidth());
+    }
+
+    public void EntitiyKey(ActionEvent actionEvent) {
+
+
     }
 }

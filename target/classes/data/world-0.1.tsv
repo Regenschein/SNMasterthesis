@@ -1,32 +1,70 @@
-world:Sebastian	schema:birthDate	"1090-04-28"^^xsd:date
+world:Lintfur	a	schema:Person
+world:RabitsDen	schema:adressCountry	world:Gvelien
+world:Loui	schema:gender	schema:male
 world:Carl	a	schema:Person
 world:Sebastian	schema:familyName	"Sternensänger"@de
 world:Carl	schema:address	world:TurnipsHome
+world:Fintos	schema:address	world:HawksNest
 world:Astrid	schema:gender	schema:female
 world:TurnipsHome	schema:adressRegion	world:TimberwoodMountains
-world:Lisa	schema:givenName	"Lisa"
-world:Astrid	schema:birthDate	"1091-07-07"^^xsd:date
-world:Carl	schema:familyName	"Rübe"@de
-world:Lisa	schema:birthDate	"1092-02-12"^^xsd:date
 world:TurnipsHome	schema:streetAddress	"31 Trademann's Valley"@en
 world:Sebastian	schema:givenName	"Sebastian"
-world:Sebastian	a	schema:Person
-world:Lisa	schema:address	world:TurnipsHome.
 world:Astrid	a	schema:Person
-world:Carl	schema:givenName	"Karl"@de
-world:Lisa	schema:givenName	"Turnip"
-world:Lisa	schema:gender	schema:female
-world:Carl	schema:gender	schema:male
+world:Fintos	a	schema:Person
+world:Fintos	schema:title	"count"@en.
+world:RabitsDen	schema:streetAddress	"Straße des Ashnaf"@de
+world:HawksNest	schema:streetAddress	"Iron Hammer Place"@en
+orld:Kingshome	schema:streetAddress	"Marsch des Ruhmes"@de
+world:RabitsDen	schema:adressRegion	world:TimberwoodMountains
+world:Loui	schema:familyName	"Loui"^^xsd:string
+world:Loui	schema:birthDate	"1072-11-03"^^xsd:date
+world:Lintfur	schema:familyName	"Donnerwolke"@de
+world:HawksNest	schema:adressCountry	world:Kharg
+world:Loui	schema:address	world:TurnipsHome
+world:Lintfur	schema:givenName	"Lintfur"@en
 world:Lisa	a	schema:Person
+world:Lintfur	schema:address	world:HawksNest
 world:Astrid	schema:familyName	"von Kharg"
-world:Astrid	schema:givenName	"Astrid"
+world:Loui	schema:givenName	"Loui"^^xsd:string
+world:Fintos	schema:birthDate	"1087-04-14"^^xsd:date
 world:Sebastian	schema:familyName	"Starsinger"@en
 world:Carl	schema:familyName	"Turnip"@en
 world:Sebastian	schema:address	world:Kingshome
 world:TurnipsHome	schema:adressCity	world:Targ
+world:Fintos	schema:gender	schema:male
 world:Sebastian	schema:gender	schema:male
 world:Astrid	schema:address	world:RabitsDen
 world:TurnipsHome	schema:adressCountry	world:Avurien
-world:Carl	schema:birthDate	"1022-12-01"^^xsd:date
+world:HawksNest	schema:adressCity	world:Khurag
 world:TurnipsHome	schema:streetAddress	"Handwerkwerweg 31"@de
+orld:Kingshome	schema:adressCountry	world:TheOldEmpire
+orld:Kingshome	schema:streetAddress	"Walk of Glory"@en
+world:Sebastian	schema:birthDate	"1090-04-28"^^xsd:date
+world:Lintfur	schema:birthDate	"1103-09-23"^^xsd:date
+world:Lintfur	schema:familyName	"Thundercloud"@en
+world:Lisa	schema:givenName	"Lisa"
+world:Astrid	schema:birthDate	"1091-07-07"^^xsd:date
+world:HawksNest	schema:streetAddress	"Platz des Eisenhammers"@de
+world:Carl	schema:familyName	"Rübe"@de
+world:Lisa	schema:birthDate	"1092-02-12"^^xsd:date
+world:RabitsDen	schema:adressCity	world:Welf
+world:Sebastian	a	schema:Person
+world:Lisa	schema:address	world:TurnipsHome.
+world:Carl	schema:givenName	"Karl"@de
+world:Lintfur	schema:givenName	"Fusselfell"@de
+world:Lisa	schema:givenName	"Turnip"
+orld:Kingshome	schema:adressRegion	world:TheOldEmpire
+world:Lisa	schema:gender	schema:female
+world:Loui	a	schema:Person
+world:Fintos	schema:title	"Graf"@de
+world:Carl	schema:gender	schema:male
+world:RabitsDen	schema:streetAddress	"Ashnaf's street"@en
+world:Lintfur	schema:gender	schema:male
+world:Fintos	schema:familyName	"Wanderfalke"@de
+orld:Kingshome	schema:adressCity	world:ImperialCity
+world:Astrid	schema:givenName	"Astrid"
+world:Fintos	schema:givenName	"Fintos"^^xsd:string
+world:HawksNest	schema:adressRegion	world:Kharg
+world:Fintos	schema:familyName	"peregrine"@en
+world:Carl	schema:birthDate	"1022-12-01"^^xsd:date
 world:Carl	schema:givenName	"Carl"@en

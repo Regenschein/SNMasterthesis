@@ -1,1 +1,2 @@
-[a, schema:gender]
+[a, schema:address, schema:gender]
+[schema:adressRegion]

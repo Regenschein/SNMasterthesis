@@ -71,6 +71,7 @@
                            </VBox.margin></Button>
                         <CheckBox fx:id="checkBox_AlmostKey" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#almostKey" text="include almost keys" />
                         <CheckBox fx:id="checkBox_conditionalKey" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#conditionalKey" text="include conditional keys" />
+                        <CheckBox fx:id="checkBox_EntitiyKey" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#EntitiyKey" text="include &quot;keys&quot;" />
                         <Button fx:id="btn_keys" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#keys" text="Keys" />
                         <Button fx:id="btn_shacl" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#shacl" text="Shacl" />
                      </children>

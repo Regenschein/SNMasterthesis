@@ -20,7 +20,8 @@ ex:LanguageExamplePropertyShape
 			WHERE {
 				$this $PATH ?value .
 				$that $PATH ?value .
-				FILTER (?that != $this || ?that = 'helga')
+				FILTER (?that != $this)
+				FILTER (?that != $this)
 			}
 			""" ;
 	] .
