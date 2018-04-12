@@ -59,8 +59,10 @@ public class Triple {
             prefixPred = model.getPrefix(prefixPred);
             predicate = (prefixPred + predicate.split(":")[1] + ">");
         } else {
-            String prefixPred = "<https:test.uri/";
-            predicate = (prefixPred + predicate + ">");
+            //String prefixPred = "<https:test.uri/";
+            String prefixPred = "";
+            //predicate = (prefixPred + predicate + ">");
+            //predicate = (prefixPred + predicate + ">");
         }
         if (!object.startsWith("\"")){
             String prefixObj = object.split(":")[0];

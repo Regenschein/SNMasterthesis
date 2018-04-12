@@ -1,4 +1,4 @@
-@prefix :        <http://data.kasabi.com/dataset/italy/schema/> .
+@prefix : <http://data.kasabi.com/dataset/italy/schema/> .
 @prefix eurostat:  <http://ec.europa.eu/eurostat/ramon/ontologies/geographic.rdf#> .
 @prefix europe:  <http://data.kasabi.com/dataset/europe/> .
 @prefix cheese:  <http://data.kasabi.com/dataset/cheese/schema/> .

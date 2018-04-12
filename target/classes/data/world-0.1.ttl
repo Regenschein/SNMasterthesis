@@ -43,6 +43,18 @@ world:Sebastian
     schema:birthDate "1090-04-28"^^xsd:date ;
     schema:address world:Kingshome .
 
+world:Adrian
+    a schema:Person ;
+    schema:gender schema:male ;
+    schema:givenName "Adrian" ;
+    schema:familyName "Grindstone"@en, "Wetzstein"@de ;
+    schema:birthDate "1090-28-11" ;
+    schema:address world:GrindstoneHome ;
+    schema:profession world:tinkerer ;
+    schema:religion world:churchOfAvus ;
+    schema:faction world:associationOfGears ;
+    schema:worksFor world:Sebastian .
+
 world:Astrid
     a schema:Person ;
     schema:gender schema:female;
@@ -55,9 +67,18 @@ world:Lisa
     a schema:Person ;
     schema:gender schema:female;
     schema:givenName "Lisa" ;
-    schema:givenName "Turnip" ;
+    schema:familyName "Turnip" ;
     schema:birthDate "1092-02-12"^^xsd:date ;
     schema:address world:TurnipsHome.
+
+world:Arla
+    a schema:Person ;
+    schema:gender schema:female;
+    schema:givenName "Arla" ;
+    schema:familyName "Asura" ;
+    schema:birthDate "1099-23-11"^^xsd:date ;
+    schema:address world:ArlasHome.
+
 
 world:TurnipsHome
     schema:adressCountry world:Avurien ;
@@ -66,7 +87,16 @@ world:TurnipsHome
     schema:streetAddress "31 Trademann's Valley"@en,
     			  "Handwerkwerweg 31"@de .
 
+world:ArlasHome
+    a schema:place ;
+    schema:adressCountry world:Avurien ;
+    schema:adressRegion world:MountainView ;
+    schema:adressCity world:Lados ;
+    schema:streetAddress "7 Birken forch way"@en,
+    			  "Birkenwaldweg 7"@de .
+
 world:HawksNest
+    a schema:place ;
     schema:adressCountry world:Kharg ;
     schema:adressRegion world:Kharg ;
     schema:adressCity world:Khurag ;
@@ -74,6 +104,7 @@ world:HawksNest
     			  "Platz des Eisenhammers"@de .
 
 world:RabitsDen
+    a schema:place ;
     schema:adressCountry world:Gvelien ;
     schema:adressRegion world:TimberwoodMountains ;
     schema:adressCity world:Welf ;
@@ -81,6 +112,7 @@ world:RabitsDen
     			  "Straße des Ashnaf"@de .
 
 world:Kingshome
+    a schema:place ;
     schema:adressCountry world:TheOldEmpire ;
     schema:adressRegion world:TheOldEmpire ;
     schema:adressCity world:ImperialCity ;

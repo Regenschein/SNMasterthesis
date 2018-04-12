@@ -1,7 +1,7 @@
 package shaclbuilder;
 
 import controller.Controller;
-import model.Triple;
+import modelbuilder.ClassFinder;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 import org.topbraid.shacl.util.ModelPrinter;
@@ -11,22 +11,21 @@ import org.topbraid.spin.util.JenaUtil;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class ShaclbuilderImplementation implements Shaclbuilder {
 
     public void build(){
 
-        buildExample();
+        //buildExample();
 
         Model shapesmodel = JenaUtil.createDefaultModel();
         shapesmodel.read("./src/main/resources/eval/example-test-shape.ttl");
         //shapesmodel.read("./src/main/resources/data/hotelratings.shapes.ttl");
 
         Model datamodel = JenaUtil.createDefaultModel();
-        datamodel.read("./src/main/resources/eval/sparql-test-data.ttl");
+        //datamodel.read("./src/main/resources/eval/sparql-test-data.ttl");
+        datamodel.read("./src/main/resources/data/world-0.1.ttl");
 
         Resource report = ValidationUtil.validateModel(datamodel, shapesmodel, false);
         //Resource report = ValidationUtil.validateModel(shapesmodel, shapesmodel, true);
@@ -37,8 +36,6 @@ public class ShaclbuilderImplementation implements Shaclbuilder {
 
     }
 
-    //ValidationExample
-
     private void buildNodeShape(String shapeName, String targetClass, String[] properties) {
         StringBuilder sb = new StringBuilder();
         sb.append(shapeName + "\n");
@@ -46,14 +43,78 @@ public class ShaclbuilderImplementation implements Shaclbuilder {
         sb.append("\t sh:targetClass " + targetClass + " ;\n");
         sb.append("\t sh:property [\n");
         for (String s : properties) {
-            sb.append("\t\t sh:path " + s + ";\n");
-            sb.append("\t\t sh:maxCount 1 ;\n");
-            sb.append("\t ] ;");
+            if(!s.equals("a")){
+                sb.append("\t\t sh:path " + s + ";\n");
+                sb.append("\t\t sh:maxCount 1 ;\n");
+                sb.append("\t ] ;");
+            }
         }
         sb.deleteCharAt(sb.length() - 1);
         sb.append(".");
         System.out.println(sb.toString());
+    }
 
+    @Override
+    public void buildNonKeys(HashMap<String, String> prefixes, Map<String, ClassFinder.rdfClass> classes){
+        Iterator it = prefixes.entrySet().iterator();
+        StringBuilder sb = new StringBuilder();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            System.out.println(pair.getKey() + " = " + pair.getValue());
+            sb.append("@prefix " + pair.getKey() + ": " + pair.getValue() + "> .\n");
+            //it.remove(); // avoids a ConcurrentModificationException
+        }
+        sb.append("@prefix ex: <https://example.org/> .\n");
+        sb.append("@prefix sh: <http://www.w3.org/ns/shacl#> .\n");
+        sb.append("\n");
+        System.out.println(sb.toString());
+
+        it = classes.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry par = (Map.Entry)it.next();
+
+            sb.append("ex:MaxNonKeyFor" + replace(prefixes, par.getKey().toString()) + "\n");
+            sb.append("\t a sh:NodeShape ;" + "\n");
+            sb.append("\t sh:targetClass " + par.getKey() + " ;\n");
+            ClassFinder.rdfClass rdf = (ClassFinder.rdfClass) par.getValue();
+            for (String att : rdf.getNonKeys()){
+                if(!att.equals("a")) {
+                    sb.append("\t sh:property [" + "\n");
+                    sb.append("\t\t sh:path " + replace(prefixes, att) + " ;" + "\n");
+                    sb.append("\t\t sh:minCount 1 ;" + "\n");
+                    sb.append("\t ] ;" + "\n");
+                }
+            }
+            //sb.deleteCharAt(sb.length() -3);
+            sb.replace(sb.length() -3, sb.length(), ".\n\n");
+        }
+
+
+        BufferedWriter writer = null;
+        try {
+            writer = new BufferedWriter(new FileWriter("./src/main/resources/eval/example-test-shape.ttl"));
+            writer.write(sb.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        build();
+
+    }
+
+    private String replace(HashMap<String, String> prefixes, String s){
+        Iterator it = prefixes.entrySet().iterator();
+        StringBuilder sb = new StringBuilder();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            if(s.contains(pair.getValue().toString())){
+                return (pair.getKey().toString() + ":" + s.replace(pair.getValue().toString(), "").replace(">", ""));
+            } else {
+                return s;
+            }
+        }
+        return "";
     }
 
     private void buildExample(){

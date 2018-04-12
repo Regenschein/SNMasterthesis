@@ -1,6 +1,6 @@
 package keyfinder;
 
-/**
+
 import de.uni_leipzig.simba.keydiscovery.model.CandidateNode;
 import de.uni_leipzig.simba.keydiscovery.rockerone.Rocker;
 
@@ -12,9 +12,9 @@ public class RockerImplementation implements Keyfinder {
     @Override
     public void find(String[] args) throws IOException, InterruptedException {
         Rocker r = null;
-        String name = "";
-        String dataPpath = "";
-        String owlPath = "";
+        String name = args[0];
+        String dataPpath = args[1];
+        String owlPath = args[2];
         try {
             r = new Rocker(name, dataPpath, owlPath, false, true, 1.0);
             r.run();
@@ -26,9 +26,11 @@ public class RockerImplementation implements Keyfinder {
     }
 }
 
- */
+
+/**
 public  class RockerImplementation{
 
 
 
 }
+*/

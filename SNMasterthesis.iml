@@ -65,6 +65,15 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/rocker-1.2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" name="Maven: org.apache.jena:jena-tdb:3.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.jena:jena-tdb2:3.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.jena:jena-dboe-trans-data:3.6.0" level="project" />
@@ -142,5 +151,6 @@
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore-nio:4.4.6" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.5" level="project" />
+    <orderEntry type="library" name="Maven: org.xerial:sqlite-jdbc:3.7.2" level="project" />
   </component>
 </module>

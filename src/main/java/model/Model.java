@@ -15,6 +15,10 @@ public class Model {
     private HashMap<String, String> prefixes = new HashMap<String, String>();
     private Set<Triple> triples = new HashSet<Triple>();
 
+    public HashMap<String, String> getPrefixes() {
+        return prefixes;
+    }
+
     protected Model() {
 
     }

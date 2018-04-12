@@ -127,12 +127,14 @@ public class TurtleToModelTransformator implements Transformer{
                         }
                     }
                 } else {
-                    String[] split = line.split(" ");
-                    Model.getInstance().addPrefix(split[1].substring(0, split[1].length() -1), split[2].substring(0, split[2].length() -2));
+                    String[] split = line.split(" +");
+                    if (split.length == 3)
+                        Model.getInstance().addPrefix(split[1].substring(0, split[1].length() -1), split[2].substring(0, split[2].length() -2));
+                    else {
+                        Model.getInstance().addPrefix(split[1].substring(0, split[1].length() -1), split[2].substring(0, split[2].length() -2));
+                    }
                 }
             }
-        } catch(FileNotFoundException e) {
-            e.printStackTrace();
         } catch(IOException e) {
             e.printStackTrace();
         } finally {

@@ -1,2 +1,4 @@
 [a, schema:address, schema:gender]
 [schema:adressRegion]
+[a, schema:localLanguage]
+[schema:adressCountry]
