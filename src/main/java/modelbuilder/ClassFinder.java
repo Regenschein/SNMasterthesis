@@ -35,10 +35,36 @@ public class ClassFinder {
                     }
                 }
             }
-            System.out.println("choo");
         }catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void setAlmostKeys(HashSet<HashSet<String>> almostKeys){
+        HashSet<String> amks = transformSet(almostKeys);
+        Set<Set<String>> prefixedSets = buildPrefixe(amks);
+        for (rdfClass r : classes.values()){
+            for (Set<String> singleSet : prefixedSets) {
+                if(r.attributes.containsAll(singleSet)){
+                    r.addAlmostKeys(singleSet);
+                }
+            }
+        }
+        System.out.println("TADA");
+    }
+
+    private HashSet<String>  transformSet(HashSet<HashSet<String>> amk){
+        HashSet<String> retVal = new HashSet<String>();
+        for (HashSet<String> hash : amk){
+            StringBuilder sb = new StringBuilder();
+            for (String s : hash){
+                sb.append(s + ", ");
+            }
+            sb = sb.deleteCharAt(sb.length() -1);
+            sb = sb.deleteCharAt(sb.length() -1);
+            retVal.add(sb.toString());
+        }
+        return retVal;
     }
 
     public void setNonKeys(Set nonKeySet) {
@@ -63,7 +89,12 @@ public class ClassFinder {
                     singleRetSet.add("a");
                 } else {
                     String[] splitted = s.split(":");
-                    singleRetSet.add(m.getPrefix(splitted[0]) + splitted[1] + ">");
+                    try{
+                        singleRetSet.add(m.getPrefix(splitted[0]) + splitted[1] + ">");
+                    } catch(ArrayIndexOutOfBoundsException e){
+                        singleRetSet.add(s);
+                    }
+
                 }
             }
             retSet.add(singleRetSet);
@@ -75,7 +106,8 @@ public class ClassFinder {
         private String name;
         private Set<String> attributes;
         private Set<String> instances;
-        private Set<String> nonKeys;
+        private Set<Set<String>> nonKeys = new HashSet<>();
+        private Set<Set<String>> almostKeys = new HashSet<>();
 
         public rdfClass(String name){
             this.name = name;
@@ -92,7 +124,11 @@ public class ClassFinder {
         }
 
         public void addNonKeys(Set nonKeys){
-            this.nonKeys = nonKeys;
+            this.nonKeys.add(nonKeys);
+        }
+
+        public void addAlmostKeys(Set almostKeys){
+            this.almostKeys.add(almostKeys);
         }
 
         public String getName() {
@@ -107,9 +143,15 @@ public class ClassFinder {
             return instances;
         }
 
-        public Set<String> getNonKeys() {
+        public Set<Set<String>> getNonKeys() {
             return nonKeys;
         }
+
+        public Set<Set<String>> getAlmostKeys() {
+            return almostKeys;
+        }
+
+
     }
 
     public Map<String, rdfClass> getClasses() {

@@ -67,7 +67,12 @@ public class Triple {
         if (!object.startsWith("\"")){
             String prefixObj = object.split(":")[0];
             prefixObj = model.getPrefix(prefixObj);
-            object = (prefixObj + object.split(":")[1] + ">");
+            try{
+                object = (prefixObj + object.split(":")[1] + ">");
+            } catch (Exception e){
+
+            }
+
         } else if (object.contains(":")){
             String literal = object.split("\\^\\^")[0];
             String prefixObj[] = object.split("\\^\\^")[1].split(":");

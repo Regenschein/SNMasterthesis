@@ -257,9 +257,6 @@
     rdfs:range :CheeseUse ;
     .
 
-
-
-
 :certification
     rdf:type rdf:Property ;
     rdfs:subPropertyOf <http://dbpedia.org/property/certification> ;

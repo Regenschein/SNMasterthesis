@@ -1,131 +1,201 @@
 world:Lintfur	a	schema:Person
-world:Carl	a	schema:Person
+world:Arsenal	schema:addressCity	world:ImperialCity
 world:Carl	schema:address	world:TurnipsHome
-world:Fintos	schema:address	world:HawksNest
-world:ArlasHome	schema:streetAddress	"7 Birken forch way"@en
 world:Astrid	schema:gender	schema:female
-world:TurnipsHome	schema:streetAddress	"31 Trademann's Valley"@en
-world:Kingshome	schema:streetAddress	"Walk of Glory"@en
-world:Kingshome	schema:adressCountry	world:TheOldEmpire
+world:TimberwoodMountains	schema:fauna	"Moose"
 world:Khargh	schema:name	"Khargh"
-world:TheOldEmpire	schema:Population	"300000"^^xsd:int
-world:Avurien	schema:foundingYear	"671"^^xsd:int
 world:Astrid	a	schema:Person
 world:Fjördall	schema:foundingYear	"411"^^xsd:int
-world:RabitsDen	schema:streetAddress	"Straße des Ashnaf"@de
-world:Kingshome	a	schema:place
 world:Sharun	a	schema:Country
-world:HawksNest	schema:streetAddress	"Iron Hammer Place"@en
+world:associationOfGears	a	schema:Faction
 world:Loui	schema:familyName	"Loui"^^xsd:string
-world:Gvelien	schema:name	"Gvelien"
-world:Loui	schema:birthDate	"1072-11-03"^^xsd:date
 world:Lintfur	schema:familyName	"Donnerwolke"@de
 world:Gvelien	schema:foundingYear	"0"^^xsd:int
-world:HawksNest	schema:adressCountry	world:Kharg
 world:Lintfur	schema:givenName	"Lintfur"@en
 world:Lisa	a	schema:Person
-world:Khargh	schema:nationalAnthem	"How the anvil formed us"^^xsd:string
-world:Arla	schema:familyName	"Asura"
-world:Sebastian	schema:familyName	"Starsinger"@en
+world:Targ	schema:addressRegion	world:TimberwoodMountains
 world:Carl	schema:familyName	"Turnip"@en
-world:TurnipsHome	schema:adressCity	world:Targ
 world:Sharun	schema:nationalAnthem	"Paradise on earth"^^xsd:string
-world:Adrian	schema:worksFor	world:Sebastian
 world:Avurien	a	schema:Country
-world:TurnipsHome	schema:adressCountry	world:Avurien
-world:HawksNest	schema:adressCity	world:Khurag
+world:MountainView	schema:fauna	"Moose"
+world:TheOldEmpireRegion	schema:name	"TheOldEmpire"
 world:TurnipsHome	schema:streetAddress	"Handwerkwerweg 31"@de
-world:Adrian	schema:religion	world:churchOfAvus
-world:Avurien	schema:name	"Avurien"
-world:Khargh	schema:Population	"20000"^^xsd:int
 world:Sebastian	schema:birthDate	"1090-04-28"^^xsd:date
+world:Welf	schema:addressCountry	world:Gvelien
 world:Lintfur	schema:familyName	"Thundercloud"@en
-world:Kingshome	schema:adressRegion	world:TheOldEmpire
 world:HawksNest	schema:streetAddress	"Platz des Eisenhammers"@de
 world:Carl	schema:familyName	"Rübe"@de
 world:Lisa	schema:birthDate	"1092-02-12"^^xsd:date
-world:ArlasHome	a	schema:place
 world:Sebastian	a	schema:Person
-world:HawksNest	a	schema:place
 world:Arla	a	schema:Person
 world:TheOldEmpire	schema:foundingYear	"-1700"^^xsd:int
-world:Adrian	schema:profession	world:tinkerer
 world:Lintfur	schema:givenName	"Fusselfell"@de
-world:Fintos	schema:title	"Graf"@de
+world:TurnipsHome	schema:addressRegion	world:TimberwoodMountains
+world:Khurag	schema:isCapital	true
 world:Carl	schema:gender	schema:male
-world:Lintfur	schema:gender	schema:male
-world:Gvelien	a	schema:Country
 world:Gvelien	schema:nationalAnthem	"The hawk so high"^^xsd:string
-world:ArlasHome	schema:streetAddress	"Birkenwaldweg 7"@de
+world:KhargRegion	a	schema:Region
 world:Sharun	schema:foundingYear	"-145"^^xsd:int
+world:Lados	a	schema:City
 world:Fintos	schema:givenName	"Fintos"^^xsd:string
+world:theHawks	schema:name	"The Hawks"@en
+world:KhargRegion	schema:flora	"barren rocks"
 world:Fintos	schema:familyName	"peregrine"@en
-world:Carl	schema:birthDate	"1022-12-01"^^xsd:date
-world:RabitsDen	schema:adressCountry	world:Gvelien
-world:Arla	schema:address	world:ArlasHome.
-world:Adrian	schema:birthDate	"1090-28-11"
+world:Arsenal	schema:addressRegion	world:TheOldEmpireRegion
+world:TurnipsHome	schema:addressCity	world:Targ
+world:Arsenal	a	schema:Place
 world:Loui	schema:gender	schema:male
 world:Sebastian	schema:familyName	"Sternensänger"@de
-world:TurnipsHome	schema:adressRegion	world:TimberwoodMountains
+world:TheOldEmpireRegion	schema:fauna	"Pigeon"
 world:Adrian	schema:givenName	"Adrian"
-world:RabitsDen	a	schema:place
 world:Kingshome	schema:streetAddress	"Marsch des Ruhmes"@de
 world:Sebastian	schema:givenName	"Sebastian"
-world:ArlasHome	schema:adressRegion	world:MountainView
+world:Adrian	schema:address	world:GrindstoneHome
+world:Arsenal	schema:addressCountry	world:TheOldEmpire
+world:Lintfur	schema:address	world:HawksNest
+world:Avurien	schema:Population	"40000"^^xsd:int
+world:Astrid	schema:familyName	"von Kharg"
+world:Fjördall	a	schema:Country
+world:ImperialCity	schema:heraldicAnimal	"Bull"
+world:Loui	schema:givenName	"Loui"^^xsd:string
+world:Fintos	schema:birthDate	"1087-04-14"^^xsd:date
+world:Sebastian	schema:address	world:Kingshome
+world:Sebastian	schema:gender	schema:male
+world:Astrid	schema:address	world:RabitsDen
+world:Kingshome	a	schema:Place
+world:Khargh	schema:foundingYear	"-300"^^xsd:int
+world:Kingshome	schema:addressRegion	world:TheOldEmpireRegion
+world:Welf	schema:addressRegion	world:TimberwoodMountains
+world:RabitsDen	schema:addressCity	world:Welf
+world:Khargh	schema:localLanguage	"dwarven"^^xsd:string
+world:ArlasHome	schema:addressRegion	world:MountainView
+world:Kingshome	schema:addressCity	world:ImperialCity
+world:MountainView	schema:name	"Mountain View"
+world:Astrid	schema:birthDate	"1091-07-07"^^xsd:date
+world:Carl	schema:givenName	"Karl"@de
+world:Khargh	a	schema:Country
+world:Lados	schema:addressCountry	world:Avurien
+world:ArlasHome	schema:addressCountry	world:Avurien
+world:Sharun	schema:name	"Sharûn"
+world:ArlasHome	schema:addressCity	world:Lados
+world:Loui	a	schema:Person
+world:Khurag	schema:addressRegion	world:KhargRegion
+world:RabitsDen	schema:streetAddress	"Ashnaf's street"@en
+world:theHawks	schema:name	"Die Falken"@de
+world:Khurag	schema:architecturalStyle	"dwarven"
+world:Kingshome	schema:addressCountry	world:TheOldEmpire
+world:Fjördall	schema:nationalAnthem	"Fjördall Fjördall"^^xsd:string
+world:Adrian	schema:familyName	"Grindstone"@en
+world:TheOldEmpireRegion	schema:flora	"City"
+world:Carl	schema:givenName	"Carl"@en
+world:Lisa	schema:familyName	"Turnip"
+world:Carl	schema:birthDate	"1082-12-01"^^xsd:date
+world:Khurag	schema:population	"4500"^^xsd:int
+world:Carl	a	schema:Person
+world:Fintos	schema:address	world:HawksNest
+world:ArlasHome	schema:streetAddress	"7 Birken forch way"@en
+world:ArlasHome	a	schema:Place
+world:TurnipsHome	schema:streetAddress	"31 Trademann's Valley"@en
+world:Kingshome	schema:streetAddress	"Walk of Glory"@en
+world:TheOldEmpire	schema:Population	"300000"^^xsd:int
+world:Avurien	schema:foundingYear	"671"^^xsd:int
+world:monksOfAverno	a	schema:Faction
+world:RabitsDen	schema:streetAddress	"Straße des Ashnaf"@de
+world:HawksNest	schema:streetAddress	"Iron Hammer Place"@en
+world:Targ	schema:addressCountry	world:Avurien
+world:ImperialCity	schema:addressCountry	world:TheOldEmpire
+world:Gvelien	schema:name	"Gvelien"
+world:Loui	schema:birthDate	"1072-11-03"^^xsd:date
+world:Khargh	schema:nationalAnthem	"How the anvil formed us"^^xsd:string
+world:ImperialCity	a	schema:City
+world:TimberwoodMountains	a	schema:Region
+world:TheOldEmpireRegion	a	schema:Region
+world:RabitsDen	a	schema:Place
+world:Arla	schema:familyName	"Asura"
+world:Sebastian	schema:familyName	"Starsinger"@en
+world:Targ	a	schema:City
+world:Adrian	schema:worksFor	world:Sebastian
+world:Welf	schema:architecturalStyle	"temper"
+world:ImperialCity	schema:addressRegion	world:TheOldEmpireRegion
+world:Welf	schema:heraldicAnimal	"butterfly"
+world:Adrian	schema:religion	world:churchOfAvus
+world:Avurien	schema:name	"Avurien"
+world:Khargh	schema:Population	"20000"^^xsd:int
+world:KhargRegion	schema:fauna	"desert mouse"
+world:theHawks	a	schema:Faction
+world:Adrian	schema:profession	world:tinkerer
+world:Lados	schema:addressRegion	world:MountainView
+world:RabitsDen	schema:addressRegion	world:TimberwoodMountains
+world:Fintos	schema:title	"Graf"@de
+world:Targ	schema:architecturalStyle	"gothic"
+world:Lintfur	schema:gender	schema:male
+world:Gvelien	a	schema:Country
+world:HawksNest	a	schema:Place
+world:Khurag	schema:addressCountry	world:Kharg
+world:ArlasHome	schema:streetAddress	"Birkenwaldweg 7"@de
+world:Lados	schema:heraldicAnimal	"swordfish"
+world:Arla	schema:address	world:ArlasHome.
+world:TurnipsHome	schema:addressCountry	world:Avurien
+world:ImperialCity	schema:isCapital	true
+world:Adrian	schema:birthDate	"1090-28-11"
+world:HawksNest	schema:addressCountry	world:Kharg
+world:Lados	schema:isCapital	false
+world:Lados	schema:population	"9000"^^xsd:int
+world:Arsenal	schema:streetAddress	"Straße des Militärs 1"@de
 world:Fjördall	schema:Population	"230000"^^xsd:int
 world:TheOldEmpire	schema:localLanguage	"gvelish"^^xsd:string
 world:Avurien	schema:localLanguage	"avurish"^^xsd:string
 world:Fintos	a	schema:Person
-world:Adrian	schema:address	world:GrindstoneHome
 world:Fintos	schema:title	"count"@en.
+world:associationOfGears	schema:name	"Association of Gears"
+world:Welf	schema:population	"13000"^^xsd:int
+world:Targ	schema:population	"15000"^^xsd:int
+world:associationOfGears	schema:foundingDate	"932-23-11"^^xsd:date
 world:Fjördall	schema:name	"Fjördall"
-world:ArlasHome	schema:adressCountry	world:Avurien
 world:Adrian	schema:gender	schema:male
-world:RabitsDen	schema:adressRegion	world:TimberwoodMountains
+world:monksOfAverno	schema:foundingDate	"17-03-02"^^xsd:date
 world:Loui	schema:address	world:TurnipsHome
-world:Lintfur	schema:address	world:HawksNest
-world:Avurien	schema:Population	"40000"^^xsd:int
-world:Astrid	schema:familyName	"von Kharg"
+world:HawksNest	schema:addressCity	world:Khurag
 world:TheOldEmpire	schema:name	"The old empire"
-world:Fjördall	a	schema:Country
-world:Loui	schema:givenName	"Loui"^^xsd:string
+world:MountainView	schema:fauna	"Golden Eagle"
 world:TheOldEmpire	a	schema:Country
-world:Fintos	schema:birthDate	"1087-04-14"^^xsd:date
-world:Sebastian	schema:address	world:Kingshome
+world:Khurag	schema:heraldicAnimal	"boar"
+world:KhargRegion	schema:name	"Kharg"
 world:Fintos	schema:gender	schema:male
 world:Adrian	a	schema:Person
-world:Sebastian	schema:gender	schema:male
-world:Astrid	schema:address	world:RabitsDen
+world:Lados	schema:architecturalStyle	"maritime"
+world:Khurag	a	schema:City
 world:Gvelien	schema:localLanguage	"gvelish"^^xsd:string
-world:Khargh	schema:foundingYear	"-300"^^xsd:int
-world:Khargh	schema:localLanguage	"dwarven"^^xsd:string
+world:Arsenal	schema:streetAddress	"Milirary way 1"@en
 world:Lintfur	schema:birthDate	"1103-09-23"^^xsd:date
 world:Gvelien	schema:Population	"1000000"^^xsd:int
 world:Arla	schema:givenName	"Arla"
 world:Lisa	schema:givenName	"Lisa"
-world:Astrid	schema:birthDate	"1091-07-07"^^xsd:date
+world:monksOfAverno	schema:name	"Monks of Averno"
+world:Targ	schema:heraldicAnimal	"lion"
 world:Arla	schema:gender	schema:female
 world:TheOldEmpire	schema:nationalAnthem	"Through blood and stone"^^xsd:string
-world:RabitsDen	schema:adressCity	world:Welf
-world:Kingshome	schema:adressCity	world:ImperialCity
 world:Lisa	schema:address	world:TurnipsHome.
 world:Arla	schema:birthDate	"1099-23-11"^^xsd:date
-world:Carl	schema:givenName	"Karl"@de
-world:Khargh	a	schema:Country
+world:TimberwoodMountains	schema:flora	"Forest"
+world:ImperialCity	schema:population	"100000"^^xsd:int
+world:theHawks	schema:foundingDate	"423-31-01"^^xsd:date
+world:TimberwoodMountains	schema:fauna	"Bear"
 world:Lisa	schema:gender	schema:female
-world:Sharun	schema:name	"Sharûn"
-world:Loui	a	schema:Person
-world:ArlasHome	schema:adressCity	world:Lados
-world:RabitsDen	schema:streetAddress	"Ashnaf's street"@en
+world:HawksNest	schema:addressRegion	world:KhargRegion
+world:MountainView	a	schema:Region
+world:TimberwoodMountains	schema:name	"Timberwood Mountains"
+world:MountainView	schema:flora	"Forest"
+world:TheOldEmpireRegion	schema:fauna	"Rat"
+world:ImperialCity	schema:architecturalStyle	"gothic"
 world:Fjördall	schema:localLanguage	"fjött"^^xsd:string
 world:Sharun	schema:localLanguage	"sharûn"^^xsd:string
 world:Fintos	schema:familyName	"Wanderfalke"@de
 world:Adrian	schema:faction	world:associationOfGears
+world:MountainView	schema:fauna	"Bear"
 world:Astrid	schema:givenName	"Astrid"
-world:Fjördall	schema:nationalAnthem	"Fjördall Fjördall"^^xsd:string
-world:Adrian	schema:familyName	"Grindstone"@en
 world:Adrian	schema:familyName	"Wetzstein"@de
-world:HawksNest	schema:adressRegion	world:Kharg
-world:Carl	schema:givenName	"Carl"@en
-world:Lisa	schema:familyName	"Turnip"
+world:RabitsDen	schema:addressCountry	world:Gvelien
+world:MountainView	schema:flora	"Rocks"
 world:Sharun	schema:Population	"2900000"^^xsd:int
+world:Welf	a	schema:City

@@ -2,19 +2,18 @@ package controller;
 
 import com.github.jsonldjava.core.JSONLDProcessingError;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import keyfinder.KeyfinderImplementation;
+
 import keyfinder.RockerImplementation;
 import model.Model;
 import model.Triple;
 import modelbuilder.*;
 import querybuilder.Querybuilder;
 import querybuilder.QuerybuilderImplementation;
-import sakey.SAKey;
+//import sakey.SAKey;
+import keyfinder.SAKey;
+import keyfinder.SAKeyAlmostKeysOneFileOneN;
 import shaclbuilder.Shaclbuilder;
 import shaclbuilder.ShaclbuilderImplementation;
 import keyfinder.VICKEY;
@@ -41,8 +40,10 @@ public class Controller {
     public VBox vBox_left_side;
     public TextArea tA_main;
     public CheckBox checkBox_EntitiyKey;
+    public TextField tFAlmostKeys;
 
     ClassFinder cf = new ClassFinder();
+    Shaclbuilder s = new ShaclbuilderImplementation();
 
     public Controller(){
         this.controller = this;
@@ -121,27 +122,18 @@ public class Controller {
         }if(checkBox_AlmostKey.isSelected()){
             String[] args = new String[2];
             args[0] = Configuration.getInstance().getTsvpath();
-            args[0] = "./src/main/resources/data/museum.tsv";
+            //args[0] = "./src/main/resources/data/museum.tsv";
             System.out.println(args[0]);
-            args[1] = "1";
+            if (tFAlmostKeys.getText().equals("")){
+                args[1] = "0";
+            } else {
+                args[1] = tFAlmostKeys.getText();
+            }
+            System.out.println("argssss" + args[1]);
             try {
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                System.out.println("Computing the non-keys");
-                PrintStream ps = new PrintStream(baos);
-                // IMPORTANT: Save the old System.out!
-                PrintStream old = System.out;
-                // Tell Java to use your special stream
-                System.setOut(ps);
-                // We do our stuff
-                SAKey.main(args);
-                // Put things back
-                System.out.flush();
-                // Restore everything
-                System.setOut(old);
-                // Show what happened
-                String[] sakeyOutput = baos.toString().split("\n");
-                for (String s : sakeyOutput)
-                    System.out.println("SAKEY " + s);
+                SAKeyAlmostKeysOneFileOneN.main(args);
+                cf.setAlmostKeys(SAKeyAlmostKeysOneFileOneN.almostKeys);
+                System.out.println("Almost Keys were found");
             } catch (IOException  e) {
                 e.printStackTrace();
             }
@@ -154,6 +146,7 @@ public class Controller {
             //args[2] = Configuration.getInstance().getPath();
             args[3] = "-o";
             args[4] = "./src/main/resources/data/reuslt.nt";
+            /**
             try{
                 //KeyExtraction.main(args);
                 KeyfinderImplementation.main(args);
@@ -161,6 +154,7 @@ public class Controller {
             } catch (IOException | JSONLDProcessingError | NoClassDefFoundError e) {
                 //e.printStackTrace();
             }
+             */
 
             RockerImplementation r = new RockerImplementation();
             String[] args2 = new String[3];
@@ -179,9 +173,6 @@ public class Controller {
     }
 
     public void shacl(ActionEvent actionEvent) {
-        Shaclbuilder s = new ShaclbuilderImplementation();
-        //s.build();
-
         Model model = Model.getInstance();
         s.buildNonKeys(model.getPrefixes(), cf.getClasses());
     }
@@ -197,5 +188,9 @@ public class Controller {
     public void EntitiyKey(ActionEvent actionEvent) {
 
 
+    }
+
+    public void evalShacl(ActionEvent actionEvent) {
+        s.build();
     }
 }

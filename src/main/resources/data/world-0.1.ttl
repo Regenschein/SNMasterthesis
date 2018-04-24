@@ -7,7 +7,7 @@ world:Carl
     schema:gender schema:male;
     schema:givenName "Carl"@en, "Karl"@de ;
     schema:familyName "Turnip"@en, "Rübe"@de ;
-    schema:birthDate "1022-12-01"^^xsd:date ;
+    schema:birthDate "1082-12-01"^^xsd:date ;
     schema:address world:TurnipsHome .
 
 world:Loui
@@ -81,43 +81,51 @@ world:Arla
 
 
 world:TurnipsHome
-    schema:adressCountry world:Avurien ;
-    schema:adressRegion world:TimberwoodMountains ;
-    schema:adressCity world:Targ ;
+    schema:addressCountry world:Avurien ;
+    schema:addressRegion world:TimberwoodMountains ;
+    schema:addressCity world:Targ ;
     schema:streetAddress "31 Trademann's Valley"@en,
     			  "Handwerkwerweg 31"@de .
 
 world:ArlasHome
-    a schema:place ;
-    schema:adressCountry world:Avurien ;
-    schema:adressRegion world:MountainView ;
-    schema:adressCity world:Lados ;
+    a schema:Place ;
+    schema:addressCountry world:Avurien ;
+    schema:addressRegion world:MountainView ;
+    schema:addressCity world:Lados ;
     schema:streetAddress "7 Birken forch way"@en,
     			  "Birkenwaldweg 7"@de .
 
 world:HawksNest
-    a schema:place ;
-    schema:adressCountry world:Kharg ;
-    schema:adressRegion world:Kharg ;
-    schema:adressCity world:Khurag ;
+    a schema:Place ;
+    schema:addressCountry world:Kharg ;
+    schema:addressRegion world:KhargRegion ;
+    schema:addressCity world:Khurag ;
     schema:streetAddress "Iron Hammer Place"@en,
     			  "Platz des Eisenhammers"@de .
 
 world:RabitsDen
-    a schema:place ;
-    schema:adressCountry world:Gvelien ;
-    schema:adressRegion world:TimberwoodMountains ;
-    schema:adressCity world:Welf ;
+    a schema:Place ;
+    schema:addressCountry world:Gvelien ;
+    schema:addressRegion world:TimberwoodMountains ;
+    schema:addressCity world:Welf ;
     schema:streetAddress "Ashnaf's street"@en,
     			  "Straße des Ashnaf"@de .
 
 world:Kingshome
-    a schema:place ;
-    schema:adressCountry world:TheOldEmpire ;
-    schema:adressRegion world:TheOldEmpire ;
-    schema:adressCity world:ImperialCity ;
+    a schema:Place ;
+    schema:addressCountry world:TheOldEmpire ;
+    schema:addressRegion world:TheOldEmpireRegion ;
+    schema:addressCity world:ImperialCity ;
     schema:streetAddress "Walk of Glory"@en,
     			  "Marsch des Ruhmes"@de .
+
+world:Arsenal
+    a schema:Place ;
+    schema:addressCountry world:TheOldEmpire ;
+    schema:addressRegion world:TheOldEmpireRegion ;
+    schema:addressCity world:ImperialCity ;
+    schema:streetAddress "Milirary way 1"@en,
+    			  "Straße des Militärs 1"@de .
 
 world:TheOldEmpire
     a schema:Country ;
@@ -165,3 +173,91 @@ world:Sharun
     schema:nationalAnthem "Paradise on earth"^^xsd:string ;
     schema:foundingYear "-145"^^xsd:int ;
     schema:Population "2900000"^^xsd:int .
+
+world:associationOfGears
+    a schema:Faction ;
+    schema:name "Association of Gears" ;
+    schema:foundingDate "932-23-11"^^xsd:date .
+
+world:theHawks
+    a schema:Faction ;
+    schema:name "The Hawks"@en ;
+    schema:name "Die Falken"@de ;
+    schema:foundingDate "423-31-01"^^xsd:date .
+
+world:monksOfAverno
+    a schema:Faction ;
+    schema:name "Monks of Averno" ;
+    schema:foundingDate "17-03-02"^^xsd:date .
+
+world:Targ
+    a schema:City ;
+    schema:addressCountry world:Avurien ;
+    schema:addressRegion world:TimberwoodMountains;
+    schema:population "15000"^^xsd:int ;
+    schema:heraldicAnimal "lion" ;
+    schema:architecturalStyle "gothic" .
+
+world:Lados
+    a schema:City ;
+    schema:addressCountry world:Avurien ;
+    schema:addressRegion world:MountainView;
+    schema:population "9000"^^xsd:int ;
+    schema:heraldicAnimal "swordfish" ;
+    schema:isCapital false ;
+    schema:architecturalStyle "maritime" .
+
+world:Khurag
+    a schema:City ;
+    schema:addressCountry world:Kharg ;
+    schema:addressRegion world:KhargRegion;
+    schema:population "4500"^^xsd:int ;
+    schema:heraldicAnimal "boar" ;
+    schema:isCapital true ;
+    schema:architecturalStyle "dwarven" .
+
+world:Welf
+    a schema:City ;
+    schema:addressCountry world:Gvelien ;
+    schema:addressRegion world:TimberwoodMountains;
+    schema:population "13000"^^xsd:int ;
+    schema:heraldicAnimal "butterfly" ;
+    schema:architecturalStyle "temper" .
+
+world:ImperialCity
+    a schema:City ;
+    schema:addressCountry world:TheOldEmpire ;
+    schema:addressRegion world:TheOldEmpireRegion;
+    schema:population "100000"^^xsd:int ;
+    schema:heraldicAnimal "Bull" ;
+    schema:isCapital true ;
+    schema:architecturalStyle "gothic" .
+
+world:TimberwoodMountains
+    a schema:Region ;
+    schema:name "Timberwood Mountains" ;
+    schema:flora "Forest" ;
+    schema:fauna "Bear" ;
+    schema:fauna "Moose" .
+
+world:TheOldEmpireRegion
+    a schema:Region ;
+    schema:name "TheOldEmpire" ;
+    schema:flora "City" ;
+    schema:fauna "Rat" ;
+    schema:fauna "Pigeon" .
+
+world:KhargRegion
+    a schema:Region ;
+    schema:name "Kharg" ;
+    schema:flora "barren rocks" ;
+    schema:fauna "desert mouse" .
+
+world:MountainView
+    a schema:Region ;
+    schema:name "Mountain View" ;
+    schema:flora "Rocks" ;
+    schema:flora "Forest" ;
+    schema:fauna "Bear" ;
+    schema:fauna "Moose" ;
+    schema:fauna "Golden Eagle" .

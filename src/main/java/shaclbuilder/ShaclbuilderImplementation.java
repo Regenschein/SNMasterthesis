@@ -73,21 +73,50 @@ public class ShaclbuilderImplementation implements Shaclbuilder {
         while (it.hasNext()) {
             Map.Entry par = (Map.Entry)it.next();
 
-            sb.append("ex:MaxNonKeyFor" + replace(prefixes, par.getKey().toString()) + "\n");
+            String targetClass = replace(prefixes, par.getKey().toString());
+
+            sb.append("ex:MaxNonKeyFor" + targetClass + "\n");
             sb.append("\t a sh:NodeShape ;" + "\n");
-            sb.append("\t sh:targetClass " + par.getKey() + " ;\n");
+            sb.append("\t sh:targetClass " + targetClass + " ;\n");
             ClassFinder.rdfClass rdf = (ClassFinder.rdfClass) par.getValue();
-            for (String att : rdf.getNonKeys()){
-                if(!att.equals("a")) {
-                    sb.append("\t sh:property [" + "\n");
-                    sb.append("\t\t sh:path " + replace(prefixes, att) + " ;" + "\n");
-                    sb.append("\t\t sh:minCount 1 ;" + "\n");
-                    sb.append("\t ] ;" + "\n");
-                }
+
+            if (Controller.getInstance().checkBox_AlmostKey.isSelected()) {
+                Set<Set<String>> currentSet = rdf.getAlmostKeys();
             }
-            //sb.deleteCharAt(sb.length() -3);
-            sb.replace(sb.length() -3, sb.length(), ".\n\n");
+
+            if(rdf.getAlmostKeys().size() > 1){
+                sb.append("\t sh:or ( \n");
+                for (Set<String> set : rdf.getAlmostKeys()){
+                    sb.append("\t\t [ \n");
+                    sb.append("\t\t\t sh:and ( \n");
+                    for (String att : set){
+                        if(!att.equals("a")) {
+                            sb.append("\t\t\t\t [" + "\n");
+                            sb.append("\t\t\t\t\t sh:path " + replace(prefixes, att) + " ;" + "\n");
+                            sb.append("\t\t\t\t\t sh:minCount 1 ;" + "\n");
+                            sb.append("\t\t\t\t ] \n");
+                        }
+                    }
+                    sb.append("\t\t\t ) \n");
+                    sb.append("\t\t ] \n");
+                }
+                sb.append("\t ) .\n");
+            } else {
+                for (Set<String> set : rdf.getAlmostKeys()){
+                    for (String att : set){
+                        if(!att.equals("a")) {
+                            sb.append("\t sh:property [" + "\n");
+                            sb.append("\t\t sh:path " + replace(prefixes, att) + " ;" + "\n");
+                            sb.append("\t\t sh:minCount 1 ;" + "\n");
+                            sb.append("\t ] ;" + "\n");
+                        }
+                    }
+                }
+                sb.replace(sb.length() -3, sb.length(), ".\n\n");
+            }
+
         }
+
 
 
         BufferedWriter writer = null;
@@ -99,9 +128,10 @@ public class ShaclbuilderImplementation implements Shaclbuilder {
             e.printStackTrace();
         }
 
-        build();
+        //build();
 
     }
+
 
     private String replace(HashMap<String, String> prefixes, String s){
         Iterator it = prefixes.entrySet().iterator();

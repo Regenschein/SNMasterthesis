@@ -10,6 +10,7 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -69,11 +70,27 @@
                            <VBox.margin>
                               <Insets />
                            </VBox.margin></Button>
-                        <CheckBox fx:id="checkBox_AlmostKey" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#almostKey" text="include almost keys" />
+                        <HBox spacing="50.0">
+                           <children>
+                              <CheckBox fx:id="checkBox_AlmostKey" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#almostKey" text="include almost keys" />
+                              <TextField fx:id="tFAlmostKeys" maxWidth="50.0" promptText="size">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextField>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
                         <CheckBox fx:id="checkBox_conditionalKey" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#conditionalKey" text="include conditional keys" />
                         <CheckBox fx:id="checkBox_EntitiyKey" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#EntitiyKey" text="include &quot;keys&quot;" />
                         <Button fx:id="btn_keys" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#keys" text="Keys" />
-                        <Button fx:id="btn_shacl" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#shacl" text="Shacl" />
+                        <Button fx:id="btn_shacl" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#shacl" text="Build Shacl" />
+                        <Button fx:id="btn_shaclEval" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#evalShacl" text="Evauluate Shacl" />
                      </children>
                      <opaqueInsets>
                         <Insets bottom="10.0" />

@@ -11,5 +11,4 @@ public interface Shaclbuilder {
 
     public void buildNonKeys(HashMap<String, String> prefixes, Map<String, ClassFinder.rdfClass> classes);
 
-
 }
