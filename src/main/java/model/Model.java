@@ -1,5 +1,8 @@
 package model;
 
+import modelbuilder.ClassFinder;
+import modelbuilder.RdfClass;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -14,16 +17,24 @@ public class Model {
     private static Model instance;
     private HashMap<String, String> prefixes = new HashMap<String, String>();
     private Set<Triple> triples = new HashSet<Triple>();
+    private HashSet<RdfClass> classes = new HashSet<RdfClass>();
 
     public HashMap<String, String> getPrefixes() {
         return prefixes;
+    }
+
+    public void addRdfClass(RdfClass rdfClass){
+        classes.add(rdfClass);
+    }
+
+    public HashSet<RdfClass> getClasses(){
+        return classes;
     }
 
     protected Model() {
 
     }
 
-    // Runtime initialization
     // By defualt ThreadSafe
     public static Model getInstance() {
         if (Model.instance == null) {
@@ -45,6 +56,8 @@ public class Model {
     }
 
     public void addPrefix(String s, String u){
+        if(!u.endsWith("/"))
+            u += "/";
         prefixes.put(s, u);
     }
 }

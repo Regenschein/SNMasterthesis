@@ -15,6 +15,12 @@ import java.util.ResourceBundle;
 
 public class Main extends Application {
 
+    private static Stage gprimaryStage;
+
+    public static Stage getGprimaryStage(){
+        return gprimaryStage;
+    }
+
     public void start(Stage primaryStage) throws Exception{
 
         primaryStage.initStyle(StageStyle.DECORATED);
@@ -38,6 +44,8 @@ public class Main extends Application {
                 System.exit(0);
             }
         });
+
+        gprimaryStage = primaryStage;
     }
 
 }

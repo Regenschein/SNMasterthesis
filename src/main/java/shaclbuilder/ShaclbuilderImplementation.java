@@ -1,19 +1,21 @@
 package shaclbuilder;
 
 import controller.Controller;
+import model.BuilderImplementation;
 import modelbuilder.ClassFinder;
+import modelbuilder.RdfClass;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
+import org.topbraid.jenax.util.JenaUtil;
 import org.topbraid.shacl.util.ModelPrinter;
 import org.topbraid.shacl.validation.ValidationUtil;
-import org.topbraid.spin.util.JenaUtil;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-public class ShaclbuilderImplementation implements Shaclbuilder {
+public class ShaclbuilderImplementation extends BuilderImplementation implements Shaclbuilder {
 
     public void build(){
 
@@ -37,6 +39,7 @@ public class ShaclbuilderImplementation implements Shaclbuilder {
     }
 
     private void buildNodeShape(String shapeName, String targetClass, String[] properties) {
+
         StringBuilder sb = new StringBuilder();
         sb.append(shapeName + "\n");
         sb.append("\t a sh:NodeShape ;\n");
@@ -55,7 +58,7 @@ public class ShaclbuilderImplementation implements Shaclbuilder {
     }
 
     @Override
-    public void buildNonKeys(HashMap<String, String> prefixes, Map<String, ClassFinder.rdfClass> classes){
+    public void buildNonKeys(HashMap<String, String> prefixes, Map<String, RdfClass> classes){
         Iterator it = prefixes.entrySet().iterator();
         StringBuilder sb = new StringBuilder();
         while (it.hasNext()) {
@@ -78,7 +81,7 @@ public class ShaclbuilderImplementation implements Shaclbuilder {
             sb.append("ex:MaxNonKeyFor" + targetClass + "\n");
             sb.append("\t a sh:NodeShape ;" + "\n");
             sb.append("\t sh:targetClass " + targetClass + " ;\n");
-            ClassFinder.rdfClass rdf = (ClassFinder.rdfClass) par.getValue();
+            RdfClass rdf = (RdfClass) par.getValue();
 
             if (Controller.getInstance().checkBox_AlmostKey.isSelected()) {
                 Set<Set<String>> currentSet = rdf.getAlmostKeys();
@@ -132,20 +135,11 @@ public class ShaclbuilderImplementation implements Shaclbuilder {
 
     }
 
+    @Override
+    public void build(HashMap<String, String> prefixes, Set<String> amk, String name, int almostKey) {
 
-    private String replace(HashMap<String, String> prefixes, String s){
-        Iterator it = prefixes.entrySet().iterator();
-        StringBuilder sb = new StringBuilder();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
-            if(s.contains(pair.getValue().toString())){
-                return (pair.getKey().toString() + ":" + s.replace(pair.getValue().toString(), "").replace(">", ""));
-            } else {
-                return s;
-            }
-        }
-        return "";
     }
+
 
     private void buildExample(){
         Set<String> prefixes = new HashSet<String>();
@@ -213,6 +207,13 @@ public class ShaclbuilderImplementation implements Shaclbuilder {
 
     private void buildKeyNode(){
         buildNodeShape("schema:PersonShape", "schema:Person", new String[]{"schema:\"given name\""});
+    }
+
+    private boolean stringIsURI(String s){
+        if(s.matches("<?\"?http://.*>?\"?")){
+            return true;
+        }
+        return false;
     }
 
 }

@@ -2,9 +2,12 @@ package controller;
 
 import com.github.jsonldjava.core.JSONLDProcessingError;
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 import keyfinder.RockerImplementation;
 import model.Model;
 import model.Triple;
@@ -19,10 +22,7 @@ import shaclbuilder.ShaclbuilderImplementation;
 import keyfinder.VICKEY;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Controller {
 
@@ -44,6 +44,7 @@ public class Controller {
 
     ClassFinder cf = new ClassFinder();
     Shaclbuilder s = new ShaclbuilderImplementation();
+    Querybuilder q = new QuerybuilderImplementation();
 
     public Controller(){
         this.controller = this;
@@ -68,7 +69,6 @@ public class Controller {
     }
 
     public void edit_unselectAll(ActionEvent actionEvent) {
-        Querybuilder q = new QuerybuilderImplementation();
         q.build();
     }
 
@@ -90,6 +90,8 @@ public class Controller {
         t.transform(Configuration.getInstance().getN3path());
 
         cf.build();
+        btn_loadModel.setText("Model is loaded");
+        btn_loadModel.setDisable(true);
     }
 
     public void generateRdf(ActionEvent actionEvent) {
@@ -191,6 +193,36 @@ public class Controller {
     }
 
     public void evalShacl(ActionEvent actionEvent) {
+
+        //s.build();
+        HashMap<String, String> prefixes = Model.getInstance().getPrefixes();
+        int almostKey = Integer.parseInt(tFAlmostKeys.getText());
+
+        for (RdfClass rdfClass : cf.getClasses().values()){
+            Set<Set<String>> almostKeys = rdfClass.getAlmostKeys();
+            for (Set<String> amk: almostKeys){
+                q.build(prefixes, amk, rdfClass.getName(), almostKey);
+            }
+        }
+
         s.build();
+    }
+
+    public void chooseInputFile(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        fileChooser.setInitialDirectory(new File("./src/main/resources/data/"));
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Turtle Files", "*.ttl"),
+                new FileChooser.ExtensionFilter("Tabular Seperated Values", "*.tsv"),
+                new FileChooser.ExtensionFilter("N-Triples", "*.n3*"),
+                new FileChooser.ExtensionFilter("Rdf", "*.ttl", "*.tsv", "*.rdf"));
+
+
+        File selectedFile = fileChooser.showOpenDialog(Main.getGprimaryStage());
+        if (selectedFile != null) {
+            Main.getGprimaryStage().show();
+            Configuration.getInstance().setPath(selectedFile.getPath());
+        }
     }
 }

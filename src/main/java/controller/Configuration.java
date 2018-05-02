@@ -93,5 +93,9 @@ public class Configuration {
     public static String getN3path() {
         return n3path;
     }
+
+    public static void setPath(String path) {
+        Configuration.path = path;
+    }
 }
 

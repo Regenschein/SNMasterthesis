@@ -1,5 +1,8 @@
 package querybuilder;
 
+import java.util.HashMap;
+import java.util.Set;
+
 public interface Querybuilder {
 
     public static final String SOURCE = "./src/main/resources/data/";
@@ -10,4 +13,5 @@ public interface Querybuilder {
 
     public void build();
 
+    void build(HashMap<String, String> prefixes, Set<String> amk, String name, int almostKey);
 }

@@ -1,5 +1,7 @@
 package querybuilder;
 
+import controller.Configuration;
+import model.BuilderImplementation;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.*;
@@ -9,30 +11,12 @@ import org.apache.jena.util.FileManager;
 import org.apache.jena.vocabulary.OWL;
 import org.apache.jena.vocabulary.RDFS;
 
-import javax.xml.transform.Result;
-import java.util.List;
+import java.util.*;
 
-public class QuerybuilderImplementation implements Querybuilder{
+public class QuerybuilderImplementation extends BuilderImplementation implements Querybuilder{
 
 
     public void build2() {
-        OntModel m = getModel();
-        loadData( m );
-        String prefix = "prefix world: <" + WORLD_NS + ">\n" +
-                "prefix rdfs: <" + RDFS.getURI() + ">\n" +
-                "prefix owl: <" + OWL.getURI() + ">\n";
-
-
-        showQuery( m,
-                prefix +
-                        "select ?citizen where {" +
-                        //"    ?citizen a rdfs:Class. " +
-                        "    ?citizen rdfs:label \"Erik\"@de. " +
-                        //"    ?citizen rdfs:subClassOf <http://schema.org/Person>. " +
-                        "}");
-    }
-
-    public void build() {
         OntModel m = getModel();
         loadData( m );
         String prefix = "prefix world: <" + WORLD_NS + ">\n" +
@@ -48,6 +32,81 @@ public class QuerybuilderImplementation implements Querybuilder{
         //                 "HAVING (?count > 1)" + ""
         showQuery( m,
                 prefix +
+                        "SELECT ?region ?country ?count " +
+                        "WHERE {" +
+                        "{" +
+                        "SELECT ?region ?country (count(?region) as ?count)" +
+                        "      WHERE {" +
+                        "        $this a schema:Place . " +
+                        "        $this schema:addressRegion ?region . " +
+                        "        $this schema:addressCountry ?country . " +
+                        "      }" +
+                        "      GROUP BY ?region ?country" +
+                        "}" +
+                        "FILTER (?count > 1)" +
+                        "}");
+    }
+
+    public void build(HashMap<String, String> prefixes, Set<String> key, String rdfsClass, int almostKey) {
+        OntModel m = getModel();
+        loadData( m );
+
+        StringBuilder prefixSB = new StringBuilder();
+
+        for(Map.Entry<String, String> entry : prefixes.entrySet()){
+            String shortcut = entry.getKey();
+            String uri = entry.getValue();
+            prefixSB.append("prefix " + shortcut + ": " + uri + "> \n");
+        }
+
+        print("bp");
+
+        String prefix = prefixSB.toString();
+        Set<String> variables = new HashSet<String>();
+        Set<String> keyFragments = new HashSet<String>();
+        HashMap<String, String> mapping = new HashMap<String, String>();
+        for (String s : key) {
+            variables.add(trimToName(s));
+            keyFragments.add(buildShort(prefixes, s));
+            mapping.put(trimToName(s), buildShort(prefixes, s));
+        }
+
+        StringBuilder query = new StringBuilder();
+        query.append("SELECT");
+        for (String v : variables){
+            query.append(" ?" + v);
+        }
+        query.append(" ?count ");
+        query.append(" WHERE { ");
+        query.append(" { ");
+        query.append(" SELECT ");
+        for (String v : variables){
+            query.append(" ?" + v);
+        }
+        query.append(" (count(?" + variables.iterator().next() + ") as ?count)");
+        query.append(" WHERE { ");
+        query.append(" $this a " + buildShort(prefixes, rdfsClass) + ". "); //TODO: CONTINUE HERE DOPPELPUNKT IS MISSING
+        for(Map.Entry<String, String> entry : mapping.entrySet()){
+            String variable = entry.getKey();
+            String keyFragment = entry.getValue();
+            query.append("?this " + keyFragment + " ?" + variable + " .");
+        }
+        query.append("} ");
+        query.append("GROUP BY ");
+        for (String v : variables){
+            query.append(" ?" + v);
+        }
+        query.append("}");
+        query.append(" FILTER (?count > " + almostKey + ")");
+        query.append("}");
+
+        String qwery = query.toString();
+
+        showQuery(m, prefixSB.toString() + query.toString());
+
+        /*
+        showQuery( m,
+                prefix +
                     "SELECT ?region ?country ?count " +
                     "WHERE {" +
                     "{" +
@@ -61,6 +120,7 @@ public class QuerybuilderImplementation implements Querybuilder{
                     "}" +
                     "FILTER (?count > 1)" +
                     "}");
+       */
     }
 
     public void buildOld() {
@@ -103,8 +163,7 @@ public class QuerybuilderImplementation implements Querybuilder{
     }
 
     protected void loadData( Model m ) {
-        //FileManager.get().readModel( m, SOURCE + "pizza.owl.rdf" );
-        FileManager.get().readModel( m, SOURCE + "world-0.1.ttl" );
+        FileManager.get().readModel( m, Configuration.getInstance().getPath());
     }
 
     protected void showQuery( Model m, String q ) {
@@ -112,22 +171,25 @@ public class QuerybuilderImplementation implements Querybuilder{
         QueryExecution qexec = QueryExecutionFactory.create( query, m );
         try {
             ResultSet results = qexec.execSelect();
-            //ResultSetFormatter.out( results, m );
-            //List resultList = ResultSetFormatter.toList(results);
-            //String s = ResultSetFormatter.asText(results);
-            while(results.hasNext()){
-                QuerySolution qs = results.next();
-                while(qs.varNames().hasNext()){
-                    System.out.println("IS THIS THE END? " + qs.varNames().next());
-                    qs.varNames().remove();
-                }
-                System.out.println(qs);
-            }
-            System.out.println("Test");
+            print("Key-Candidate is no key because there are mulitple results:");
+            String s = ResultSetFormatter.asText(results);
+            System.out.println(s);
+        } catch(Exception e){
+
         }
         finally {
             qexec.close();
         }
 
     }
+
+    private void print(Object s){
+        System.out.println(s);
+    }
+
+    @Override
+    public void build() {
+
+    }
+
 }

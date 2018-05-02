@@ -62,7 +62,7 @@ public class TurtleToModelTransformator implements Transformer{
         p = Pattern.compile(semiPatt);
         m = p.matcher(triples);
         triples = m.replaceAll("; ");
-        String[] splitted = triples.split(" ");
+        String[] splitted = triples.split(" +");
         System.out.println("---------------------------------------");
         boolean inLiteral = false;
         String subject = "";

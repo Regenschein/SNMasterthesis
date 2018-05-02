@@ -65,6 +65,7 @@
           <children>
                   <VBox fx:id="vBox_left_side" alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <children>
+                        <Button fx:id="btn_chooseInput" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#chooseInputFile" text="Choose Input File" />
                         <Button fx:id="btn_generateRdf" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#generateRdf" text="Parse RDF" />
                         <Button fx:id="btn_loadModel" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#loadModel" text="Load Model">
                            <VBox.margin>
@@ -73,7 +74,7 @@
                         <HBox spacing="50.0">
                            <children>
                               <CheckBox fx:id="checkBox_AlmostKey" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#almostKey" text="include almost keys" />
-                              <TextField fx:id="tFAlmostKeys" maxWidth="50.0" promptText="size">
+                              <TextField fx:id="tFAlmostKeys" maxWidth="50.0" promptText="size" text="1">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>

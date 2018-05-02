@@ -1,6 +1,7 @@
 package modelbuilder;
 
 
+import controller.Configuration;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.util.FileManager;
 import org.apache.jena.vocabulary.RDFS;
@@ -18,15 +19,9 @@ public class ModelbuilderImplementation implements Modelbuilder{
 
     public void build(){
         Model m = ModelFactory.createDefaultModel();
-        FileManager.get().readModel( m, WORLD_DATA_FILE );
-
-        // generate some output
+        FileManager.get().readModel( m, Configuration.getInstance().getPath());
         showModelSize( m );
         listTriple( m );
-    }
-
-    public void run() {
-
     }
 
     protected void showModelSize( Model m ) {
