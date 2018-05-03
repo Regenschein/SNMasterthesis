@@ -1,6 +1,8 @@
 package controller;
 
 import com.github.jsonldjava.core.JSONLDProcessingError;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -38,9 +40,11 @@ public class Controller {
     public Button btn_keys;
     public Button btn_shacl;
     public VBox vBox_left_side;
-    public TextArea tA_main;
+    public TextArea tA_main = new TextArea();
     public CheckBox checkBox_EntitiyKey;
     public TextField tFAlmostKeys;
+
+    private String chosenFileType = "ttl";
 
     ClassFinder cf = new ClassFinder();
     Shaclbuilder s = new ShaclbuilderImplementation();
@@ -50,6 +54,14 @@ public class Controller {
         this.controller = this;
         Locale locale = new Locale("en", "EN");
         bundle = ResourceBundle.getBundle("Properties/properties", locale);
+
+        tA_main.textProperty().addListener(new ChangeListener<Object>() {
+            @Override
+            public void changed(ObservableValue<?> observable, Object oldValue,
+                                Object newValue) {
+                tA_main.setScrollTop(Double.MAX_VALUE);
+            }
+        });
     }
 
     public static synchronized Controller getInstance() {
@@ -65,7 +77,9 @@ public class Controller {
     }
 
     public void edit_selectAll(ActionEvent actionEvent) {
-
+        Modelreader m = new Modelreader();
+        m.readFile();
+        m.test();
     }
 
     public void edit_unselectAll(ActionEvent actionEvent) {
@@ -81,9 +95,16 @@ public class Controller {
     }
 
     public void loadModel(ActionEvent actionEvent) {
-        Transformer t = new TurtleToModelTransformator();
+        Transformer t;
+        if(chosenFileType.equals("ttl")){
+            t = new TurtleToModelTransformator();
+            t.transform("test");
+        } else if(chosenFileType.equals(".nt")){
+            t = new N3ToModelTransformator();
+            t.transform("test");
+        }
+
         System.out.println("Dest :D");
-        t.transform("test");
         t = new ModelToTabSepTransformator();
         t.transform(Configuration.getInstance().getTsvpath());
         t = new ModelToN3Transformator();
@@ -124,7 +145,6 @@ public class Controller {
         }if(checkBox_AlmostKey.isSelected()){
             String[] args = new String[2];
             args[0] = Configuration.getInstance().getTsvpath();
-            //args[0] = "./src/main/resources/data/museum.tsv";
             System.out.println(args[0]);
             if (tFAlmostKeys.getText().equals("")){
                 args[1] = "0";
@@ -180,7 +200,6 @@ public class Controller {
     }
 
     private void setDesign(){
-        btn_generateRdf = new Button();
         btn_generateRdf.setMinWidth(vBox_left_side.getPrefWidth());
         btn_loadModel.setMinWidth(vBox_left_side.getPrefWidth());
         btn_keys.setMinWidth(vBox_left_side.getPrefWidth());
@@ -215,14 +234,32 @@ public class Controller {
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Turtle Files", "*.ttl"),
                 new FileChooser.ExtensionFilter("Tabular Seperated Values", "*.tsv"),
-                new FileChooser.ExtensionFilter("N-Triples", "*.n3*"),
+                new FileChooser.ExtensionFilter("N-Triples", "*.nt*"),
                 new FileChooser.ExtensionFilter("Rdf", "*.ttl", "*.tsv", "*.rdf"));
 
 
         File selectedFile = fileChooser.showOpenDialog(Main.getGprimaryStage());
         if (selectedFile != null) {
             Main.getGprimaryStage().show();
-            Configuration.getInstance().setPath(selectedFile.getPath());
+            System.out.println(selectedFile.getPath().substring(selectedFile.getPath().length() -3));
+            switch (selectedFile.getPath().substring(selectedFile.getPath().length() -3)){
+                case "ttl" :
+                    Configuration.getInstance().setPath(selectedFile.getPath());
+                    break;
+                case "tsv" :
+                    Configuration.getInstance().setTsvpath(selectedFile.getPath());
+                    break;
+                case ".nt" :
+                    //Configuration.getInstance().setN3path(selectedFile.getPath());
+                    Configuration.getInstance().setPath(selectedFile.getPath());
+                    chosenFileType = ".nt";
+                    break;
+                case "rdf" :
+                    break;
+                default:
+                    break;
+            }
+
         }
     }
 }

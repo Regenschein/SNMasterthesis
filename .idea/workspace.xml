@@ -2,50 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac2b6ad9-da68-4cb5-a7b1-ac1c10b26028" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_topbraid_shacl_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/BuilderImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/RdfClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_csv_1_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_csv_1_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jena_jena_arq_3_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jena_jena_arq_3_7_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jena_jena_base_3_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jena_jena_base_3_7_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jena_jena_core_3_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jena_jena_core_3_7_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jena_jena_iri_3_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jena_jena_iri_3_7_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jena_jena_shaded_guava_3_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jena_jena_shaded_guava_3_7_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_thrift_libthrift_0_9_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_thrift_libthrift_0_10_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_topbraid_shacl_1_0_1.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/N3ToModelTransformator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SNMasterthesis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SNMasterthesis.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/keys.nt" beforeDir="false" afterPath="$PROJECT_DIR$/keys.nt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Configuration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/keyfinder/SAKeyAlmostKeysOneFileOneN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/keyfinder/SAKeyAlmostKeysOneFileOneN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/BuilderImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/BuilderImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Triple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Triple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelbuilder/ModelToN3Transformator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/ModelToN3Transformator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modelbuilder/ModelbuilderImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/ModelbuilderImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modelbuilder/TurtleToModelTransformator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/TurtleToModelTransformator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Properties/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Properties/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/museum.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/museum.tsv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data/world-0.1.nt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/world-0.1.nt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/world-0.1.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/world-0.1.tsv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Properties/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Properties/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/Configuration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Configuration.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/cheeses-0.1.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/cheeses-0.1.ttl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/museum.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/museum.tsv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/data/world-0.1.nt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/world-0.1.nt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Model.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/world-0.1.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/world-0.1.tsv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/Triple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Triple.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/modelbuilder/ModelToN3Transformator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modelbuilder/ModelToN3Transformator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/modelbuilder/ModelbuilderImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modelbuilder/ModelbuilderImplementation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/modelbuilder/TurtleToModelTransformator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modelbuilder/TurtleToModelTransformator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/querybuilder/Querybuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/querybuilder/Querybuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/querybuilder/QuerybuilderImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/querybuilder/QuerybuilderImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/shaclbuilder/Shaclbuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/shaclbuilder/Shaclbuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/shaclbuilder/ShaclbuilderImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/shaclbuilder/ShaclbuilderImplementation.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -64,49 +49,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="example-test-shape.ttl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/eval/example-test-shape.ttl">
+      <file leaf-file-name="ShaclbuilderImplementation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-398">
-              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuerybuilderImplementation.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="165" column="79" selection-start-line="165" selection-start-column="79" selection-end-line="165" selection-end-column="79" />
+            <state relative-caret-position="136">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
               <folding>
-                <element signature="method#build2#0;class#QuerybuilderImplementation#0" />
-                <element signature="e#2627#2635#0" expanded="true" />
-                <element signature="e#2685#2693#0" expanded="true" />
-                <element signature="e#2750#2766#0" expanded="true" />
-                <element signature="method#buildOld#0;class#QuerybuilderImplementation#0" />
-                <element signature="method#buildback#0;class#QuerybuilderImplementation#0" />
-                <element signature="e#6220#6221#0" expanded="true" />
-                <element signature="e#6299#6300#0" expanded="true" />
-                <element signature="e#6121#6122#0" expanded="true" />
-                <element signature="e#6207#6208#0" expanded="true" />
+                <element signature="method#buildNodeShape#0;class#ShaclbuilderImplementation#0" />
+                <element signature="method#build#1;class#ShaclbuilderImplementation#0" />
+                <element signature="method#buildExample#0;class#ShaclbuilderImplementation#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Triple.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/Triple.java">
+      <file leaf-file-name="ModelToN3Transformator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ModelToN3Transformator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
+            <state relative-caret-position="170">
+              <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Modelreader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="73">
+              <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
               <folding>
-                <element signature="method#equals#0;class#Triple#0" />
-                <element signature="method#toString#0;class#Triple#0" />
-                <element signature="method#stringIsURI#0;class#Triple#0" />
-                <element signature="e#1321#1322#0" expanded="true" />
-                <element signature="e#1394#1395#0" expanded="true" />
-                <element signature="e#3488#3489#0" expanded="true" />
-                <element signature="e#3551#3552#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/Properties/config.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="17" />
+              <folding>
+                <element signature="e#1630#1982#0" expanded="true" />
+                <element signature="e#1981#1982#0" expanded="true" />
+                <element signature="method#help_about#0;class#Controller#0" />
+                <element signature="method#EntitiyKey#0;class#Controller#0" />
+                <element signature="method#evalShacl#0;class#Controller#0" />
               </folding>
             </state>
           </provider>
@@ -115,69 +112,29 @@
       <file leaf-file-name="ModelbuilderImplementation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ModelbuilderImplementation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+            <state relative-caret-position="-14">
+              <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
+      <file leaf-file-name="ClassFinder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="224" column="12" selection-start-line="224" selection-start-column="12" selection-end-line="224" selection-end-column="47" />
+            <state>
+              <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="world-0.1.ttl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl">
+      <file leaf-file-name="Triple.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Triple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1938">
-              <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cheeses-0.1.ttl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="316" selection-start-line="316" selection-end-line="316" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BuilderImplementation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/BuilderImplementation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="35" column="57" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="236">
+              <caret line="113" selection-start-line="113" selection-end-line="113" />
               <folding>
-                <element signature="e#621#622#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShaclbuilderImplementation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="method#buildNodeShape#0;class#ShaclbuilderImplementation#0" />
-                <element signature="method#build#1;class#ShaclbuilderImplementation#0" />
-                <element signature="method#buildExample#0;class#ShaclbuilderImplementation#0" />
+                <element signature="method#equals#0;class#Triple#0" />
+                <element signature="method#toString#0;class#Triple#0" />
               </folding>
             </state>
           </provider>
@@ -195,36 +152,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>^^</find>
-      <find>&quot;http://www.cookipedia.co.uk/wiki/index.php/Bruss_di_Castelmagno_cheese&quot;</find>
-      <find>page</find>
-      <find>0.1</find>
-      <find>buildShort</find>
-      <find>replace</find>
-      <find>isURI</find>
-      <find>schema:Pro</find>
-      <find>cheese/Prov</find>
-      <find>cheese/schema</find>
-      <find>http://data.kasabi.com/dataset</find>
-      <find>trimToname</find>
-      <find>trimToName</find>
-      <find>this a</find>
-      <find>schema:prov</find>
-      <find>schemaProvince</find>
-      <find>schema:Province</find>
-      <find>ITF35</find>
       <find>http://data.kasabi.com/dataset/italy/schema</find>
       <find>Cheese</find>
       <find>http://www.w3.org/2000/01/rdf-schema</find>
-      <find>Province</find>
       <find>italy</find>
       <find>class</find>
       <find>long</find>
       <find>getModel</find>
-      <find>ex:maxNonKeyFor</find>
-      <find>loadData</find>
       <find>Choose</find>
       <find>TEST</find>
+      <find>Province</find>
+      <find>italy/schema</find>
+      <find>&lt;http://data.kasabi.com/dataset/italy/schema/&gt;</find>
+      <find>ex:maxNonKeyFor</find>
+      <find>type</find>
+      <find>short</find>
+      <find>classFinder</find>
+      <find>cf</find>
+      <find>regioncode</find>
+      <find>GenerateR</find>
+      <find>DataInput</find>
+      <find>almostKe</find>
+      <find>loadData</find>
+      <find>american</find>
+      <find>triplesFromFile</find>
+      <find>&gt;.</find>
+      <find>dcat:dataset</find>
+      <find>http:</find>
+      <find>a</find>
+      <find>loadModel</find>
+      <find>tA</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -233,11 +190,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/keyfinder/RiotReader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/keyfinder/IndexerStreamRDF.java" />
-        <option value="$PROJECT_DIR$/src/main/java/keyfinder/KeyfinderImplementation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/ValidationExample.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/data/class-004.test.ttl" />
         <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclebuilderImplementationNew.java" />
         <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclModelFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/RdfModelReader.java" />
@@ -254,14 +206,12 @@
         <option value="$PROJECT_DIR$/src/main/java/keyfinder/Graph.java" />
         <option value="$PROJECT_DIR$/src/main/java/keyfinder/CSAKey.java" />
         <option value="$PROJECT_DIR$/src/main/java/keyfinder/RockerImplementation.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/Properties/config.properties" />
         <option value="$PROJECT_DIR$/src/main/java/keyfinder/SAKey.java" />
         <option value="$PROJECT_DIR$/src/main/resources/ontologies/cheese.ttl" />
         <option value="$PROJECT_DIR$/src/main/java/keyfinder/almost/SAKeyAlmostKeysOneFileOneN.java" />
         <option value="$PROJECT_DIR$/src/main/java/keyfinder/almost/newDiscoverNonKeys5AlmostNew.java" />
         <option value="$PROJECT_DIR$/src/main/java/keyfinder/SAKeyAlmost.java" />
         <option value="$PROJECT_DIR$/src/main/resources/data/world-0.1.tsv" />
-        <option value="$PROJECT_DIR$/src/main/java/keyfinder/SAKeyAlmostKeysOneFileOneN.java" />
         <option value="$PROJECT_DIR$/src/main/java/keyfinder/VICKEY.java" />
         <option value="$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -270,20 +220,27 @@
         <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/modelbuilder/BuilderImplementation.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/eval/example-test-shape.ttl" />
         <option value="$PROJECT_DIR$/src/main/resources/gui.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/controller/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/Configuration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/TurtleToModelTransformator.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl" />
-        <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ModelbuilderImplementation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Triple.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Model.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl" />
         <option value="$PROJECT_DIR$/src/main/java/model/BuilderImplementation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ModelToTabSepTransformator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/keyfinder/TripleFileParser.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/eval/example-test-shape.ttl" />
+        <option value="$PROJECT_DIR$/src/main/java/keyfinder/SAKeyAlmostKeysOneFileOneN.java" />
         <option value="$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ModelbuilderImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/TurtleToModelTransformator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Triple.java" />
+        <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/N3ToModelTransformator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ModelToN3Transformator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/Properties/config.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/Configuration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java" />
       </list>
     </option>
   </component>
@@ -301,9 +258,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+    <option name="x" value="-10" />
+    <option name="width" value="979" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -313,7 +270,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -346,6 +302,14 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="keyfinder" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
@@ -428,6 +392,7 @@
       </pane>
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -441,8 +406,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\src\main\resources" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="model" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="modelbuilder" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\src\main\java\keyfinder" />
@@ -450,12 +421,6 @@
       <recent name="C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\src\main\resources\eval" />
       <recent name="C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\lib\AMIECKMiner.jar!\amie\keys" />
       <recent name="C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\src\main\java\controller" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="modelbuilder" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -664,7 +629,8 @@
       <workItem from="1525100030316" duration="598000" />
       <workItem from="1525183044644" duration="445000" />
       <workItem from="1525189475610" duration="11128000" />
-      <workItem from="1525251707047" duration="14163000" />
+      <workItem from="1525251707047" duration="21676000" />
+      <workItem from="1525322480421" duration="31254000" />
     </task>
     <task id="LOCAL-00001" summary="Updated dependencies&#10;Created properties for configuration&#10;started with the turtleparser">
       <created>1521727189114</created>
@@ -708,11 +674,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524585376342</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="A lot of updates that try to fix problems with differend file inputs">
+      <created>1525267599228</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1525267599228</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="422621000" />
+    <option name="totallyTimeSpent" value="461388000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -720,7 +693,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32239926" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32147744" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
@@ -728,18 +701,19 @@
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49583334" visible="true" weight="0.3885089" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49583334" visible="true" weight="0.29548565" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49886104" visible="true" weight="0.19010417" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49886104" visible="true" weight="0.2669271" />
       <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32831737" />
       <window_info id="Structure" order="1" sideWeight="0.5011389" side_tool="true" weight="0.16015625" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.44049248" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39534885" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -747,7 +721,6 @@
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3294271" />
       <window_info id="Learn" order="5" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32831737" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -763,7 +736,8 @@
     <MESSAGE value="Several updates in the key finding process" />
     <MESSAGE value="Finding MaxNonKeys and the derivation of shacl-constraints to check them." />
     <MESSAGE value="implemented shacl-almost-keys.&#10;NICE" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented shacl-almost-keys.&#10;NICE" />
+    <MESSAGE value="A lot of updates that try to fix problems with differend file inputs" />
+    <option name="LAST_COMMIT_MESSAGE" value="A lot of updates that try to fix problems with differend file inputs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -787,28 +761,40 @@
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java</url>
-          <line>24</line>
+          <url>jar://$PROJECT_DIR$/lib/SAKeyNonKeys.jar!/sakey/tripleFileParser.class</url>
+          <line>311</line>
           <properties />
-          <option name="timeStamp" value="203" />
+          <option name="timeStamp" value="272" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java</url>
-          <line>169</line>
+          <url>file://$PROJECT_DIR$/src/main/java/keyfinder/SAKeyAlmostKeysOneFileOneN.java</url>
+          <line>346</line>
           <properties />
-          <option name="timeStamp" value="234" />
+          <option name="timeStamp" value="277" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java</url>
-          <line>87</line>
+          <url>file://$PROJECT_DIR$/src/main/java/modelbuilder/TurtleToModelTransformator.java</url>
+          <line>71</line>
           <properties />
-          <option name="timeStamp" value="246" />
+          <option name="timeStamp" value="282" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/modelbuilder/N3ToModelTransformator.java</url>
+          <line>19</line>
+          <properties />
+          <option name="timeStamp" value="284" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/modelbuilder/N3ToModelTransformator.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="285" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="248" />
+      <option name="time" value="287" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -825,87 +811,10 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/RiotReader.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/IndexerStreamRDF.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/KeyfinderImplementation.java" />
-    <entry file="jar://$PROJECT_DIR$/lib/pseudo-keys.jar!/fr/inrialpes/exmo/rdfkeys/KeyExtraction.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/almost/SAKeyAlmostKeysOneFileOneN.java" />
-    <entry file="file://$USER_HOME$/Downloads/sakey_source_from_cfr/sakey_source_from_cfr/davi_withoutclusters/SAKeyAlmostKeysOneFileOneN.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/almost/newDiscoverNonKeys5AlmostNew.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/AlmostKeyfinderImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ProfessionalCodeBackup/almost/SAKeyAlmostKeysOneFileOneN.java" />
-    <entry file="jar://$PROJECT_DIR$/lib/SAKeyNonKeys.jar!/sakey/SAKeyAlmostKeysOneFileOneN.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/SAKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/vickey.jar!/vickey/VICKEY.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="19" column="44" lean-forward="true" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/RockerImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ModelToTabSepTransformator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Transformer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/CSAKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/Keyfinder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/SAKeyAlmostKeysOneFileOneN.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -932,13 +841,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Prefix.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="94" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -953,31 +855,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Properties/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/TurtleToModelTransformator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/ontologies/cheese.ttl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
           <caret line="303" column="24" selection-start-line="303" selection-start-column="24" selection-end-line="303" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Programme/Java904/lib/src.zip!/java.base/java/lang/reflect/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="563" selection-start-line="563" selection-end-line="563" />
         </state>
       </provider>
     </entry>
@@ -992,13 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
         </state>
       </provider>
     </entry>
@@ -1019,81 +893,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.tsv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="176" column="42" selection-start-line="176" selection-start-column="42" selection-end-line="176" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ModelToN3Transformator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Modelbuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.nt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="14" column="81" selection-start-line="14" selection-start-column="81" selection-end-line="14" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="method#buildNodeShape#0;class#ShaclbuilderImplementation#0" />
-            <element signature="method#build#1;class#ShaclbuilderImplementation#0" />
-            <element signature="method#buildExample#0;class#ShaclbuilderImplementation#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#621#622#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/eval/example-test-shape.ttl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-398">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="316" selection-start-line="316" selection-end-line="316" />
         </state>
       </provider>
     </entry>
@@ -1104,59 +907,351 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="224" column="12" selection-start-line="224" selection-start-column="12" selection-end-line="224" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/BuilderImplementation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="35" column="57" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
+        <state relative-caret-position="153">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ModelbuilderImplementation.java">
+    <entry file="jar://D:/Programme/Java904/lib/src.zip!/java.base/java/lang/reflect/Method.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state relative-caret-position="535">
+          <caret line="563" selection-start-line="563" selection-end-line="563" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Triple.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
+        <state relative-caret-position="425">
+          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
           <folding>
-            <element signature="method#equals#0;class#Triple#0" />
-            <element signature="method#toString#0;class#Triple#0" />
-            <element signature="method#stringIsURI#0;class#Triple#0" />
-            <element signature="e#1321#1322#0" expanded="true" />
-            <element signature="e#1394#1395#0" expanded="true" />
-            <element signature="e#3488#3489#0" expanded="true" />
-            <element signature="e#3551#3552#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/museum.tsv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3100" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/TripleFileParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21638">
+          <caret line="108" column="9" lean-forward="true" selection-start-line="61" selection-start-column="3" selection-end-line="113" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4037#4063#0" expanded="true" />
+            <element signature="e#3989#3998#0" expanded="true" />
+            <element signature="e#6397#6422#0" expanded="true" />
+            <element signature="e#7764#7804#0" expanded="true" />
+            <element signature="e#12368#12376#0" expanded="true" />
+            <element signature="e#12462#12502#0" expanded="true" />
+            <element signature="e#16325#16365#0" expanded="true" />
+            <element signature="e#19097#19121#0" expanded="true" />
+            <element signature="e#19058#19071#0" expanded="true" />
+            <element signature="e#20045#20085#0" expanded="true" />
+            <element signature="e#22770#22792#0" expanded="true" />
+            <element signature="e#22725#22738#0" expanded="true" />
+            <element signature="e#23625#23647#0" expanded="true" />
+            <element signature="e#23580#23593#0" expanded="true" />
+            <element signature="e#24614#24636#0" expanded="true" />
+            <element signature="e#24810#24823#0" expanded="true" />
+            <element signature="e#29118#29140#0" expanded="true" />
+            <element signature="e#29198#29216#0" expanded="true" />
+            <element signature="e#31001#31023#0" expanded="true" />
+            <element signature="e#31080#31097#0" expanded="true" />
+            <element signature="e#33143#33165#0" expanded="true" />
+            <element signature="e#33277#33295#0" expanded="true" />
+            <element signature="e#35328#35341#0" expanded="true" />
+            <element signature="e#36318#36340#0" expanded="true" />
+            <element signature="e#36292#36305#0" expanded="true" />
+            <element signature="e#37171#37184#0" expanded="true" />
+            <element signature="e#38470#38492#0" expanded="true" />
+            <element signature="e#38452#38465#0" expanded="true" />
+            <element signature="e#39935#39948#0" expanded="true" />
+            <element signature="e#40908#40928#0" expanded="true" />
+            <element signature="e#41237#41250#0" expanded="true" />
+            <element signature="e#41309#41322#0" expanded="true" />
+            <element signature="e#42004#42017#0" expanded="true" />
+            <element signature="e#43688#43701#0" expanded="true" />
+            <element signature="e#44625#44647#0" expanded="true" />
+            <element signature="e#46036#46045#0" expanded="true" />
+            <element signature="e#46739#46810#0" expanded="true" />
+            <element signature="e#47227#47240#0" expanded="true" />
+            <element signature="e#48567#48580#0" expanded="true" />
+            <element signature="e#49815#49886#0" expanded="true" />
+            <element signature="e#50303#50316#0" expanded="true" />
+            <element signature="e#51643#51656#0" expanded="true" />
+            <element signature="e#52883#52923#0" expanded="true" />
+            <element signature="e#53162#53184#0" expanded="true" />
+            <element signature="e#53849#53862#0" expanded="true" />
+            <element signature="e#54958#54976#0" expanded="true" />
+            <element signature="e#55621#55634#0" expanded="true" />
+            <element signature="e#56439#56452#0" expanded="true" />
+            <element signature="e#62586#62595#0" expanded="true" />
+            <element signature="e#62722#62740#0" expanded="true" />
+            <element signature="e#63749#63758#0" expanded="true" />
+            <element signature="e#64889#64906#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/SAKeyNonKeys.jar!/sakey/tripleFileParser.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="384" column="5" selection-start-line="290" selection-start-column="3" selection-end-line="384" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="18" column="70" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ModelToTabSepTransformator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/2016-10_dataid_catalog.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/fb15k.ttl">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="153">
+          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="15" column="94" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="165" column="79" selection-start-line="165" selection-start-column="79" selection-end-line="165" selection-end-column="79" />
+        <state relative-caret-position="238">
+          <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
           <folding>
-            <element signature="method#build2#0;class#QuerybuilderImplementation#0" />
-            <element signature="e#2627#2635#0" expanded="true" />
-            <element signature="e#2685#2693#0" expanded="true" />
-            <element signature="e#2750#2766#0" expanded="true" />
             <element signature="method#buildOld#0;class#QuerybuilderImplementation#0" />
             <element signature="method#buildback#0;class#QuerybuilderImplementation#0" />
-            <element signature="e#6220#6221#0" expanded="true" />
-            <element signature="e#6299#6300#0" expanded="true" />
-            <element signature="e#6121#6122#0" expanded="true" />
-            <element signature="e#6207#6208#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/gui.fxml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/SAKeyAlmostKeysOneFileOneN.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+          <folding>
+            <element signature="e#694#711#0" expanded="true" />
+            <element signature="e#1140#1153#0" expanded="true" />
+            <element signature="e#2557#2579#0" expanded="true" />
+            <element signature="e#3463#3476#0" expanded="true" />
+            <element signature="e#7036#7053#0" expanded="true" />
+            <element signature="e#7156#7164#0" expanded="true" />
+            <element signature="e#7874#7882#0" expanded="true" />
+            <element signature="e#8410#8427#0" expanded="true" />
+            <element signature="e#8526#8534#0" expanded="true" />
+            <element signature="e#9014#9031#0" expanded="true" />
+            <element signature="e#9131#9139#0" expanded="true" />
+            <element signature="e#9812#9820#0" expanded="true" />
+            <element signature="e#10427#10435#0" expanded="true" />
+            <element signature="e#11779#11805#0" expanded="true" />
+            <element signature="e#11985#11994#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.tsv">
+      <provider editor-type-id="LargeFileEditor">
+        <state relative-caret-position="3417">
+          <caret line="8357" selection-start-line="8357" selection-end-line="8357" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="33" selection-start-column="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/pizza.owl.rdf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.nt">
+      <provider editor-type-id="LargeFileEditor">
+        <state relative-caret-position="17">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3032" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/TurtleToModelTransformator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/dbpedia_2016-10.nt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27823">
+          <caret line="662" column="112" selection-start-line="662" selection-start-column="109" selection-end-line="662" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/eval/example-test-shape.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="17" />
+          <folding>
+            <element signature="e#1630#1982#0" expanded="true" />
+            <element signature="e#1981#1982#0" expanded="true" />
+            <element signature="method#help_about#0;class#Controller#0" />
+            <element signature="method#EntitiyKey#0;class#Controller#0" />
+            <element signature="method#evalShacl#0;class#Controller#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="method#buildNodeShape#0;class#ShaclbuilderImplementation#0" />
+            <element signature="method#build#1;class#ShaclbuilderImplementation#0" />
+            <element signature="method#buildExample#0;class#ShaclbuilderImplementation#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ModelToN3Transformator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Programme/Java904/lib/src.zip!/java.base/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="138" column="36" selection-start-line="138" selection-start-column="36" selection-end-line="138" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/jena/jena-arq/3.7.0/jena-arq-3.7.0.jar!/org/apache/jena/riot/Lang.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1037">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file.ttl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file.nt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2830" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Triple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="113" selection-start-line="113" selection-end-line="113" />
+          <folding>
+            <element signature="method#equals#0;class#Triple#0" />
+            <element signature="method#toString#0;class#Triple#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.n3">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="83" column="28" lean-forward="true" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ModelbuilderImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14">
+          <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/N3ToModelTransformator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Properties/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
         </state>
       </provider>
     </entry>

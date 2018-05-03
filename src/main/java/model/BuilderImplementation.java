@@ -35,11 +35,11 @@ public abstract class BuilderImplementation {
             Map.Entry pair = (Map.Entry)it.next();
             if(s.contains(pair.getValue().toString()) && !pair.getValue().equals("")){
                 if(pair.getKey().equals("")){
-                    trimToName(s);
+                    //return trimToName(s);
                 }
                 return (pair.getKey().toString() + ":" + trimToName(s));
             } else {
-                return trimToName(s);
+                //return trimToName(s);
             }
         }
         return "";

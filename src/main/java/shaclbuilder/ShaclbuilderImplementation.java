@@ -1,5 +1,6 @@
 package shaclbuilder;
 
+import controller.Configuration;
 import controller.Controller;
 import model.BuilderImplementation;
 import modelbuilder.ClassFinder;
@@ -22,19 +23,19 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
         //buildExample();
 
         Model shapesmodel = JenaUtil.createDefaultModel();
-        shapesmodel.read("./src/main/resources/eval/example-test-shape.ttl");
+        shapesmodel.read(Configuration.getShaclpath());
         //shapesmodel.read("./src/main/resources/data/hotelratings.shapes.ttl");
 
         Model datamodel = JenaUtil.createDefaultModel();
         //datamodel.read("./src/main/resources/eval/sparql-test-data.ttl");
-        datamodel.read("./src/main/resources/data/world-0.1.ttl");
+        datamodel.read(Configuration.getPath());
 
         Resource report = ValidationUtil.validateModel(datamodel, shapesmodel, false);
         //Resource report = ValidationUtil.validateModel(shapesmodel, shapesmodel, true);
 
         System.out.println(ModelPrinter.get().print(report.getModel()));
 
-        Controller.getInstance().tA_main.setText(ModelPrinter.get().print(report.getModel()));
+        Controller.getInstance().tA_main.appendText(ModelPrinter.get().print(report.getModel()));
 
     }
 

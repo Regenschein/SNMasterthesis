@@ -16,6 +16,9 @@ public class Configuration {
     private static String path = "";
     private static String tsvpath = "";
     private static String n3path = "";
+    private static String ntpath = "";
+    private static String shaclpath = "";
+    private static String ttlpath = "";
 
     private Configuration(){
         parseProperties();
@@ -50,6 +53,9 @@ public class Configuration {
             path = properties.getProperty("path");
             tsvpath = properties.getProperty("tsvpath");
             n3path = properties.getProperty("n3path");
+            ntpath = properties.getProperty("n3path");
+            shaclpath = properties.getProperty("shaclpath");
+            ttlpath = properties.getProperty("ttlpath");
             locale = new Locale(language, country);
             bundle = ResourceBundle.getBundle("Properties/properties", locale);
         } catch(IOException ignored){
@@ -96,6 +102,38 @@ public class Configuration {
 
     public static void setPath(String path) {
         Configuration.path = path;
+    }
+
+    public static void setTsvpath(String tsvpath) {
+        Configuration.tsvpath = tsvpath;
+    }
+
+    public static void setN3path(String n3path) {
+        Configuration.n3path = n3path;
+    }
+
+    public static String getShaclpath() {
+        return shaclpath;
+    }
+
+    public static void setShaclpath(String shaclpath) {
+        Configuration.shaclpath = shaclpath;
+    }
+
+    public static String getTtlpath() {
+        return ttlpath;
+    }
+
+    public static void setTtlpath(String ttlpath) {
+        Configuration.ttlpath = ttlpath;
+    }
+
+    public static String getNtpath() {
+        return ntpath;
+    }
+
+    public static void setNtpath(String ntpath) {
+        Configuration.ntpath = ntpath;
     }
 }
 

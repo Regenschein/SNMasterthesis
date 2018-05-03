@@ -21,7 +21,7 @@ public class ModelbuilderImplementation implements Modelbuilder{
         Model m = ModelFactory.createDefaultModel();
         FileManager.get().readModel( m, Configuration.getInstance().getPath());
         showModelSize( m );
-        listTriple( m );
+        //listTriple( m );
     }
 
     protected void showModelSize( Model m ) {

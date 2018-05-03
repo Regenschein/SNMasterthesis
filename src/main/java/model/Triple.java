@@ -8,10 +8,18 @@ public class Triple {
     private String predicate;
     private String object;
 
+    private String subjectShort;
+    private String predicateShort;
+    private String objectShort;
+
     public Triple(String subject, String predicate, String object) {
         this.subject = subject;
         this.predicate = predicate;
         this.object = object;
+
+        this.subjectShort = subject;
+        this.predicateShort = predicate;
+        this.objectShort = object;
     }
 
 
@@ -57,6 +65,10 @@ public class Triple {
         return(subject + "\t" + predicate + "\t" + object + "\n");
     }
 
+    public String toSSV() {
+        return(subject + " " + predicate + " " + object + "\n");
+    }
+
     public String toN3() {
         Model model = Model.getInstance();
         if (stringIsURI(subject) == false){
@@ -74,10 +86,7 @@ public class Triple {
             prefixPred = model.getPrefix(prefixPred);
             predicate = (prefixPred + predicate.split(":")[1] + ">");
         } else {
-            //String prefixPred = "<https:test.uri/";
             String prefixPred = "";
-            //predicate = (prefixPred + predicate + ">");
-            //predicate = (prefixPred + predicate + ">");
         }
         if (!object.startsWith("\"")){
             String prefixObj = object.split(":")[0]; //TODO: URIs werden hierdurch zerstoert

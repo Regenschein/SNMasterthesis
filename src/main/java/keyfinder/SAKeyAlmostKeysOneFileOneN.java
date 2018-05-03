@@ -3,19 +3,10 @@
  */
 package keyfinder;
 
-import sakey.compTreeSet;
-import sakey.keyFinder;
-import sakey.newDiscoverNonKeys5AlmostNew;
+import sakey.*;
 import sakey.tripleFileParser;
-import sakey.tripleFileParserCWA;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.io.Reader;
-import java.io.Writer;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -60,8 +51,8 @@ public class SAKeyAlmostKeysOneFileOneN {
             HashMap<Integer, HashMap<Integer, compTreeSet>> proObjSubMap = null;
             line = br.readLine();
             if (line != null) {
-                //proObjSubMap = line.contains("<") ? tripleFileParser.proObjSubMapOneClass(dataInputFileName1, "http://chefmoz.org/rdf/elements/1.0/restaurant.owl#Restaurant") : tripleFileParser.proObjSubMapOneClassSpace(dataInputFileName1, "http://chefmoz.org/rdf/elements/1.0/restaurant.owl#Restaurant");
-                proObjSubMap = line.contains("<") ? tripleFileParser.proObjSubMapOneClass(dataInputFileName1) : tripleFileParser.proObjSubMapOneClassSpace(dataInputFileName1);
+                //proObjSubMap = line.contains("<") ? tripleFileParser.proObjSubMapOneClass(dataInputFileName1) : tripleFileParser.proObjSubMapOneClassSpace(dataInputFileName1);
+                proObjSubMap = line.contains("<") ? proObjSubMapOneClass(dataInputFileName1) : tripleFileParser.proObjSubMapOneClassSpace(dataInputFileName1);
             }
             ArrayList<TreeSet<compTreeSet>> proSubList = new ArrayList<TreeSet<compTreeSet>>(tripleFileParser.proSubListCreationFinalNewPrun(proObjSubMap));
             TreeSet<compTreeSet> singleNonKeys = tripleFileParser.nonKeySetList(proObjSubMap);
@@ -255,6 +246,170 @@ public class SAKeyAlmostKeysOneFileOneN {
             realNonKeySet.add(p);
         }
         return realNonKeySet;
+    }
+
+
+
+    public HashMap<String, HashSet<Triplle>> triplesFromFile(String dataFile, String currentClass) throws IOException {
+        int counter = 0;
+        HashMap<String, HashSet<Triplle>> tripleMap = new HashMap<String, HashSet<Triplle>>();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(dataFile));
+            String line = null;
+            HashSet<Triplle> tripleSet = new HashSet<Triplle>();
+            while ((line = br.readLine()) != null) {
+                Integer subjectInt;
+                Integer predicateInt;
+                Integer objectInt;
+                String subject = null;
+                String predicate = null;
+                String object = null;
+                String[] tripleTable = line.split("\t");
+                subject = tripleTable[0].toLowerCase();
+                predicate = tripleTable[1].toLowerCase();
+                object = tripleTable[2].toLowerCase();
+                if (tripleFileParser.StringToIntWord.containsKey(subject)) {
+                    subjectInt = tripleFileParser.StringToIntWord.get(subject);
+                } else {
+                    subjectInt = counter;
+                    ++counter;
+                    tripleFileParser.StringToIntWord.put(subject, subjectInt);
+                    tripleFileParser.intToStringWord.put(subjectInt, subject);
+                }
+                if (tripleFileParser.StringToIntWord.containsKey(predicate)) {
+                    predicateInt = tripleFileParser.StringToIntWord.get(predicate);
+                } else {
+                    predicateInt = counter;
+                    ++counter;
+                    tripleFileParser.StringToIntWord.put(predicate, predicateInt);
+                    tripleFileParser.intToStringWord.put(predicateInt, predicate);
+                }
+                if (tripleFileParser.StringToIntWord.containsKey(object)) {
+                    objectInt = tripleFileParser.StringToIntWord.get(object);
+                } else {
+                    objectInt = counter;
+                    ++counter;
+                    tripleFileParser.StringToIntWord.put(object, objectInt);
+                    tripleFileParser.intToStringWord.put(objectInt, object);
+                }
+                Triplle triplle = new Triplle(subjectInt, predicateInt, objectInt);
+                tripleSet.add(triplle);
+            }
+            tripleMap.put(currentClass, tripleSet);
+            br.close();
+        }
+        catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return tripleMap;
+    }
+
+    public static HashMap<Integer, HashMap<Integer, compTreeSet>> proObjSubMapOneClass(String dataFile) throws IOException {
+        int counter = 0;
+        int counterSubject = 0;
+        HashSet<String> instancesss = new HashSet();
+        HashMap proObjSubMap = new HashMap();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(dataFile));
+            String line = null;
+
+            while((line = br.readLine()) != null) {
+                if (!line.contains("tax-ns#type") && !line.contains("/ontology/type>")) {
+                    line = line.toLowerCase();
+                    String subject = null;
+                    String predicate = null;
+                    String object = null;
+                    String[] instanceTable = line.split("\t");
+                    subject = instanceTable[0].split("<")[1];
+                    instancesss.add(subject);
+                    if (!line.contains(">\t\"")) {
+
+                        if (line.contains(">\ta\t<")){
+                            predicate = "a";
+                            object = line.split("a\t<|>")[1];
+                        } else {
+                            predicate = instanceTable[1];
+                            try {
+                                object = instanceTable[2].split(">")[0];
+                            } catch (ArrayIndexOutOfBoundsException aioobe){
+                                System.out.println("this is a break point");
+                                predicate = instanceTable[1].split("\t")[0];
+                                object= instanceTable[1].split("\t")[1];
+                            }
+                        }
+                        if (DaVi.sameAsLink.containsKey(object)) {
+                            object = (String)DaVi.sameAsLink.get(object);
+                        }
+                    } else {
+                        instanceTable = line.split(">\t\"");
+                        predicate = instanceTable[0].split(">\t<")[1];
+                        object = instanceTable[1].split("\"")[0];
+                    }
+
+                    HashSet<String> instancesSet = new HashSet();
+                    if (tripleFileParser.propertyInstances.containsKey(predicate)) {
+                        instancesSet = (HashSet)tripleFileParser.propertyInstances.get(predicate);
+                    }
+
+                    instancesSet.add(subject);
+                    tripleFileParser.propertyInstances.put(predicate, instancesSet);
+                    Integer subjectInt;
+                    if (tripleFileParser.StringToIntWord.containsKey(subject)) {
+                        subjectInt = (Integer)tripleFileParser.StringToIntWord.get(subject);
+                        if (!tripleFileParser.setOfInstances.contains(subjectInt)) {
+                            tripleFileParser.setOfInstances.add(subjectInt);
+                        }
+                    } else {
+                        subjectInt = counter;
+                        ++counter;
+                        ++counterSubject;
+                        tripleFileParser.StringToIntWord.put(subject, subjectInt);
+                        tripleFileParser.intToStringWord.put(subjectInt, subject);
+                        tripleFileParser.setOfInstances.add(subjectInt);
+                    }
+
+                    Integer predicateInt;
+                    if (tripleFileParser.StringToIntWord.containsKey(predicate)) {
+                        predicateInt = (Integer)tripleFileParser.StringToIntWord.get(predicate);
+                    } else {
+                        predicateInt = counter;
+                        ++counter;
+                        tripleFileParser.StringToIntWord.put(predicate, predicateInt);
+                        tripleFileParser.intToStringWord.put(predicateInt, predicate);
+                    }
+
+                    Integer objectInt;
+                    if (tripleFileParser.StringToIntWord.containsKey(object)) {
+                        objectInt = (Integer)tripleFileParser.StringToIntWord.get(object);
+                    } else {
+                        objectInt = counter;
+                        ++counter;
+                        tripleFileParser.StringToIntWord.put(object, objectInt);
+                        tripleFileParser.intToStringWord.put(objectInt, object);
+                    }
+
+                    HashMap<Integer, compTreeSet> objSubMap = new HashMap();
+                    compTreeSet subSet = new compTreeSet();
+                    if (proObjSubMap.containsKey(predicateInt)) {
+                        objSubMap = (HashMap)proObjSubMap.get(predicateInt);
+                        if (objSubMap.containsKey(objectInt)) {
+                            subSet = (compTreeSet)objSubMap.get(objectInt);
+                        }
+                    }
+
+                    subSet.add(subjectInt);
+                    objSubMap.put(objectInt, subSet);
+                    proObjSubMap.put(predicateInt, objSubMap);
+                }
+            }
+
+            br.close();
+        } catch (FileNotFoundException var17) {
+            var17.printStackTrace();
+        }
+
+        return proObjSubMap;
     }
 }
 

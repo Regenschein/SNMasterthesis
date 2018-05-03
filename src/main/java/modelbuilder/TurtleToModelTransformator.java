@@ -15,38 +15,12 @@ import java.util.regex.Pattern;
 
 public class TurtleToModelTransformator implements Transformer{
 
-    private Set<Triple> tripleSet = new HashSet<Triple>();
-
     @Override
     public void transform(String file) {
         try {
             parseFile();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    private void buildClassObject(String triples){
-        StringBuilder subjectB = new StringBuilder();
-        String subject = "";
-        boolean curInLiteral = false;
-        for (char c : triples.toCharArray()){
-            if (c == '\"' && curInLiteral == false){
-                curInLiteral = true;
-            } else if(c == '\"' && curInLiteral == true){
-                curInLiteral = true;
-            }
-            if (subject.equals("") && (curInLiteral == true || c != ' ')){
-                subjectB.append(c);
-            } else if(subject.equals("")){
-                subject = subjectB.toString();
-                System.out.println(subject);
-            } else if (!subject.equals("")){
-
-                //TODO: Continue here.
-
-
-            }
         }
     }
 
@@ -95,7 +69,6 @@ public class TurtleToModelTransformator implements Transformer{
                         object = object.deleteCharAt(object.length() -1);
                     }
                     if (!object.toString().equals(".")){
-                        //tripleSet.add(new Triple(subject, predicate, object.toString()));
                         model.fill(new Triple(subject, predicate, object.toString()));
                         object = new StringBuilder();
                         if(lastObject == true){
@@ -121,7 +94,6 @@ public class TurtleToModelTransformator implements Transformer{
                     sb.append(line);
                     if(!line.equals("")){
                         if (line.charAt(line.length() - 1) == '.'){
-                            //buildClassObject(sb.toString());
                             parseSubject(sb.toString());
                             sb = new StringBuilder();
                         }
