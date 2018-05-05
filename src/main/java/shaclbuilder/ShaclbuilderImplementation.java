@@ -19,23 +19,22 @@ import java.util.*;
 public class ShaclbuilderImplementation extends BuilderImplementation implements Shaclbuilder {
 
     public void build(){
-
-        //buildExample();
-
         Model shapesmodel = JenaUtil.createDefaultModel();
-        shapesmodel.read(Configuration.getShaclpath());
-        //shapesmodel.read("./src/main/resources/data/hotelratings.shapes.ttl");
+        shapesmodel.read(Configuration.getInstance().getShaclpath());
 
         Model datamodel = JenaUtil.createDefaultModel();
-        //datamodel.read("./src/main/resources/eval/sparql-test-data.ttl");
-        datamodel.read(Configuration.getPath());
+        datamodel.read(Configuration.getInstance().getPath());
 
         Resource report = ValidationUtil.validateModel(datamodel, shapesmodel, false);
-        //Resource report = ValidationUtil.validateModel(shapesmodel, shapesmodel, true);
 
         System.out.println(ModelPrinter.get().print(report.getModel()));
 
         Controller.getInstance().tA_main.appendText(ModelPrinter.get().print(report.getModel()));
+
+    }
+
+    @Override
+    public void buildNonKeys(HashMap<String, String> prefixes, Map<String, RdfClass> classes) {
 
     }
 
@@ -59,25 +58,22 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
     }
 
     @Override
-    public void buildNonKeys(HashMap<String, String> prefixes, Map<String, RdfClass> classes){
-        Iterator it = prefixes.entrySet().iterator();
+    public void buildNonKeys(Model model, Map<String, RdfClass> classes){
         StringBuilder sb = new StringBuilder();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
+        for (Map.Entry<String, String> pair : model.getNsPrefixMap().entrySet()) {
             System.out.println(pair.getKey() + " = " + pair.getValue());
-            sb.append("@prefix " + pair.getKey() + ": " + pair.getValue() + "> .\n");
-            //it.remove(); // avoids a ConcurrentModificationException
+            sb.append("@prefix " + pair.getKey() + ": <" + pair.getValue() + "> .\n");
         }
         sb.append("@prefix ex: <https://example.org/> .\n");
         sb.append("@prefix sh: <http://www.w3.org/ns/shacl#> .\n");
         sb.append("\n");
         System.out.println(sb.toString());
 
-        it = classes.entrySet().iterator();
+        Iterator it = classes.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry par = (Map.Entry)it.next();
 
-            String targetClass = replace(prefixes, par.getKey().toString());
+            String targetClass = par.getKey().toString();
 
             sb.append("ex:MaxNonKeyFor" + targetClass + "\n");
             sb.append("\t a sh:NodeShape ;" + "\n");
@@ -96,7 +92,7 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
                     for (String att : set){
                         if(!att.equals("a")) {
                             sb.append("\t\t\t\t [" + "\n");
-                            sb.append("\t\t\t\t\t sh:path " + replace(prefixes, att) + " ;" + "\n");
+                            sb.append("\t\t\t\t\t sh:path " + att + " ;" + "\n");
                             sb.append("\t\t\t\t\t sh:minCount 1 ;" + "\n");
                             sb.append("\t\t\t\t ] \n");
                         }
@@ -110,7 +106,7 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
                     for (String att : set){
                         if(!att.equals("a")) {
                             sb.append("\t sh:property [" + "\n");
-                            sb.append("\t\t sh:path " + replace(prefixes, att) + " ;" + "\n");
+                            sb.append("\t\t sh:path " + att + " ;" + "\n");
                             sb.append("\t\t sh:minCount 1 ;" + "\n");
                             sb.append("\t ] ;" + "\n");
                         }

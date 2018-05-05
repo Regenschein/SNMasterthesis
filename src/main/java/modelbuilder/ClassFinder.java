@@ -1,7 +1,9 @@
 package modelbuilder;
 
-import model.Model;
-import model.Triple;
+import org.apache.jena.rdf.model.Literal;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Statement;
+import org.apache.jena.rdf.model.StmtIterator;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -15,41 +17,50 @@ public class ClassFinder {
     public ClassFinder() {
     }
 
-    public void build() {
-        Model model = Model.getInstance();
-        try {
-            for (Triple triple : model.getTriples()) {
-                if (triple.getPredicate().equals("a")){
-                    if(!classes.containsKey(triple.getObject()))
-                        classes.put(triple.getObject(), new RdfClass(triple.getObject()));
-                    RdfClass rdfTempClass = classes.get(triple.getObject());
-                    rdfTempClass.addInstance(triple.getSubject());
-                    classes.put(triple.getObject(), rdfTempClass);
+    public void build(Model model) {
+        StmtIterator i = model.listStatements();
+        while (i.hasNext()) {
+            Statement fact = i.next();
+            if(fact.getPredicate().getURI().contains("rdf-syntax-ns#type")){
+                if (!classes.containsKey(Util.transformObject(model,fact))){
+                    classes.put(Util.transformObject(model,fact), new RdfClass(Util.transformObject(model,fact)));
                 }
+                RdfClass rdfTempClass = classes.get(Util.transformObject(model,fact));
+                rdfTempClass.addInstance(Util.transformSubject(model,fact));
+                classes.put(Util.transformObject(model,fact), rdfTempClass);
             }
-            for (Triple triple : model.getTriples()) {
-                for (RdfClass r : classes.values()){
-                    if (r.getInstances().contains(triple.getSubject())) {
-                        r.addAttribute(triple.getPredicate());
-                    }
-                }
-            }
-        }catch (Exception e) {
-            e.printStackTrace();
         }
+        i = model.listStatements();
+        while (i.hasNext()) {
+            Statement fact = i.next();
+            for (RdfClass r : classes.values()){
+                if (r.getInstances().contains(Util.transformSubject(model,fact))) {
+                    r.addAttribute(Util.transformPredicate(model,fact));
+                }
+            }
+        }
+        System.out.println("qwest complete");
     }
 
-    public void setAlmostKeys(HashSet<HashSet<String>> almostKeys){
-        HashSet<String> amks = transformSet(almostKeys);
-        Set<Set<String>> prefixedSets = buildPrefixe(amks);
+    public void setAlmostKeys(Model model, HashSet<HashSet<String>> almostKeys){
+/*        HashSet<String> amks = transformSet(almostKeys);
+        Set<Set<String>> prefixedSets = buildPrefixe(model, amks);
         for (RdfClass r : classes.values()){
             for (Set<String> singleSet : prefixedSets) {
                 if(r.getAttributes().containsAll(singleSet)){
                     r.addAlmostKeys(singleSet);
                 }
             }
+        }*/
+
+        HashSet<String> amks = transformSet(almostKeys);
+        for (RdfClass r : classes.values()){
+            for (Set<String> singleSet : almostKeys) {
+                if(r.getAttributes().containsAll(singleSet)){
+                    r.addAlmostKeys(singleSet);
+                }
+            }
         }
-        System.out.println("TADA");
     }
 
     private HashSet<String>  transformSet(HashSet<HashSet<String>> amk){
@@ -66,7 +77,7 @@ public class ClassFinder {
         return retVal;
     }
 
-    public void setNonKeys(Set nonKeySet) {
+/*    public void setNonKeys(Set nonKeySet) {
         Set<Set<String>> prefixedSets = buildPrefixe(nonKeySet);
         for (RdfClass r : classes.values()){
             for (Set<String> singleSet : prefixedSets) {
@@ -76,11 +87,10 @@ public class ClassFinder {
             }
         }
         System.out.println("TADA");
-    }
+    }*/
 
-    private Set<Set<String>> buildPrefixe(Set<String> nonKeySet){
+    private Set<Set<String>> buildPrefixe(Model model, Set<String> nonKeySet){
         Set<Set<String>> retSet = new HashSet<>();
-        Model m = Model.getInstance();
         for(String w : nonKeySet){
             Set<String> singleRetSet = new HashSet<String>();
             for (String s : w.split(", ")){
@@ -89,7 +99,8 @@ public class ClassFinder {
                 } else {
                     String[] splitted = s.split(":");
                     try{
-                        singleRetSet.add(m.getPrefix(splitted[0]) + splitted[1] + ">");
+                        //singleRetSet.add(m.getPrefix(splitted[0]) + splitted[1] + ">");
+                        //singleRetSet.add(model.getNsPrefixURI());
                     } catch(ArrayIndexOutOfBoundsException e){
                         singleRetSet.add(s);
                     }
@@ -105,4 +116,5 @@ public class ClassFinder {
     public Map<String, RdfClass> getClasses() {
         return classes;
     }
+
 }

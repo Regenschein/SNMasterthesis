@@ -14,6 +14,7 @@ import keyfinder.RockerImplementation;
 import model.Model;
 import model.Triple;
 import modelbuilder.*;
+import org.apache.jena.riot.Lang;
 import querybuilder.Querybuilder;
 import querybuilder.QuerybuilderImplementation;
 //import sakey.SAKey;
@@ -43,12 +44,16 @@ public class Controller {
     public TextArea tA_main = new TextArea();
     public CheckBox checkBox_EntitiyKey;
     public TextField tFAlmostKeys;
+    public Button btn_chooseInput;
+    public Button btn_transform;
+    public ComboBox cmbBox_ChooseTarget;
 
     private String chosenFileType = "ttl";
 
     ClassFinder cf = new ClassFinder();
     Shaclbuilder s = new ShaclbuilderImplementation();
     Querybuilder q = new QuerybuilderImplementation();
+    Modelreader mr = new Modelreader();
 
     public Controller(){
         this.controller = this;
@@ -79,7 +84,6 @@ public class Controller {
     public void edit_selectAll(ActionEvent actionEvent) {
         Modelreader m = new Modelreader();
         m.readFile();
-        m.test();
     }
 
     public void edit_unselectAll(ActionEvent actionEvent) {
@@ -95,31 +99,16 @@ public class Controller {
     }
 
     public void loadModel(ActionEvent actionEvent) {
-        Transformer t;
-        if(chosenFileType.equals("ttl")){
-            t = new TurtleToModelTransformator();
-            t.transform("test");
-        } else if(chosenFileType.equals(".nt")){
-            t = new N3ToModelTransformator();
-            t.transform("test");
-        }
-
-        System.out.println("Dest :D");
-        t = new ModelToTabSepTransformator();
-        t.transform(Configuration.getInstance().getTsvpath());
-        t = new ModelToN3Transformator();
-        t.transform(Configuration.getInstance().getN3path());
-
-        cf.build();
-        btn_loadModel.setText("Model is loaded");
-        btn_loadModel.setDisable(true);
+        mr.readFile();
+        cf.build(mr.getModel());
     }
 
     public void generateRdf(ActionEvent actionEvent) {
         System.out.println(bundle.getString("Controller.Edit.SelectAll"));
-        Modelbuilder m = new ModelbuilderImplementation();
-        m.build();
-        System.out.println("T2");
+        System.out.println("Lol. Hier passiert gar nichts mehr.");
+        //Modelbuilder m = new ModelbuilderImplementation();
+        //m.build();
+        //System.out.println("T2");
     }
 
     public void almostKey(ActionEvent actionEvent) {
@@ -137,7 +126,7 @@ public class Controller {
             try {
                 VICKEY.main(args);
                 System.out.println(VICKEY.nonKeySet);
-                cf.setNonKeys(VICKEY.nonKeySet);
+                //cf.setNonKeys(VICKEY.nonKeySet);
                 System.out.println("nks wr found");
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
@@ -154,7 +143,7 @@ public class Controller {
             System.out.println("argssss" + args[1]);
             try {
                 SAKeyAlmostKeysOneFileOneN.main(args);
-                cf.setAlmostKeys(SAKeyAlmostKeysOneFileOneN.almostKeys);
+                cf.setAlmostKeys(mr.getModel(), SAKeyAlmostKeysOneFileOneN.almostKeys);
                 System.out.println("Almost Keys were found");
             } catch (IOException  e) {
                 e.printStackTrace();
@@ -195,8 +184,7 @@ public class Controller {
     }
 
     public void shacl(ActionEvent actionEvent) {
-        Model model = Model.getInstance();
-        s.buildNonKeys(model.getPrefixes(), cf.getClasses());
+        s.buildNonKeys(mr.getModel(), cf.getClasses());
     }
 
     private void setDesign(){
@@ -232,10 +220,14 @@ public class Controller {
         fileChooser.setTitle("Open Resource File");
         fileChooser.setInitialDirectory(new File("./src/main/resources/data/"));
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Turtle Files", "*.ttl"),
-                new FileChooser.ExtensionFilter("Tabular Seperated Values", "*.tsv"),
+                new FileChooser.ExtensionFilter("Rdf-Formats", "*.ttl", "*.tsv", "*.rdf", "*.nt", "*.n3"),
+                new FileChooser.ExtensionFilter("Rdf/XML", "*.rdf"),
                 new FileChooser.ExtensionFilter("N-Triples", "*.nt*"),
-                new FileChooser.ExtensionFilter("Rdf", "*.ttl", "*.tsv", "*.rdf"));
+                new FileChooser.ExtensionFilter("Notation-3", "*.n3*"),
+                new FileChooser.ExtensionFilter("Tabular Seperated Values", "*.tsv"),
+                new FileChooser.ExtensionFilter("Turtle Files", "*.ttl")
+        );
+
 
 
         File selectedFile = fileChooser.showOpenDialog(Main.getGprimaryStage());
@@ -245,9 +237,15 @@ public class Controller {
             switch (selectedFile.getPath().substring(selectedFile.getPath().length() -3)){
                 case "ttl" :
                     Configuration.getInstance().setPath(selectedFile.getPath());
+                    //Configuration.getInstance().setTtlpath(selectedFile.getPath());
+                    break;
+                case ".n3" :
+                    Configuration.getInstance().setPath(selectedFile.getPath());
+                    //Configuration.getInstance().setTtlpath(selectedFile.getPath());
                     break;
                 case "tsv" :
-                    Configuration.getInstance().setTsvpath(selectedFile.getPath());
+                    Configuration.getInstance().setPath(selectedFile.getPath());
+                    //Configuration.getInstance().setTsvpath(selectedFile.getPath());
                     break;
                 case ".nt" :
                     //Configuration.getInstance().setN3path(selectedFile.getPath());
@@ -261,5 +259,30 @@ public class Controller {
             }
 
         }
+    }
+
+    public void transformModel(ActionEvent actionEvent) {
+        Object o = cmbBox_ChooseTarget.getValue();
+        System.out.println("test");
+        switch (cmbBox_ChooseTarget.getValue().toString()){
+            case "TSV":
+                mr.writeFile(Lang.TSV);
+                break;
+            case "TTL":
+                mr.writeFile(Lang.TTL);
+                break;
+            case "N3":
+                mr.writeFile(Lang.N3);
+                break;
+            case "NT":
+                mr.writeFile(Lang.NT);
+                break;
+            default :
+                System.out.println("No transformator for the given Language.");
+        }
+    }
+
+    public void chooseTransformTarget(ActionEvent actionEvent) {
+
     }
 }

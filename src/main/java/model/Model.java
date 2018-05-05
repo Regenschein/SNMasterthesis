@@ -19,6 +19,7 @@ public class Model {
     private Set<Triple> triples = new HashSet<Triple>();
     private HashSet<RdfClass> classes = new HashSet<RdfClass>();
 
+
     public HashMap<String, String> getPrefixes() {
         return prefixes;
     }
