@@ -10,6 +10,14 @@ class Util {
         return model.getNsURIPrefix(fact.getSubject().getNameSpace()) + ":" + fact.getSubject().getLocalName();
     }
 
+    static String transformPredicate(Model model, Statement fact, String classname){
+        if(fact.getPredicate().getURI().contains("rdf-syntax-ns#type")){
+            return "a";
+        } else {
+            return classname + "%§%" + model.getNsURIPrefix(fact.getPredicate().getNameSpace()) + ":" + fact.getPredicate().getLocalName();
+        }
+    }
+
     static String transformPredicate(Model model, Statement fact){
         if(fact.getPredicate().getURI().contains("rdf-syntax-ns#type")){
             return "a";
@@ -17,7 +25,6 @@ class Util {
             return model.getNsURIPrefix(fact.getPredicate().getNameSpace()) + ":" + fact.getPredicate().getLocalName();
         }
     }
-
 
     static String transformObject(Model model, Statement fact){
         String obje = null;

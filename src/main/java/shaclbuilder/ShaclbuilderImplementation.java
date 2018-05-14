@@ -92,7 +92,7 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
                     for (String att : set){
                         if(!att.equals("a")) {
                             sb.append("\t\t\t\t [" + "\n");
-                            sb.append("\t\t\t\t\t sh:path " + att + " ;" + "\n");
+                            sb.append("\t\t\t\t\t sh:path " + trimAttr(att) + " ;" + "\n");
                             sb.append("\t\t\t\t\t sh:minCount 1 ;" + "\n");
                             sb.append("\t\t\t\t ] \n");
                         }
@@ -106,7 +106,7 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
                     for (String att : set){
                         if(!att.equals("a")) {
                             sb.append("\t sh:property [" + "\n");
-                            sb.append("\t\t sh:path " + att + " ;" + "\n");
+                            sb.append("\t\t sh:path " + trimAttr(att) + " ;" + "\n");
                             sb.append("\t\t sh:minCount 1 ;" + "\n");
                             sb.append("\t ] ;" + "\n");
                         }
@@ -121,7 +121,7 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
 
         BufferedWriter writer = null;
         try {
-            writer = new BufferedWriter(new FileWriter("./src/main/resources/eval/example-test-shape.ttl"));
+            writer = new BufferedWriter(new FileWriter(Configuration.getInstance().getShaclpath()));
             writer.write(sb.toString());
             writer.close();
         } catch (IOException e) {
@@ -132,11 +132,18 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
 
     }
 
+    private String trimAttr(String att){
+        if (att.equals("a")){
+            return att;
+        } else {
+            return att.split("%§%")[1];
+        }
+    }
+
     @Override
     public void build(HashMap<String, String> prefixes, Set<String> amk, String name, int almostKey) {
 
     }
-
 
     private void buildExample(){
         Set<String> prefixes = new HashSet<String>();

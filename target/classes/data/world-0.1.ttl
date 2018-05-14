@@ -56,6 +56,18 @@ world:Adrian
     schema:faction world:associationOfGears ;
     schema:worksFor world:Sebastian .
 
+world:Johannes
+    a schema:Person ;
+    schema:gender schema:male ;
+    schema:givenName "Johannes" ;
+    schema:familyName "twig"@en, "Rute"@de ;
+    schema:birthDate "1096-01-13" ;
+    schema:address world:Twighome ;
+    schema:profession world:keymaker ;
+    schema:religion world:SonsOfBrobo ;
+    schema:faction world:associationOfGears ;
+    schema:worksFor world:Sebastian .
+
 world:Astrid
     a schema:Person ;
     schema:gender schema:female;
@@ -119,6 +131,14 @@ world:Kingshome
     schema:addressCity world:ImperialCity ;
     schema:streetAddress "Walk of Glory"@en,
     			  "Marsch des Ruhmes"@de .
+
+world:Twighome
+    a schema:Place ;
+    schema:addressCountry world:TheOldEmpire ;
+    schema:addressRegion world:TheOldEmpireRegion ;
+    schema:addressCity world:ImperialCity ;
+    schema:streetAddress "7, the gardens "@en,
+    			  "In den Gärten 7"@de .
 
 world:Arsenal
     a schema:Place ;
@@ -262,3 +282,15 @@ world:MountainView
     schema:fauna "Bear" ;
     schema:fauna "Moose" ;
     schema:fauna "Golden Eagle" .
+
+world:SonsOfBrobo
+    a schema:Religion ;
+    schema:name "SonstOfBrobo"@en, "Söhne des Brobo"@de ;
+    schema:proponents "900"^^xsd:int ;
+    schema:hasGod "Brobo"^^xsd:String .
+
+world:churchOfAvus
+    a schema:Religion ;
+    schema:name "churchOfAvus"@en, "Kirche des Avus"@de ;
+    schema:proponents "70000"^^xsd:int ;
+    schema:hasGod "Brobo"^^xsd:String .

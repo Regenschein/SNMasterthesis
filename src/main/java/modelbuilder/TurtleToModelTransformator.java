@@ -12,7 +12,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+@Deprecated
 public class TurtleToModelTransformator implements Transformer{
 
     @Override

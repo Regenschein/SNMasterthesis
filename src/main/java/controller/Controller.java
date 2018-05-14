@@ -3,13 +3,19 @@ package controller;
 import com.github.jsonldjava.core.JSONLDProcessingError;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-import javafx.stage.FileChooser;
-import javafx.stage.Window;
+import javafx.stage.*;
 import keyfinder.RockerImplementation;
 import model.Model;
 import model.Triple;
@@ -47,10 +53,11 @@ public class Controller {
     public Button btn_chooseInput;
     public Button btn_transform;
     public ComboBox cmbBox_ChooseTarget;
+    public ComboBox cmbBox_chooseClass;
 
     private String chosenFileType = "ttl";
 
-    ClassFinder cf = new ClassFinder();
+    ClassFinder cf = ClassFinder.getInstance();
     Shaclbuilder s = new ShaclbuilderImplementation();
     Querybuilder q = new QuerybuilderImplementation();
     Modelreader mr = new Modelreader();
@@ -127,6 +134,7 @@ public class Controller {
                 VICKEY.main(args);
                 System.out.println(VICKEY.nonKeySet);
                 //cf.setNonKeys(VICKEY.nonKeySet);
+                cf.setConditionalKeys(mr.getModel(), VICKEY.conditionalKeys);
                 System.out.println("nks wr found");
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
@@ -201,7 +209,6 @@ public class Controller {
 
     public void evalShacl(ActionEvent actionEvent) {
 
-        //s.build();
         HashMap<String, String> prefixes = Model.getInstance().getPrefixes();
         int almostKey = Integer.parseInt(tFAlmostKeys.getText());
 
@@ -237,18 +244,17 @@ public class Controller {
             switch (selectedFile.getPath().substring(selectedFile.getPath().length() -3)){
                 case "ttl" :
                     Configuration.getInstance().setPath(selectedFile.getPath());
-                    //Configuration.getInstance().setTtlpath(selectedFile.getPath());
+                    chosenFileType = ".ttl";
                     break;
                 case ".n3" :
                     Configuration.getInstance().setPath(selectedFile.getPath());
-                    //Configuration.getInstance().setTtlpath(selectedFile.getPath());
+                    chosenFileType = ".n3";
                     break;
                 case "tsv" :
                     Configuration.getInstance().setPath(selectedFile.getPath());
-                    //Configuration.getInstance().setTsvpath(selectedFile.getPath());
+                    chosenFileType = ".tsv";
                     break;
                 case ".nt" :
-                    //Configuration.getInstance().setN3path(selectedFile.getPath());
                     Configuration.getInstance().setPath(selectedFile.getPath());
                     chosenFileType = ".nt";
                     break;
@@ -266,7 +272,7 @@ public class Controller {
         System.out.println("test");
         switch (cmbBox_ChooseTarget.getValue().toString()){
             case "TSV":
-                mr.writeFile(Lang.TSV);
+                mr.writeFile(Lang.TSV, cf);
                 break;
             case "TTL":
                 mr.writeFile(Lang.TTL);
@@ -284,5 +290,54 @@ public class Controller {
 
     public void chooseTransformTarget(ActionEvent actionEvent) {
 
+    }
+
+    public void buildOwn(ActionEvent actionEvent) {
+        loadScene("/modelBuilder.fxml", "Build Model");
+    }
+
+    public void addFact(ActionEvent actionEvent) {
+        loadScene("/factBuilder.fxml", "Add a fact");
+    }
+
+    public void addNewClass(ActionEvent actionEvent) {
+        loadScene("/classBuilder.fxml", "Add a new class");
+    }
+
+    public void addNewInstance(ActionEvent actionEvent) {
+        System.out.println(cmbBox_chooseClass.getValue().toString());
+        Stage stage = loadScene("/instanceBuilder.fxml", cmbBox_chooseClass.getValue().toString());
+        InstanceBuilderController.getInstance().loadKey(cmbBox_chooseClass.getValue().toString());
+    }
+
+    public void chooseClass(ActionEvent actionEvent) {
+        System.out.println("ON ACTION");
+    }
+
+
+    private Stage loadScene(String resource, String title){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(resource));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setTitle(title);
+            stage.setScene(new Scene(root1));
+            stage.show();
+            return stage;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void loadClassesForComboBox(MouseEvent mouseEvent) {
+        System.out.println("LOAD DEM CLASSES HERE");
+        if(cmbBox_chooseClass.getItems().isEmpty()) {
+            ObservableList oal = FXCollections.observableArrayList();
+            oal.addAll(cf.getClasses().keySet());
+            cmbBox_chooseClass.setItems(oal);
+        }
     }
 }

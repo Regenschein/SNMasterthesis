@@ -53,7 +53,7 @@ public class Configuration {
             path = properties.getProperty("path");
             tsvpath = properties.getProperty("tsvpath");
             n3path = properties.getProperty("n3path");
-            ntpath = properties.getProperty("n3path");
+            ntpath = properties.getProperty("ntpath");
             shaclpath = properties.getProperty("shaclpath");
             ttlpath = properties.getProperty("ttlpath");
             locale = new Locale(language, country);

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -19,8 +21,6 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
 <VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
   <children>
     <MenuBar VBox.vgrow="NEVER">
@@ -62,7 +62,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <SplitPane dividerPositions="0.2, 0.8" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <SplitPane dividerPositions="0.2, 0.7" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <items>
         <AnchorPane>
           <children>
@@ -74,13 +74,14 @@
                            <VBox.margin>
                               <Insets />
                            </VBox.margin></Button>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox>
                            <children>
-                              <Button fx:id="btn_transform" mnemonicParsing="false" onAction="#transformModel" text="Transform to ..." />
-                              <ComboBox fx:id="cmbBox_ChooseTarget" onAction="#chooseTransformTarget" prefWidth="150.0" promptText="choose Format">
+                              <Button fx:id="btn_transform" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#transformModel" text="Transform to ..." />
+                              <ComboBox fx:id="cmbBox_ChooseTarget" onAction="#chooseTransformTarget" prefWidth="75.0" promptText="choose Format">
                                   <items>
                                       <FXCollections fx:factory="observableArrayList">
                                           <String fx:id="TSV" fx:value="TSV" />
+                                          <String fx:id="TTL" fx:value="TTL" />
                                           <String fx:id="N3" fx:value="N3" />
                                           <String fx:id="NT" fx:value="NT" />
                                       </FXCollections>
@@ -121,7 +122,22 @@
                   <TextArea fx:id="tA_main" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                </children>
             </AnchorPane>
-        <AnchorPane />
+        <AnchorPane>
+               <children>
+                  <VBox spacing="10.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                     <children>
+                        <Button fx:id="btn_BuildOwn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buildOwn" text="Build own model" />
+                        <Button fx:id="btn_AddNewClass" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addNewClass" text="Add new class" />
+                        <HBox>
+                           <children>
+                              <ComboBox fx:id="cmbBox_chooseClass" onAction="#chooseClass" onMouseEntered="#loadClassesForComboBox" prefWidth="150.0" />
+                              <Button fx:id="btn_AddNewInstance" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addNewInstance" text="Add new Instance" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="btn_addFact" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addFact" text="Add new fact" />
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
       </items>
     </SplitPane>
     <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">

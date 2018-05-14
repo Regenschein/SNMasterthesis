@@ -2,7 +2,7 @@ package modelbuilder;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+@Deprecated
 public interface Modelbuilder{
 
     public static final String DATA_DIR = "./src/main/resources/data/";

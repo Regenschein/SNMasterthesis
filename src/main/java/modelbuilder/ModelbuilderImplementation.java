@@ -8,6 +8,9 @@ import org.apache.jena.vocabulary.RDFS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.PreDestroy;
+
+@Deprecated
 public class ModelbuilderImplementation implements Modelbuilder{
 
     @SuppressWarnings( value = "unused" )
