@@ -2,6 +2,7 @@
 @prefix schema: <http://data.masterthesis.com/schema/world/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix xsm: <http://datatypes.masterthesis.com#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 
 world:Carl
     a schema:Person ;

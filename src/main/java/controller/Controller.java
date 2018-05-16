@@ -54,6 +54,8 @@ public class Controller {
     public Button btn_transform;
     public ComboBox cmbBox_ChooseTarget;
     public ComboBox cmbBox_chooseClass;
+    public TextField tF_prefixShort;
+    public TextField tF_prefixLong;
 
     private String chosenFileType = "ttl";
 
@@ -302,6 +304,7 @@ public class Controller {
 
     public void addNewClass(ActionEvent actionEvent) {
         loadScene("/classBuilder.fxml", "Add a new class");
+        ClassBuilderController.getInstance().initialize();
     }
 
     public void addNewInstance(ActionEvent actionEvent) {
@@ -339,5 +342,23 @@ public class Controller {
             oal.addAll(cf.getClasses().keySet());
             cmbBox_chooseClass.setItems(oal);
         }
+    }
+
+    public void addPrefix(ActionEvent actionEvent){
+        if (!tF_prefixShort.getText().equals("") && !tF_prefixLong.getText().equals("")){
+            if(!tF_prefixLong.getText().endsWith("/")){
+                tF_prefixLong.appendText("/");
+            }
+            if(tF_prefixShort.getText().startsWith("@")){
+                tF_prefixShort.setText(tF_prefixShort.getText().replace("@", ""));
+            }
+            mr.getModel().setNsPrefix(tF_prefixShort.getText(),tF_prefixLong.getText());
+            tA_main.appendText("Prefix added: @" + tF_prefixShort.getText() + ": <" + tF_prefixLong.getText() + ">\n");
+            tF_prefixLong.clear();
+            tF_prefixShort.clear();
+        } else {
+            tA_main.appendText("Please set a namespace name and a URI.\n");
+        }
+
     }
 }
