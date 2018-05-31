@@ -6811,7 +6811,7 @@ nuts:IT
       eurostat:hasSubRegion
               nuts:ITG , nuts:ITZ , nuts:ITC , nuts:ITD , nuts:ITF , nuts:ITE ;
       eurostat:level 0 ;
-      eurostat:name "ITALIA" ;
+      eurostat:name "ITALIA" ;cheese:PastourizedMilk
       eurostat:regionCode "IT" .
 
 <http://data.kasabi.com/dataset/cheese/gailtaler-almkase>

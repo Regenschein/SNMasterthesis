@@ -140,6 +140,87 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
         }
     }
 
+    private String trimAttrPlus(String att){
+        if (att.equals("a")){
+            return att;
+        } else {
+            return att.split("%§%")[1].replace(":", "0");
+        }
+    }
+
+    public void buildAlmostKeys(Model model, Map<String, RdfClass> classes) {
+        StringBuilder sb = new StringBuilder();
+
+        Iterator it = classes.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry par = (Map.Entry) it.next();
+
+            String targetClass = par.getKey().toString();
+            RdfClass rdf = (RdfClass) par.getValue();
+
+            int counter = 0;
+            for (Set<String> set : rdf.getAlmostKeys()) {
+
+                sb.append("ex:AlmostKeyCheckFor" + targetClass + counter + "\n");
+                sb.append("\t a sh:NodeShape ;\n");
+                sb.append("\t sh:target [\n");
+                sb.append("\t\t sh:prefixes [\n");
+                for (Map.Entry<String, String> pair : model.getNsPrefixMap().entrySet()) {
+                    sb.append("\t\t\t sh:declare [ sh:prefix " + pair.getKey() + ": ;\n \t\t\t\t\t\t sh:namespace \"" + pair.getValue() + "\"^^xsd:anyURI ;\n \t\t\t\t\t ]; \n");
+                }
+
+                int n = Integer.parseInt(Controller.getInstance().tFAlmostKeys.getText());
+
+                sb.append("\t\t ] ;\n");
+                sb.append("\t\t sh:select \"\"\" \n");
+                sb.append("\t\t\t SELECT $this0 \n");
+                sb.append("\t\t\t WHERE { \n");
+                String rndProperty = "";
+                boolean rndPropertyIsSet = false;
+                for (int i = 0; i <= n; i++) {
+                    sb.append("\t\t\t\t $this" + i + " a " + targetClass + " .\n");
+                    for (String att : set) { //NEIMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+                        if (!att.equals("a")) {
+                            sb.append("\t\t\t\t $this" + i + " " + trimAttr(att) + " ?" + trimAttrPlus(att) + " .\n");
+                            if (rndPropertyIsSet == false) {
+                                rndProperty = trimAttr(att);
+                            }
+                        }
+                    }
+                }
+                sb.append("\t\t\t\t FILTER (");
+                for (int x = 0; x <= n; x++) {
+                    for (int y = 0; y <= n; y++) {
+                        if (x != y)
+                            sb.append(" $this" + x + " != " + "$this" + y + " && ");
+                    }
+                }
+                sb.replace(sb.length() - 3, sb.length(), ") \n");
+                sb.append("\t\t\t } GROUP BY $this0 \n ");
+                sb.append("\t\t\t \"\"\" ;\n");
+                sb.append("\t ];\n");
+                sb.append("\t sh:property [\n");
+                sb.append("\t\t sh:path " + rndProperty + " ;\n");
+                sb.append("\t\t sh:maxCount 0 ; \n");
+                sb.append("\t ] . \n\n");
+
+                counter = counter + 1;
+            }
+
+
+            BufferedWriter writer = null;
+            try {
+                writer = new BufferedWriter(new FileWriter(Configuration.getInstance().getShaclpath(), true));
+                writer.write(sb.toString());
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+
     @Override
     public void build(HashMap<String, String> prefixes, Set<String> amk, String name, int almostKey) {
 

@@ -54,17 +54,6 @@ public class ClassFinder {
     }
 
     public void setAlmostKeys(Model model, HashSet<HashSet<String>> almostKeys){
-/*        HashSet<String> amks = transformSet(almostKeys);
-        Set<Set<String>> prefixedSets = buildPrefixe(model, amks);
-        for (RdfClass r : classes.values()){
-            for (Set<String> singleSet : prefixedSets) {
-                if(r.getAttributes().containsAll(singleSet)){
-                    r.addAlmostKeys(singleSet);
-                }
-            }
-        }*/
-
-        HashSet<String> amks = transformSet(almostKeys);
         for (RdfClass r : classes.values()){
             for (Set<String> singleSet : almostKeys) {
                 if(r.getAttributes().containsAll(singleSet)){
@@ -75,8 +64,36 @@ public class ClassFinder {
     }
 
     public void setConditionalKeys(Model model, HashSet<String> conditionalKeys){
+        for (String singleKey : conditionalKeys){
+            System.out.println(singleKey);
+            String[] splittedCK = singleKey.split("\t");
+            HashSet<String> keyAttributes = new HashSet<String>();
+            for (String singleKeyAttribute : splittedCK[0].split(" ")){
+                keyAttributes.add(singleKeyAttribute);
+            }
+            HashMap<String, String> conditions = new HashMap<String, String>();
+            String[] singleConditions = splittedCK[1].split(" ");
+            for (int i = 0; i < singleConditions.length; i++){
+                if(!singleConditions[i].contains("=")){
+                    singleConditions[i-1] = singleConditions[i-1] + " " + singleConditions[i];
+                }
+            }
+            for (String singleCondition : singleConditions){
+                if(singleCondition.contains("=")){
+                    String[] splittedSingleCondition = singleCondition.split("=");
+                    conditions.put(splittedSingleCondition[0], splittedSingleCondition[1]);
+                }
+            }
+            ConditionalKey conditionalKey = new ConditionalKey(keyAttributes, conditions, Float.parseFloat(splittedCK[2]), Float.parseFloat(splittedCK[3]));
+            System.out.println("bp");
 
-        System.out.println("break");
+            for (RdfClass r : classes.values()){
+                if(r.getAttributes().containsAll(keyAttributes)){
+                    r.addConditionalKey(conditionalKey);
+                }
+            }
+        }
+        System.out.println("joooo, Makrele");
     }
 
     private HashSet<String>  transformSet(HashSet<HashSet<String>> amk){
@@ -84,7 +101,7 @@ public class ClassFinder {
         for (HashSet<String> hash : amk){
             StringBuilder sb = new StringBuilder();
             for (String s : hash){
-                sb.append(s + ", "); //OH, MY GOSH. OLD sb.append(s + ", ");
+                sb.append(s + ", ");
             }
             sb = sb.deleteCharAt(sb.length() -1);
             sb = sb.deleteCharAt(sb.length() -1);
@@ -93,40 +110,6 @@ public class ClassFinder {
         return retVal;
     }
 
-/*    public void setNonKeys(Set nonKeySet) {
-        Set<Set<String>> prefixedSets = buildPrefixe(nonKeySet);
-        for (RdfClass r : classes.values()){
-            for (Set<String> singleSet : prefixedSets) {
-                if(r.getAttributes().containsAll(singleSet)){
-                    r.addNonKeys(singleSet);
-                }
-            }
-        }
-        System.out.println("TADA");
-    }*/
-
-    private Set<Set<String>> buildPrefixe(Model model, Set<String> nonKeySet){
-        Set<Set<String>> retSet = new HashSet<>();
-        for(String w : nonKeySet){
-            Set<String> singleRetSet = new HashSet<String>();
-            for (String s : w.split(", ")){
-                if (s.equals("a")){
-                    singleRetSet.add("a");
-                } else {
-                    String[] splitted = s.split(":");
-                    try{
-                        //singleRetSet.add(m.getPrefix(splitted[0]) + splitted[1] + ">");
-                        //singleRetSet.add(model.getNsPrefixURI());
-                    } catch(ArrayIndexOutOfBoundsException e){
-                        singleRetSet.add(s + "");
-                    }
-
-                }
-            }
-            retSet.add(singleRetSet);
-        }
-        return retSet;
-    }
 
     public String retrieveClass(String instance){
         for (RdfClass r : classes.values()) {

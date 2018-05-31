@@ -116,7 +116,75 @@ public class QuerybuilderImplementation extends BuilderImplementation implements
 
     @Override
     public void build() {
+        OntModel m = getModel();
+        loadData( m );
 
+        StringBuilder prefixSB = new StringBuilder();
+
+        prefixSB.append("prefix world: <http://data.masterthesis.com/dataset/world/>\n");
+        prefixSB.append("prefix schema: <http://data.masterthesis.com/schema/world/>\n");
+        prefixSB.append("prefix : <http://data.masterthesis.com/dataset/world/>\n");
+
+        //for(Map.Entry<String, String> entry : prefixes.entrySet()){
+        for(Map.Entry<String, String> entry : m.getNsPrefixMap().entrySet()){
+            prefixSB.append("prefix " + entry.getKey() + ": <" + entry.getValue() + ">\n");
+        }
+
+        StringBuilder query = new StringBuilder();
+        query.append(
+            //"   SELECT  $this ?schema0addressCountry ?schema0isCapital (count(?schema0addressCountry) as ?count)  \n" +
+            "   SELECT  $this \n" +
+            "   WHERE {  \n" +
+            "       $this a schema:City.  \n" +
+            "       ?this schema:isCapital ?schema0isCapital .  \n" +
+            "       ?this schema:addressCountry ?schema0addressCountry .  \n" +
+            "       ?that schema:addressCountry ?schema0addressCountry .  \n" +
+            "       ?that schema:isCapital ?schema0isCapital .  \n" +
+            "       $that a schema:City.  \n" +
+            "       FILTER (?that != ?this) \n" +
+            "   } GROUP BY $this"
+            //"   } GROUP BY $this ?schema0addressCountry ?schema0isCapital"
+         );
+
+        String qwery = query.toString();
+
+        Controller.getInstance().tA_main.appendText(qwery);
+
+        showQuery(m, prefixSB.toString() + query.toString());
+    }
+
+    public void build2() {
+        OntModel m = getModel();
+        loadData( m );
+
+        StringBuilder prefixSB = new StringBuilder();
+
+        prefixSB.append("prefix world: <http://data.masterthesis.com/dataset/world/>\n");
+        prefixSB.append("prefix schema: <http://data.masterthesis.com/schema/world/>\n");
+        prefixSB.append("prefix : <http://data.masterthesis.com/dataset/world/>\n");
+
+        //for(Map.Entry<String, String> entry : prefixes.entrySet()){
+        for(Map.Entry<String, String> entry : m.getNsPrefixMap().entrySet()){
+            prefixSB.append("prefix " + entry.getKey() + ": <" + entry.getValue() + ">\n");
+        }
+
+        StringBuilder query = new StringBuilder();
+        query.append("SELECT ?class ?target ?percentage \n" +
+                "WHERE { \n" +
+                "   ?class a schema:Person .\n" +
+                "   ?class schema:social_Rank _:bN0 .\n" +
+                "   _:bN0 schema:socialRankValue ?percentage .\n" +
+                "   _:bN0 schema:socialRankTarget ?target .\n" +
+                "FILTER (?percentage > 95) \n" +
+                "} \n" +
+                "ORDER BY ?name \n"
+                );
+
+        String qwery = query.toString();
+
+        Controller.getInstance().tA_main.appendText(qwery);
+
+        showQuery(m, prefixSB.toString() + query.toString());
     }
 
     private String trimVariableName(String var){

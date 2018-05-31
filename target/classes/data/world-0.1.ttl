@@ -10,7 +10,11 @@ world:Carl
     schema:givenName "Carl"@en, "Karl"@de ;
     schema:familyName "Turnip"@en, "Rübe"@de ;
     schema:birthDate "1082-01-12"^^xsm:date ;
-    schema:address world:TurnipsHome .
+    schema:address world:TurnipsHome;
+    schema:social_Rank [
+        schema:socialRankValue 96;
+        schema:socialRankTarget world:Loui
+    ].
 
 world:Loui
     a schema:Person ;

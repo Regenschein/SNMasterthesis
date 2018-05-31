@@ -84,6 +84,7 @@
                                           <String fx:id="TTL" fx:value="TTL" />
                                           <String fx:id="N3" fx:value="N3" />
                                           <String fx:id="NT" fx:value="NT" />
+                                          <String fx:id="XML" fx:value="RDF" />
                                       </FXCollections>
                                   </items>
                               </ComboBox>

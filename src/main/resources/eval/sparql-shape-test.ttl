@@ -1,0 +1,302 @@
+@prefix schema: <http://data.masterthesis.com/schema/world/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix world: <http://data.masterthesis.com/dataset/world/> .
+@prefix xsm: <http://datatypes.masterthesis.com#> .
+@prefix ex: <https://example.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+
+
+ex:MaxNonKeyForschema:Region
+	 a sh:NodeShape ;
+	 sh:targetClass schema:Region ;
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:minCount 1 ;
+	 ].
+
+ex:MaxNonKeyForschema:City
+	 a sh:NodeShape ;
+	 sh:targetClass schema:City ;
+	 sh:or ( 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:isCapital ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:addressCountry ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:population ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:architecturalStyle ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:isCapital ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:addressRegion ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:isCapital ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:addressRegion ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:addressCountry ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:architecturalStyle ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:addressRegion ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:heraldicAnimal ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:architecturalStyle ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:addressCountry ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+	 ) .
+
+ex:
+	sh:declare [
+		sh:prefix "ex" ;
+		sh:namespace <http://example.com/ns#> ;
+	] .
+
+ex:CityShape
+	a sh:NodeShape ;
+	sh:target [
+		a sh:SPARQLTarget ;
+		sh:prefixes ex: ;
+		sh:select """
+            SELECT ?schema0addressCountry ?schema0isCapital ?count
+              WHERE {
+                {
+                   SELECT  ?schema0addressCountry ?schema0isCapital (count(?schema0addressCountry) as ?count)
+                  WHERE {
+                     $this a schema:City.
+                      ?this schema:isCapital ?schema0isCapital .
+                      ?this schema:addressCountry ?schema0addressCountry .
+                    }
+                    GROUP BY  ?schema0addressCountry ?schema0isCapital
+                  }
+                FILTER (?count > 1)  }
+			""" ;
+	] .
+
+ex:MaxNonKeyForschema:Person
+	 a sh:NodeShape ;
+	 sh:targetClass schema:Person ;
+	 sh:or ( 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:worksFor ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:address ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:profession ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:faction ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:address ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:birthDate ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:title ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:givenName ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:religion ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:familyName ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+	 ) .
+ex:MaxNonKeyForschema:Country
+	 a sh:NodeShape ;
+	 sh:targetClass schema:Country ;
+	 sh:or ( 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:name ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:nationalAnthem ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:Population ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:foundingYear ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+	 ) .
+ex:MaxNonKeyForschema:Place
+	 a sh:NodeShape ;
+	 sh:targetClass schema:Place ;
+	 sh:property [
+		 sh:path schema:streetAddress ;
+		 sh:minCount 1 ;
+	 ].
+
+ex:MaxNonKeyForschema:Faction
+	 a sh:NodeShape ;
+	 sh:targetClass schema:Faction ;
+	 sh:or ( 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:name ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:foundingDate ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+	 ) .
+ex:MaxNonKeyForschema:Religion
+	 a sh:NodeShape ;
+	 sh:targetClass schema:Religion ;
+	 sh:or ( 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:proponents ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:name ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+	 ) .

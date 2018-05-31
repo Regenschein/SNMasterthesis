@@ -195,6 +195,7 @@ public class Controller {
 
     public void shacl(ActionEvent actionEvent) {
         s.buildNonKeys(mr.getModel(), cf.getClasses());
+        s.buildAlmostKeys(mr.getModel(), cf.getClasses());
     }
 
     private void setDesign(){
@@ -284,6 +285,9 @@ public class Controller {
                 break;
             case "NT":
                 mr.writeFile(Lang.NT);
+                break;
+            case "RDF":
+                mr.writeFile(Lang.RDFXML);
                 break;
             default :
                 System.out.println("No transformator for the given Language.");

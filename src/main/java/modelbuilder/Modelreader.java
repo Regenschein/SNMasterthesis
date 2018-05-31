@@ -63,6 +63,8 @@ public class Modelreader {
                 s = Configuration.getN3path();
             } else if (lang.equals(Lang.NT)) {
                 s = Configuration.getNtpath();
+            } else if (lang.equals(Lang.RDFXML)) {
+                s = Configuration.getRdfpath();
             }
             fw = new FileWriter(s);
             StringWriter sw = new StringWriter();

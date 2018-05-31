@@ -19,6 +19,7 @@ public class Configuration {
     private static String ntpath = "";
     private static String shaclpath = "";
     private static String ttlpath = "";
+    private static String rdfpath = "";
 
     private Configuration(){
         parseProperties();
@@ -56,6 +57,7 @@ public class Configuration {
             ntpath = properties.getProperty("ntpath");
             shaclpath = properties.getProperty("shaclpath");
             ttlpath = properties.getProperty("ttlpath");
+            rdfpath = properties.getProperty("rdfpath");
             locale = new Locale(language, country);
             bundle = ResourceBundle.getBundle("Properties/properties", locale);
         } catch(IOException ignored){
@@ -135,5 +137,14 @@ public class Configuration {
     public static void setNtpath(String ntpath) {
         Configuration.ntpath = ntpath;
     }
+
+    public static String getRdfpath() {
+        return rdfpath;
+    }
+
+    public static void setRdfpath(String rdfpath) {
+        Configuration.rdfpath = rdfpath;
+    }
+
 }
 

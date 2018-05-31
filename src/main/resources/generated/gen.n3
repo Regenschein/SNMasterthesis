@@ -1,0 +1,456 @@
+<http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> <http://data.masterthesis.com/schema/world/fauna> "Pigeon" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> <http://data.masterthesis.com/schema/world/fauna> "Rat" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> <http://data.masterthesis.com/schema/world/flora> "City" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> <http://data.masterthesis.com/schema/world/name> "TheOldEmpire" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Region> .
+<http://data.masterthesis.com/dataset/world/Avurien> <http://data.masterthesis.com/schema/world/Population> "40000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Avurien> <http://data.masterthesis.com/schema/world/foundingYear> "671"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Avurien> <http://data.masterthesis.com/schema/world/localLanguage> "avurish" .
+<http://data.masterthesis.com/dataset/world/Avurien> <http://data.masterthesis.com/schema/world/name> "Avurien" .
+<http://data.masterthesis.com/dataset/world/Avurien> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Country> .
+<http://data.masterthesis.com/dataset/world/Loui> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/TurnipsHome> .
+<http://data.masterthesis.com/dataset/world/Loui> <http://data.masterthesis.com/schema/world/birthDate> "1072-03-11"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Loui> <http://data.masterthesis.com/schema/world/familyName> "Loui" .
+<http://data.masterthesis.com/dataset/world/Loui> <http://data.masterthesis.com/schema/world/givenName> "Loui" .
+<http://data.masterthesis.com/dataset/world/Loui> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/Loui> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://data.masterthesis.com/schema/world/fauna> "Golden Eagle" .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://data.masterthesis.com/schema/world/fauna> "Moose" .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://data.masterthesis.com/schema/world/fauna> "Bear" .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://data.masterthesis.com/schema/world/flora> "Forest" .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://data.masterthesis.com/schema/world/flora> "Rocks" .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://data.masterthesis.com/schema/world/name> "Mountain View" .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Region> .
+<http://data.masterthesis.com/dataset/world/Targ> <http://data.masterthesis.com/schema/world/architecturalStyle> "gothic" .
+<http://data.masterthesis.com/dataset/world/Targ> <http://data.masterthesis.com/schema/world/heraldicAnimal> "lion" .
+<http://data.masterthesis.com/dataset/world/Targ> <http://data.masterthesis.com/schema/world/population> "15000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Targ> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TimberwoodMountains> .
+<http://data.masterthesis.com/dataset/world/Targ> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Avurien> .
+<http://data.masterthesis.com/dataset/world/Targ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/City> .
+<http://data.masterthesis.com/dataset/world/TheOldEmpire> <http://data.masterthesis.com/schema/world/Population> "300000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/TheOldEmpire> <http://data.masterthesis.com/schema/world/foundingYear> "-1700"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/TheOldEmpire> <http://data.masterthesis.com/schema/world/nationalAnthem> "Through blood and stone" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpire> <http://data.masterthesis.com/schema/world/localLanguage> "gvelish" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpire> <http://data.masterthesis.com/schema/world/name> "The old empire" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpire> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Country> .
+<http://data.masterthesis.com/dataset/world/Sharun> <http://data.masterthesis.com/schema/world/Population> "2900000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Sharun> <http://data.masterthesis.com/schema/world/foundingYear> "-145"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Sharun> <http://data.masterthesis.com/schema/world/nationalAnthem> "Paradise on earth" .
+<http://data.masterthesis.com/dataset/world/Sharun> <http://data.masterthesis.com/schema/world/localLanguage> "sharûn" .
+<http://data.masterthesis.com/dataset/world/Sharun> <http://data.masterthesis.com/schema/world/name> "Sharûn" .
+<http://data.masterthesis.com/dataset/world/Sharun> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Country> .
+<http://data.masterthesis.com/dataset/world/associationOfGears> <http://data.masterthesis.com/schema/world/foundingDate> "932-11-23"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/associationOfGears> <http://data.masterthesis.com/schema/world/name> "Association of Gears" .
+<http://data.masterthesis.com/dataset/world/associationOfGears> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Faction> .
+<http://data.masterthesis.com/dataset/world/monksOfAverno> <http://data.masterthesis.com/schema/world/foundingDate> "17-03-02"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/monksOfAverno> <http://data.masterthesis.com/schema/world/name> "Monks of Averno" .
+<http://data.masterthesis.com/dataset/world/monksOfAverno> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Faction> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/birthDate> "1090-11-28" .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/faction> <http://data.masterthesis.com/dataset/world/associationOfGears> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/GrindstoneHome> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/familyName> "Grindstone"@en .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/givenName> "Adrian" .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/worksFor> <http://data.masterthesis.com/dataset/world/Sebastian> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/religion> <http://data.masterthesis.com/dataset/world/churchOfAvus> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/familyName> "Wetzstein"@de .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/profession> <http://data.masterthesis.com/dataset/world/tinkerer> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/Welf> <http://data.masterthesis.com/schema/world/architecturalStyle> "temper" .
+<http://data.masterthesis.com/dataset/world/Welf> <http://data.masterthesis.com/schema/world/heraldicAnimal> "butterfly" .
+<http://data.masterthesis.com/dataset/world/Welf> <http://data.masterthesis.com/schema/world/population> "13000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Welf> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TimberwoodMountains> .
+<http://data.masterthesis.com/dataset/world/Welf> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Gvelien> .
+<http://data.masterthesis.com/dataset/world/Welf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/City> .
+<http://data.masterthesis.com/dataset/world/Khargh> <http://data.masterthesis.com/schema/world/Population> "20000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Khargh> <http://data.masterthesis.com/schema/world/foundingYear> "-300"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Khargh> <http://data.masterthesis.com/schema/world/nationalAnthem> "How the anvil formed us" .
+<http://data.masterthesis.com/dataset/world/Khargh> <http://data.masterthesis.com/schema/world/localLanguage> "dwarven" .
+<http://data.masterthesis.com/dataset/world/Khargh> <http://data.masterthesis.com/schema/world/name> "Khargh" .
+<http://data.masterthesis.com/dataset/world/Khargh> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Country> .
+<http://data.masterthesis.com/dataset/world/HawksNest> <http://data.masterthesis.com/schema/world/streetAddress> "Platz des Eisenhammers"@de .
+<http://data.masterthesis.com/dataset/world/HawksNest> <http://data.masterthesis.com/schema/world/streetAddress> "Iron Hammer Place"@en .
+<http://data.masterthesis.com/dataset/world/HawksNest> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/Khurag> .
+<http://data.masterthesis.com/dataset/world/HawksNest> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/KhargRegion> .
+<http://data.masterthesis.com/dataset/world/HawksNest> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Kharg> .
+<http://data.masterthesis.com/dataset/world/HawksNest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Place> .
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/TurnipsHome> .
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/birthDate> "1092-02-12"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/familyName> "Turnip" .
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/givenName> "Lisa" .
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/female> .
+<http://data.masterthesis.com/dataset/world/Lisa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/title> "count"@en .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/title> "Graf"@de .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/HawksNest> .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/birthDate> "1087-04-14"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/familyName> "Wanderfalke"@de .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/familyName> "peregrine"@en .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/givenName> "Fintos" .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/Kingshome> <http://data.masterthesis.com/schema/world/streetAddress> "Marsch des Ruhmes"@de .
+<http://data.masterthesis.com/dataset/world/Kingshome> <http://data.masterthesis.com/schema/world/streetAddress> "Walk of Glory"@en .
+<http://data.masterthesis.com/dataset/world/Kingshome> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/ImperialCity> .
+<http://data.masterthesis.com/dataset/world/Kingshome> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> .
+<http://data.masterthesis.com/dataset/world/Kingshome> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/TheOldEmpire> .
+<http://data.masterthesis.com/dataset/world/Kingshome> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Place> .
+<http://data.masterthesis.com/dataset/world/KhargRegion> <http://data.masterthesis.com/schema/world/fauna> "desert mouse" .
+<http://data.masterthesis.com/dataset/world/KhargRegion> <http://data.masterthesis.com/schema/world/flora> "barren rocks" .
+<http://data.masterthesis.com/dataset/world/KhargRegion> <http://data.masterthesis.com/schema/world/name> "Kharg" .
+<http://data.masterthesis.com/dataset/world/KhargRegion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Region> .
+<http://data.masterthesis.com/dataset/world/theHawks> <http://data.masterthesis.com/schema/world/foundingDate> "423-01-26"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/theHawks> <http://data.masterthesis.com/schema/world/name> "Die Falken"@de .
+<http://data.masterthesis.com/dataset/world/theHawks> <http://data.masterthesis.com/schema/world/name> "The Hawks"@en .
+<http://data.masterthesis.com/dataset/world/theHawks> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Faction> .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://data.masterthesis.com/schema/world/architecturalStyle> "dwarven" .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://data.masterthesis.com/schema/world/isCapital> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://data.masterthesis.com/schema/world/heraldicAnimal> "boar" .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://data.masterthesis.com/schema/world/population> "4500"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/KhargRegion> .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Kharg> .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/City> .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/HawksNest> .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/birthDate> "1103-04-23"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/familyName> "Donnerwolke"@de .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/familyName> "Thundercloud"@en .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/givenName> "Fusselfell"@de .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/givenName> "Lintfur"@en .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/TimberwoodMountains> <http://data.masterthesis.com/schema/world/fauna> "Moose" .
+<http://data.masterthesis.com/dataset/world/TimberwoodMountains> <http://data.masterthesis.com/schema/world/fauna> "Bear" .
+<http://data.masterthesis.com/dataset/world/TimberwoodMountains> <http://data.masterthesis.com/schema/world/flora> "Forest" .
+<http://data.masterthesis.com/dataset/world/TimberwoodMountains> <http://data.masterthesis.com/schema/world/name> "Timberwood Mountains" .
+<http://data.masterthesis.com/dataset/world/TimberwoodMountains> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Region> .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://data.masterthesis.com/schema/world/architecturalStyle> "gothic" .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://data.masterthesis.com/schema/world/isCapital> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://data.masterthesis.com/schema/world/heraldicAnimal> "Bull" .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://data.masterthesis.com/schema/world/population> "100000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/TheOldEmpire> .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/City> .
+<http://data.masterthesis.com/dataset/world/RabitsDen> <http://data.masterthesis.com/schema/world/streetAddress> "Straße des Ashnaf"@de .
+<http://data.masterthesis.com/dataset/world/RabitsDen> <http://data.masterthesis.com/schema/world/streetAddress> "Ashnaf's street"@en .
+<http://data.masterthesis.com/dataset/world/RabitsDen> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/Welf> .
+<http://data.masterthesis.com/dataset/world/RabitsDen> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TimberwoodMountains> .
+<http://data.masterthesis.com/dataset/world/RabitsDen> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Gvelien> .
+<http://data.masterthesis.com/dataset/world/RabitsDen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Place> .
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/streetAddress> "Handwerkwerweg 31"@de .
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/streetAddress> "31 Trademann's Valley"@en .
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/Targ> .
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TimberwoodMountains> .
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Avurien> .
+<http://data.masterthesis.com/dataset/world/Lados> <http://data.masterthesis.com/schema/world/architecturalStyle> "maritime" .
+<http://data.masterthesis.com/dataset/world/Lados> <http://data.masterthesis.com/schema/world/isCapital> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<http://data.masterthesis.com/dataset/world/Lados> <http://data.masterthesis.com/schema/world/heraldicAnimal> "swordfish" .
+<http://data.masterthesis.com/dataset/world/Lados> <http://data.masterthesis.com/schema/world/population> "9000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Lados> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/MountainView> .
+<http://data.masterthesis.com/dataset/world/Lados> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Avurien> .
+<http://data.masterthesis.com/dataset/world/Lados> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/City> .
+<http://data.masterthesis.com/dataset/world/Fjördall> <http://data.masterthesis.com/schema/world/Population> "230000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Fjördall> <http://data.masterthesis.com/schema/world/foundingYear> "411"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Fjördall> <http://data.masterthesis.com/schema/world/nationalAnthem> "Fjördall Fjördall" .
+<http://data.masterthesis.com/dataset/world/Fjördall> <http://data.masterthesis.com/schema/world/localLanguage> "fjött" .
+<http://data.masterthesis.com/dataset/world/Fjördall> <http://data.masterthesis.com/schema/world/name> "Fjördall" .
+<http://data.masterthesis.com/dataset/world/Fjördall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Country> .
+<http://data.masterthesis.com/dataset/world/Twighome> <http://data.masterthesis.com/schema/world/streetAddress> "In den Gärten 7"@de .
+<http://data.masterthesis.com/dataset/world/Twighome> <http://data.masterthesis.com/schema/world/streetAddress> "7, the gardens "@en .
+<http://data.masterthesis.com/dataset/world/Twighome> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/ImperialCity> .
+<http://data.masterthesis.com/dataset/world/Twighome> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> .
+<http://data.masterthesis.com/dataset/world/Twighome> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/TheOldEmpire> .
+<http://data.masterthesis.com/dataset/world/Twighome> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Place> .
+<http://data.masterthesis.com/dataset/world/Arla> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/ArlasHome> .
+<http://data.masterthesis.com/dataset/world/Arla> <http://data.masterthesis.com/schema/world/birthDate> "1099-11-23"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Arla> <http://data.masterthesis.com/schema/world/familyName> "Asura" .
+<http://data.masterthesis.com/dataset/world/Arla> <http://data.masterthesis.com/schema/world/givenName> "Arla" .
+<http://data.masterthesis.com/dataset/world/Arla> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/female> .
+<http://data.masterthesis.com/dataset/world/Arla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/Twighome> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/religion> <http://data.masterthesis.com/dataset/world/SonsOfBrobo> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/worksFor> <http://data.masterthesis.com/dataset/world/Sebastian> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/birthDate> "1096-01-13" .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/familyName> "Rute"@de .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/familyName> "twig"@en .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/profession> <http://data.masterthesis.com/dataset/world/keymaker> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/givenName> "Johannes" .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/faction> <http://data.masterthesis.com/dataset/world/associationOfGears> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/churchOfAvus> <http://data.masterthesis.com/schema/world/hasGod> "Brobo"^^<http://www.w3.org/2001/XMLSchema#String> .
+<http://data.masterthesis.com/dataset/world/churchOfAvus> <http://data.masterthesis.com/schema/world/proponents> "70000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/churchOfAvus> <http://data.masterthesis.com/schema/world/name> "Kirche des Avus"@de .
+<http://data.masterthesis.com/dataset/world/churchOfAvus> <http://data.masterthesis.com/schema/world/name> "churchOfAvus"@en .
+<http://data.masterthesis.com/dataset/world/churchOfAvus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Religion> .
+<http://data.masterthesis.com/dataset/world/SonsOfBrobo> <http://data.masterthesis.com/schema/world/hasGod> "Brobo"^^<http://www.w3.org/2001/XMLSchema#String> .
+<http://data.masterthesis.com/dataset/world/SonsOfBrobo> <http://data.masterthesis.com/schema/world/proponents> "900"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/SonsOfBrobo> <http://data.masterthesis.com/schema/world/name> "Söhne des Brobo"@de .
+<http://data.masterthesis.com/dataset/world/SonsOfBrobo> <http://data.masterthesis.com/schema/world/name> "SonstOfBrobo"@en .
+<http://data.masterthesis.com/dataset/world/SonsOfBrobo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Religion> .
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/RabitsDen> .
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/birthDate> "1091-07-07"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/familyName> "von Kharg" .
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/givenName> "Astrid" .
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/female> .
+<http://data.masterthesis.com/dataset/world/Astrid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/Kingshome> .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/birthDate> "1090-04-28"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/familyName> "Sternensänger"@de .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/familyName> "Starsinger"@en .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/givenName> "Sebastian" .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/ArlasHome> <http://data.masterthesis.com/schema/world/streetAddress> "Birkenwaldweg 7"@de .
+<http://data.masterthesis.com/dataset/world/ArlasHome> <http://data.masterthesis.com/schema/world/streetAddress> "7 Birken forch way"@en .
+<http://data.masterthesis.com/dataset/world/ArlasHome> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/Lados> .
+<http://data.masterthesis.com/dataset/world/ArlasHome> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/MountainView> .
+<http://data.masterthesis.com/dataset/world/ArlasHome> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Avurien> .
+<http://data.masterthesis.com/dataset/world/ArlasHome> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Place> .
+<http://data.masterthesis.com/dataset/world/Arsenal> <http://data.masterthesis.com/schema/world/streetAddress> "Straße des Militärs 1"@de .
+<http://data.masterthesis.com/dataset/world/Arsenal> <http://data.masterthesis.com/schema/world/streetAddress> "Milirary way 1"@en .
+<http://data.masterthesis.com/dataset/world/Arsenal> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/ImperialCity> .
+<http://data.masterthesis.com/dataset/world/Arsenal> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> .
+<http://data.masterthesis.com/dataset/world/Arsenal> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/TheOldEmpire> .
+<http://data.masterthesis.com/dataset/world/Arsenal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Place> .
+<http://data.masterthesis.com/dataset/world/Gvelien> <http://data.masterthesis.com/schema/world/Population> "1000000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Gvelien> <http://data.masterthesis.com/schema/world/foundingYear> "0"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Gvelien> <http://data.masterthesis.com/schema/world/nationalAnthem> "The hawk so high" .
+<http://data.masterthesis.com/dataset/world/Gvelien> <http://data.masterthesis.com/schema/world/localLanguage> "gvelish" .
+<http://data.masterthesis.com/dataset/world/Gvelien> <http://data.masterthesis.com/schema/world/name> "Gvelien" .
+<http://data.masterthesis.com/dataset/world/Gvelien> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Country> .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/TurnipsHome> .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/birthDate> "1082-01-12"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/familyName> "Rübe"@de .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/familyName> "Turnip"@en .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/givenName> "Karl"@de .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/givenName> "Carl"@en .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/Carl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> <http://data.masterthesis.com/schema/world/fauna> "Pigeon" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> <http://data.masterthesis.com/schema/world/fauna> "Rat" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> <http://data.masterthesis.com/schema/world/flora> "City" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> <http://data.masterthesis.com/schema/world/name> "TheOldEmpire" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Region> .
+<http://data.masterthesis.com/dataset/world/Avurien> <http://data.masterthesis.com/schema/world/Population> "40000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Avurien> <http://data.masterthesis.com/schema/world/foundingYear> "671"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Avurien> <http://data.masterthesis.com/schema/world/localLanguage> "avurish" .
+<http://data.masterthesis.com/dataset/world/Avurien> <http://data.masterthesis.com/schema/world/name> "Avurien" .
+<http://data.masterthesis.com/dataset/world/Avurien> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Country> .
+<http://data.masterthesis.com/dataset/world/Loui> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/TurnipsHome> .
+<http://data.masterthesis.com/dataset/world/Loui> <http://data.masterthesis.com/schema/world/birthDate> "1072-03-11"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Loui> <http://data.masterthesis.com/schema/world/familyName> "Loui" .
+<http://data.masterthesis.com/dataset/world/Loui> <http://data.masterthesis.com/schema/world/givenName> "Loui" .
+<http://data.masterthesis.com/dataset/world/Loui> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/Loui> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://data.masterthesis.com/schema/world/fauna> "Golden Eagle" .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://data.masterthesis.com/schema/world/fauna> "Moose" .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://data.masterthesis.com/schema/world/fauna> "Bear" .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://data.masterthesis.com/schema/world/flora> "Forest" .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://data.masterthesis.com/schema/world/flora> "Rocks" .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://data.masterthesis.com/schema/world/name> "Mountain View" .
+<http://data.masterthesis.com/dataset/world/MountainView> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Region> .
+<http://data.masterthesis.com/dataset/world/Targ> <http://data.masterthesis.com/schema/world/architecturalStyle> "gothic" .
+<http://data.masterthesis.com/dataset/world/Targ> <http://data.masterthesis.com/schema/world/heraldicAnimal> "lion" .
+<http://data.masterthesis.com/dataset/world/Targ> <http://data.masterthesis.com/schema/world/population> "15000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Targ> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TimberwoodMountains> .
+<http://data.masterthesis.com/dataset/world/Targ> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Avurien> .
+<http://data.masterthesis.com/dataset/world/Targ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/City> .
+<http://data.masterthesis.com/dataset/world/TheOldEmpire> <http://data.masterthesis.com/schema/world/Population> "300000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/TheOldEmpire> <http://data.masterthesis.com/schema/world/foundingYear> "-1700"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/TheOldEmpire> <http://data.masterthesis.com/schema/world/nationalAnthem> "Through blood and stone" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpire> <http://data.masterthesis.com/schema/world/localLanguage> "gvelish" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpire> <http://data.masterthesis.com/schema/world/name> "The old empire" .
+<http://data.masterthesis.com/dataset/world/TheOldEmpire> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Country> .
+<http://data.masterthesis.com/dataset/world/Sharun> <http://data.masterthesis.com/schema/world/Population> "2900000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Sharun> <http://data.masterthesis.com/schema/world/foundingYear> "-145"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Sharun> <http://data.masterthesis.com/schema/world/nationalAnthem> "Paradise on earth" .
+<http://data.masterthesis.com/dataset/world/Sharun> <http://data.masterthesis.com/schema/world/localLanguage> "sharûn" .
+<http://data.masterthesis.com/dataset/world/Sharun> <http://data.masterthesis.com/schema/world/name> "Sharûn" .
+<http://data.masterthesis.com/dataset/world/Sharun> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Country> .
+<http://data.masterthesis.com/dataset/world/associationOfGears> <http://data.masterthesis.com/schema/world/foundingDate> "932-11-23"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/associationOfGears> <http://data.masterthesis.com/schema/world/name> "Association of Gears" .
+<http://data.masterthesis.com/dataset/world/associationOfGears> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Faction> .
+<http://data.masterthesis.com/dataset/world/monksOfAverno> <http://data.masterthesis.com/schema/world/foundingDate> "17-03-02"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/monksOfAverno> <http://data.masterthesis.com/schema/world/name> "Monks of Averno" .
+<http://data.masterthesis.com/dataset/world/monksOfAverno> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Faction> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/birthDate> "1090-11-28" .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/faction> <http://data.masterthesis.com/dataset/world/associationOfGears> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/GrindstoneHome> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/familyName> "Grindstone"@en .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/givenName> "Adrian" .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/worksFor> <http://data.masterthesis.com/dataset/world/Sebastian> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/religion> <http://data.masterthesis.com/dataset/world/churchOfAvus> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/familyName> "Wetzstein"@de .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/profession> <http://data.masterthesis.com/dataset/world/tinkerer> .
+<http://data.masterthesis.com/dataset/world/Adrian> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/Welf> <http://data.masterthesis.com/schema/world/architecturalStyle> "temper" .
+<http://data.masterthesis.com/dataset/world/Welf> <http://data.masterthesis.com/schema/world/heraldicAnimal> "butterfly" .
+<http://data.masterthesis.com/dataset/world/Welf> <http://data.masterthesis.com/schema/world/population> "13000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Welf> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TimberwoodMountains> .
+<http://data.masterthesis.com/dataset/world/Welf> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Gvelien> .
+<http://data.masterthesis.com/dataset/world/Welf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/City> .
+<http://data.masterthesis.com/dataset/world/Khargh> <http://data.masterthesis.com/schema/world/Population> "20000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Khargh> <http://data.masterthesis.com/schema/world/foundingYear> "-300"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Khargh> <http://data.masterthesis.com/schema/world/nationalAnthem> "How the anvil formed us" .
+<http://data.masterthesis.com/dataset/world/Khargh> <http://data.masterthesis.com/schema/world/localLanguage> "dwarven" .
+<http://data.masterthesis.com/dataset/world/Khargh> <http://data.masterthesis.com/schema/world/name> "Khargh" .
+<http://data.masterthesis.com/dataset/world/Khargh> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Country> .
+<http://data.masterthesis.com/dataset/world/HawksNest> <http://data.masterthesis.com/schema/world/streetAddress> "Platz des Eisenhammers"@de .
+<http://data.masterthesis.com/dataset/world/HawksNest> <http://data.masterthesis.com/schema/world/streetAddress> "Iron Hammer Place"@en .
+<http://data.masterthesis.com/dataset/world/HawksNest> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/Khurag> .
+<http://data.masterthesis.com/dataset/world/HawksNest> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/KhargRegion> .
+<http://data.masterthesis.com/dataset/world/HawksNest> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Kharg> .
+<http://data.masterthesis.com/dataset/world/HawksNest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Place> .
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/TurnipsHome> .
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/birthDate> "1092-02-12"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/familyName> "Turnip" .
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/givenName> "Lisa" .
+<http://data.masterthesis.com/dataset/world/Lisa> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/female> .
+<http://data.masterthesis.com/dataset/world/Lisa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/title> "count"@en .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/title> "Graf"@de .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/HawksNest> .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/birthDate> "1087-04-14"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/familyName> "Wanderfalke"@de .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/familyName> "peregrine"@en .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/givenName> "Fintos" .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/Fintos> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/Kingshome> <http://data.masterthesis.com/schema/world/streetAddress> "Marsch des Ruhmes"@de .
+<http://data.masterthesis.com/dataset/world/Kingshome> <http://data.masterthesis.com/schema/world/streetAddress> "Walk of Glory"@en .
+<http://data.masterthesis.com/dataset/world/Kingshome> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/ImperialCity> .
+<http://data.masterthesis.com/dataset/world/Kingshome> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> .
+<http://data.masterthesis.com/dataset/world/Kingshome> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/TheOldEmpire> .
+<http://data.masterthesis.com/dataset/world/Kingshome> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Place> .
+<http://data.masterthesis.com/dataset/world/KhargRegion> <http://data.masterthesis.com/schema/world/fauna> "desert mouse" .
+<http://data.masterthesis.com/dataset/world/KhargRegion> <http://data.masterthesis.com/schema/world/flora> "barren rocks" .
+<http://data.masterthesis.com/dataset/world/KhargRegion> <http://data.masterthesis.com/schema/world/name> "Kharg" .
+<http://data.masterthesis.com/dataset/world/KhargRegion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Region> .
+<http://data.masterthesis.com/dataset/world/theHawks> <http://data.masterthesis.com/schema/world/foundingDate> "423-01-26"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/theHawks> <http://data.masterthesis.com/schema/world/name> "Die Falken"@de .
+<http://data.masterthesis.com/dataset/world/theHawks> <http://data.masterthesis.com/schema/world/name> "The Hawks"@en .
+<http://data.masterthesis.com/dataset/world/theHawks> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Faction> .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://data.masterthesis.com/schema/world/architecturalStyle> "dwarven" .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://data.masterthesis.com/schema/world/isCapital> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://data.masterthesis.com/schema/world/heraldicAnimal> "boar" .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://data.masterthesis.com/schema/world/population> "4500"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/KhargRegion> .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Kharg> .
+<http://data.masterthesis.com/dataset/world/Khurag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/City> .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/HawksNest> .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/birthDate> "1103-04-23"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/familyName> "Donnerwolke"@de .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/familyName> "Thundercloud"@en .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/givenName> "Fusselfell"@de .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/givenName> "Lintfur"@en .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/Lintfur> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/TimberwoodMountains> <http://data.masterthesis.com/schema/world/fauna> "Moose" .
+<http://data.masterthesis.com/dataset/world/TimberwoodMountains> <http://data.masterthesis.com/schema/world/fauna> "Bear" .
+<http://data.masterthesis.com/dataset/world/TimberwoodMountains> <http://data.masterthesis.com/schema/world/flora> "Forest" .
+<http://data.masterthesis.com/dataset/world/TimberwoodMountains> <http://data.masterthesis.com/schema/world/name> "Timberwood Mountains" .
+<http://data.masterthesis.com/dataset/world/TimberwoodMountains> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Region> .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://data.masterthesis.com/schema/world/architecturalStyle> "gothic" .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://data.masterthesis.com/schema/world/isCapital> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://data.masterthesis.com/schema/world/heraldicAnimal> "Bull" .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://data.masterthesis.com/schema/world/population> "100000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/TheOldEmpire> .
+<http://data.masterthesis.com/dataset/world/ImperialCity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/City> .
+<http://data.masterthesis.com/dataset/world/RabitsDen> <http://data.masterthesis.com/schema/world/streetAddress> "Straße des Ashnaf"@de .
+<http://data.masterthesis.com/dataset/world/RabitsDen> <http://data.masterthesis.com/schema/world/streetAddress> "Ashnaf's street"@en .
+<http://data.masterthesis.com/dataset/world/RabitsDen> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/Welf> .
+<http://data.masterthesis.com/dataset/world/RabitsDen> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TimberwoodMountains> .
+<http://data.masterthesis.com/dataset/world/RabitsDen> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Gvelien> .
+<http://data.masterthesis.com/dataset/world/RabitsDen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Place> .
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/streetAddress> "Handwerkwerweg 31"@de .
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/streetAddress> "31 Trademann's Valley"@en .
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/Targ> .
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TimberwoodMountains> .
+<http://data.masterthesis.com/dataset/world/TurnipsHome> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Avurien> .
+<http://data.masterthesis.com/dataset/world/Lados> <http://data.masterthesis.com/schema/world/architecturalStyle> "maritime" .
+<http://data.masterthesis.com/dataset/world/Lados> <http://data.masterthesis.com/schema/world/isCapital> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<http://data.masterthesis.com/dataset/world/Lados> <http://data.masterthesis.com/schema/world/heraldicAnimal> "swordfish" .
+<http://data.masterthesis.com/dataset/world/Lados> <http://data.masterthesis.com/schema/world/population> "9000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Lados> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/MountainView> .
+<http://data.masterthesis.com/dataset/world/Lados> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Avurien> .
+<http://data.masterthesis.com/dataset/world/Lados> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/City> .
+<http://data.masterthesis.com/dataset/world/Fjördall> <http://data.masterthesis.com/schema/world/Population> "230000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Fjördall> <http://data.masterthesis.com/schema/world/foundingYear> "411"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Fjördall> <http://data.masterthesis.com/schema/world/nationalAnthem> "Fjördall Fjördall" .
+<http://data.masterthesis.com/dataset/world/Fjördall> <http://data.masterthesis.com/schema/world/localLanguage> "fjött" .
+<http://data.masterthesis.com/dataset/world/Fjördall> <http://data.masterthesis.com/schema/world/name> "Fjördall" .
+<http://data.masterthesis.com/dataset/world/Fjördall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Country> .
+<http://data.masterthesis.com/dataset/world/Twighome> <http://data.masterthesis.com/schema/world/streetAddress> "In den Gärten 7"@de .
+<http://data.masterthesis.com/dataset/world/Twighome> <http://data.masterthesis.com/schema/world/streetAddress> "7, the gardens "@en .
+<http://data.masterthesis.com/dataset/world/Twighome> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/ImperialCity> .
+<http://data.masterthesis.com/dataset/world/Twighome> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> .
+<http://data.masterthesis.com/dataset/world/Twighome> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/TheOldEmpire> .
+<http://data.masterthesis.com/dataset/world/Twighome> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Place> .
+<http://data.masterthesis.com/dataset/world/Arla> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/ArlasHome> .
+<http://data.masterthesis.com/dataset/world/Arla> <http://data.masterthesis.com/schema/world/birthDate> "1099-11-23"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Arla> <http://data.masterthesis.com/schema/world/familyName> "Asura" .
+<http://data.masterthesis.com/dataset/world/Arla> <http://data.masterthesis.com/schema/world/givenName> "Arla" .
+<http://data.masterthesis.com/dataset/world/Arla> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/female> .
+<http://data.masterthesis.com/dataset/world/Arla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/Twighome> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/religion> <http://data.masterthesis.com/dataset/world/SonsOfBrobo> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/worksFor> <http://data.masterthesis.com/dataset/world/Sebastian> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/birthDate> "1096-01-13" .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/familyName> "Rute"@de .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/familyName> "twig"@en .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/profession> <http://data.masterthesis.com/dataset/world/keymaker> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/givenName> "Johannes" .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/faction> <http://data.masterthesis.com/dataset/world/associationOfGears> .
+<http://data.masterthesis.com/dataset/world/Johannes> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/churchOfAvus> <http://data.masterthesis.com/schema/world/hasGod> "Brobo"^^<http://www.w3.org/2001/XMLSchema#String> .
+<http://data.masterthesis.com/dataset/world/churchOfAvus> <http://data.masterthesis.com/schema/world/proponents> "70000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/churchOfAvus> <http://data.masterthesis.com/schema/world/name> "Kirche des Avus"@de .
+<http://data.masterthesis.com/dataset/world/churchOfAvus> <http://data.masterthesis.com/schema/world/name> "churchOfAvus"@en .
+<http://data.masterthesis.com/dataset/world/churchOfAvus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Religion> .
+<http://data.masterthesis.com/dataset/world/SonsOfBrobo> <http://data.masterthesis.com/schema/world/hasGod> "Brobo"^^<http://www.w3.org/2001/XMLSchema#String> .
+<http://data.masterthesis.com/dataset/world/SonsOfBrobo> <http://data.masterthesis.com/schema/world/proponents> "900"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/SonsOfBrobo> <http://data.masterthesis.com/schema/world/name> "Söhne des Brobo"@de .
+<http://data.masterthesis.com/dataset/world/SonsOfBrobo> <http://data.masterthesis.com/schema/world/name> "SonstOfBrobo"@en .
+<http://data.masterthesis.com/dataset/world/SonsOfBrobo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Religion> .
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/RabitsDen> .
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/birthDate> "1091-07-07"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/familyName> "von Kharg" .
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/givenName> "Astrid" .
+<http://data.masterthesis.com/dataset/world/Astrid> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/female> .
+<http://data.masterthesis.com/dataset/world/Astrid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/Kingshome> .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/birthDate> "1090-04-28"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/familyName> "Sternensänger"@de .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/familyName> "Starsinger"@en .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/givenName> "Sebastian" .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/Sebastian> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .
+<http://data.masterthesis.com/dataset/world/ArlasHome> <http://data.masterthesis.com/schema/world/streetAddress> "Birkenwaldweg 7"@de .
+<http://data.masterthesis.com/dataset/world/ArlasHome> <http://data.masterthesis.com/schema/world/streetAddress> "7 Birken forch way"@en .
+<http://data.masterthesis.com/dataset/world/ArlasHome> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/Lados> .
+<http://data.masterthesis.com/dataset/world/ArlasHome> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/MountainView> .
+<http://data.masterthesis.com/dataset/world/ArlasHome> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/Avurien> .
+<http://data.masterthesis.com/dataset/world/ArlasHome> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Place> .
+<http://data.masterthesis.com/dataset/world/Arsenal> <http://data.masterthesis.com/schema/world/streetAddress> "Straße des Militärs 1"@de .
+<http://data.masterthesis.com/dataset/world/Arsenal> <http://data.masterthesis.com/schema/world/streetAddress> "Milirary way 1"@en .
+<http://data.masterthesis.com/dataset/world/Arsenal> <http://data.masterthesis.com/schema/world/addressCity> <http://data.masterthesis.com/dataset/world/ImperialCity> .
+<http://data.masterthesis.com/dataset/world/Arsenal> <http://data.masterthesis.com/schema/world/addressRegion> <http://data.masterthesis.com/dataset/world/TheOldEmpireRegion> .
+<http://data.masterthesis.com/dataset/world/Arsenal> <http://data.masterthesis.com/schema/world/addressCountry> <http://data.masterthesis.com/dataset/world/TheOldEmpire> .
+<http://data.masterthesis.com/dataset/world/Arsenal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Place> .
+<http://data.masterthesis.com/dataset/world/Gvelien> <http://data.masterthesis.com/schema/world/Population> "1000000"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Gvelien> <http://data.masterthesis.com/schema/world/foundingYear> "0"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.masterthesis.com/dataset/world/Gvelien> <http://data.masterthesis.com/schema/world/nationalAnthem> "The hawk so high" .
+<http://data.masterthesis.com/dataset/world/Gvelien> <http://data.masterthesis.com/schema/world/localLanguage> "gvelish" .
+<http://data.masterthesis.com/dataset/world/Gvelien> <http://data.masterthesis.com/schema/world/name> "Gvelien" .
+<http://data.masterthesis.com/dataset/world/Gvelien> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Country> .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/address> <http://data.masterthesis.com/dataset/world/TurnipsHome> .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/birthDate> "1082-01-12"^^<http://datatypes.masterthesis.com#date> .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/familyName> "Rübe"@de .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/familyName> "Turnip"@en .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/givenName> "Karl"@de .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/givenName> "Carl"@en .
+<http://data.masterthesis.com/dataset/world/Carl> <http://data.masterthesis.com/schema/world/gender> <http://data.masterthesis.com/schema/world/male> .
+<http://data.masterthesis.com/dataset/world/Carl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.masterthesis.com/schema/world/Person> .

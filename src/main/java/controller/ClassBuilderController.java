@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -15,6 +16,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import modelbuilder.ClassFinder;
 import modelbuilder.RdfClass;
 
+import java.awt.*;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -54,7 +56,9 @@ public class ClassBuilderController {
         tC_newClassDatatype.setEditable(true);
         tC_newClassName.setEditable(true);
         tC_newClassObligatory.setEditable(true);
+        tC_newClassObligatory.setStyle( "-fx-alignment: CENTER;");
         tC_newClassConstraints.setEditable(true);
+        tC_newClassConstraints.setStyle( "-fx-alignment: CENTER;");
 
     }
 
@@ -86,10 +90,18 @@ public class ClassBuilderController {
             }
         });
 
+        CheckBox checkBox = new CheckBox();
+        checkBox.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Checkedi Check");
+            }
+        });
+
         ClassBuilderController.TableContent tbc = new ClassBuilderController.TableContent(new SimpleStringProperty(
                 ""),
                 new SimpleStringProperty(""),
-                false,
+                checkBox,
                 button);
         tV_newClass.getItems().add(tbc);
     }
@@ -101,10 +113,10 @@ public class ClassBuilderController {
     public class TableContent{
         private SimpleStringProperty name;
         private SimpleStringProperty datatype;
-        private boolean obligatory;
+        private CheckBox obligatory;
         private Button constraints;
 
-        public TableContent(SimpleStringProperty name, SimpleStringProperty datatype, boolean obligatory, Button constraints) {
+        public TableContent(SimpleStringProperty name, SimpleStringProperty datatype, CheckBox obligatory, Button constraints) {
             this.name = name;
             this.datatype = datatype;
             this.obligatory = obligatory;
@@ -129,10 +141,10 @@ public class ClassBuilderController {
         public void setDatatype(String datatype) {
             this.datatype = new SimpleStringProperty(datatype);
         }
-        public boolean isObligatory() {
+        public CheckBox isObligatory() {
             return obligatory;
         }
-        public void setObligatory(boolean obligatory) {
+        public void setObligatory(CheckBox obligatory) {
             this.obligatory = obligatory;
         }
         public Button getConstraints() {

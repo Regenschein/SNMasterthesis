@@ -5,16 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac2b6ad9-da68-4cb5-a7b1-ac1c10b26028" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/ConditionalKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/eval/sparql-shape-test.ttl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keys.nt" beforeDir="false" afterPath="$PROJECT_DIR$/keys.nt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ClassBuilderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ClassBuilderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Configuration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/InstanceBuilderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/InstanceBuilderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelbuilder/RdfClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/RdfClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Properties/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Properties/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/classBuilder.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/classBuilder.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/class-006.test.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/class-006.test.ttl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Properties/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Properties/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/Configuration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Configuration.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/cheeses-0.1.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/cheeses-0.1.ttl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/class-006.test.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/class-006.test.ttl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/data/world-0.1.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/world-0.1.ttl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/querybuilder/QuerybuilderImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/querybuilder/QuerybuilderImplementation.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,28 +47,70 @@
       <FILTER>controller.*</FILTER>
     </SUITE>
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="shapefile.ttl" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/resources/generated/shapefile.ttl">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="1061">
+                    <caret line="1300" column="12" selection-start-line="1300" selection-end-line="1300" selection-end-column="12" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="312" column="96" lean-forward="true" selection-start-line="312" selection-start-column="96" selection-end-line="312" selection-end-column="96" />
+            <state relative-caret-position="-1100">
+              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2029#2521#0" />
+                <element signature="e#2527#2733#0" />
+                <element signature="e#3052#3053#0" expanded="true" />
+                <element signature="e#3077#3078#0" expanded="true" />
+                <element signature="e#3084#3140#0" />
+                <element signature="e#3146#3200#0" />
+                <element signature="e#3644#3698#0" />
+                <element signature="e#3704#3764#0" />
+                <element signature="e#6559#6847#0" />
+                <element signature="e#6853#6910#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Modelreader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java">
+      <file leaf-file-name="ShaclbuilderImplementation.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
+            <state relative-caret-position="486">
+              <caret line="207" column="37" selection-start-line="207" selection-start-column="37" selection-end-line="207" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#buildNonKeys#0;class#ShaclbuilderImplementation#0" />
+                <element signature="method#buildNonKeys#1;class#ShaclbuilderImplementation#0" />
+                <element signature="method#trimAttr#0;class#ShaclbuilderImplementation#0" />
+                <element signature="method#trimAttrPlus#0;class#ShaclbuilderImplementation#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/Properties/config.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="55" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -59,69 +118,22 @@
       <file leaf-file-name="world-0.1.ttl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="45" lean-forward="true" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+            <state relative-caret-position="374">
+              <caret line="22" column="42" lean-forward="true" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InstanceBuilderController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/InstanceBuilderController.java">
+      <file leaf-file-name="Modelreader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-161">
-              <caret line="101" column="9" lean-forward="true" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
+            <state relative-caret-position="256">
+              <caret line="66" selection-start-line="66" selection-end-line="66" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2232#2240#0" expanded="true" />
-                <element signature="e#3225#3226#0" expanded="true" />
-                <element signature="e#3265#3266#0" expanded="true" />
-                <element signature="e#3319#3320#0" expanded="true" />
-                <element signature="e#3369#3370#0" expanded="true" />
-                <element signature="e#3814#3815#0" expanded="true" />
-                <element signature="e#3884#3885#0" expanded="true" />
-                <element signature="method#addNode#0;class#InstanceBuilderController#0" />
-                <element signature="method#addClassInformation#0;class#InstanceBuilderController#0" />
-                <element signature="method#getTableViewValues#0;class#InstanceBuilderController#0" />
+                <element signature="method#transformToTSV#0;class#Modelreader#0" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClassBuilderController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/ClassBuilderController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
-              <folding>
-                <element signature="e#2594#2792#0" expanded="true" />
-                <element signature="e#2791#2792#0" expanded="true" />
-                <element signature="e#1251#1252#0" expanded="true" />
-                <element signature="e#1292#1293#0" expanded="true" />
-                <element signature="e#4194#4195#0" expanded="true" />
-                <element signature="e#4254#4255#0" expanded="true" />
-                <element signature="e#1507#1508#0" expanded="true" />
-                <element signature="e#1552#1553#0" expanded="true" />
-                <element signature="e#1701#1702#0" expanded="true" />
-                <element signature="e#1752#1753#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="instanceBuilder.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/instanceBuilder.fxml">
-          <provider editor-type-id="text-editor" />
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file leaf-file-name="classBuilder.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/classBuilder.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="42" column="102" selection-start-line="42" selection-start-column="102" selection-end-line="42" selection-end-column="102" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -137,26 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>foaf:person</find>
-      <find>world:TurnipsHome</find>
-      <find>getNt</find>
-      <find>build own</find>
-      <find>.nt</find>
-      <find>TSV</find>
-      <find>world:TheOldEmpireRegion	schema:Region%§%schema:fauna	&quot;Pigeon&quot;^^xsd:string</find>
-      <find>cmbBox</find>
-      <find>InstanceBuilderController</find>
-      <find>iBController</find>
-      <find>Doggo</find>
-      <find>retrieve</find>
-      <find>aaaa</find>
-      <find>Söhne</find>
-      <find>Braba</find>
-      <find>Humbold</find>
-      <find>title</find>
-      <find>doggo</find>
-      <find>doggerinos</find>
-      <find>soehnkes</find>
       <find>Ashis</find>
       <find>booois</find>
       <find>thorbens</find>
@@ -167,6 +159,26 @@
       <find>tF_prefixShort</find>
       <find>bamb</find>
       <find>Class</find>
+      <find>boolean</find>
+      <find>Vickey</find>
+      <find>conditio</find>
+      <find>co</find>
+      <find>cheese:PastourizedMilk</find>
+      <find>conditi</find>
+      <find>conditionalKeys</find>
+      <find>key</find>
+      <find>owl:</find>
+      <find>TurnipsHome</find>
+      <find>.nt</find>
+      <find>Key-Candidate</find>
+      <find>isCapital</find>
+      <find>tA</find>
+      <find>shacl</find>
+      <find>build()</find>
+      <find>Khurag</find>
+      <find>buildNon</find>
+      <find>trimAttr</find>
+      <find>schema:Person</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,24 +187,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/keyfinder/SAKey.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/ontologies/cheese.ttl" />
-        <option value="$PROJECT_DIR$/src/main/java/keyfinder/almost/SAKeyAlmostKeysOneFileOneN.java" />
-        <option value="$PROJECT_DIR$/src/main/java/keyfinder/almost/newDiscoverNonKeys5AlmostNew.java" />
         <option value="$PROJECT_DIR$/src/main/java/keyfinder/SAKeyAlmost.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Prefix.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/RdfClass.java" />
         <option value="$PROJECT_DIR$/src/main/java/modelbuilder/BuilderImplementation.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl" />
         <option value="$PROJECT_DIR$/src/main/java/keyfinder/TripleFileParser.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/eval/example-test-shape.ttl" />
         <option value="$PROJECT_DIR$/src/main/java/keyfinder/SAKeyAlmostKeysOneFileOneN.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Triple.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/model/Model.java" />
         <option value="$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/modelbuilder/TurtleToModelTransformator.java" />
         <option value="$PROJECT_DIR$/src/main/java/modelbuilder/Transformer.java" />
         <option value="$PROJECT_DIR$/src/main/java/modelbuilder/N3ToModelTransformator.java" />
@@ -202,13 +206,9 @@
         <option value="$PROJECT_DIR$/src/main/java/modelbuilder/Modelbuilder.java" />
         <option value="$PROJECT_DIR$/src/main/resources/data/world-0.1.tsv" />
         <option value="$PROJECT_DIR$/src/main/java/modelbuilder/Util.java" />
-        <option value="$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/BuilderImplementation.java" />
         <option value="$PROJECT_DIR$/src/main/java/keyfinder/CSAKey.java" />
         <option value="$PROJECT_DIR$/src/main/java/keyfinder/VICKEY.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/Properties/config.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/Configuration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java" />
         <option value="$PROJECT_DIR$/src/main/resources/ClassBuilder.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/classBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/classBuilder.java" />
@@ -218,14 +218,26 @@
         <option value="$PROJECT_DIR$/src/main/java/controller/ModelBuilderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/InstanceBuilderControlle.java" />
         <option value="$PROJECT_DIR$/src/main/resources/instanceBuilder.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl" />
-        <option value="$PROJECT_DIR$/src/main/resources/gui.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/classBuilder.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/controller/InstanceBuilderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/ClassBuilderController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/classBuilder.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ConditionalKey.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/RdfClass.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/Configuration.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/Properties/config.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/gui.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/generated/gen.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/eval/sparql-shape-test.ttl" />
+        <option value="$PROJECT_DIR$/src/main/resources/eval/example-test-shape.ttl" />
+        <option value="$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/generated/shapefile.ttl" />
+        <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl" />
+        <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java" />
       </list>
     </option>
   </component>
@@ -243,10 +255,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="656" />
-    <option name="y" value="-9" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="x" value="1913" />
+    <option name="y" value="-617" />
+    <option name="width" value="974" />
+    <option name="height" value="1167" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -256,7 +268,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -296,7 +308,39 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="keyfinder" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="modelbuilder" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="querybuilder" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="shaclbuilder" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
@@ -319,7 +363,31 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="eval" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="generated" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="ontologies" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Properties" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
@@ -329,8 +397,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,9 +423,9 @@
       <recent name="modelbuilder" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\src\main\resources\eval" />
       <recent name="C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\src\main\java\keyfinder" />
       <recent name="C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\src\main\resources\data" />
-      <recent name="C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\src\main\resources\eval" />
       <recent name="C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\lib\AMIECKMiner.jar!\amie\keys" />
       <recent name="C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\src\main\java\controller" />
     </key>
@@ -587,7 +655,19 @@
       <workItem from="1526274568678" duration="27317000" />
       <workItem from="1526309869779" duration="86000" />
       <workItem from="1526391989013" duration="13915000" />
-      <workItem from="1526446706487" duration="16345000" />
+      <workItem from="1526446706487" duration="16442000" />
+      <workItem from="1526534790623" duration="19360000" />
+      <workItem from="1526719445432" duration="10461000" />
+      <workItem from="1526999871989" duration="1073000" />
+      <workItem from="1527052637433" duration="2272000" />
+      <workItem from="1527152554512" duration="1792000" />
+      <workItem from="1527415898951" duration="9139000" />
+      <workItem from="1527490718337" duration="5197000" />
+      <workItem from="1527604045881" duration="1855000" />
+      <workItem from="1527661623666" duration="6145000" />
+      <workItem from="1527684405918" duration="2717000" />
+      <workItem from="1527687151666" duration="10029000" />
+      <workItem from="1527753596815" duration="16145000" />
     </task>
     <task id="LOCAL-00001" summary="Updated dependencies&#10;Created properties for configuration&#10;started with the turtleparser">
       <created>1521727189114</created>
@@ -659,19 +739,26 @@
       <option name="project" value="LOCAL" />
       <updated>1526309915591</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Userdefined classes added">
+      <created>1526480247106</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1526480247106</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="617010000" />
+    <option name="totallyTimeSpent" value="703292000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="1912" y="-625" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.31874144" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.31852552" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
@@ -679,19 +766,18 @@
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49544272" visible="true" weight="0.34199727" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49544272" visible="true" weight="0.23430178" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32968536" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49794802" visible="true" weight="0.13932292" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49794802" visible="true" weight="0.094791666" />
       <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3269494" />
       <window_info id="Structure" order="1" sideWeight="0.502052" side_tool="true" weight="0.22786458" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.124487005" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.41799438" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -699,6 +785,7 @@
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3294271" />
       <window_info id="Learn" order="5" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3269494" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -718,19 +805,20 @@
     <MESSAGE value="Fixed a lot of transformation problems" />
     <MESSAGE value="Transformation continues" />
     <MESSAGE value="Userdefined facts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Userdefined facts" />
+    <MESSAGE value="Userdefined classes added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Userdefined classes added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/example/helloworld/HelloQuery.java</url>
+          <url />
           <line>86</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/lib/jena-arq-2.10.1.jar!/org/apache/jena/riot/lang/LangNTriples.class</url>
+          <url />
           <line>32</line>
           <properties />
           <option name="timeStamp" value="42" />
@@ -742,64 +830,82 @@
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/lib/SAKeyNonKeys.jar!/sakey/tripleFileParser.class</url>
+          <url />
           <line>311</line>
           <properties />
           <option name="timeStamp" value="272" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/modelbuilder/TurtleToModelTransformator.java</url>
+          <url />
           <line>45</line>
           <properties />
           <option name="timeStamp" value="282" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/modelbuilder/N3ToModelTransformator.java</url>
+          <url />
           <line>19</line>
           <properties />
           <option name="timeStamp" value="284" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/modelbuilder/N3ToModelTransformator.java</url>
+          <url />
           <line>38</line>
           <properties />
           <option name="timeStamp" value="285" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/keyfinder/SAKeyAlmostKeysOneFileOneN.java</url>
+          <url />
           <line>245</line>
           <properties />
           <option name="timeStamp" value="330" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/keyfinder/CSAKey.java</url>
-          <line>945</line>
-          <properties />
-          <option name="timeStamp" value="341" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/Configuration.java</url>
-          <line>99</line>
-          <properties />
-          <option name="timeStamp" value="344" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java</url>
-          <line>96</line>
-          <properties />
-          <option name="timeStamp" value="346" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/Controller.java</url>
-          <line>355</line>
+          <url />
+          <line>359</line>
           <properties />
           <option name="timeStamp" value="374" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url />
+          <line>139</line>
+          <properties />
+          <option name="timeStamp" value="375" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url />
+          <line>95</line>
+          <properties />
+          <option name="timeStamp" value="386" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url />
+          <line>66</line>
+          <properties />
+          <option name="timeStamp" value="392" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url />
+          <line>80</line>
+          <properties />
+          <option name="timeStamp" value="394" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url />
+          <line>27</line>
+          <properties />
+          <option name="timeStamp" value="397" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url />
+          <line>181</line>
+          <properties />
+          <option name="timeStamp" value="399" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="375" />
+      <option name="time" value="400" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -818,36 +924,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://D:/Programme/Java904/lib/src.zip!/java.base/java/lang/String.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data/fb15k.ttl" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data/museum.tsv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="24" column="53" lean-forward="true" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Transformer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -855,46 +931,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/RdfClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/sakey_source_from_cfr/sakey_source_from_cfr/davi_withoutclusters/DaVi.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/SAKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="6813" column="30" lean-forward="true" selection-start-line="6813" selection-start-column="30" selection-end-line="6813" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Util.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/BuilderImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -905,32 +946,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/VICKEY.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/CSAKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7531">
-          <caret line="486" column="37" selection-start-line="486" selection-start-column="37" selection-end-line="486" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.tsv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-170">
-          <caret line="17" column="71" lean-forward="true" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
-        </state>
-      </provider>
       <provider editor-type-id="LargeFileEditor">
         <state relative-caret-position="3417">
           <caret line="8357" selection-start-line="8357" selection-end-line="8357" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="17" column="71" lean-forward="true" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -977,20 +1001,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/generated/gen.nt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="121" selection-start-line="121" selection-end-line="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="95" column="75" selection-start-line="95" selection-start-column="75" selection-end-line="95" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Modelbuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -998,28 +1008,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/eval/example-test-shape.ttl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4369">
-          <caret line="257" column="18" lean-forward="true" selection-start-line="257" selection-start-column="18" selection-end-line="257" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Properties/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/InstanceBuilderControlle.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generated/gen.tsv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/Programme/Java904/lib/src.zip!/javafx.controls/javafx/scene/control/cell/PropertyValueFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -1031,26 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
-          <folding>
-            <element signature="method#build#0;class#ClassFinder#0" />
-            <element signature="method#setAlmostKeys#0;class#ClassFinder#0" />
-            <element signature="method#setConditionalKeys#0;class#ClassFinder#0" />
-            <element signature="method#buildPrefixe#0;class#ClassFinder#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1068,42 +1037,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generated/shapefile.ttl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3874">
-          <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/jena/jena-core/3.7.0/jena-core-3.7.0.jar!/org/apache/jena/rdf/model/ModelCon.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
           <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/gui.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="131" column="57" lean-forward="true" selection-start-line="131" selection-start-column="57" selection-end-line="131" selection-end-column="57" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="45" lean-forward="true" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1114,13 +1051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generated/gen.ttl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/jena/jena-core/3.7.0/jena-core-3.7.0.jar!/org/apache/jena/datatypes/TypeMapper.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1128,41 +1058,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="312" column="96" lean-forward="true" selection-start-line="312" selection-start-column="96" selection-end-line="312" selection-end-column="96" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/classBuilder.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="42" column="102" selection-start-line="42" selection-start-column="102" selection-end-line="42" selection-end-column="102" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/instanceBuilder.fxml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/InstanceBuilderController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-161">
-          <caret line="101" column="9" lean-forward="true" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
+        <state relative-caret-position="1241">
+          <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2232#2240#0" expanded="true" />
-            <element signature="e#3225#3226#0" expanded="true" />
-            <element signature="e#3265#3266#0" expanded="true" />
-            <element signature="e#3319#3320#0" expanded="true" />
-            <element signature="e#3369#3370#0" expanded="true" />
-            <element signature="e#3814#3815#0" expanded="true" />
-            <element signature="e#3884#3885#0" expanded="true" />
             <element signature="method#addNode#0;class#InstanceBuilderController#0" />
             <element signature="method#addClassInformation#0;class#InstanceBuilderController#0" />
             <element signature="method#getTableViewValues#0;class#InstanceBuilderController#0" />
@@ -1172,19 +1073,226 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/ClassBuilderController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+        <state relative-caret-position="179">
+          <caret line="60" column="67" selection-start-line="60" selection-start-column="67" selection-end-line="60" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/RdfClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generated/gen.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generated/gen.tsv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ConditionalKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
           <folding>
-            <element signature="e#2594#2792#0" expanded="true" />
-            <element signature="e#2791#2792#0" expanded="true" />
-            <element signature="e#1251#1252#0" expanded="true" />
-            <element signature="e#1292#1293#0" expanded="true" />
-            <element signature="e#4194#4195#0" expanded="true" />
-            <element signature="e#4254#4255#0" expanded="true" />
-            <element signature="e#1507#1508#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1701#1702#0" expanded="true" />
-            <element signature="e#1752#1753#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#build#0;class#ClassFinder#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/SAKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/VICKEY.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/CSAKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8993">
+          <caret line="572" column="75" selection-start-line="572" selection-start-column="75" selection-end-line="572" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/ontologies/cheese.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="893" column="10" selection-start-line="893" selection-start-column="6" selection-end-line="893" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generated/gen.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/eval/sparql-shape-test.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="89" column="11" lean-forward="true" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/eval/example-test-shape.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="90" column="21" lean-forward="true" selection-end-line="363" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/BuilderImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="34" column="50" lean-forward="true" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="20" column="76" selection-start-line="20" selection-start-column="76" selection-end-line="20" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/eval/sparql-test-data.ttl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/eval/sparql-test-shape.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="117" column="23" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1100">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2029#2521#0" />
+            <element signature="e#2527#2733#0" />
+            <element signature="e#3052#3053#0" expanded="true" />
+            <element signature="e#3077#3078#0" expanded="true" />
+            <element signature="e#3084#3140#0" />
+            <element signature="e#3146#3200#0" />
+            <element signature="e#3644#3698#0" />
+            <element signature="e#3704#3764#0" />
+            <element signature="e#6559#6847#0" />
+            <element signature="e#6853#6910#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="method#transformToTSV#0;class#Modelreader#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="42" lean-forward="true" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Properties/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="55" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generated/shapefile.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1061">
+          <caret line="1300" column="12" selection-start-line="1300" selection-end-line="1300" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="207" column="37" selection-start-line="207" selection-start-column="37" selection-end-line="207" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#buildNonKeys#0;class#ShaclbuilderImplementation#0" />
+            <element signature="method#buildNonKeys#1;class#ShaclbuilderImplementation#0" />
+            <element signature="method#trimAttr#0;class#ShaclbuilderImplementation#0" />
+            <element signature="method#trimAttrPlus#0;class#ShaclbuilderImplementation#0" />
           </folding>
         </state>
       </provider>

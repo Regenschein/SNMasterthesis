@@ -1,13 +1,12 @@
-@prefix ex: <http://www.example.org#> .
+@prefix world: <http://data.masterthesis.com/dataset/world/>.
+@prefix schema: <http://data.masterthesis.com/schema/world/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:ValidCountry a ex:Country ;
-	ex:germanLabel "Spanien"@de .
+world:Carl 
+    a schema:Person ;
+    schema:givenName "Carl"@en, "Karl"@de ;
+    schema:familyName "Turnip"@en, "Rübe"@de ;
+    schema:birthDate "1082-12-01"^^xsd:date ;
+    schema:address world:TurnipsHome .
 
-ex:InvalidCountry a ex:Country ;
-	ex:germanLabel "Spain"@en .
-
-ex:InvalidCountry a ex:Country ;
-    ex:germanLabel "Polen"@de .
-
-ex:InvalidCountry a ex:Country ;
-    ex:germanLabel "Polska"@en .
+world:TurnipsHome schema:adressCountry world:Avurien .

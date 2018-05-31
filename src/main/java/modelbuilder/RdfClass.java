@@ -10,6 +10,7 @@ public class RdfClass {
     private Set<String> instances;
     private Set<Set<String>> nonKeys = new HashSet<>();
     private Set<Set<String>> almostKeys = new HashSet<>();
+    private Set<ConditionalKey> condtionalKeys = new HashSet<>();
 
     public RdfClass(String name){
         this.name = name;
@@ -54,4 +55,11 @@ public class RdfClass {
     }
 
 
+    public void addConditionalKey(ConditionalKey conditionalKey) {
+        this.condtionalKeys.add(conditionalKey);
+    }
+
+    public void setCondtionalKeys(Set<ConditionalKey> condtionalKeys) {
+        this.condtionalKeys = condtionalKeys;
+    }
 }
