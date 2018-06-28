@@ -132,6 +132,57 @@ public class QuerybuilderImplementation extends BuilderImplementation implements
 
         StringBuilder query = new StringBuilder();
         query.append(
+                //"   SELECT  $this ?schema0addressCountry ?schema0isCapital (count(?schema0addressCountry) as ?count)  \n" +
+                "SELECT ?that\n" +
+                "WHERE " +
+                "   {\n" +
+                "       ?that a schema:Person.  \n" +
+                "       ?that schema:worksFor ?schema0worksFor .\n" +
+                "       ?that schema:address ?schema0address .\n" +
+                "       { \n" +
+                "       SELECT ?schema0worksFor ?schema0address ?count\n" +
+                "       WHERE " +
+                "       {\n" +
+                "           {\n" +
+                "               SELECT ?schema0address ?schema0worksFor (count(?schema0worksFor) as ?count)\n" +
+                "               WHERE " +
+                "               {\n" +
+                "                   $this a schema:Person.\n" +
+                "                   $this schema:worksFor ?schema0worksFor .\n" +
+                "                   $this schema:address ?schema0address .\n" +
+                "               } GROUP BY  ?schema0worksFor ?schema0address \n" +
+                "           }\n" +
+                "           FILTER (?count > 2)\n" +
+                "       }\n" +
+                "       }\n" +
+                "   }\n"
+                //"   } GROUP BY $this ?schema0addressCountry ?schema0isCapital"
+        );
+
+        String qwery = query.toString();
+
+        Controller.getInstance().tA_main.appendText(qwery);
+
+        showQuery(m, prefixSB.toString() + query.toString());
+    }
+
+    public void build3() {
+        OntModel m = getModel();
+        loadData( m );
+
+        StringBuilder prefixSB = new StringBuilder();
+
+        prefixSB.append("prefix world: <http://data.masterthesis.com/dataset/world/>\n");
+        prefixSB.append("prefix schema: <http://data.masterthesis.com/schema/world/>\n");
+        prefixSB.append("prefix : <http://data.masterthesis.com/dataset/world/>\n");
+
+        //for(Map.Entry<String, String> entry : prefixes.entrySet()){
+        for(Map.Entry<String, String> entry : m.getNsPrefixMap().entrySet()){
+            prefixSB.append("prefix " + entry.getKey() + ": <" + entry.getValue() + ">\n");
+        }
+
+        StringBuilder query = new StringBuilder();
+        query.append(
             //"   SELECT  $this ?schema0addressCountry ?schema0isCapital (count(?schema0addressCountry) as ?count)  \n" +
             "   SELECT  $this \n" +
             "   WHERE {  \n" +

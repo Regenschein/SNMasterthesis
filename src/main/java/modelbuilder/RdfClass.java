@@ -62,4 +62,8 @@ public class RdfClass {
     public void setCondtionalKeys(Set<ConditionalKey> condtionalKeys) {
         this.condtionalKeys = condtionalKeys;
     }
+
+    public Set<ConditionalKey> getConditionalKeys() {
+        return condtionalKeys;
+    }
 }

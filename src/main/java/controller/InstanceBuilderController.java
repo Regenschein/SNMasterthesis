@@ -4,9 +4,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.event.EventHandler;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
@@ -21,10 +20,7 @@ import org.apache.jena.rdf.model.*;
 import org.apache.jena.vocabulary.VCARD;
 import org.topbraid.jenax.util.JenaDatatypes;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class InstanceBuilderController {
 
@@ -42,6 +38,11 @@ public class InstanceBuilderController {
         //loadKey();
     }
 
+    void initialize(){
+
+
+    }
+
     public static synchronized InstanceBuilderController getInstance() {
         if (InstanceBuilderController.iBController == null) {
             InstanceBuilderController.iBController = new InstanceBuilderController();
@@ -50,37 +51,94 @@ public class InstanceBuilderController {
     }
 
     void loadKey(String classname){
+
+        fill();
+
         this.classname = classname;
 
-        tC_newInstancePredicate.setCellValueFactory(new PropertyValueFactory<PredObj, String>("predicate"));
-        tC_newInstanceObject.setCellValueFactory(new PropertyValueFactory<PredObj, SimpleStringProperty>("object"));
+        tC_newInstancePredicate.setCellValueFactory(new PropertyValueFactory<ClassBuilderController.TableContent, SimpleStringProperty>("predicate"));
+        tC_newInstanceObject.setCellValueFactory(new PropertyValueFactory<ClassBuilderController.TableContent, SimpleStringProperty>("object"));
+
+        tC_newInstancePredicate.setCellFactory(TextFieldTableCell.forTableColumn());
         tC_newInstanceObject.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        tV_newInstance.setEditable(true);
+        tC_newInstancePredicate.setEditable(true);
+        tC_newInstanceObject.setEditable(true);
 
         ClassFinder cf = ClassFinder.getInstance();
         RdfClass rdf = cf.getClasses().get(classname);
 
         Set<String> removedDuplicates = new HashSet<String>();
 
-        for (Set<String> hs :rdf.getAlmostKeys()){
-            for (String s: hs){
-                removedDuplicates.add(s.split("%§%")[1]);
+        for (String attribute : rdf.getAttributes()){
+            if (!attribute.equals("a")){
+                tV_newInstance.getItems().add(createTBC(attribute.split("%§%")[1]));
             }
         }
-
-        for (String s : removedDuplicates){
-            PredObj preo = new PredObj(s, null);
-            tV_newInstance.getItems().add(preo);
-        }
-        tV_newInstance.setEditable(true);
-        tC_newInstanceObject.setEditable(true);
-        System.out.println("bP");
     }
 
-    public void changeCellEvent(TableColumn.CellEditEvent editEvent){
-        //InstanceBuilderController.PredObj predObj = (InstanceBuilderController.PredObj) tV_newInstance.getSelectionModel().getSelectedItem();
-        //predObj.setObject(editEvent.getNewValue().toString());
-        PredObj predObj = (PredObj) tV_newInstance.getSelectionModel().getSelectedItem();
-        predObj.setObject(editEvent.getNewValue().toString());
+    public void changePredicateCellEvent(TableColumn.CellEditEvent editEvent) {
+        InstanceBuilderController.TableContent tableContent = (InstanceBuilderController.TableContent) tV_newInstance.getSelectionModel().getSelectedItem();
+        tableContent.setPredicate(editEvent.getNewValue().toString());
+    }
+
+    public void changeObjectCellEvent(TableColumn.CellEditEvent editEvent) {
+        Object o = tV_newInstance.getSelectionModel().getSelectedItem();
+        InstanceBuilderController.TableContent tableContent = (InstanceBuilderController.TableContent) tV_newInstance.getSelectionModel().getSelectedItem();
+        tableContent.setObject(editEvent.getNewValue().toString());
+    }
+
+    public void addRow(ActionEvent actionEvent) {
+        InstanceBuilderController.TableContent tbc = new InstanceBuilderController.TableContent(new SimpleStringProperty(
+                ""),
+                new SimpleStringProperty(""));
+        tV_newInstance.getItems().add(tbc);
+    }
+
+    private InstanceBuilderController.TableContent createTBC(String pred){
+        InstanceBuilderController.TableContent tbc = new InstanceBuilderController.TableContent(new SimpleStringProperty(pred),
+                new SimpleStringProperty(""));
+        return tbc;
+    }
+
+    public void fill(){
+        Iterator iterator = model.Model.getInstance().getClasses().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry pair = (Map.Entry)iterator.next();
+            if(pair.getKey().equals(classname)) {
+                System.out.println("teggn");
+            }
+        }
+    }
+
+    public class TableContent{
+        private SimpleStringProperty predicate;
+        private SimpleStringProperty object;
+
+        public TableContent(SimpleStringProperty predicate, SimpleStringProperty object) {
+            this.predicate = predicate;
+            this.object = object;
+        }
+
+        public String getPredicate() {
+            return predicate.get();
+        }
+        public SimpleStringProperty predicateProperty() {
+            return predicate;
+        }
+        public void setPredicate(String predicate) {
+            this.predicate = new SimpleStringProperty(predicate);
+        }
+        public String getObject() {
+            return object.get();
+        }
+        public SimpleStringProperty objectProperty() {
+            return object;
+        }
+        public void setObject(String object) {
+            this.object = new SimpleStringProperty(object);
+        }
     }
 
     public class PredObj{
@@ -177,6 +235,7 @@ public class InstanceBuilderController {
 
     private String buildUri(String s){
         Model made = Modelreader.getInstance().getModel();
+        //TODO: Implement a check if we have a colon
         return Modelreader.getInstance().getModel().getNsPrefixURI(s.split(":")[0]) + s.split(":")[1];
     }
 

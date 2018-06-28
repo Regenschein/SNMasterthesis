@@ -129,9 +129,9 @@
                      <children>
                         <HBox spacing="4.0">
                            <children>
-                              <TextField fx:id="tF_prefixShort" />
-                              <TextField fx:id="tF_prefixLong" />
-                              <Button fx:id="btn_addPrefix" mnemonicParsing="false" onAction="#addPrefix" text="Button" />
+                              <TextField fx:id="tF_prefixShort" promptText="add prefix here" />
+                              <TextField fx:id="tF_prefixLong" promptText="add URI here" />
+                              <Button fx:id="btn_addPrefix" mnemonicParsing="false" onAction="#addPrefix" text="Add Prefix" />
                            </children>
                         </HBox>
                         <Button fx:id="btn_BuildOwn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buildOwn" text="Build own model" />

@@ -36,7 +36,6 @@ public class Model {
 
     }
 
-    // By defualt ThreadSafe
     public static Model getInstance() {
         if (Model.instance == null) {
             Model.instance = new Model ();

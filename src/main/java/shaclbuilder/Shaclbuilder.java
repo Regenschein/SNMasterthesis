@@ -19,4 +19,6 @@ public interface Shaclbuilder {
     public void buildNonKeys(Model model, Map<String, RdfClass> classes);
 
     public void buildAlmostKeys(Model model, Map<String, RdfClass> classes);
+
+    void buildConditionalKeys(Model model, Map<String, RdfClass> classes);
 }

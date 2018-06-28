@@ -5,18 +5,23 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane fx:id="aP_main" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InstanceBuilderController">
+<AnchorPane fx:id="aP_main" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InstanceBuilderController">
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
-            <TextField fx:id="tF_subjectName" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="tF_subjectName" />
+                  <Button fx:id="btn_addRow" mnemonicParsing="false" onAction="#addRow" text="add new row" />
+               </children>
+            </HBox>
             <TableView fx:id="tV_newInstance" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
               <columns>
-                <TableColumn fx:id="tC_newInstancePredicate" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="145.0" text="predicate" />
-                  <TableColumn fx:id="tC_newInstanceObject" maxWidth="1.7976931348623157E308" minWidth="100.0" onEditCancel="#changeCellEvent" onEditCommit="#changeCellEvent" prefWidth="145.0" text="object" />
+                <TableColumn fx:id="tC_newInstancePredicate" maxWidth="1.7976931348623157E308" minWidth="100.0" onEditCancel="#changePredicateCellEvent" onEditCommit="#changePredicateCellEvent" prefWidth="145.0" text="predicate" />
+                  <TableColumn fx:id="tC_newInstanceObject" maxWidth="1.7976931348623157E308" minWidth="100.0" onEditCancel="#changeObjectCellEvent" onEditCommit="#changeObjectCellEvent" prefWidth="145.0" text="object" />
               </columns>
             </TableView>
             <Button fx:id="btn_addNode" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addNode" text="Add Node" />

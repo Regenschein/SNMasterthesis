@@ -4,6 +4,7 @@ import controller.Configuration;
 import controller.Controller;
 import model.BuilderImplementation;
 import modelbuilder.ClassFinder;
+import modelbuilder.ConditionalKey;
 import modelbuilder.RdfClass;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
@@ -100,7 +101,9 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
                     sb.append("\t\t\t ) \n");
                     sb.append("\t\t ] \n");
                 }
-                sb.append("\t ) .\n");
+                if (rdf.getConditionalKeys().isEmpty()) {
+                    sb.append("\t ) .\n");
+                }
             } else {
                 for (Set<String> set : rdf.getAlmostKeys()){
                     for (String att : set){
@@ -113,6 +116,34 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
                     }
                 }
                 sb.replace(sb.length() -3, sb.length(), ".\n\n");
+            }
+            for (ConditionalKey conditionalKey : rdf.getConditionalKeys()){
+                sb.append("\t\t [ \n");
+                sb.append("\t\t\t sh:and ( \n");
+                for (String att : conditionalKey.getKeyAttributes()){
+                    if(!att.equals("a")) {
+                        sb.append("\t\t\t\t [" + "\n");
+                        sb.append("\t\t\t\t\t sh:path " + trimAttr(att) + " ;" + "\n");
+                        sb.append("\t\t\t\t\t sh:minCount 1 ;" + "\n");
+                        sb.append("\t\t\t\t ] \n");
+                    }
+                }
+                Iterator it2 = conditionalKey.getConstraints().entrySet().iterator();
+                while (it2.hasNext()) {
+                    Map.Entry pair = (Map.Entry)it2.next();
+                        if(!pair.getKey().equals("a")) {
+                            sb.append("\t\t\t\t [" + "\n");
+                            sb.append("\t\t\t\t\t sh:path " + trimAttr(pair.getKey().toString()) + " ;" + "\n");
+                            sb.append("\t\t\t\t\t sh:hasValue " + pair.getValue() + " \n");
+                            sb.append("\t\t\t\t ] \n");
+                        }
+                    sb.append("\t\t\t ) \n");
+                    sb.append("\t\t ] \n");
+                }
+                //sb.replace(sb.length() -3, sb.length(), ".\n\n");
+            }
+            if (!rdf.getConditionalKeys().isEmpty()) {
+                sb.append("\t ) .\n");
             }
 
         }
@@ -166,7 +197,7 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
                 sb.append("\t sh:target [\n");
                 sb.append("\t\t sh:prefixes [\n");
                 for (Map.Entry<String, String> pair : model.getNsPrefixMap().entrySet()) {
-                    sb.append("\t\t\t sh:declare [ sh:prefix " + pair.getKey() + ": ;\n \t\t\t\t\t\t sh:namespace \"" + pair.getValue() + "\"^^xsd:anyURI ;\n \t\t\t\t\t ]; \n");
+                    sb.append("\t\t\t sh:declare [ sh:prefix \"" + pair.getKey() + "\" ;\n \t\t\t\t\t\t sh:namespace \"" + pair.getValue() + "\"^^xsd:anyURI ;\n \t\t\t\t\t ]; \n");
                 }
 
                 int n = Integer.parseInt(Controller.getInstance().tFAlmostKeys.getText());
@@ -179,12 +210,92 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
                 boolean rndPropertyIsSet = false;
                 for (int i = 0; i <= n; i++) {
                     sb.append("\t\t\t\t $this" + i + " a " + targetClass + " .\n");
-                    for (String att : set) { //NEIMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+                    for (String att : set) {
                         if (!att.equals("a")) {
                             sb.append("\t\t\t\t $this" + i + " " + trimAttr(att) + " ?" + trimAttrPlus(att) + " .\n");
                             if (rndPropertyIsSet == false) {
                                 rndProperty = trimAttr(att);
                             }
+                        }
+                    }
+                }
+                sb.append("\t\t\t\t FILTER (");
+                for (int x = 0; x <= n; x++) {
+                    for (int y = 0; y <= n; y++) {
+                        if (x != y)
+                            sb.append(" $this" + x + " != " + "$this" + y + " && ");
+                    }
+                }
+                sb.replace(sb.length() - 3, sb.length(), ") \n");
+                sb.append("\t\t\t } GROUP BY $this0 \n ");
+                sb.append("\t\t\t \"\"\" ;\n");
+                sb.append("\t ];\n");
+                sb.append("\t sh:property [\n");
+                sb.append("\t\t sh:path " + rndProperty + " ;\n");
+                sb.append("\t\t sh:maxCount 0 ; \n");
+                sb.append("\t ] . \n\n");
+
+                counter = counter + 1;
+            }
+
+
+            BufferedWriter writer = null;
+            try {
+                writer = new BufferedWriter(new FileWriter(Configuration.getInstance().getShaclpath(), true));
+                writer.write(sb.toString());
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    @Override
+    public void buildConditionalKeys(Model model, Map<String, RdfClass> classes) {
+        StringBuilder sb = new StringBuilder();
+
+        Iterator it = classes.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry par = (Map.Entry) it.next();
+
+            String targetClass = par.getKey().toString();
+            RdfClass rdf = (RdfClass) par.getValue();
+
+            int counter = 0;
+            for (ConditionalKey conditionalKey : rdf.getConditionalKeys()) {
+
+                sb.append("ex:ConditionalKeyCheckFor" + targetClass + counter + "\n");
+                sb.append("\t a sh:NodeShape ;\n");
+                sb.append("\t sh:target [\n");
+                sb.append("\t\t sh:prefixes [\n");
+                for (Map.Entry<String, String> pair : model.getNsPrefixMap().entrySet()) {
+                    sb.append("\t\t\t sh:declare [ sh:prefix \"" + pair.getKey() + "\" ;\n \t\t\t\t\t\t sh:namespace \"" + pair.getValue() + "\"^^xsd:anyURI ;\n \t\t\t\t\t ]; \n");
+                }
+
+                int n = Integer.parseInt(Controller.getInstance().tFAlmostKeys.getText());
+
+                sb.append("\t\t ] ;\n");
+                sb.append("\t\t sh:select \"\"\" \n");
+                sb.append("\t\t\t SELECT $this0 \n");
+                sb.append("\t\t\t WHERE { \n");
+                String rndProperty = "";
+                boolean rndPropertyIsSet = false;
+                for (int i = 0; i <= n; i++) {
+                    sb.append("\t\t\t\t $this" + i + " a " + targetClass + " .\n");
+                    for (String att : conditionalKey.getKeyAttributes()) {
+                        if (!att.equals("a")) {
+                            sb.append("\t\t\t\t $this" + i + " " + trimAttr(att) + " ?" + trimAttrPlus(att) + " .\n");
+                            if (rndPropertyIsSet == false) {
+                                rndProperty = trimAttr(att);
+                            }
+                        }
+                    }
+                    Iterator iter = conditionalKey.getConstraints().entrySet().iterator();
+                    while (iter.hasNext()) {
+                        Map.Entry pair = (Map.Entry)iter.next();
+                        if (!pair.getKey().equals("a")) {
+                            sb.append("\t\t\t\t $this" + i + " " + trimAttr(pair.getKey().toString()) + " " + pair.getValue() + " .\n");
                         }
                     }
                 }

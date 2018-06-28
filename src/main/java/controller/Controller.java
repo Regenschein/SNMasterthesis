@@ -196,6 +196,7 @@ public class Controller {
     public void shacl(ActionEvent actionEvent) {
         s.buildNonKeys(mr.getModel(), cf.getClasses());
         s.buildAlmostKeys(mr.getModel(), cf.getClasses());
+        s.buildConditionalKeys(mr.getModel(), cf.getClasses());
     }
 
     private void setDesign(){
