@@ -6,32 +6,64 @@ import model.BuilderImplementation;
 import modelbuilder.ClassFinder;
 import modelbuilder.ConditionalKey;
 import modelbuilder.RdfClass;
+import org.apache.commons.io.IOUtils;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.util.FileUtils;
 import org.topbraid.jenax.util.JenaUtil;
+import org.topbraid.shacl.model.SHFactory;
 import org.topbraid.shacl.util.ModelPrinter;
 import org.topbraid.shacl.validation.ValidationUtil;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.net.MalformedURLException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.*;
 
 public class ShaclbuilderImplementation extends BuilderImplementation implements Shaclbuilder {
 
+
     public void build(){
         Model shapesmodel = JenaUtil.createDefaultModel();
-        shapesmodel.read(Configuration.getInstance().getShaclpath());
+        try {
+            System.out.println("Here comes dat Stream");
+            //FileInputStream inStream = new FileInputStream(Configuration.getInstance().getShaclpath());
+            //String body = IOUtils.toString(inStream, StandardCharsets.UTF_8.name());
+            //System.out.println(body);
+            System.out.println("Here goes dat Stream");
+            shapesmodel.read(new FileInputStream(Configuration.getInstance().getShaclpath()), "urn:dummy", FileUtils.langTurtle);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Model datamodel = JenaUtil.createDefaultModel();
-        datamodel.read(Configuration.getInstance().getPath());
+        try {
+            datamodel.read(new FileInputStream(Configuration.getInstance().getPath()), "urn:dummy", FileUtils.langTurtle);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
-        Resource report = ValidationUtil.validateModel(datamodel, shapesmodel, false);
+        System.out.println(shapesmodel.size() + " " + datamodel.size());
 
-        System.out.println(ModelPrinter.get().print(report.getModel()));
+        try {
+            SHFactory sh = new SHFactory();
+            SHFactory.ensureInited();
 
-        Controller.getInstance().tA_main.appendText(ModelPrinter.get().print(report.getModel()));
+            Resource report = ValidationUtil.validateModel(datamodel, shapesmodel, false);
 
+            try {
+                Controller.getInstance().tA_main.appendText(ModelPrinter.get().print(report.getModel()));
+            }catch(NoClassDefFoundError | ExceptionInInitializerError exc){
+                System.out.println(ModelPrinter.get().print(report.getModel()));
+            }
+        }catch (NullPointerException errr){
+            errr.printStackTrace();
+        }catch (ExceptionInInitializerError errr){
+            errr.printStackTrace();
+        }
     }
 
     @Override
@@ -76,14 +108,10 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
 
             String targetClass = par.getKey().toString();
 
-            sb.append("ex:MaxNonKeyFor" + targetClass + "\n");
+            sb.append("ex:MaxNonKeyFor" + targetClass.replace(":", "0") + "\n");
             sb.append("\t a sh:NodeShape ;" + "\n");
             sb.append("\t sh:targetClass " + targetClass + " ;\n");
             RdfClass rdf = (RdfClass) par.getValue();
-
-            if (Controller.getInstance().checkBox_AlmostKey.isSelected()) {
-                Set<Set<String>> currentSet = rdf.getAlmostKeys();
-            }
 
             if(rdf.getAlmostKeys().size() > 1){
                 sb.append("\t sh:or ( \n");
@@ -152,8 +180,11 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
 
         BufferedWriter writer = null;
         try {
-            writer = new BufferedWriter(new FileWriter(Configuration.getInstance().getShaclpath()));
+            //writer = new BufferedWriter(new FileWriter(Configuration.getInstance().getShaclpath()));
+            //writer = Files.newBufferedWriter(java.nio.file.Paths.get(Configuration.getInstance().getShaclpath()), StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+            writer = Files.newBufferedWriter(java.nio.file.Paths.get(Configuration.getInstance().getShaclpath()), StandardCharsets.UTF_8);
             writer.write(sb.toString());
+            //writer.flush();
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -167,7 +198,7 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
         if (att.equals("a")){
             return att;
         } else {
-            return att.split("%§%")[1];
+            return att.split("%&%")[1];
         }
     }
 
@@ -175,7 +206,7 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
         if (att.equals("a")){
             return att;
         } else {
-            return att.split("%§%")[1].replace(":", "0");
+            return att.split("%&%")[1].replace(":", "0");
         }
     }
 
@@ -192,7 +223,7 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
             int counter = 0;
             for (Set<String> set : rdf.getAlmostKeys()) {
 
-                sb.append("ex:AlmostKeyCheckFor" + targetClass + counter + "\n");
+                sb.append("ex:AlmostKeyCheckFor" + targetClass.replace(":", "0") + counter + "\n");
                 sb.append("\t a sh:NodeShape ;\n");
                 sb.append("\t sh:target [\n");
                 sb.append("\t\t sh:prefixes [\n");
@@ -200,7 +231,12 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
                     sb.append("\t\t\t sh:declare [ sh:prefix \"" + pair.getKey() + "\" ;\n \t\t\t\t\t\t sh:namespace \"" + pair.getValue() + "\"^^xsd:anyURI ;\n \t\t\t\t\t ]; \n");
                 }
 
-                int n = Integer.parseInt(Controller.getInstance().tFAlmostKeys.getText());
+                int n = 1;
+                try {
+                    n = Integer.parseInt(Controller.getInstance().tFAlmostKeys.getText());
+                }catch (NoClassDefFoundError | ExceptionInInitializerError exc){
+
+                }
 
                 sb.append("\t\t ] ;\n");
                 sb.append("\t\t sh:select \"\"\" \n");
@@ -241,8 +277,11 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
 
             BufferedWriter writer = null;
             try {
-                writer = new BufferedWriter(new FileWriter(Configuration.getInstance().getShaclpath(), true));
+                writer = Files.newBufferedWriter(java.nio.file.Paths.get(Configuration.getInstance().getShaclpath()), StandardCharsets.UTF_8, StandardOpenOption.APPEND);
+                //writer = new BufferedWriter(new FileWriter(Configuration.getInstance().getShaclpath(), true));
                 writer.write(sb.toString());
+                sb = new StringBuilder();
+                writer.flush();
                 writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -265,7 +304,7 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
             int counter = 0;
             for (ConditionalKey conditionalKey : rdf.getConditionalKeys()) {
 
-                sb.append("ex:ConditionalKeyCheckFor" + targetClass + counter + "\n");
+                sb.append("ex:ConditionalKeyCheckFor" + targetClass.replace(":", "0") + counter + "\n");
                 sb.append("\t a sh:NodeShape ;\n");
                 sb.append("\t sh:target [\n");
                 sb.append("\t\t sh:prefixes [\n");
@@ -273,7 +312,12 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
                     sb.append("\t\t\t sh:declare [ sh:prefix \"" + pair.getKey() + "\" ;\n \t\t\t\t\t\t sh:namespace \"" + pair.getValue() + "\"^^xsd:anyURI ;\n \t\t\t\t\t ]; \n");
                 }
 
-                int n = Integer.parseInt(Controller.getInstance().tFAlmostKeys.getText());
+                int n = 1;
+                try {
+                    n = Integer.parseInt(Controller.getInstance().tFAlmostKeys.getText());
+                }catch (NoClassDefFoundError | ExceptionInInitializerError exc){
+
+                }
 
                 sb.append("\t\t ] ;\n");
                 sb.append("\t\t sh:select \"\"\" \n");
@@ -321,8 +365,11 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
 
             BufferedWriter writer = null;
             try {
-                writer = new BufferedWriter(new FileWriter(Configuration.getInstance().getShaclpath(), true));
+                writer = Files.newBufferedWriter(java.nio.file.Paths.get(Configuration.getInstance().getShaclpath()), StandardCharsets.UTF_8, StandardOpenOption.APPEND);
+                //writer = new BufferedWriter(new FileWriter(Configuration.getInstance().getShaclpath(), true));
                 writer.write(sb.toString());
+                sb = new StringBuilder();
+                writer.flush();
                 writer.close();
             } catch (IOException e) {
                 e.printStackTrace();

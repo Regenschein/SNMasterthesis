@@ -16,6 +16,7 @@
                <children>
                   <TextField fx:id="tF_subjectName" />
                   <Button fx:id="btn_addRow" mnemonicParsing="false" onAction="#addRow" text="add new row" />
+                  <Button fx:id="btn_removeRow" mnemonicParsing="false" onAction="#removeRow" text="removeRow" />
                </children>
             </HBox>
             <TableView fx:id="tV_newInstance" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">

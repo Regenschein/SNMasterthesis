@@ -46,7 +46,7 @@ public abstract class BuilderImplementation {
     }
 
     protected String trimToName(String s){
-        s = s.split("%§%")[1];
+        s = s.split("%&%")[1];
         String[] split = s.split("/");
         //return split[split.length - 1];
         return split[split.length - 1].replace(">", "").replace(".","DOT").replace("-","DASH").replace("_","US").replace(":", "0");

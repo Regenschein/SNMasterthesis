@@ -19,8 +19,11 @@ import org.apache.jena.graph.NodeFactory;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.vocabulary.VCARD;
 import org.topbraid.jenax.util.JenaDatatypes;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 import java.util.*;
+import java.util.Optional;
 
 public class InstanceBuilderController {
 
@@ -38,10 +41,6 @@ public class InstanceBuilderController {
         //loadKey();
     }
 
-    void initialize(){
-
-
-    }
 
     public static synchronized InstanceBuilderController getInstance() {
         if (InstanceBuilderController.iBController == null) {
@@ -73,20 +72,21 @@ public class InstanceBuilderController {
 
         for (String attribute : rdf.getAttributes()){
             if (!attribute.equals("a")){
-                tV_newInstance.getItems().add(createTBC(attribute.split("%§%")[1]));
+                tV_newInstance.getItems().add(createTBC(attribute.split("%&%")[1]));
             }
         }
     }
 
     public void changePredicateCellEvent(TableColumn.CellEditEvent editEvent) {
         InstanceBuilderController.TableContent tableContent = (InstanceBuilderController.TableContent) tV_newInstance.getSelectionModel().getSelectedItem();
-        tableContent.setPredicate(editEvent.getNewValue().toString());
+        if(editEvent.getNewValue() != null)
+            tableContent.setPredicate(editEvent.getNewValue().toString());
     }
 
     public void changeObjectCellEvent(TableColumn.CellEditEvent editEvent) {
-        Object o = tV_newInstance.getSelectionModel().getSelectedItem();
         InstanceBuilderController.TableContent tableContent = (InstanceBuilderController.TableContent) tV_newInstance.getSelectionModel().getSelectedItem();
-        tableContent.setObject(editEvent.getNewValue().toString());
+        if(editEvent.getNewValue() != null)
+            tableContent.setObject(editEvent.getNewValue().toString());
     }
 
     public void addRow(ActionEvent actionEvent) {
@@ -110,6 +110,11 @@ public class InstanceBuilderController {
                 System.out.println("teggn");
             }
         }
+    }
+
+    public void removeRow(ActionEvent actionEvent) {
+        InstanceBuilderController.TableContent selectedItem = (InstanceBuilderController.TableContent) tV_newInstance.getSelectionModel().getSelectedItem();
+        tV_newInstance.getItems().remove(selectedItem);
     }
 
     public class TableContent{
@@ -174,61 +179,71 @@ public class InstanceBuilderController {
     }
 
     public void addNode(ActionEvent actionEvent) {
-        ArrayList<String> als = getTableViewValues(tV_newInstance);
-        System.out.println("Test");
-
-        String uri =buildUri(tF_subjectName.getText());
-        Resource subject = ResourceFactory.createResource(uri);
-        for(int i = 0; i < als.size(); i = i +2) {
-            Property predicate = Modelreader.getInstance().getModel().getProperty(buildUri(als.get(i)));
-            Resource object;
-            String objectLit = als.get(i+1);
-            objectLit = objectLit.replace("StringProperty [value: ", "");
-            objectLit = objectLit.replace("]", "");
-            if(objectLit.contains("\"")){
-                //object = ResourceFactory.createResource(objectLit);
-                Literal literal;
-                if(objectLit.contains("@")){
-                    String[] objectString = objectLit.split("@");
-                    literal = ResourceFactory.createLangLiteral(objectString[0].replace("\"", ""), objectString[1]);
-                } else if(objectLit.contains("^^")){
-                    String[] objectString = objectLit.split("\\^\\^");
-                    RDFDatatype rtype = TypeMapper.getInstance().getSafeTypeByName(objectString[1]);
-                    literal = ResourceFactory.createTypedLiteral(objectString[0].replace("\"", ""), rtype);
-                } else {
-                    literal = ResourceFactory.createStringLiteral(objectLit);
-                }
-                Modelreader.getInstance().getModel().add(subject, predicate, literal);
-            } else {
-                if(objectLit.contains(":")){
-                    object = ResourceFactory.createResource(buildUri(als.get(i+1)));
-                    Modelreader.getInstance().getModel().add(subject, predicate, object);
-                } else {
-                    try{
+        if(tF_subjectName.getText().isEmpty()){
+            showAlert("An instance identifier is needed in the following format <namespace>:<identifier>");
+        }
+        else if(!tF_subjectName.getText().substring(1, tF_subjectName.getText().length() -2).contains(":")){
+            showAlert("An instance identifier is needed in the following format <namespace>:<identifier>");
+        } else {
+            ArrayList<String> als = getTableViewValues(tV_newInstance);
+            System.out.println("Test");
+            String uri =buildUri(tF_subjectName.getText());
+            Resource subject = ResourceFactory.createResource(uri);
+            for(int i = 0; i < als.size(); i = i +2) {
+                if(!als.get(i).isEmpty())
+                if(als.get(i).substring(1, als.get(i).length() -2).contains(":")){
+                    Property predicate = Modelreader.getInstance().getModel().getProperty(buildUri(als.get(i)));
+                    Resource object;
+                    String objectLit = als.get(i+1);
+                    objectLit = objectLit.replace("StringProperty [value: ", "");
+                    objectLit = objectLit.replace("]", "");
+                    if(objectLit.contains("\"")){
+                        //object = ResourceFactory.createResource(objectLit);
                         Literal literal;
-                        if(objectLit.contains(".") || objectLit.contains(",")){
-                            float f = Float.parseFloat(objectLit.replace(",", "."));
-                            literal = ResourceFactory.createTypedLiteral(objectLit, TypeMapper.getInstance().getSafeTypeByName(buildUri("xsd:float")));
+                        if(objectLit.contains("@")){
+                            String[] objectString = objectLit.split("@");
+                            literal = ResourceFactory.createLangLiteral(objectString[0].replace("\"", ""), objectString[1]);
+                        } else if(objectLit.contains("^^")){
+                            String[] objectString = objectLit.split("\\^\\^");
+                            RDFDatatype rtype = TypeMapper.getInstance().getSafeTypeByName(objectString[1]);
+                            literal = ResourceFactory.createTypedLiteral(objectString[0].replace("\"", ""), rtype);
                         } else {
-                            int in = Integer.parseInt(objectLit);
-                            literal = ResourceFactory.createTypedLiteral(objectLit, TypeMapper.getInstance().getSafeTypeByName(buildUri("xsd:int")));
+                            literal = ResourceFactory.createStringLiteral(objectLit);
                         }
                         Modelreader.getInstance().getModel().add(subject, predicate, literal);
-                    } catch (Exception e){
+                    } else {
+                        if(objectLit.contains(":")){
+                            object = ResourceFactory.createResource(buildUri(als.get(i+1)));
+                            Modelreader.getInstance().getModel().add(subject, predicate, object);
+                        } else {
+                            try{
+                                Literal literal;
+                                if(objectLit.contains(".") || objectLit.contains(",")){
+                                    float f = Float.parseFloat(objectLit.replace(",", "."));
+                                    literal = ResourceFactory.createTypedLiteral(objectLit, TypeMapper.getInstance().getSafeTypeByName(buildUri("xsd:float")));
+                                } else {
+                                    int in = Integer.parseInt(objectLit);
+                                    literal = ResourceFactory.createTypedLiteral(objectLit, TypeMapper.getInstance().getSafeTypeByName(buildUri("xsd:int")));
+                                }
+                                Modelreader.getInstance().getModel().add(subject, predicate, literal);
+                            } catch (Exception e){
 
+                            }
+                        }
                     }
+                    ClassFinder.getInstance().addInstanceToClass(classname, tF_subjectName.getText());
+                } else {
+                    showAlert("a namespace and an identifier is needed for every single predicate! <namespace>:<identifier>");
                 }
-            }
-        }
 
-        addClassInformation(subject);
+            }
+
+            addClassInformation(subject);
+        }
     }
 
     private void addClassInformation(Resource subject){
-        //Property predicate = Modelreader.getInstance().getModel().getProperty("a");
-        //Property predicate = ResourceFactory.createProperty(buildUri("rdf:type"));
         Property predicate = ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
-        //Property testicate = JenaDatatypes.getDatatypeURIs();
         Resource object = ResourceFactory.createResource(buildUri(this.classname));
         Modelreader.getInstance().getModel().add(subject, predicate, object);
     }
@@ -253,5 +268,15 @@ public class InstanceBuilderController {
         }
 
         return values;
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle("Wrong Format");
+
+        alert.setHeaderText("Obacht!");
+        alert.setContentText(message);
+
+        alert.showAndWait();
     }
 }

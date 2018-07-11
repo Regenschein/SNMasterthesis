@@ -7,16 +7,24 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import modelbuilder.ClassFinder;
+import modelbuilder.Constraint;
 import modelbuilder.RdfClass;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -64,12 +72,14 @@ public class ClassBuilderController {
 
     public void changeNameCellEvent(TableColumn.CellEditEvent editEvent) {
         ClassBuilderController.TableContent tableContent = (ClassBuilderController.TableContent) tV_newClass.getSelectionModel().getSelectedItem();
-        tableContent.setName(editEvent.getNewValue().toString());
+        if(editEvent.getNewValue() != null)
+            tableContent.setName(editEvent.getNewValue().toString());
     }
 
     public void changeDatatypeCellEvent(TableColumn.CellEditEvent editEvent) {
         ClassBuilderController.TableContent tableContent = (ClassBuilderController.TableContent) tV_newClass.getSelectionModel().getSelectedItem();
-        tableContent.setDatatype(editEvent.getNewValue().toString());
+        if(editEvent.getNewValue() != null)
+            tableContent.setDatatype(editEvent.getNewValue().toString());
     }
 
     public void changeObligatoryCellEvent(TableColumn.CellEditEvent editEvent) {
@@ -116,11 +126,21 @@ public class ClassBuilderController {
         private CheckBox obligatory;
         private Button constraints;
 
+
         public TableContent(SimpleStringProperty name, SimpleStringProperty datatype, CheckBox obligatory, Button constraints) {
             this.name = name;
             this.datatype = datatype;
             this.obligatory = obligatory;
             this.constraints = constraints;
+
+            constraints.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    loadScene("/constraintBuilder.fxml", "Add a new constraint");
+                    //ClassBuilderController.getInstance().initialize();
+                    ConstraintBuilderController.getInstance().initialize();
+                }
+            });
         }
 
         public String getName() {
@@ -153,5 +173,22 @@ public class ClassBuilderController {
         public void setConstraints(Button constraints) {
             this.constraints = constraints;
         }
+    }
+
+    private Stage loadScene(String resource, String title){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(resource));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setTitle(title);
+            stage.setScene(new Scene(root1));
+            stage.show();
+            return stage;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

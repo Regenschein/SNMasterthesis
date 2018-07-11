@@ -14,15 +14,7 @@ class Util {
         if(fact.getPredicate().getURI().contains("rdf-syntax-ns#type")){
             return "a";
         } else {
-            return classname + "%§%" + model.getNsURIPrefix(fact.getPredicate().getNameSpace()) + ":" + fact.getPredicate().getLocalName();
-        }
-    }
-
-    static String transformPredicate(Model model, Statement fact){
-        if(fact.getPredicate().getURI().contains("rdf-syntax-ns#type")){
-            return "a";
-        } else {
-            return model.getNsURIPrefix(fact.getPredicate().getNameSpace()) + ":" + fact.getPredicate().getLocalName();
+            return classname + "%&%" + model.getNsURIPrefix(fact.getPredicate().getNameSpace()) + ":" + fact.getPredicate().getLocalName();
         }
     }
 

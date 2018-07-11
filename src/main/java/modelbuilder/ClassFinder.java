@@ -28,6 +28,10 @@ public class ClassFinder {
         return ClassFinder.classfinder;
     }
 
+    public void addInstanceToClass(String classname, String instancename ){
+        classes.get(classname).addInstance(instancename);
+    }
+
     public void build(Model model) {
         StmtIterator i = model.listStatements();
         while (i.hasNext()) {
@@ -50,7 +54,6 @@ public class ClassFinder {
                 }
             }
         }
-        System.out.println("qwest complete");
     }
 
     public void setAlmostKeys(Model model, HashSet<HashSet<String>> almostKeys){
@@ -93,7 +96,6 @@ public class ClassFinder {
                 }
             }
         }
-        System.out.println("joooo, Makrele");
     }
 
     private HashSet<String>  transformSet(HashSet<HashSet<String>> amk){

@@ -38,19 +38,6 @@ public class Modelreader {
     public void readFile(){
         model = ModelFactory.createDefaultModel();
         FileManager.get().readModel( model, Configuration.getInstance().getPath());
-        transformPredicates(model);
-    }
-
-    private void transformPredicates(Model model){
-        Property property = model.getProperty("a");
-        System.out.println("test");
-        //ResIterator resIterator = model.listSubjectsWithProperty(property);
-        ResIterator resIterator = model.listSubjects();
-
-        while(resIterator.hasNext()){
-            Resource resource = resIterator.nextResource();
-            System.out.println("I bims. Dem Ressource");
-        }
     }
 
     public void writeFile(Lang lang){

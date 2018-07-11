@@ -1,7 +1,6 @@
 package modelbuilder;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class RdfClass {
 
@@ -11,6 +10,16 @@ public class RdfClass {
     private Set<Set<String>> nonKeys = new HashSet<>();
     private Set<Set<String>> almostKeys = new HashSet<>();
     private Set<ConditionalKey> condtionalKeys = new HashSet<>();
+
+    private HashMap<String, List<Constraint>> constraints = new HashMap<>();
+
+    public void addConstraints(String attribute, List<Constraint> constraintList){
+        constraints.put(attribute, constraintList);
+    }
+
+    public void addConstraint(String attribute, String constraint, String value){
+        //TODO: ADD CONSTRAINTS
+    }
 
     public RdfClass(String name){
         this.name = name;

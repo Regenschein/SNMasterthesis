@@ -1,0 +1,68 @@
+<component name="ArtifactManager">
+  <artifact name="Headless">
+    <output-path>$PROJECT_DIR$/out/artifacts/Headless</output-path>
+    <root id="root">
+      <element id="archive" name="SNMasterthesis.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="SNMasterthesis" />
+      </element>
+      <element id="library" level="module" name="Maven: VirtJdbc:virtjdbc4-4.0:4.4.0" module-name="SNMasterthesis" />
+      <element id="library" level="project" name="Maven: org.apache.jena:jena-tdb:3.7.0" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jsonld-java/jsonld-java-jena.jar" />
+      <element id="library" level="project" name="Maven: com.github.jsonld-java:jsonld-java:0.11.1" />
+      <element id="library" level="project" name="Maven: org.apache.jena:jena-dboe-trans-data:3.7.0" />
+      <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore-nio:4.4.6" />
+      <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.5" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
+      <element id="library" level="module" name="Maven: com.SAKeyNonKeys:SAKeyNonKeys:2.2.3" module-name="SNMasterthesis" />
+      <element id="library" level="project" name="Maven: org.apache.jena:jena-arq:3.7.0" />
+      <element id="library" level="project" name="Maven: org.apache.jena:jena-iri:3.7.0" />
+      <element id="library" level="project" name="Maven: org.apache.commons:commons-csv:1.5" />
+      <element id="library" level="project" name="Maven: org.apache.jena:jena-core:3.7.0" />
+      <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.1" />
+      <element id="library" level="project" name="Maven: org.apache.httpcomponents:fluent-hc:4.5.3" />
+      <element id="library" level="project" name="Maven: org.apache.jena:jena-rdfconnection:3.7.0" />
+      <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.5" />
+      <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.6" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.0" />
+      <element id="library" level="project" name="Maven: xerces:xercesImpl:2.11.0" />
+      <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient-cache:4.5.3" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jsonld-java/jsonld-java.jar" />
+      <element id="library" level="project" name="Maven: org.apache.jena:jena-dboe-index:3.7.0" />
+      <element id="library" level="module" name="Maven: com.vickey:vickey:2.2.3" module-name="SNMasterthesis" />
+      <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.5.3" />
+      <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.4" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.0" />
+      <element id="library" level="project" name="Maven: org.apache.jena:jena-tdb2:3.7.0" />
+      <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient-osgi:4.5.3" />
+      <element id="library" level="project" name="Maven: org.apache.jena:jena-shaded-guava:3.7.0" />
+      <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore-osgi:4.4.6" />
+      <element id="library" level="project" name="Maven: org.apache.jena:jena-dboe-base:3.7.0" />
+      <element id="library" level="project" name="Maven: commons-io:commons-io:2.5" />
+      <element id="library" level="project" name="Maven: org.apache.thrift:libthrift:0.10.0" />
+      <element id="library" level="project" name="Maven: org.topbraid:shacl:1.1.0" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jsonld-java/jsonld-java-clerezza.jar" />
+      <element id="library" level="project" name="Maven: org.apache.jena:jena-base:3.7.0" />
+      <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.4.01" />
+      <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" />
+      <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jsonld-java/jsonld-java-sesame.jar" />
+      <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpmime:4.5.3" />
+      <element id="library" level="module" name="Maven: Rocker:rocker-1.2.1:1.2.1" module-name="SNMasterthesis" />
+      <element id="library" level="project" name="Maven: com.github.andrewoma.dexx:collection:0.7" />
+      <element id="library" level="module" name="Maven: VirtJena:virt_jena3:3.0" module-name="SNMasterthesis" />
+      <element id="library" level="project" name="Maven: commons-cli:commons-cli:1.4" />
+      <element id="library" level="module" name="Maven: com.oracle:javafx:2.2.3" module-name="SNMasterthesis" />
+      <element id="library" level="project" name="Maven: net.sf.py4j:py4j:0.8.1" />
+      <element id="library" level="project" name="Maven: org.apache.jena:jena-dboe-transaction:3.7.0" />
+      <element id="library" level="module" name="Maven: com.pseudo-keys:pseudo-keys:2.2.3" module-name="SNMasterthesis" />
+      <element id="library" level="project" name="Maven: junit:junit:4.10" />
+      <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jsonld-java/jsonld-java-tools.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/rocker-1.2.1.jar" />
+      <element id="library" level="project" name="Maven: org.xerial:sqlite-jdbc:3.7.2" />
+    </root>
+  </artifact>
+</component>

@@ -1,253 +1,248 @@
-world:associationOfGears	schema:Faction%§%schema:foundingDate	"932-11-23"^^xsm:date
-world:associationOfGears	schema:Faction%§%schema:name	"Association of Gears"^^xsd:string
+world:associationOfGears	schema:Faction%&%schema:foundingDate	"932-11-23"^^xsm:date
+world:associationOfGears	schema:Faction%&%schema:name	"Association of Gears"^^xsd:string
 world:associationOfGears	a	schema:Faction
-world:churchOfAvus	schema:Religion%§%schema:hasGod	"Brobo"^^xsd:String
-world:churchOfAvus	schema:Religion%§%schema:proponents	"70000"^^xsd:int
-world:churchOfAvus	schema:Religion%§%schema:name	"Kirche des Avus"@de
-world:churchOfAvus	schema:Religion%§%schema:name	"churchOfAvus"@en
+world:churchOfAvus	schema:Religion%&%schema:hasGod	"Brobo"^^xsd:String
+world:churchOfAvus	schema:Religion%&%schema:proponents	"70000"^^xsd:int
+world:churchOfAvus	schema:Religion%&%schema:name	"Kirche des Avus"@de
+world:churchOfAvus	schema:Religion%&%schema:name	"churchOfAvus"@en
 world:churchOfAvus	a	schema:Religion
-world:TurnipsHome	null%§%schema:streetAddress	"Handwerkwerweg 31"@de
-world:TurnipsHome	null%§%schema:streetAddress	"31 Trademann's Valley"@en
-world:TurnipsHome	null%§%schema:addressCity	world:Targ
-world:TurnipsHome	null%§%schema:addressRegion	world:TimberwoodMountains
-world:TurnipsHome	null%§%schema:addressCountry	world:Avurien
-world:theHawks	schema:Faction%§%schema:foundingDate	"423-01-26"^^xsm:date
-world:theHawks	schema:Faction%§%schema:name	"Die Falken"@de
-world:theHawks	schema:Faction%§%schema:name	"The Hawks"@en
+world:TurnipsHome	null%&%schema:streetAddress	"Handwerkwerweg 31"@de
+world:TurnipsHome	null%&%schema:streetAddress	"31 Trademann's Valley"@en
+world:TurnipsHome	null%&%schema:addressCity	world:Targ
+world:TurnipsHome	null%&%schema:addressRegion	world:TimberwoodMountains
+world:TurnipsHome	null%&%schema:addressCountry	world:Avurien
+world:theHawks	schema:Faction%&%schema:foundingDate	"423-01-26"^^xsm:date
+world:theHawks	schema:Faction%&%schema:name	"Die Falken"@de
+world:theHawks	schema:Faction%&%schema:name	"The Hawks"@en
 world:theHawks	a	schema:Faction
-null:null	null%§%schema:socialRankTarget	world:Loui
-null:null	null%§%schema:socialRankValue	"96"^^xsd:integer
-world:Twighome	schema:Place%§%schema:streetAddress	"In den Gärten 7"@de
-world:Twighome	schema:Place%§%schema:streetAddress	"7, the gardens "@en
-world:Twighome	schema:Place%§%schema:addressCity	world:ImperialCity
-world:Twighome	schema:Place%§%schema:addressRegion	world:TheOldEmpireRegion
-world:Twighome	schema:Place%§%schema:addressCountry	world:TheOldEmpire
+world:Twighome	schema:Place%&%schema:streetAddress	"In den Gärten 7"@de
+world:Twighome	schema:Place%&%schema:streetAddress	"7, the gardens "@en
+world:Twighome	schema:Place%&%schema:addressCity	world:ImperialCity
+world:Twighome	schema:Place%&%schema:addressRegion	world:TheOldEmpireRegion
+world:Twighome	schema:Place%&%schema:addressCountry	world:TheOldEmpire
 world:Twighome	a	schema:Place
-world:TheOldEmpire	schema:Country%§%schema:Population	"300000"^^xsd:int
-world:TheOldEmpire	schema:Country%§%schema:foundingYear	"-1700"^^xsd:int
-world:TheOldEmpire	schema:Country%§%schema:nationalAnthem	"Through blood and stone"^^xsd:string
-world:TheOldEmpire	schema:Country%§%schema:localLanguage	"gvelish"^^xsd:string
-world:TheOldEmpire	schema:Country%§%schema:name	"The old empire"^^xsd:string
+world:TheOldEmpire	schema:Country%&%schema:Population	"300000"^^xsd:int
+world:TheOldEmpire	schema:Country%&%schema:foundingYear	"-1700"^^xsd:int
+world:TheOldEmpire	schema:Country%&%schema:nationalAnthem	"Through blood and stone"^^xsd:string
+world:TheOldEmpire	schema:Country%&%schema:localLanguage	"gvelish"^^xsd:string
+world:TheOldEmpire	schema:Country%&%schema:name	"The old empire"^^xsd:string
 world:TheOldEmpire	a	schema:Country
-world:Welf	schema:City%§%schema:architecturalStyle	"temper"^^xsd:string
-world:Welf	schema:City%§%schema:heraldicAnimal	"butterfly"^^xsd:string
-world:Welf	schema:City%§%schema:population	"13000"^^xsd:int
-world:Welf	schema:City%§%schema:addressRegion	world:TimberwoodMountains
-world:Welf	schema:City%§%schema:addressCountry	world:Gvelien
+world:Welf	schema:City%&%schema:architecturalStyle	"temper"^^xsd:string
+world:Welf	schema:City%&%schema:heraldicAnimal	"butterfly"^^xsd:string
+world:Welf	schema:City%&%schema:population	"13000"^^xsd:int
+world:Welf	schema:City%&%schema:addressRegion	world:TimberwoodMountains
+world:Welf	schema:City%&%schema:addressCountry	world:Gvelien
 world:Welf	a	schema:City
-world:Lados	schema:City%§%schema:architecturalStyle	"maritime"^^xsd:string
-world:Lados	schema:City%§%schema:isCapital	"false"^^xsd:boolean
-world:Lados	schema:City%§%schema:heraldicAnimal	"swordfish"^^xsd:string
-world:Lados	schema:City%§%schema:population	"9000"^^xsd:int
-world:Lados	schema:City%§%schema:addressRegion	world:MountainView
-world:Lados	schema:City%§%schema:addressCountry	world:Avurien
+world:Lados	schema:City%&%schema:architecturalStyle	"maritime"^^xsd:string
+world:Lados	schema:City%&%schema:isCapital	"false"^^xsd:boolean
+world:Lados	schema:City%&%schema:heraldicAnimal	"swordfish"^^xsd:string
+world:Lados	schema:City%&%schema:population	"9000"^^xsd:int
+world:Lados	schema:City%&%schema:addressRegion	world:MountainView
+world:Lados	schema:City%&%schema:addressCountry	world:Avurien
 world:Lados	a	schema:City
-world:Sharun	schema:Country%§%schema:Population	"2900000"^^xsd:int
-world:Sharun	schema:Country%§%schema:foundingYear	"-145"^^xsd:int
-world:Sharun	schema:Country%§%schema:nationalAnthem	"Paradise on earth"^^xsd:string
-world:Sharun	schema:Country%§%schema:localLanguage	"sharûn"^^xsd:string
-world:Sharun	schema:Country%§%schema:name	"Sharûn"^^xsd:string
+world:Sharun	schema:Country%&%schema:Population	"2900000"^^xsd:int
+world:Sharun	schema:Country%&%schema:foundingYear	"-145"^^xsd:int
+world:Sharun	schema:Country%&%schema:nationalAnthem	"Paradise on earth"^^xsd:string
+world:Sharun	schema:Country%&%schema:localLanguage	"sharûn"^^xsd:string
+world:Sharun	schema:Country%&%schema:name	"Sharûn"^^xsd:string
 world:Sharun	a	schema:Country
-world:Astrid	schema:Person%§%schema:address	world:RabitsDen
-world:Astrid	schema:Person%§%schema:birthDate	"1091-07-07"^^xsm:date
-world:Astrid	schema:Person%§%schema:familyName	"von Kharg"^^xsd:string
-world:Astrid	schema:Person%§%schema:givenName	"Astrid"^^xsd:string
-world:Astrid	schema:Person%§%schema:gender	schema:female
+world:Astrid	schema:Person%&%schema:address	world:RabitsDen
+world:Astrid	schema:Person%&%schema:birthDate	"1091-07-07"^^xsm:date
+world:Astrid	schema:Person%&%schema:familyName	"von Kharg"^^xsd:string
+world:Astrid	schema:Person%&%schema:givenName	"Astrid"^^xsd:string
+world:Astrid	schema:Person%&%schema:gender	schema:female
 world:Astrid	a	schema:Person
-world:TheOldEmpireRegion	schema:Region%§%schema:fauna	"Pigeon"^^xsd:string
-world:TheOldEmpireRegion	schema:Region%§%schema:fauna	"Rat"^^xsd:string
-world:TheOldEmpireRegion	schema:Region%§%schema:flora	"City"^^xsd:string
-world:TheOldEmpireRegion	schema:Region%§%schema:name	"TheOldEmpire"^^xsd:string
+world:TheOldEmpireRegion	schema:Region%&%schema:fauna	"Pigeon"^^xsd:string
+world:TheOldEmpireRegion	schema:Region%&%schema:fauna	"Rat"^^xsd:string
+world:TheOldEmpireRegion	schema:Region%&%schema:flora	"City"^^xsd:string
+world:TheOldEmpireRegion	schema:Region%&%schema:name	"TheOldEmpire"^^xsd:string
 world:TheOldEmpireRegion	a	schema:Region
-world:SonsOfBrobo	schema:Religion%§%schema:hasGod	"Brobo"^^xsd:String
-world:SonsOfBrobo	schema:Religion%§%schema:proponents	"900"^^xsd:int
-world:SonsOfBrobo	schema:Religion%§%schema:name	"Söhne des Brobo"@de
-world:SonsOfBrobo	schema:Religion%§%schema:name	"SonstOfBrobo"@en
+world:SonsOfBrobo	schema:Religion%&%schema:hasGod	"Brobo"^^xsd:String
+world:SonsOfBrobo	schema:Religion%&%schema:proponents	"900"^^xsd:int
+world:SonsOfBrobo	schema:Religion%&%schema:name	"Söhne des Brobo"@de
+world:SonsOfBrobo	schema:Religion%&%schema:name	"SonstOfBrobo"@en
 world:SonsOfBrobo	a	schema:Religion
-world:Johannes	schema:Person%§%schema:address	world:Twighome
+world:Johannes	schema:Person%&%schema:address	world:Twighome
 world:Johannes	a	schema:Person
-world:Johannes	schema:Person%§%schema:religion	world:SonsOfBrobo
-world:Johannes	schema:Person%§%schema:worksFor	world:Sebastian
-world:Johannes	schema:Person%§%schema:birthDate	"1096-01-13"^^xsd:string
-world:Johannes	schema:Person%§%schema:familyName	"Rute"@de
-world:Johannes	schema:Person%§%schema:familyName	"twig"@en
-world:Johannes	schema:Person%§%schema:profession	world:keymaker
-world:Johannes	schema:Person%§%schema:givenName	"Johannes"^^xsd:string
-world:Johannes	schema:Person%§%schema:faction	world:associationOfGears
-world:Johannes	schema:Person%§%schema:gender	schema:male
-world:Kingshome	schema:Place%§%schema:streetAddress	"Marsch des Ruhmes"@de
-world:Kingshome	schema:Place%§%schema:streetAddress	"Walk of Glory"@en
-world:Kingshome	schema:Place%§%schema:addressCity	world:ImperialCity
-world:Kingshome	schema:Place%§%schema:addressRegion	world:TheOldEmpireRegion
-world:Kingshome	schema:Place%§%schema:addressCountry	world:TheOldEmpire
+world:Johannes	schema:Person%&%schema:religion	world:SonsOfBrobo
+world:Johannes	schema:Person%&%schema:worksFor	world:Sebastian
+world:Johannes	schema:Person%&%schema:birthDate	"1096-01-13"^^xsd:string
+world:Johannes	schema:Person%&%schema:familyName	"Rute"@de
+world:Johannes	schema:Person%&%schema:familyName	"twig"@en
+world:Johannes	schema:Person%&%schema:profession	world:keymaker
+world:Johannes	schema:Person%&%schema:givenName	"Johannes"^^xsd:string
+world:Johannes	schema:Person%&%schema:faction	world:associationOfGears
+world:Johannes	schema:Person%&%schema:gender	schema:male
+world:Kingshome	schema:Place%&%schema:streetAddress	"Marsch des Ruhmes"@de
+world:Kingshome	schema:Place%&%schema:streetAddress	"Walk of Glory"@en
+world:Kingshome	schema:Place%&%schema:addressCity	world:ImperialCity
+world:Kingshome	schema:Place%&%schema:addressRegion	world:TheOldEmpireRegion
+world:Kingshome	schema:Place%&%schema:addressCountry	world:TheOldEmpire
 world:Kingshome	a	schema:Place
-world:Sebastian	schema:Person%§%schema:address	world:Kingshome
-world:Sebastian	schema:Person%§%schema:birthDate	"1090-04-28"^^xsm:date
-world:Sebastian	schema:Person%§%schema:familyName	"Sternensänger"@de
-world:Sebastian	schema:Person%§%schema:familyName	"Starsinger"@en
-world:Sebastian	schema:Person%§%schema:givenName	"Sebastian"^^xsd:string
-world:Sebastian	schema:Person%§%schema:gender	schema:male
+world:Sebastian	schema:Person%&%schema:address	world:Kingshome
+world:Sebastian	schema:Person%&%schema:birthDate	"1090-04-28"^^xsm:date
+world:Sebastian	schema:Person%&%schema:familyName	"Sternensänger"@de
+world:Sebastian	schema:Person%&%schema:familyName	"Starsinger"@en
+world:Sebastian	schema:Person%&%schema:givenName	"Sebastian"^^xsd:string
+world:Sebastian	schema:Person%&%schema:gender	schema:male
 world:Sebastian	a	schema:Person
-world:Loui	schema:Person%§%schema:address	world:TurnipsHome
-world:Loui	schema:Person%§%schema:birthDate	"1072-03-11"^^xsm:date
-world:Loui	schema:Person%§%schema:familyName	"Loui"^^xsd:string
-world:Loui	schema:Person%§%schema:givenName	"Loui"^^xsd:string
-world:Loui	schema:Person%§%schema:gender	schema:male
+world:Loui	schema:Person%&%schema:address	world:TurnipsHome
+world:Loui	schema:Person%&%schema:birthDate	"1072-03-11"^^xsm:date
+world:Loui	schema:Person%&%schema:familyName	"Loui"^^xsd:string
+world:Loui	schema:Person%&%schema:givenName	"Loui"^^xsd:string
+world:Loui	schema:Person%&%schema:gender	schema:male
 world:Loui	a	schema:Person
-world:TimberwoodMountains	schema:Region%§%schema:fauna	"Moose"^^xsd:string
-world:TimberwoodMountains	schema:Region%§%schema:fauna	"Bear"^^xsd:string
-world:TimberwoodMountains	schema:Region%§%schema:flora	"Forest"^^xsd:string
-world:TimberwoodMountains	schema:Region%§%schema:name	"Timberwood Mountains"^^xsd:string
+world:TimberwoodMountains	schema:Region%&%schema:fauna	"Moose"^^xsd:string
+world:TimberwoodMountains	schema:Region%&%schema:fauna	"Bear"^^xsd:string
+world:TimberwoodMountains	schema:Region%&%schema:flora	"Forest"^^xsd:string
+world:TimberwoodMountains	schema:Region%&%schema:name	"Timberwood Mountains"^^xsd:string
 world:TimberwoodMountains	a	schema:Region
-world:KhargRegion	schema:Region%§%schema:fauna	"desert mouse"^^xsd:string
-world:KhargRegion	schema:Region%§%schema:flora	"barren rocks"^^xsd:string
-world:KhargRegion	schema:Region%§%schema:name	"Kharg"^^xsd:string
+world:KhargRegion	schema:Region%&%schema:fauna	"desert mouse"^^xsd:string
+world:KhargRegion	schema:Region%&%schema:flora	"barren rocks"^^xsd:string
+world:KhargRegion	schema:Region%&%schema:name	"Kharg"^^xsd:string
 world:KhargRegion	a	schema:Region
-world:Adrian	schema:Person%§%schema:birthDate	"1090-11-28"^^xsd:string
-world:Adrian	schema:Person%§%schema:faction	world:associationOfGears
-world:Adrian	schema:Person%§%schema:address	world:GrindstoneHome
-world:Adrian	schema:Person%§%schema:familyName	"Grindstone"@en
-world:Adrian	schema:Person%§%schema:givenName	"Adrian"^^xsd:string
-world:Adrian	schema:Person%§%schema:worksFor	world:Sebastian
-world:Adrian	schema:Person%§%schema:religion	world:churchOfAvus
-world:Adrian	schema:Person%§%schema:familyName	"Wetzstein"@de
+world:Adrian	schema:Person%&%schema:birthDate	"1090-11-28"^^xsd:string
+world:Adrian	schema:Person%&%schema:faction	world:associationOfGears
+world:Adrian	schema:Person%&%schema:address	world:GrindstoneHome
+world:Adrian	schema:Person%&%schema:familyName	"Grindstone"@en
+world:Adrian	schema:Person%&%schema:givenName	"Adrian"^^xsd:string
+world:Adrian	schema:Person%&%schema:worksFor	world:Sebastian
+world:Adrian	schema:Person%&%schema:religion	world:churchOfAvus
+world:Adrian	schema:Person%&%schema:familyName	"Wetzstein"@de
 world:Adrian	a	schema:Person
-world:Adrian	schema:Person%§%schema:profession	world:tinkerer
-world:Adrian	schema:Person%§%schema:gender	schema:male
-world:HawksNest	schema:Place%§%schema:streetAddress	"Platz des Eisenhammers"@de
-world:HawksNest	schema:Place%§%schema:streetAddress	"Iron Hammer Place"@en
-world:HawksNest	schema:Place%§%schema:addressCity	world:Khurag
-world:HawksNest	schema:Place%§%schema:addressRegion	world:KhargRegion
-world:HawksNest	schema:Place%§%schema:addressCountry	world:Kharg
+world:Adrian	schema:Person%&%schema:profession	world:tinkerer
+world:Adrian	schema:Person%&%schema:gender	schema:male
+null:null	null%&%schema:socialRankTarget	world:Loui
+null:null	null%&%schema:socialRankValue	"96"^^xsd:integer
+world:HawksNest	schema:Place%&%schema:streetAddress	"Platz des Eisenhammers"@de
+world:HawksNest	schema:Place%&%schema:streetAddress	"Iron Hammer Place"@en
+world:HawksNest	schema:Place%&%schema:addressCity	world:Khurag
+world:HawksNest	schema:Place%&%schema:addressRegion	world:KhargRegion
+world:HawksNest	schema:Place%&%schema:addressCountry	world:Kharg
 world:HawksNest	a	schema:Place
-world:Carl	schema:Person%§%schema:social_Rank	null:null
-world:Carl	schema:Person%§%schema:address	world:TurnipsHome
-world:Carl	schema:Person%§%schema:birthDate	"1082-01-12"^^xsm:date
-world:Carl	schema:Person%§%schema:familyName	"Rübe"@de
-world:Carl	schema:Person%§%schema:familyName	"Turnip"@en
-world:Carl	schema:Person%§%schema:givenName	"Karl"@de
-world:Carl	schema:Person%§%schema:givenName	"Carl"@en
-world:Carl	schema:Person%§%schema:gender	schema:male
+world:Carl	schema:Person%&%schema:social_Rank	null:null
+world:Carl	schema:Person%&%schema:address	world:TurnipsHome
+world:Carl	schema:Person%&%schema:birthDate	"1082-01-12"^^xsm:date
+world:Carl	schema:Person%&%schema:familyName	"Rübe"@de
+world:Carl	schema:Person%&%schema:familyName	"Turnip"@en
+world:Carl	schema:Person%&%schema:givenName	"Karl"@de
+world:Carl	schema:Person%&%schema:givenName	"Carl"@en
+world:Carl	schema:Person%&%schema:gender	schema:male
 world:Carl	a	schema:Person
-world:MountainView	schema:Region%§%schema:fauna	"Golden Eagle"^^xsd:string
-world:MountainView	schema:Region%§%schema:fauna	"Moose"^^xsd:string
-world:MountainView	schema:Region%§%schema:fauna	"Bear"^^xsd:string
-world:MountainView	schema:Region%§%schema:flora	"Forest"^^xsd:string
-world:MountainView	schema:Region%§%schema:flora	"Rocks"^^xsd:string
-world:MountainView	schema:Region%§%schema:name	"Mountain View"^^xsd:string
+world:MountainView	schema:Region%&%schema:fauna	"Golden Eagle"^^xsd:string
+world:MountainView	schema:Region%&%schema:fauna	"Moose"^^xsd:string
+world:MountainView	schema:Region%&%schema:fauna	"Bear"^^xsd:string
+world:MountainView	schema:Region%&%schema:flora	"Forest"^^xsd:string
+world:MountainView	schema:Region%&%schema:flora	"Rocks"^^xsd:string
+world:MountainView	schema:Region%&%schema:name	"Mountain View"^^xsd:string
 world:MountainView	a	schema:Region
-world:Lisa2	schema:Person%§%schema:address	world:TurnipsHome
-world:Lisa2	schema:Person%§%schema:birthDate	"1094-02-12"^^xsm:date
-world:Lisa2	schema:Person%§%schema:familyName	"Lakeheart"^^xsd:string
-world:Lisa2	schema:Person%§%schema:givenName	"Lisa"^^xsd:string
-world:Lisa2	schema:Person%§%schema:gender	schema:female
+world:Lisa2	schema:Person%&%schema:address	world:TurnipsHome
+world:Lisa2	schema:Person%&%schema:birthDate	"1094-02-12"^^xsm:date
+world:Lisa2	schema:Person%&%schema:familyName	"Lakeheart"^^xsd:string
+world:Lisa2	schema:Person%&%schema:givenName	"Lisa"^^xsd:string
+world:Lisa2	schema:Person%&%schema:gender	schema:female
 world:Lisa2	a	schema:Person
-world:Sebastian2	schema:Person%§%schema:address	world:RabitsDen
-world:Sebastian2	schema:Person%§%schema:birthDate	"1090-12-24"^^xsm:date
-world:Sebastian2	schema:Person%§%schema:familyName	"Sternensänger"@de
-world:Sebastian2	schema:Person%§%schema:familyName	"Starsinger"@en
-world:Sebastian2	schema:Person%§%schema:givenName	"Sebastian"^^xsd:string
-world:Sebastian2	schema:Person%§%schema:gender	schema:male
+world:Sebastian2	schema:Person%&%schema:address	world:RabitsDen
+world:Sebastian2	schema:Person%&%schema:birthDate	"1090-12-24"^^xsm:date
+world:Sebastian2	schema:Person%&%schema:familyName	"Sternensänger"@de
+world:Sebastian2	schema:Person%&%schema:familyName	"Starsinger"@en
+world:Sebastian2	schema:Person%&%schema:givenName	"Sebastian"^^xsd:string
+world:Sebastian2	schema:Person%&%schema:gender	schema:male
 world:Sebastian2	a	schema:Person
-world:Braunschweig	a	schema:City
-world:Braunschweig	null%§%schema:population	"313131"^^xsd:int
-world:Gvelien	schema:Country%§%schema:Population	"1000000"^^xsd:int
-world:Gvelien	schema:Country%§%schema:foundingYear	"0"^^xsd:int
-world:Gvelien	schema:Country%§%schema:nationalAnthem	"The hawk so high"^^xsd:string
-world:Gvelien	schema:Country%§%schema:localLanguage	"gvelish"^^xsd:string
-world:Gvelien	schema:Country%§%schema:name	"Gvelien"^^xsd:string
+world:Gvelien	schema:Country%&%schema:Population	"1000000"^^xsd:int
+world:Gvelien	schema:Country%&%schema:foundingYear	"0"^^xsd:int
+world:Gvelien	schema:Country%&%schema:nationalAnthem	"The hawk so high"^^xsd:string
+world:Gvelien	schema:Country%&%schema:localLanguage	"gvelish"^^xsd:string
+world:Gvelien	schema:Country%&%schema:name	"Gvelien"^^xsd:string
 world:Gvelien	a	schema:Country
-world:Fintos	schema:Person%§%schema:givenName	"Fintos"^^xsd:string
-world:Fintos	schema:Person%§%schema:birthDate	"1087-04-14"^^xsm:date
-world:Fintos	schema:Person%§%schema:familyName	"peregrine"@en
-world:Fintos	schema:Person%§%schema:address	world:HawksNest
+world:Fintos	schema:Person%&%schema:givenName	"Fintos"^^xsd:string
+world:Fintos	schema:Person%&%schema:birthDate	"1087-04-14"^^xsm:date
+world:Fintos	schema:Person%&%schema:familyName	"peregrine"@en
+world:Fintos	schema:Person%&%schema:address	world:HawksNest
 world:Fintos	a	schema:Person
-world:Fintos	schema:Person%§%schema:title	"count"@en
-world:Fintos	schema:Person%§%schema:title	"Graf"@de
-world:Fintos	schema:Person%§%schema:gender	schema:male
-world:Fintos	schema:Person%§%schema:familyName	"Wanderfalke"@de
-world:Fintos	schema:Person%§%schema:faction	world:theHawks
-world:monksOfAverno	schema:Faction%§%schema:foundingDate	"17-03-02"^^xsm:date
-world:monksOfAverno	schema:Faction%§%schema:name	"Monks of Averno"^^xsd:string
+world:Fintos	schema:Person%&%schema:title	"count"@en
+world:Fintos	schema:Person%&%schema:title	"Graf"@de
+world:Fintos	schema:Person%&%schema:gender	schema:male
+world:Fintos	schema:Person%&%schema:familyName	"Wanderfalke"@de
+world:Fintos	schema:Person%&%schema:faction	world:theHawks
+world:monksOfAverno	schema:Faction%&%schema:foundingDate	"17-03-02"^^xsm:date
+world:monksOfAverno	schema:Faction%&%schema:name	"Monks of Averno"^^xsd:string
 world:monksOfAverno	a	schema:Faction
-world:Targ	schema:City%§%schema:architecturalStyle	"gothic"^^xsd:string
-world:Targ	schema:City%§%schema:heraldicAnimal	"lion"^^xsd:string
-world:Targ	schema:City%§%schema:population	"15000"^^xsd:int
-world:Targ	schema:City%§%schema:addressRegion	world:TimberwoodMountains
-world:Targ	schema:City%§%schema:addressCountry	world:Avurien
+world:Targ	schema:City%&%schema:architecturalStyle	"gothic"^^xsd:string
+world:Targ	schema:City%&%schema:heraldicAnimal	"lion"^^xsd:string
+world:Targ	schema:City%&%schema:population	"15000"^^xsd:int
+world:Targ	schema:City%&%schema:addressRegion	world:TimberwoodMountains
+world:Targ	schema:City%&%schema:addressCountry	world:Avurien
 world:Targ	a	schema:City
-world:Arla	schema:Person%§%schema:address	world:ArlasHome
-world:Arla	schema:Person%§%schema:faction	world:associationOfGears
-world:Arla	schema:Person%§%schema:birthDate	"1099-11-23"^^xsm:date
-world:Arla	schema:Person%§%schema:familyName	"Asura"^^xsd:string
-world:Arla	schema:Person%§%schema:givenName	"Arla"^^xsd:string
-world:Arla	schema:Person%§%schema:gender	schema:female
+world:Arla	schema:Person%&%schema:address	world:ArlasHome
+world:Arla	schema:Person%&%schema:faction	world:associationOfGears
+world:Arla	schema:Person%&%schema:birthDate	"1099-11-23"^^xsm:date
+world:Arla	schema:Person%&%schema:familyName	"Asura"^^xsd:string
+world:Arla	schema:Person%&%schema:givenName	"Arla"^^xsd:string
+world:Arla	schema:Person%&%schema:gender	schema:female
 world:Arla	a	schema:Person
-world:ImperialCity	schema:City%§%schema:architecturalStyle	"gothic"^^xsd:string
-world:ImperialCity	schema:City%§%schema:isCapital	"true"^^xsd:boolean
-world:ImperialCity	schema:City%§%schema:heraldicAnimal	"Bull"^^xsd:string
-world:ImperialCity	schema:City%§%schema:population	"100000"^^xsd:int
-world:ImperialCity	schema:City%§%schema:addressRegion	world:TheOldEmpireRegion
-world:ImperialCity	schema:City%§%schema:addressCountry	world:TheOldEmpire
+world:ImperialCity	schema:City%&%schema:architecturalStyle	"gothic"^^xsd:string
+world:ImperialCity	schema:City%&%schema:isCapital	"true"^^xsd:boolean
+world:ImperialCity	schema:City%&%schema:heraldicAnimal	"Bull"^^xsd:string
+world:ImperialCity	schema:City%&%schema:population	"100000"^^xsd:int
+world:ImperialCity	schema:City%&%schema:addressRegion	world:TheOldEmpireRegion
+world:ImperialCity	schema:City%&%schema:addressCountry	world:TheOldEmpire
 world:ImperialCity	a	schema:City
-world:Arsenal	schema:Place%§%schema:streetAddress	"Straße des Militärs 1"@de
-world:Arsenal	schema:Place%§%schema:streetAddress	"Milirary way 1"@en
-world:Arsenal	schema:Place%§%schema:addressCity	world:ImperialCity
-world:Arsenal	schema:Place%§%schema:addressRegion	world:TheOldEmpireRegion
-world:Arsenal	schema:Place%§%schema:addressCountry	world:TheOldEmpire
+world:Arsenal	schema:Place%&%schema:streetAddress	"Straße des Militärs 1"@de
+world:Arsenal	schema:Place%&%schema:streetAddress	"Milirary way 1"@en
+world:Arsenal	schema:Place%&%schema:addressCity	world:ImperialCity
+world:Arsenal	schema:Place%&%schema:addressRegion	world:TheOldEmpireRegion
+world:Arsenal	schema:Place%&%schema:addressCountry	world:TheOldEmpire
 world:Arsenal	a	schema:Place
-world:Khurag	schema:City%§%schema:architecturalStyle	"dwarven"^^xsd:string
-world:Khurag	schema:City%§%schema:isCapital	"true"^^xsd:boolean
-world:Khurag	schema:City%§%schema:heraldicAnimal	"boar"^^xsd:string
-world:Khurag	schema:City%§%schema:population	"4500"^^xsd:int
-world:Khurag	schema:City%§%schema:addressRegion	world:KhargRegion
-world:Khurag	schema:City%§%schema:addressCountry	world:Kharg
+world:Khurag	schema:City%&%schema:architecturalStyle	"dwarven"^^xsd:string
+world:Khurag	schema:City%&%schema:isCapital	"true"^^xsd:boolean
+world:Khurag	schema:City%&%schema:heraldicAnimal	"boar"^^xsd:string
+world:Khurag	schema:City%&%schema:population	"4500"^^xsd:int
+world:Khurag	schema:City%&%schema:addressRegion	world:KhargRegion
+world:Khurag	schema:City%&%schema:addressCountry	world:Kharg
 world:Khurag	a	schema:City
-world:Avurien	schema:Country%§%schema:Population	"40000"^^xsd:int
-world:Avurien	schema:Country%§%schema:foundingYear	"671"^^xsd:int
-world:Avurien	schema:Country%§%schema:localLanguage	"avurish"^^xsd:string
-world:Avurien	schema:Country%§%schema:name	"Avurien"^^xsd:string
+world:Avurien	schema:Country%&%schema:Population	"40000"^^xsd:int
+world:Avurien	schema:Country%&%schema:foundingYear	"671"^^xsd:int
+world:Avurien	schema:Country%&%schema:localLanguage	"avurish"^^xsd:string
+world:Avurien	schema:Country%&%schema:name	"Avurien"^^xsd:string
 world:Avurien	a	schema:Country
-world:Lintfur	schema:Person%§%schema:address	world:HawksNest
-world:Lintfur	schema:Person%§%schema:faction	world:theHawks
-world:Lintfur	schema:Person%§%schema:birthDate	"1103-04-23"^^xsm:date
-world:Lintfur	schema:Person%§%schema:familyName	"Donnerwolke"@de
-world:Lintfur	schema:Person%§%schema:familyName	"Thundercloud"@en
-world:Lintfur	schema:Person%§%schema:givenName	"Fusselfell"@de
-world:Lintfur	schema:Person%§%schema:givenName	"Lintfur"@en
-world:Lintfur	schema:Person%§%schema:gender	schema:male
+world:Lintfur	schema:Person%&%schema:address	world:HawksNest
+world:Lintfur	schema:Person%&%schema:faction	world:theHawks
+world:Lintfur	schema:Person%&%schema:birthDate	"1103-04-23"^^xsm:date
+world:Lintfur	schema:Person%&%schema:familyName	"Donnerwolke"@de
+world:Lintfur	schema:Person%&%schema:familyName	"Thundercloud"@en
+world:Lintfur	schema:Person%&%schema:givenName	"Fusselfell"@de
+world:Lintfur	schema:Person%&%schema:givenName	"Lintfur"@en
+world:Lintfur	schema:Person%&%schema:gender	schema:male
 world:Lintfur	a	schema:Person
-world:Lisa	schema:Person%§%schema:address	world:TurnipsHome
-world:Lisa	schema:Person%§%schema:faction	world:associationOfGears
-world:Lisa	schema:Person%§%schema:birthDate	"1092-02-12"^^xsm:date
-world:Lisa	schema:Person%§%schema:familyName	"Turnip"^^xsd:string
-world:Lisa	schema:Person%§%schema:givenName	"Lisa"^^xsd:string
-world:Lisa	schema:Person%§%schema:gender	schema:female
+world:Lisa	schema:Person%&%schema:address	world:TurnipsHome
+world:Lisa	schema:Person%&%schema:faction	world:associationOfGears
+world:Lisa	schema:Person%&%schema:birthDate	"1092-02-12"^^xsm:date
+world:Lisa	schema:Person%&%schema:familyName	"Turnip"^^xsd:string
+world:Lisa	schema:Person%&%schema:givenName	"Lisa"^^xsd:string
+world:Lisa	schema:Person%&%schema:gender	schema:female
 world:Lisa	a	schema:Person
-world:Khargh	schema:Country%§%schema:Population	"20000"^^xsd:int
-world:Khargh	schema:Country%§%schema:foundingYear	"-300"^^xsd:int
-world:Khargh	schema:Country%§%schema:nationalAnthem	"How the anvil formed us"^^xsd:string
-world:Khargh	schema:Country%§%schema:localLanguage	"dwarven"^^xsd:string
-world:Khargh	schema:Country%§%schema:name	"Khargh"^^xsd:string
+world:Khargh	schema:Country%&%schema:Population	"20000"^^xsd:int
+world:Khargh	schema:Country%&%schema:foundingYear	"-300"^^xsd:int
+world:Khargh	schema:Country%&%schema:nationalAnthem	"How the anvil formed us"^^xsd:string
+world:Khargh	schema:Country%&%schema:localLanguage	"dwarven"^^xsd:string
+world:Khargh	schema:Country%&%schema:name	"Khargh"^^xsd:string
 world:Khargh	a	schema:Country
-world:ArlasHome	schema:Place%§%schema:streetAddress	"Birkenwaldweg 7"@de
-world:ArlasHome	schema:Place%§%schema:streetAddress	"7 Birken forch way"@en
-world:ArlasHome	schema:Place%§%schema:addressCity	world:Lados
-world:ArlasHome	schema:Place%§%schema:addressRegion	world:MountainView
-world:ArlasHome	schema:Place%§%schema:addressCountry	world:Avurien
+world:ArlasHome	schema:Place%&%schema:streetAddress	"Birkenwaldweg 7"@de
+world:ArlasHome	schema:Place%&%schema:streetAddress	"7 Birken forch way"@en
+world:ArlasHome	schema:Place%&%schema:addressCity	world:Lados
+world:ArlasHome	schema:Place%&%schema:addressRegion	world:MountainView
+world:ArlasHome	schema:Place%&%schema:addressCountry	world:Avurien
 world:ArlasHome	a	schema:Place
-world:Fjördall	schema:Country%§%schema:Population	"230000"^^xsd:int
-world:Fjördall	schema:Country%§%schema:foundingYear	"411"^^xsd:int
-world:Fjördall	schema:Country%§%schema:nationalAnthem	"Fjördall Fjördall"^^xsd:string
-world:Fjördall	schema:Country%§%schema:localLanguage	"fjött"^^xsd:string
-world:Fjördall	schema:Country%§%schema:name	"Fjördall"^^xsd:string
+world:Fjördall	schema:Country%&%schema:Population	"230000"^^xsd:int
+world:Fjördall	schema:Country%&%schema:foundingYear	"411"^^xsd:int
+world:Fjördall	schema:Country%&%schema:nationalAnthem	"Fjördall Fjördall"^^xsd:string
+world:Fjördall	schema:Country%&%schema:localLanguage	"fjött"^^xsd:string
+world:Fjördall	schema:Country%&%schema:name	"Fjördall"^^xsd:string
 world:Fjördall	a	schema:Country
-world:bscity	a	schema:Region
-world:bscity	null%§%schema:fauna	schema:Sschbbine
-world:bscity	null%§%schema:flora	world:Blume
-world:RabitsDen	schema:Place%§%schema:streetAddress	"Straße des Ashnaf"@de
-world:RabitsDen	schema:Place%§%schema:streetAddress	"Ashnaf's street"@en
-world:RabitsDen	schema:Place%§%schema:addressCity	world:Welf
-world:RabitsDen	schema:Place%§%schema:addressRegion	world:TimberwoodMountains
-world:RabitsDen	schema:Place%§%schema:addressCountry	world:Gvelien
+world:RabitsDen	schema:Place%&%schema:streetAddress	"Straße des Ashnaf"@de
+world:RabitsDen	schema:Place%&%schema:streetAddress	"Ashnaf's street"@en
+world:RabitsDen	schema:Place%&%schema:addressCity	world:Welf
+world:RabitsDen	schema:Place%&%schema:addressRegion	world:TimberwoodMountains
+world:RabitsDen	schema:Place%&%schema:addressCountry	world:Gvelien
 world:RabitsDen	a	schema:Place

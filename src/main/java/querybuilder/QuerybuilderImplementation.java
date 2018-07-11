@@ -240,7 +240,7 @@ public class QuerybuilderImplementation extends BuilderImplementation implements
 
     private String trimVariableName(String var){
         if(!var.equals("a"))
-            return var.split("%§%")[1];
+            return var.split("%&%")[1];
         return var;
     }
 

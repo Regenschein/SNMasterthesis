@@ -215,13 +215,14 @@ public class Controller {
 
         HashMap<String, String> prefixes = Model.getInstance().getPrefixes();
         int almostKey = Integer.parseInt(tFAlmostKeys.getText());
-
+        /*
         for (RdfClass rdfClass : cf.getClasses().values()){
             Set<Set<String>> almostKeys = rdfClass.getAlmostKeys();
             for (Set<String> amk: almostKeys){
                 q.build(prefixes, amk, rdfClass.getName(), almostKey);
             }
         }
+        */
 
         s.build();
     }
