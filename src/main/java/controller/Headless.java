@@ -1,5 +1,7 @@
 package controller;
 
+import dependencies.GraphDependencieMiner;
+import dependencies.GraphDependencieMinerImplementation;
 import keyfinder.SAKeyAlmostKeysOneFileOneN;
 import keyfinder.VICKEY;
 import modelbuilder.ClassFinder;
@@ -13,7 +15,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -26,21 +27,30 @@ public class Headless {
     public static void main(String[] args){
 
         Headless headless = new Headless();
-        headless.useArgs(args);
+        char para = headless.useArgs(args);
 
-        headless.getInfos();
+        Configuration.getInstance().setPath("./src/main/resources/data/" + "Universities-10mB" + ".ttl");
 
-        if(headless.useArgs(args) == true){
+        if(para == 'c'){
             headless.complete();
-        } else {
+        } else if(para == 's'){
             headless.withoutKeyFinding();
+        } else if (para == 'r'){
+            headless.readOnly();
+        } else if (para == 'm'){
+            headless.mineOnly();
         }
-        evaluateShacl();
     }
 
-    private boolean useArgs(String[] args){
+    private void mineOnly() {
+        mr.readFile();
+        cf.build(mr.getModel());
+        mr.mine();
+    }
 
-        boolean withKeyFinding = true;
+    private char useArgs(String[] args){
+
+        char modus = 'm';
 
         for (int i = 0; i < args.length; i = i + 2){
             switch (args[i]) {
@@ -49,41 +59,88 @@ public class Headless {
                     break;
                 case "-s":
                     Configuration.getInstance().setShaclpath("./src/main/resources/gen/" + args[i+1] + ".ttl");
-                    withKeyFinding = false;
+                    modus = 's';
                 case "-dl":
                     Configuration.getInstance().setPath(args[i+1] + ".ttl");
                     break;
                 case "-sl":
                     Configuration.getInstance().setShaclpath(args[i+1] + ".ttl");
-                    withKeyFinding = true;
+                    modus = 'c';
+                    break;
+                case "-r":
+                    modus = 'r';
+                    break;
+                case "-m":
+                    modus = 'm';
                 default:
                         break;
             }
         }
-        return withKeyFinding;
+        return modus;
     }
 
     /**
      * Method to run through the whole process
      */
     private void complete(){
+        //Configuration.getInstance().setPath("D:/Wikidata/wikidata-20150615-all-BETA.ttl/wikidata-20150615-all-BETA.ttl");
+        long timestampOLD = System.currentTimeMillis();
         mr.readFile();
+        long timestampNEW = System.currentTimeMillis();
+        System.out.println("Time needed for file reading: " + (timestampNEW - timestampOLD)/1000);
+        timestampOLD = System.currentTimeMillis();
+
+
         cf.build(mr.getModel());
+
+        mr.mine();
+
+
+
+        timestampNEW = System.currentTimeMillis();
+        System.out.println("Time needed for class building: " + (timestampNEW - timestampOLD)/1000);
+        timestampOLD = System.currentTimeMillis();
         mr.writeFile(Lang.TSV, cf);
+        timestampNEW = System.currentTimeMillis();
+        System.out.println("Time needed for file creation: " + (timestampNEW - timestampOLD)/1000);
+        timestampOLD = System.currentTimeMillis();
         findKeys();
+        timestampNEW = System.currentTimeMillis();
+        System.out.println("Time needed for key finding: " + (timestampNEW - timestampOLD)/1000);
+        timestampOLD = System.currentTimeMillis();
         buildShacl();
+        timestampNEW = System.currentTimeMillis();
+        System.out.println("Time needed for creating shacl: " + (timestampNEW - timestampOLD)/1000);
+        timestampOLD = System.currentTimeMillis();
+        evaluateShacl();
+        timestampNEW = System.currentTimeMillis();
+        System.out.println("Time needed for evaluating shacl: " + (timestampNEW - timestampOLD)/1000);
+    }
+
+    /**
+     * Method to run through the whole process
+     */
+    private void readOnly(){
+        //Configuration.getInstance().setPath("D:/Wikidata/wikidata-20150615-all-BETA.ttl/wikidata-20150615-all-BETA.ttl");
+        System.out.println("Start with the reading process:");
+        mr.readFile();
+        //cf.build(mr.getModel());
+        //mr.writeFile(Lang.TSV, cf);
+        //findKeys();
+        //buildShacl();
     }
 
     private void withoutKeyFinding(){
         mr.readFile();
         cf.build(mr.getModel());
         mr.writeFile(Lang.TSV, cf);
+        evaluateShacl();
     }
 
     private void findKeys(){
         String[] args = new String[2];
         args[0] = Configuration.getInstance().getTsvpath();
-        args[1] = "0";
+        args[1] = "1";
         try {
             SAKeyAlmostKeysOneFileOneN.main(args);
 
@@ -95,15 +152,16 @@ public class Headless {
         args = new String[1];
         args[0] = Configuration.getInstance().getTsvpath();
         //args[0] = "./src/main/resources/data/museum.tsv";
+        /**
         try {
             VICKEY.main(args);
             System.out.println(VICKEY.nonKeySet);
             cf.setConditionalKeys(mr.getModel(), VICKEY.conditionalKeys);
-            System.out.println("Conditional keys found and saved");
+            System.oshut.println("Conditional keys found and saved");
         } catch (IOException | InterruptedException e) {
             System.out.println("Failed to find and save Conditional keys");
         }
-
+        */
     }
 
     private void showMeWhatYouGot(){

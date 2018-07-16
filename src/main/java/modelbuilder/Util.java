@@ -7,7 +7,12 @@ import org.apache.jena.rdf.model.Statement;
 class Util {
 
     static String transformSubject(Model model, Statement fact){
-        return model.getNsURIPrefix(fact.getSubject().getNameSpace()) + ":" + fact.getSubject().getLocalName();
+        String ns = fact.getSubject().getNameSpace();
+        String s = model.getNsURIPrefix(fact.getSubject().getNameSpace()) + ":" + fact.getSubject().getLocalName();
+        if (model.getNsURIPrefix(fact.getSubject().getNameSpace()) == null){
+            return fact.getSubject().toString();
+        } else
+            return model.getNsURIPrefix(fact.getSubject().getNameSpace()) + ":" + fact.getSubject().getLocalName();
     }
 
     static String transformPredicate(Model model, Statement fact, String classname){
@@ -29,7 +34,10 @@ class Util {
                 obje = "\"" + literal.getLexicalForm() + "\"^^" + model.getNsURIPrefix(datatype[0] + "#") + ":" + datatype[1];
             }
         } else if (fact.getObject().isResource()) {
-            obje = model.getNsURIPrefix(fact.getObject().asResource().getNameSpace()) + ":" + fact.getObject().asResource().getLocalName();
+            if (model.getNsURIPrefix(fact.getObject().asResource().getNameSpace()) == null){
+                return fact.getObject().asResource().toString();
+            } else
+                obje = model.getNsURIPrefix(fact.getObject().asResource().getNameSpace()) + ":" + fact.getObject().asResource().getLocalName();
         }
         return obje;
     }

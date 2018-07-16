@@ -61,6 +61,9 @@ public class ClassFinder {
             for (Set<String> singleSet : almostKeys) {
                 if(r.getAttributes().containsAll(singleSet)){
                     r.addAlmostKeys(singleSet);
+                    if (singleSet.contains("ub:University%&%ub:name")){
+                        System.out.println("checki-brecki");
+                    }
                 }
             }
         }

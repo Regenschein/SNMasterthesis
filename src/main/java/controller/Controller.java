@@ -114,10 +114,7 @@ public class Controller {
 
     public void generateRdf(ActionEvent actionEvent) {
         System.out.println(bundle.getString("Controller.Edit.SelectAll"));
-        System.out.println("Lol. Hier passiert gar nichts mehr.");
-        //Modelbuilder m = new ModelbuilderImplementation();
-        //m.build();
-        //System.out.println("T2");
+        System.out.println("This button is currently useless \\_(lol)_/");
     }
 
     public void almostKey(ActionEvent actionEvent) {
@@ -196,7 +193,9 @@ public class Controller {
     public void shacl(ActionEvent actionEvent) {
         s.buildNonKeys(mr.getModel(), cf.getClasses());
         s.buildAlmostKeys(mr.getModel(), cf.getClasses());
+        //s.buildAlmostASKKeys(mr.getModel(), cf.getClasses());
         s.buildConditionalKeys(mr.getModel(), cf.getClasses());
+        //s.buildConditionalASKKeys(mr.getModel(), cf.getClasses());
     }
 
     private void setDesign(){

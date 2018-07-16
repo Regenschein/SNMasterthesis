@@ -99,7 +99,7 @@ public class QuerybuilderImplementation extends BuilderImplementation implements
                 String s = ResultSetFormatter.asText(results);
                 System.out.println(s);
             } catch(Exception e){
-
+                print(qexec.execAsk());
             }
             finally {
                 qexec.close();
@@ -114,8 +114,7 @@ public class QuerybuilderImplementation extends BuilderImplementation implements
         System.out.println(s);
     }
 
-    @Override
-    public void build() {
+    public void build1() {
         OntModel m = getModel();
         loadData( m );
 
@@ -230,6 +229,42 @@ public class QuerybuilderImplementation extends BuilderImplementation implements
                 "} \n" +
                 "ORDER BY ?name \n"
                 );
+
+        String qwery = query.toString();
+
+        Controller.getInstance().tA_main.appendText(qwery);
+
+        showQuery(m, prefixSB.toString() + query.toString());
+    }
+
+    @Override
+    public void build() {
+        OntModel m = getModel();
+        loadData( m );
+
+        StringBuilder prefixSB = new StringBuilder();
+
+        prefixSB.append("prefix world: <http://data.masterthesis.com/dataset/world/>\n");
+        prefixSB.append("prefix schema: <http://data.masterthesis.com/schema/world/>\n");
+        prefixSB.append("prefix : <http://data.masterthesis.com/dataset/world/>\n");
+
+        //for(Map.Entry<String, String> entry : prefixes.entrySet()){
+        for(Map.Entry<String, String> entry : m.getNsPrefixMap().entrySet()){
+            prefixSB.append("prefix " + entry.getKey() + ": <" + entry.getValue() + ">\n");
+        }
+
+        StringBuilder query = new StringBuilder();
+
+        query.append(
+                "\t\t\t ASK { \n" +
+                "\t\t\t\t $this0 a schema:Person .\n" +
+                "\t\t\t\t $this0 schema:address ?schema0address .\n" +
+                "\t\t\t\t $this0 schema:givenName \"Sebastian\" .\n" +
+                "\t\t\t\t $this1 a schema:Person .\n" +
+                "\t\t\t\t $this1 schema:address ?schema0address .\n" +
+                "\t\t\t\t $this1 schema:givenName \"Sebastian\" .\n" +
+                "\t\t\t\t FILTER ( $this0 = $this1 &&  $this1 = $this0 ) \n" +
+                "\t\t\t } \n" );
 
         String qwery = query.toString();
 

@@ -20,6 +20,7 @@ public class Configuration {
     private static String shaclpath = "";
     private static String ttlpath = "";
     private static String rdfpath = "";
+    private static String classpathes = "";
 
     private Configuration(){
         parseProperties();
@@ -58,6 +59,7 @@ public class Configuration {
             shaclpath = properties.getProperty("shaclpath");
             ttlpath = properties.getProperty("ttlpath");
             rdfpath = properties.getProperty("rdfpath");
+            classpathes = properties.getProperty("classpathes");
             locale = new Locale(language, country);
             bundle = ResourceBundle.getBundle("Properties/properties", locale);
         } catch(IOException ignored){
@@ -144,6 +146,14 @@ public class Configuration {
 
     public static void setRdfpath(String rdfpath) {
         Configuration.rdfpath = rdfpath;
+    }
+
+    public static String getClasspathes() {
+        return classpathes;
+    }
+
+    public static void setClasspathes(String classpathes) {
+        Configuration.classpathes = classpathes;
     }
 
 }

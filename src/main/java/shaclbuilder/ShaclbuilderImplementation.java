@@ -29,11 +29,6 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
     public void build(){
         Model shapesmodel = JenaUtil.createDefaultModel();
         try {
-            System.out.println("Here comes dat Stream");
-            //FileInputStream inStream = new FileInputStream(Configuration.getInstance().getShaclpath());
-            //String body = IOUtils.toString(inStream, StandardCharsets.UTF_8.name());
-            //System.out.println(body);
-            System.out.println("Here goes dat Stream");
             shapesmodel.read(new FileInputStream(Configuration.getInstance().getShaclpath()), "urn:dummy", FileUtils.langTurtle);
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,16 +44,21 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
         System.out.println(shapesmodel.size() + " " + datamodel.size());
 
         try {
-            SHFactory sh = new SHFactory();
-            SHFactory.ensureInited();
-
             Resource report = ValidationUtil.validateModel(datamodel, shapesmodel, false);
-
             try {
                 Controller.getInstance().tA_main.appendText(ModelPrinter.get().print(report.getModel()));
             }catch(NoClassDefFoundError | ExceptionInInitializerError exc){
                 System.out.println(ModelPrinter.get().print(report.getModel()));
             }
+            BufferedWriter writer = null;
+            try {
+                writer = Files.newBufferedWriter(java.nio.file.Paths.get("evaluationresult.ttl"), StandardCharsets.UTF_8);
+                writer.write(String.valueOf(report.getModel()));
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }catch (NullPointerException errr){
             errr.printStackTrace();
         }catch (ExceptionInInitializerError errr){
@@ -71,25 +71,6 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
 
     }
 
-    private void buildNodeShape(String shapeName, String targetClass, String[] properties) {
-
-        StringBuilder sb = new StringBuilder();
-        sb.append(shapeName + "\n");
-        sb.append("\t a sh:NodeShape ;\n");
-        sb.append("\t sh:targetClass " + targetClass + " ;\n");
-        sb.append("\t sh:property [\n");
-        for (String s : properties) {
-            if(!s.equals("a")){
-                sb.append("\t\t sh:path " + s + ";\n");
-                sb.append("\t\t sh:maxCount 1 ;\n");
-                sb.append("\t ] ;");
-            }
-        }
-        sb.deleteCharAt(sb.length() - 1);
-        sb.append(".");
-        System.out.println(sb.toString());
-    }
-
     @Override
     public void buildNonKeys(Model model, Map<String, RdfClass> classes){
         StringBuilder sb = new StringBuilder();
@@ -99,6 +80,8 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
         }
         sb.append("@prefix ex: <https://example.org/> .\n");
         sb.append("@prefix sh: <http://www.w3.org/ns/shacl#> .\n");
+        sb.append("@prefix owl: <http://www.w3.org/2002/07/owl#> .\n");
+        sb.append("@prefix ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>.\n");
         sb.append("\n");
         System.out.println(sb.toString());
 
@@ -162,12 +145,15 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
                         if(!pair.getKey().equals("a")) {
                             sb.append("\t\t\t\t [" + "\n");
                             sb.append("\t\t\t\t\t sh:path " + trimAttr(pair.getKey().toString()) + " ;" + "\n");
+                            if(pair.getValue().toString().contains("http://") || pair.getValue().toString().contains("https://")){
+                                pair.setValue("\"" + pair.getValue() + "\"");
+                            }
                             sb.append("\t\t\t\t\t sh:hasValue " + pair.getValue() + " \n");
                             sb.append("\t\t\t\t ] \n");
                         }
-                    sb.append("\t\t\t ) \n");
-                    sb.append("\t\t ] \n");
                 }
+                sb.append("\t\t\t ) \n");
+                sb.append("\t\t ] \n");
                 //sb.replace(sb.length() -3, sb.length(), ".\n\n");
             }
             if (!rdf.getConditionalKeys().isEmpty()) {
@@ -180,8 +166,6 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
 
         BufferedWriter writer = null;
         try {
-            //writer = new BufferedWriter(new FileWriter(Configuration.getInstance().getShaclpath()));
-            //writer = Files.newBufferedWriter(java.nio.file.Paths.get(Configuration.getInstance().getShaclpath()), StandardCharsets.UTF_8, StandardOpenOption.CREATE);
             writer = Files.newBufferedWriter(java.nio.file.Paths.get(Configuration.getInstance().getShaclpath()), StandardCharsets.UTF_8);
             writer.write(sb.toString());
             //writer.flush();
@@ -242,6 +226,86 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
                 sb.append("\t\t sh:select \"\"\" \n");
                 sb.append("\t\t\t SELECT $this0 \n");
                 sb.append("\t\t\t WHERE { \n");
+                String rndProperty = "";
+                boolean rndPropertyIsSet = false;
+                for (int i = 0; i <= n; i++) {
+                    sb.append("\t\t\t\t $this" + i + " a " + targetClass + " .\n");
+                    for (String att : set) {
+                        if (!att.equals("a")) {
+                            sb.append("\t\t\t\t $this" + i + " " + trimAttr(att) + " ?" + trimAttrPlus(att) + " .\n");
+                            if (rndPropertyIsSet == false) {
+                                rndProperty = trimAttr(att);
+                            }
+                        }
+                    }
+                }
+                sb.append("\t\t\t\t FILTER (");
+                for (int x = 0; x <= n; x++) {
+                    for (int y = 0; y <= n; y++) {
+                        if (x != y)
+                            sb.append(" $this" + x + " != " + "$this" + y + " && ");
+                    }
+                }
+                sb.replace(sb.length() - 3, sb.length(), ") \n");
+                sb.append("\t\t\t } GROUP BY $this0 \n ");
+                sb.append("\t\t\t \"\"\" ;\n");
+                sb.append("\t ];\n");
+                sb.append("\t sh:property [\n");
+                sb.append("\t\t sh:path " + rndProperty + " ;\n");
+                sb.append("\t\t sh:maxCount 0 ; \n");
+                sb.append("\t ] . \n\n");
+
+                counter = counter + 1;
+            }
+
+
+            BufferedWriter writer = null;
+            try {
+                writer = Files.newBufferedWriter(java.nio.file.Paths.get(Configuration.getInstance().getShaclpath()), StandardCharsets.UTF_8, StandardOpenOption.APPEND);
+                //writer = new BufferedWriter(new FileWriter(Configuration.getInstance().getShaclpath(), true));
+                writer.write(sb.toString());
+                sb = new StringBuilder();
+                writer.flush();
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    public void buildAlmostASKKeys(Model model, Map<String, RdfClass> classes) {
+        StringBuilder sb = new StringBuilder();
+
+        Iterator it = classes.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry par = (Map.Entry) it.next();
+
+            String targetClass = par.getKey().toString();
+            RdfClass rdf = (RdfClass) par.getValue();
+
+            int counter = 0;
+            for (Set<String> set : rdf.getAlmostKeys()) {
+
+                sb.append("ex:AlmostKeyCheckFor" + targetClass.replace(":", "0") + counter + "\n");
+                sb.append("\t a sh:SPARQLAskValidator ;\n");
+                sb.append("\t sh:target [\n");
+                sb.append("\t\t sh:prefixes [\n");
+                for (Map.Entry<String, String> pair : model.getNsPrefixMap().entrySet()) {
+                    sb.append("\t\t\t sh:declare [ sh:prefix \"" + pair.getKey() + "\" ;\n \t\t\t\t\t\t sh:namespace \"" + pair.getValue() + "\"^^xsd:anyURI ;\n \t\t\t\t\t ]; \n");
+                }
+
+                int n = 1;
+                try {
+                    n = Integer.parseInt(Controller.getInstance().tFAlmostKeys.getText());
+                }catch (NoClassDefFoundError | ExceptionInInitializerError exc){
+
+                }
+
+                sb.append("\t\t ] ;\n");
+                sb.append("\t\t sh:ask \"\"\" \n");
+                sb.append("\t\t\t \n");
+                sb.append("\t\t\t ASK WHERE { \n");
                 String rndProperty = "";
                 boolean rndPropertyIsSet = false;
                 for (int i = 0; i <= n; i++) {
@@ -380,32 +444,90 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
 
 
     @Override
-    public void build(HashMap<String, String> prefixes, Set<String> amk, String name, int almostKey) {
+    public void buildConditionalASKKeys(Model model, Map<String, RdfClass> classes) {
+        StringBuilder sb = new StringBuilder();
 
+        Iterator it = classes.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry par = (Map.Entry) it.next();
+
+            String targetClass = par.getKey().toString();
+            RdfClass rdf = (RdfClass) par.getValue();
+
+            int counter = 0;
+            for (ConditionalKey conditionalKey : rdf.getConditionalKeys()) {
+
+                sb.append("ex:ConditionalKeyCheckFor" + targetClass.replace(":", "0") + counter + "\n");
+                sb.append("\t a sh:SPARQLAskValidator ;\n");
+                /**
+                sb.append("\t\t sh:prefixes [\n");
+                for (Map.Entry<String, String> pair : model.getNsPrefixMap().entrySet()) {
+                    sb.append("\t\t\t sh:declare [ sh:prefix \"" + pair.getKey() + "\" ;\n \t\t\t\t\t\t sh:namespace \"" + pair.getValue() + "\"^^xsd:anyURI ;\n \t\t\t\t\t ]; \n");
+                }
+                 sb.append("\t\t ] ;\n");
+                 */
+
+                int n = 1;
+                try {
+                    n = Integer.parseInt(Controller.getInstance().tFAlmostKeys.getText());
+                }catch (NoClassDefFoundError | ExceptionInInitializerError exc){
+
+                }
+                sb.append("\t sh:message \"RAMBAZAMBA\" ; \n");
+                sb.append("\t sh:ask \"\"\" \n");
+                sb.append("\t\t ASK WHERE{ \n");
+                String rndProperty = "";
+                boolean rndPropertyIsSet = false;
+                for (int i = 0; i <= n; i++) {
+                    sb.append("\t\t\t $this" + i + " a " + targetClass + " .\n");
+                    for (String att : conditionalKey.getKeyAttributes()) {
+                        if (!att.equals("a")) {
+                            sb.append("\t\t\t $this" + i + " " + trimAttr(att) + " ?" + trimAttrPlus(att) + " .\n");
+                            if (rndPropertyIsSet == false) {
+                                rndProperty = trimAttr(att);
+                            }
+                        }
+                    }
+                    Iterator iter = conditionalKey.getConstraints().entrySet().iterator();
+                    while (iter.hasNext()) {
+                        Map.Entry pair = (Map.Entry)iter.next();
+                        if (!pair.getKey().equals("a")) {
+                            sb.append("\t\t\t $this" + i + " " + trimAttr(pair.getKey().toString()) + " " + pair.getValue() + " .\n");
+                        }
+                    }
+                }
+                sb.append("\t\t\t FILTER (");
+                for (int x = 0; x <= n; x++) {
+                    for (int y = 0; y <= n; y++) {
+                        if (x != y)
+                            sb.append(" $this" + x + " != " + "$this" + y + " && ");
+                    }
+                }
+                sb.replace(sb.length() - 3, sb.length(), ") \n");
+                sb.append("\t\t } \n ");
+                sb.append("\t\t \"\"\" .\n\n");
+                counter = counter + 1;
+            }
+
+
+            BufferedWriter writer = null;
+            try {
+                writer = Files.newBufferedWriter(java.nio.file.Paths.get(Configuration.getInstance().getShaclpath()), StandardCharsets.UTF_8, StandardOpenOption.APPEND);
+                //writer = new BufferedWriter(new FileWriter(Configuration.getInstance().getShaclpath(), true));
+                writer.write(sb.toString());
+                sb = new StringBuilder();
+                writer.flush();
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 
-    private void buildExample(){
-        Set<String> prefixes = new HashSet<String>();
-        prefixes.add("dash: <http://datashapes.org/dash#>");
-        prefixes.add("rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>");
-        prefixes.add("rdfs: <http://www.w3.org/2000/01/rdf-schema#>");
-        prefixes.add("schema: <http://schema.org/>");
-        prefixes.add("sh: <http://www.w3.org/ns/shacl#>");
-        prefixes.add("xsd: <http://www.w3.org/2001/XMLSchema#>");
-        prefixes.add("ex: <http://www.example.org#>");
-        prefixes.add("owl: <http://www.w3.org/2002/07/owl#>");
-        String s = buildPrefixes(prefixes);
-        String[] prefixesArray = {"ex"};
-        s = s + "\n\n" + buildSparqlShaclKey("ex:Exmaple", "ex:Person", "ex:name", prefixesArray);
+    @Override
+    public void build(HashMap<String, String> prefixes, Set<String> amk, String name, int almostKey) {
 
-        BufferedWriter writer = null;
-        try {
-            writer = new BufferedWriter(new FileWriter("./src/main/resources/eval/example-test-shape.ttl"));
-            writer.write(s);
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private String buildPrefixes(Set<String> prefixes){
@@ -444,19 +566,5 @@ public class ShaclbuilderImplementation extends BuilderImplementation implements
 
     }
 
-    private void buildPropertyShape() {
-
-    }
-
-    private void buildKeyNode(){
-        buildNodeShape("schema:PersonShape", "schema:Person", new String[]{"schema:\"given name\""});
-    }
-
-    private boolean stringIsURI(String s){
-        if(s.matches("<?\"?http://.*>?\"?")){
-            return true;
-        }
-        return false;
-    }
 
 }

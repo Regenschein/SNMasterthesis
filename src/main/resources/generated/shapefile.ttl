@@ -1,19 +1,29 @@
-@prefix schema: <http://data.masterthesis.com/schema/world/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix world: <http://data.masterthesis.com/dataset/world/> .
-@prefix xsm: <http://datatypes.masterthesis.com#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns/> .
+@prefix owl: <http://www.w3.org/2002/07/owl/> .
+@prefix ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/> .
 @prefix ex: <https://example.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>.
 
-ex:MaxNonKeyForschema0City
+ex:MaxNonKeyForub0Course
 	 a sh:NodeShape ;
-	 sh:targetClass schema:City ;
+	 sh:targetClass ub:Course.
+
+ex:MaxNonKeyForub0GraduateCourse
+	 a sh:NodeShape ;
+	 sh:targetClass ub:GraduateCourse.
+
+ex:MaxNonKeyForub0FullProfessor
+	 a sh:NodeShape ;
+	 sh:targetClass ub:FullProfessor ;
 	 sh:or ( 
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:population ;
+					 sh:path ub:headOf ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -21,23 +31,15 @@ ex:MaxNonKeyForschema0City
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:addressCountry ;
+					 sh:path ub:mastersDegreeFrom ;
 					 sh:minCount 1 ;
 				 ] 
 				 [
-					 sh:path schema:isCapital ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:addressCountry ;
+					 sh:path ub:worksFor ;
 					 sh:minCount 1 ;
 				 ] 
 				 [
-					 sh:path schema:architecturalStyle ;
+					 sh:path ub:researchInterest ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -45,23 +47,15 @@ ex:MaxNonKeyForschema0City
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:addressRegion ;
+					 sh:path ub:doctoralDegreeFrom ;
 					 sh:minCount 1 ;
 				 ] 
 				 [
-					 sh:path schema:architecturalStyle ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:addressRegion ;
+					 sh:path ub:researchInterest ;
 					 sh:minCount 1 ;
 				 ] 
 				 [
-					 sh:path schema:isCapital ;
+					 sh:path ub:name ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -69,7 +63,11 @@ ex:MaxNonKeyForschema0City
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:heraldicAnimal ;
+					 sh:path ub:mastersDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -77,11 +75,11 @@ ex:MaxNonKeyForschema0City
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:addressCountry ;
+					 sh:path ub:worksFor ;
 					 sh:minCount 1 ;
 				 ] 
 				 [
-					 sh:path schema:addressRegion ;
+					 sh:path ub:name ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -89,32 +87,322 @@ ex:MaxNonKeyForschema0City
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:isCapital ;
+					 sh:path ub:worksFor ;
 					 sh:minCount 1 ;
 				 ] 
 				 [
-					 sh:path schema:architecturalStyle ;
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:teacherOf ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:doctoralDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:mastersDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:researchInterest ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:doctoralDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:mastersDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:doctoralDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:worksFor ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:emailAddress ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
 		 ] 
 	 ) .
-ex:MaxNonKeyForschema0Region
+ex:MaxNonKeyForub0TeachingAssistant
 	 a sh:NodeShape ;
-	 sh:targetClass schema:Region ;
+	 sh:targetClass ub:TeachingAssistant ;
+	 sh:or ( 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:teachingAssistantOf ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:takesCourse ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:memberOf ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:advisor ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:emailAddress ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:takesCourse ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:advisor ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+	 ) .
+ex:MaxNonKeyForub0ResearchGroup
+	 a sh:NodeShape ;
+	 sh:targetClass ub:ResearchGroup.
+
+ex:MaxNonKeyForub0AssociateProfessor
+	 a sh:NodeShape ;
+	 sh:targetClass ub:AssociateProfessor ;
+	 sh:or ( 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:worksFor ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:mastersDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:worksFor ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:doctoralDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:mastersDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:emailAddress ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:researchInterest ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:mastersDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:teacherOf ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:researchInterest ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:mastersDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:worksFor ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:doctoralDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:researchInterest ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:doctoralDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+	 ) .
+ex:MaxNonKeyForub0Department
+	 a sh:NodeShape ;
+	 sh:targetClass ub:Department ;
 	 sh:property [
-		 sh:path schema:name ;
+		 sh:path ub:name ;
 		 sh:minCount 1 ;
 	 ].
 
-ex:MaxNonKeyForschema0Person
+ex:MaxNonKeyForub0UndergraduateStudent
 	 a sh:NodeShape ;
-	 sh:targetClass schema:Person ;
+	 sh:targetClass ub:UndergraduateStudent ;
 	 sh:or ( 
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:social_Rank ;
+					 sh:path ub:emailAddress ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -122,19 +410,11 @@ ex:MaxNonKeyForschema0Person
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:faction ;
+					 sh:path ub:name ;
 					 sh:minCount 1 ;
 				 ] 
 				 [
-					 sh:path schema:givenName ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:birthDate ;
+					 sh:path ub:takesCourse ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -142,7 +422,11 @@ ex:MaxNonKeyForschema0Person
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:religion ;
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:memberOf ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -150,249 +434,182 @@ ex:MaxNonKeyForschema0Person
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:familyName ;
+					 sh:path ub:name ;
 					 sh:minCount 1 ;
 				 ] 
 				 [
-					 sh:path schema:faction ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:title ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:profession ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:address ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:worksFor ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:familyName ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:worksFor ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:familyName ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:address ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:givenName ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:worksFor ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:faction ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:address ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:gender ;
-					 sh:hasValue schema:female 
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:givenName ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:address ;
-					 sh:hasValue world:HawksNest 
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:givenName ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:address ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:gender ;
-					 sh:hasValue schema:male 
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:address ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:faction ;
-					 sh:hasValue world:associationOfGears 
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:address ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:givenName ;
-					 sh:hasValue "Sebastian" 
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:familyName ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:givenName ;
-					 sh:hasValue "Lisa" 
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:familyName ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:gender ;
-					 sh:hasValue schema:female 
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:gender ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:address ;
-					 sh:hasValue world:RabitsDen 
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:givenName ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:address ;
-					 sh:hasValue world:RabitsDen 
-				 ] 
-			 ) 
-		 ] 
-	 ) .
-ex:MaxNonKeyForschema0Country
-	 a sh:NodeShape ;
-	 sh:targetClass schema:Country ;
-	 sh:or ( 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:Population ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:nationalAnthem ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:foundingYear ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:name ;
+					 sh:path ub:advisor ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
 		 ] 
 	 ) .
-ex:MaxNonKeyForschema0Place
+ex:MaxNonKeyForub0ResearchAssistant
 	 a sh:NodeShape ;
-	 sh:targetClass schema:Place ;
+	 sh:targetClass ub:ResearchAssistant ;
+	 sh:or ( 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:advisor ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:takesCourse ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:memberOf ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:emailAddress ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:takesCourse ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:advisor ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+	 ) .
+ex:MaxNonKeyForub0GraduateStudent
+	 a sh:NodeShape ;
+	 sh:targetClass ub:GraduateStudent ;
+	 sh:or ( 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:emailAddress ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:advisor ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:advisor ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:takesCourse ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:memberOf ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+	 ) .
+ex:MaxNonKeyForub0Publication
+	 a sh:NodeShape ;
+	 sh:targetClass ub:Publication.
+
+ex:MaxNonKeyForub0University
+	 a sh:NodeShape ;
+	 sh:targetClass ub:University ;
 	 sh:property [
-		 sh:path schema:streetAddress ;
+		 sh:path ub:name ;
 		 sh:minCount 1 ;
 	 ].
 
-ex:MaxNonKeyForschema0Faction
+ex:MaxNonKeyForowl0Ontology
 	 a sh:NodeShape ;
-	 sh:targetClass schema:Faction ;
+	 sh:targetClass owl:Ontology ;
+	 sh:property [
+		 sh:path owl:imports ;
+		 sh:minCount 1 ;
+	 ].
+
+ex:MaxNonKeyForub0Lecturer
+	 a sh:NodeShape ;
+	 sh:targetClass ub:Lecturer ;
 	 sh:or ( 
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:name ;
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:name ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -400,20 +617,92 @@ ex:MaxNonKeyForschema0Faction
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:foundingDate ;
+					 sh:path ub:worksFor ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:doctoralDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:mastersDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:doctoralDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:mastersDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:worksFor ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:mastersDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:teacherOf ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:emailAddress ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
 		 ] 
 	 ) .
-ex:MaxNonKeyForschema0Religion
+ex:MaxNonKeyForub0AssistantProfessor
 	 a sh:NodeShape ;
-	 sh:targetClass schema:Religion ;
+	 sh:targetClass ub:AssistantProfessor ;
 	 sh:or ( 
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:proponents ;
+					 sh:path ub:doctoralDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -421,1423 +710,2647 @@ ex:MaxNonKeyForschema0Religion
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:name ;
+					 sh:path ub:doctoralDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:researchInterest ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:worksFor ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:worksFor ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:doctoralDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:mastersDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:mastersDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:researchInterest ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:mastersDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:teacherOf ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:doctoralDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:worksFor ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:undergraduateDegreeFrom ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:researchInterest ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path ub:name ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path ub:emailAddress ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
 		 ] 
 	 ) .
-ex:AlmostKeyCheckForschema0City0
+ex:AlmostKeyCheckForub0FullProfessor0
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:City .
-				 $this0 schema:population ?schema0population .
-				 $this1 a schema:City .
-				 $this1 schema:population ?schema0population .
+				 $this0 a ub:FullProfessor .
+				 $this0 ub:headOf ?ub0headOf .
+				 $this1 a ub:FullProfessor .
+				 $this1 ub:headOf ?ub0headOf .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:population ;
+		 sh:path ub:headOf ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0City1
+ex:AlmostKeyCheckForub0FullProfessor1
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:City .
-				 $this0 schema:addressCountry ?schema0addressCountry .
-				 $this0 schema:isCapital ?schema0isCapital .
-				 $this1 a schema:City .
-				 $this1 schema:addressCountry ?schema0addressCountry .
-				 $this1 schema:isCapital ?schema0isCapital .
+				 $this0 a ub:FullProfessor .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this0 ub:worksFor ?ub0worksFor .
+				 $this0 ub:researchInterest ?ub0researchInterest .
+				 $this1 a ub:FullProfessor .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 ub:worksFor ?ub0worksFor .
+				 $this1 ub:researchInterest ?ub0researchInterest .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:isCapital ;
+		 sh:path ub:researchInterest ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0City2
+ex:AlmostKeyCheckForub0FullProfessor2
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:City .
-				 $this0 schema:addressCountry ?schema0addressCountry .
-				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
-				 $this1 a schema:City .
-				 $this1 schema:addressCountry ?schema0addressCountry .
-				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this0 a ub:FullProfessor .
+				 $this0 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this0 ub:researchInterest ?ub0researchInterest .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:FullProfessor .
+				 $this1 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this1 ub:researchInterest ?ub0researchInterest .
+				 $this1 ub:name ?ub0name .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:architecturalStyle ;
+		 sh:path ub:name ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0City3
+ex:AlmostKeyCheckForub0FullProfessor3
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:City .
-				 $this0 schema:addressRegion ?schema0addressRegion .
-				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
-				 $this1 a schema:City .
-				 $this1 schema:addressRegion ?schema0addressRegion .
-				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this0 a ub:FullProfessor .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 a ub:FullProfessor .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:architecturalStyle ;
+		 sh:path ub:undergraduateDegreeFrom ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0City4
+ex:AlmostKeyCheckForub0FullProfessor4
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:City .
-				 $this0 schema:addressRegion ?schema0addressRegion .
-				 $this0 schema:isCapital ?schema0isCapital .
-				 $this1 a schema:City .
-				 $this1 schema:addressRegion ?schema0addressRegion .
-				 $this1 schema:isCapital ?schema0isCapital .
+				 $this0 a ub:FullProfessor .
+				 $this0 ub:worksFor ?ub0worksFor .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:FullProfessor .
+				 $this1 ub:worksFor ?ub0worksFor .
+				 $this1 ub:name ?ub0name .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:isCapital ;
+		 sh:path ub:name ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0City5
+ex:AlmostKeyCheckForub0FullProfessor5
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:City .
-				 $this0 schema:heraldicAnimal ?schema0heraldicAnimal .
-				 $this1 a schema:City .
-				 $this1 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 $this0 a ub:FullProfessor .
+				 $this0 ub:worksFor ?ub0worksFor .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 a ub:FullProfessor .
+				 $this1 ub:worksFor ?ub0worksFor .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:heraldicAnimal ;
+		 sh:path ub:undergraduateDegreeFrom ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0City6
+ex:AlmostKeyCheckForub0FullProfessor6
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:City .
-				 $this0 schema:addressCountry ?schema0addressCountry .
-				 $this0 schema:addressRegion ?schema0addressRegion .
-				 $this1 a schema:City .
-				 $this1 schema:addressCountry ?schema0addressCountry .
-				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this0 a ub:FullProfessor .
+				 $this0 ub:teacherOf ?ub0teacherOf .
+				 $this1 a ub:FullProfessor .
+				 $this1 ub:teacherOf ?ub0teacherOf .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:addressRegion ;
+		 sh:path ub:teacherOf ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0City7
+ex:AlmostKeyCheckForub0FullProfessor7
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:City .
-				 $this0 schema:isCapital ?schema0isCapital .
-				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
-				 $this1 a schema:City .
-				 $this1 schema:isCapital ?schema0isCapital .
-				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this0 a ub:FullProfessor .
+				 $this0 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 a ub:FullProfessor .
+				 $this1 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:architecturalStyle ;
+		 sh:path ub:undergraduateDegreeFrom ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Region0
+ex:AlmostKeyCheckForub0FullProfessor8
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Region .
-				 $this0 schema:name ?schema0name .
-				 $this1 a schema:Region .
-				 $this1 schema:name ?schema0name .
+				 $this0 a ub:FullProfessor .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this0 ub:researchInterest ?ub0researchInterest .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:FullProfessor .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 ub:researchInterest ?ub0researchInterest .
+				 $this1 ub:name ?ub0name .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:name ;
+		 sh:path ub:name ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Person0
+ex:AlmostKeyCheckForub0FullProfessor9
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:social_Rank ?schema0social_Rank .
-				 $this1 a schema:Person .
-				 $this1 schema:social_Rank ?schema0social_Rank .
+				 $this0 a ub:FullProfessor .
+				 $this0 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 a ub:FullProfessor .
+				 $this1 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:social_Rank ;
+		 sh:path ub:mastersDegreeFrom ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Person1
+ex:AlmostKeyCheckForub0FullProfessor10
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:faction ?schema0faction .
-				 $this0 schema:givenName ?schema0givenName .
-				 $this1 a schema:Person .
-				 $this1 schema:faction ?schema0faction .
-				 $this1 schema:givenName ?schema0givenName .
+				 $this0 a ub:FullProfessor .
+				 $this0 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this0 ub:worksFor ?ub0worksFor .
+				 $this1 a ub:FullProfessor .
+				 $this1 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this1 ub:worksFor ?ub0worksFor .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:givenName ;
+		 sh:path ub:worksFor ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Person2
+ex:AlmostKeyCheckForub0FullProfessor11
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:birthDate ?schema0birthDate .
-				 $this1 a schema:Person .
-				 $this1 schema:birthDate ?schema0birthDate .
+				 $this0 a ub:FullProfessor .
+				 $this0 ub:emailAddress ?ub0emailAddress .
+				 $this1 a ub:FullProfessor .
+				 $this1 ub:emailAddress ?ub0emailAddress .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:birthDate ;
+		 sh:path ub:emailAddress ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Person3
+ex:AlmostKeyCheckForub0TeachingAssistant0
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:religion ?schema0religion .
-				 $this1 a schema:Person .
-				 $this1 schema:religion ?schema0religion .
+				 $this0 a ub:TeachingAssistant .
+				 $this0 ub:teachingAssistantOf ?ub0teachingAssistantOf .
+				 $this1 a ub:TeachingAssistant .
+				 $this1 ub:teachingAssistantOf ?ub0teachingAssistantOf .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:religion ;
+		 sh:path ub:teachingAssistantOf ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Person4
+ex:AlmostKeyCheckForub0TeachingAssistant1
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:familyName ?schema0familyName .
-				 $this0 schema:faction ?schema0faction .
-				 $this1 a schema:Person .
-				 $this1 schema:familyName ?schema0familyName .
-				 $this1 schema:faction ?schema0faction .
+				 $this0 a ub:TeachingAssistant .
+				 $this0 ub:takesCourse ?ub0takesCourse .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:TeachingAssistant .
+				 $this1 ub:takesCourse ?ub0takesCourse .
+				 $this1 ub:name ?ub0name .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:faction ;
+		 sh:path ub:name ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Person5
+ex:AlmostKeyCheckForub0TeachingAssistant2
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:title ?schema0title .
-				 $this1 a schema:Person .
-				 $this1 schema:title ?schema0title .
+				 $this0 a ub:TeachingAssistant .
+				 $this0 ub:name ?ub0name .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 a ub:TeachingAssistant .
+				 $this1 ub:name ?ub0name .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:title ;
+		 sh:path ub:undergraduateDegreeFrom ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Person6
+ex:AlmostKeyCheckForub0TeachingAssistant3
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:profession ?schema0profession .
-				 $this1 a schema:Person .
-				 $this1 schema:profession ?schema0profession .
+				 $this0 a ub:TeachingAssistant .
+				 $this0 ub:name ?ub0name .
+				 $this0 ub:memberOf ?ub0memberOf .
+				 $this1 a ub:TeachingAssistant .
+				 $this1 ub:name ?ub0name .
+				 $this1 ub:memberOf ?ub0memberOf .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:profession ;
+		 sh:path ub:memberOf ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Person7
+ex:AlmostKeyCheckForub0TeachingAssistant4
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:address ?schema0address .
-				 $this0 schema:worksFor ?schema0worksFor .
-				 $this1 a schema:Person .
-				 $this1 schema:address ?schema0address .
-				 $this1 schema:worksFor ?schema0worksFor .
+				 $this0 a ub:TeachingAssistant .
+				 $this0 ub:advisor ?ub0advisor .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:TeachingAssistant .
+				 $this1 ub:advisor ?ub0advisor .
+				 $this1 ub:name ?ub0name .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:worksFor ;
+		 sh:path ub:name ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Person8
+ex:AlmostKeyCheckForub0TeachingAssistant5
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:familyName ?schema0familyName .
-				 $this0 schema:worksFor ?schema0worksFor .
-				 $this1 a schema:Person .
-				 $this1 schema:familyName ?schema0familyName .
-				 $this1 schema:worksFor ?schema0worksFor .
+				 $this0 a ub:TeachingAssistant .
+				 $this0 ub:emailAddress ?ub0emailAddress .
+				 $this1 a ub:TeachingAssistant .
+				 $this1 ub:emailAddress ?ub0emailAddress .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:worksFor ;
+		 sh:path ub:emailAddress ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Person9
+ex:AlmostKeyCheckForub0TeachingAssistant6
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:familyName ?schema0familyName .
-				 $this0 schema:address ?schema0address .
-				 $this1 a schema:Person .
-				 $this1 schema:familyName ?schema0familyName .
-				 $this1 schema:address ?schema0address .
+				 $this0 a ub:TeachingAssistant .
+				 $this0 ub:takesCourse ?ub0takesCourse .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 a ub:TeachingAssistant .
+				 $this1 ub:takesCourse ?ub0takesCourse .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:address ;
+		 sh:path ub:undergraduateDegreeFrom ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Person10
+ex:AlmostKeyCheckForub0TeachingAssistant7
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:givenName ?schema0givenName .
-				 $this0 schema:worksFor ?schema0worksFor .
-				 $this1 a schema:Person .
-				 $this1 schema:givenName ?schema0givenName .
-				 $this1 schema:worksFor ?schema0worksFor .
+				 $this0 a ub:TeachingAssistant .
+				 $this0 ub:advisor ?ub0advisor .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 a ub:TeachingAssistant .
+				 $this1 ub:advisor ?ub0advisor .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:worksFor ;
+		 sh:path ub:undergraduateDegreeFrom ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Country0
+ex:AlmostKeyCheckForub0AssociateProfessor0
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Country .
-				 $this0 schema:Population ?schema0Population .
-				 $this1 a schema:Country .
-				 $this1 schema:Population ?schema0Population .
+				 $this0 a ub:AssociateProfessor .
+				 $this0 ub:name ?ub0name .
+				 $this0 ub:worksFor ?ub0worksFor .
+				 $this1 a ub:AssociateProfessor .
+				 $this1 ub:name ?ub0name .
+				 $this1 ub:worksFor ?ub0worksFor .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:Population ;
+		 sh:path ub:worksFor ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Country1
+ex:AlmostKeyCheckForub0AssociateProfessor1
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Country .
-				 $this0 schema:nationalAnthem ?schema0nationalAnthem .
-				 $this1 a schema:Country .
-				 $this1 schema:nationalAnthem ?schema0nationalAnthem .
+				 $this0 a ub:AssociateProfessor .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 a ub:AssociateProfessor .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:nationalAnthem ;
+		 sh:path ub:mastersDegreeFrom ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Country2
+ex:AlmostKeyCheckForub0AssociateProfessor2
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Country .
-				 $this0 schema:foundingYear ?schema0foundingYear .
-				 $this1 a schema:Country .
-				 $this1 schema:foundingYear ?schema0foundingYear .
+				 $this0 a ub:AssociateProfessor .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this0 ub:worksFor ?ub0worksFor .
+				 $this1 a ub:AssociateProfessor .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 ub:worksFor ?ub0worksFor .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:foundingYear ;
+		 sh:path ub:worksFor ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Country3
+ex:AlmostKeyCheckForub0AssociateProfessor3
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Country .
-				 $this0 schema:name ?schema0name .
-				 $this1 a schema:Country .
-				 $this1 schema:name ?schema0name .
+				 $this0 a ub:AssociateProfessor .
+				 $this0 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 a ub:AssociateProfessor .
+				 $this1 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:name ;
+		 sh:path ub:mastersDegreeFrom ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Place0
+ex:AlmostKeyCheckForub0AssociateProfessor4
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Place .
-				 $this0 schema:streetAddress ?schema0streetAddress .
-				 $this1 a schema:Place .
-				 $this1 schema:streetAddress ?schema0streetAddress .
+				 $this0 a ub:AssociateProfessor .
+				 $this0 ub:emailAddress ?ub0emailAddress .
+				 $this1 a ub:AssociateProfessor .
+				 $this1 ub:emailAddress ?ub0emailAddress .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:streetAddress ;
+		 sh:path ub:emailAddress ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Faction0
+ex:AlmostKeyCheckForub0AssociateProfessor5
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Faction .
-				 $this0 schema:name ?schema0name .
-				 $this1 a schema:Faction .
-				 $this1 schema:name ?schema0name .
+				 $this0 a ub:AssociateProfessor .
+				 $this0 ub:researchInterest ?ub0researchInterest .
+				 $this0 ub:name ?ub0name .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 a ub:AssociateProfessor .
+				 $this1 ub:researchInterest ?ub0researchInterest .
+				 $this1 ub:name ?ub0name .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:name ;
+		 sh:path ub:mastersDegreeFrom ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Faction1
+ex:AlmostKeyCheckForub0AssociateProfessor6
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Faction .
-				 $this0 schema:foundingDate ?schema0foundingDate .
-				 $this1 a schema:Faction .
-				 $this1 schema:foundingDate ?schema0foundingDate .
+				 $this0 a ub:AssociateProfessor .
+				 $this0 ub:teacherOf ?ub0teacherOf .
+				 $this1 a ub:AssociateProfessor .
+				 $this1 ub:teacherOf ?ub0teacherOf .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:foundingDate ;
+		 sh:path ub:teacherOf ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Religion0
+ex:AlmostKeyCheckForub0AssociateProfessor7
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Religion .
-				 $this0 schema:proponents ?schema0proponents .
-				 $this1 a schema:Religion .
-				 $this1 schema:proponents ?schema0proponents .
+				 $this0 a ub:AssociateProfessor .
+				 $this0 ub:researchInterest ?ub0researchInterest .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this0 ub:worksFor ?ub0worksFor .
+				 $this1 a ub:AssociateProfessor .
+				 $this1 ub:researchInterest ?ub0researchInterest .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 ub:worksFor ?ub0worksFor .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:proponents ;
+		 sh:path ub:worksFor ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:AlmostKeyCheckForschema0Religion1
+ex:AlmostKeyCheckForub0AssociateProfessor8
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Religion .
-				 $this0 schema:name ?schema0name .
-				 $this1 a schema:Religion .
-				 $this1 schema:name ?schema0name .
+				 $this0 a ub:AssociateProfessor .
+				 $this0 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this0 ub:researchInterest ?ub0researchInterest .
+				 $this1 a ub:AssociateProfessor .
+				 $this1 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this1 ub:researchInterest ?ub0researchInterest .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:name ;
+		 sh:path ub:researchInterest ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:ConditionalKeyCheckForschema0Person0
+ex:AlmostKeyCheckForub0AssociateProfessor9
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:faction ?schema0faction .
-				 $this0 schema:address ?schema0address .
-				 $this0 schema:gender schema:female .
-				 $this1 a schema:Person .
-				 $this1 schema:faction ?schema0faction .
-				 $this1 schema:address ?schema0address .
-				 $this1 schema:gender schema:female .
+				 $this0 a ub:AssociateProfessor .
+				 $this0 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 a ub:AssociateProfessor .
+				 $this1 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:address ;
+		 sh:path ub:undergraduateDegreeFrom ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:ConditionalKeyCheckForschema0Person1
+ex:AlmostKeyCheckForub0Department0
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:givenName ?schema0givenName .
-				 $this0 schema:address world:HawksNest .
-				 $this1 a schema:Person .
-				 $this1 schema:givenName ?schema0givenName .
-				 $this1 schema:address world:HawksNest .
+				 $this0 a ub:Department .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:Department .
+				 $this1 ub:name ?ub0name .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:givenName ;
+		 sh:path ub:name ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:ConditionalKeyCheckForschema0Person2
+ex:AlmostKeyCheckForub0UndergraduateStudent0
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:givenName ?schema0givenName .
-				 $this0 schema:address ?schema0address .
-				 $this0 schema:gender schema:male .
-				 $this1 a schema:Person .
-				 $this1 schema:givenName ?schema0givenName .
-				 $this1 schema:address ?schema0address .
-				 $this1 schema:gender schema:male .
+				 $this0 a ub:UndergraduateStudent .
+				 $this0 ub:emailAddress ?ub0emailAddress .
+				 $this1 a ub:UndergraduateStudent .
+				 $this1 ub:emailAddress ?ub0emailAddress .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:address ;
+		 sh:path ub:emailAddress ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:ConditionalKeyCheckForschema0Person3
+ex:AlmostKeyCheckForub0UndergraduateStudent1
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:address ?schema0address .
-				 $this0 schema:faction world:associationOfGears .
-				 $this1 a schema:Person .
-				 $this1 schema:address ?schema0address .
-				 $this1 schema:faction world:associationOfGears .
+				 $this0 a ub:UndergraduateStudent .
+				 $this0 ub:name ?ub0name .
+				 $this0 ub:takesCourse ?ub0takesCourse .
+				 $this1 a ub:UndergraduateStudent .
+				 $this1 ub:name ?ub0name .
+				 $this1 ub:takesCourse ?ub0takesCourse .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:address ;
+		 sh:path ub:takesCourse ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:ConditionalKeyCheckForschema0Person4
+ex:AlmostKeyCheckForub0UndergraduateStudent2
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:address ?schema0address .
-				 $this0 schema:givenName "Sebastian" .
-				 $this1 a schema:Person .
-				 $this1 schema:address ?schema0address .
-				 $this1 schema:givenName "Sebastian" .
+				 $this0 a ub:UndergraduateStudent .
+				 $this0 ub:name ?ub0name .
+				 $this0 ub:memberOf ?ub0memberOf .
+				 $this1 a ub:UndergraduateStudent .
+				 $this1 ub:name ?ub0name .
+				 $this1 ub:memberOf ?ub0memberOf .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:address ;
+		 sh:path ub:memberOf ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:ConditionalKeyCheckForschema0Person5
+ex:AlmostKeyCheckForub0UndergraduateStudent3
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:familyName ?schema0familyName .
-				 $this0 schema:givenName "Lisa" .
-				 $this1 a schema:Person .
-				 $this1 schema:familyName ?schema0familyName .
-				 $this1 schema:givenName "Lisa" .
+				 $this0 a ub:UndergraduateStudent .
+				 $this0 ub:name ?ub0name .
+				 $this0 ub:advisor ?ub0advisor .
+				 $this1 a ub:UndergraduateStudent .
+				 $this1 ub:name ?ub0name .
+				 $this1 ub:advisor ?ub0advisor .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:familyName ;
+		 sh:path ub:advisor ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:ConditionalKeyCheckForschema0Person6
+ex:AlmostKeyCheckForub0ResearchAssistant0
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:familyName ?schema0familyName .
-				 $this0 schema:gender schema:female .
-				 $this1 a schema:Person .
-				 $this1 schema:familyName ?schema0familyName .
-				 $this1 schema:gender schema:female .
+				 $this0 a ub:ResearchAssistant .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this0 ub:advisor ?ub0advisor .
+				 $this1 a ub:ResearchAssistant .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 ub:advisor ?ub0advisor .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:familyName ;
+		 sh:path ub:advisor ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:ConditionalKeyCheckForschema0Person7
+ex:AlmostKeyCheckForub0ResearchAssistant1
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:gender ?schema0gender .
-				 $this0 schema:address world:RabitsDen .
-				 $this1 a schema:Person .
-				 $this1 schema:gender ?schema0gender .
-				 $this1 schema:address world:RabitsDen .
+				 $this0 a ub:ResearchAssistant .
+				 $this0 ub:name ?ub0name .
+				 $this0 ub:takesCourse ?ub0takesCourse .
+				 $this1 a ub:ResearchAssistant .
+				 $this1 ub:name ?ub0name .
+				 $this1 ub:takesCourse ?ub0takesCourse .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:gender ;
+		 sh:path ub:takesCourse ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
-ex:ConditionalKeyCheckForschema0Person8
+ex:AlmostKeyCheckForub0ResearchAssistant2
 	 a sh:NodeShape ;
 	 sh:target [
 		 sh:prefixes [
-			 sh:declare [ sh:prefix "schema" ;
- 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
- 					 ]; 
 			 sh:declare [ sh:prefix "xsd" ;
- 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
  					 ]; 
-			 sh:declare [ sh:prefix "world" ;
- 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
- 					 ]; 
-			 sh:declare [ sh:prefix "xsm" ;
- 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
  					 ]; 
 			 sh:declare [ sh:prefix "rdf" ;
- 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
  					 ]; 
 		 ] ;
 		 sh:select """ 
 			 SELECT $this0 
 			 WHERE { 
-				 $this0 a schema:Person .
-				 $this0 schema:givenName ?schema0givenName .
-				 $this0 schema:address world:RabitsDen .
-				 $this1 a schema:Person .
-				 $this1 schema:givenName ?schema0givenName .
-				 $this1 schema:address world:RabitsDen .
+				 $this0 a ub:ResearchAssistant .
+				 $this0 ub:name ?ub0name .
+				 $this0 ub:memberOf ?ub0memberOf .
+				 $this1 a ub:ResearchAssistant .
+				 $this1 ub:name ?ub0name .
+				 $this1 ub:memberOf ?ub0memberOf .
 				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
 			 } GROUP BY $this0 
  			 """ ;
 	 ];
 	 sh:property [
-		 sh:path schema:givenName ;
+		 sh:path ub:memberOf ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0ResearchAssistant3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:ResearchAssistant .
+				 $this0 ub:emailAddress ?ub0emailAddress .
+				 $this1 a ub:ResearchAssistant .
+				 $this1 ub:emailAddress ?ub0emailAddress .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:emailAddress ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0ResearchAssistant4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:ResearchAssistant .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this0 ub:takesCourse ?ub0takesCourse .
+				 $this1 a ub:ResearchAssistant .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 ub:takesCourse ?ub0takesCourse .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:takesCourse ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0ResearchAssistant5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:ResearchAssistant .
+				 $this0 ub:advisor ?ub0advisor .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:ResearchAssistant .
+				 $this1 ub:advisor ?ub0advisor .
+				 $this1 ub:name ?ub0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0GraduateStudent0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:GraduateStudent .
+				 $this0 ub:emailAddress ?ub0emailAddress .
+				 $this1 a ub:GraduateStudent .
+				 $this1 ub:emailAddress ?ub0emailAddress .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:emailAddress ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0GraduateStudent1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:GraduateStudent .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this0 ub:advisor ?ub0advisor .
+				 $this1 a ub:GraduateStudent .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 ub:advisor ?ub0advisor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:advisor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0GraduateStudent2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:GraduateStudent .
+				 $this0 ub:name ?ub0name .
+				 $this0 ub:advisor ?ub0advisor .
+				 $this1 a ub:GraduateStudent .
+				 $this1 ub:name ?ub0name .
+				 $this1 ub:advisor ?ub0advisor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:advisor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0GraduateStudent3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:GraduateStudent .
+				 $this0 ub:takesCourse ?ub0takesCourse .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:GraduateStudent .
+				 $this1 ub:takesCourse ?ub0takesCourse .
+				 $this1 ub:name ?ub0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0GraduateStudent4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:GraduateStudent .
+				 $this0 ub:name ?ub0name .
+				 $this0 ub:memberOf ?ub0memberOf .
+				 $this1 a ub:GraduateStudent .
+				 $this1 ub:name ?ub0name .
+				 $this1 ub:memberOf ?ub0memberOf .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:memberOf ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0University0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:University .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:University .
+				 $this1 ub:name ?ub0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForowl0Ontology0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a owl:Ontology .
+				 $this0 owl:imports ?owl0imports .
+				 $this1 a owl:Ontology .
+				 $this1 owl:imports ?owl0imports .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path owl:imports ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0Lecturer0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:Lecturer .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:Lecturer .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 ub:name ?ub0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0Lecturer1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:Lecturer .
+				 $this0 ub:worksFor ?ub0worksFor .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:Lecturer .
+				 $this1 ub:worksFor ?ub0worksFor .
+				 $this1 ub:name ?ub0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0Lecturer2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:Lecturer .
+				 $this0 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 a ub:Lecturer .
+				 $this1 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:mastersDegreeFrom ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0Lecturer3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:Lecturer .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this0 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this1 a ub:Lecturer .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:doctoralDegreeFrom ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0Lecturer4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:Lecturer .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 a ub:Lecturer .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:mastersDegreeFrom ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0Lecturer5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:Lecturer .
+				 $this0 ub:worksFor ?ub0worksFor .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 a ub:Lecturer .
+				 $this1 ub:worksFor ?ub0worksFor .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:mastersDegreeFrom ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0Lecturer6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:Lecturer .
+				 $this0 ub:teacherOf ?ub0teacherOf .
+				 $this1 a ub:Lecturer .
+				 $this1 ub:teacherOf ?ub0teacherOf .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:teacherOf ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0Lecturer7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:Lecturer .
+				 $this0 ub:emailAddress ?ub0emailAddress .
+				 $this1 a ub:Lecturer .
+				 $this1 ub:emailAddress ?ub0emailAddress .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:emailAddress ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0AssistantProfessor0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:AssistantProfessor .
+				 $this0 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 a ub:AssistantProfessor .
+				 $this1 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:undergraduateDegreeFrom ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0AssistantProfessor1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:AssistantProfessor .
+				 $this0 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this0 ub:researchInterest ?ub0researchInterest .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:AssistantProfessor .
+				 $this1 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this1 ub:researchInterest ?ub0researchInterest .
+				 $this1 ub:name ?ub0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0AssistantProfessor2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:AssistantProfessor .
+				 $this0 ub:worksFor ?ub0worksFor .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:AssistantProfessor .
+				 $this1 ub:worksFor ?ub0worksFor .
+				 $this1 ub:name ?ub0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0AssistantProfessor3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:AssistantProfessor .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this0 ub:worksFor ?ub0worksFor .
+				 $this1 a ub:AssistantProfessor .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 ub:worksFor ?ub0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0AssistantProfessor4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:AssistantProfessor .
+				 $this0 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 a ub:AssistantProfessor .
+				 $this1 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:mastersDegreeFrom ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0AssistantProfessor5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:AssistantProfessor .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this0 ub:researchInterest ?ub0researchInterest .
+				 $this1 a ub:AssistantProfessor .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 ub:researchInterest ?ub0researchInterest .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:researchInterest ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0AssistantProfessor6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:AssistantProfessor .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this0 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 $this1 a ub:AssistantProfessor .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 ub:mastersDegreeFrom ?ub0mastersDegreeFrom .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:mastersDegreeFrom ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0AssistantProfessor7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:AssistantProfessor .
+				 $this0 ub:teacherOf ?ub0teacherOf .
+				 $this1 a ub:AssistantProfessor .
+				 $this1 ub:teacherOf ?ub0teacherOf .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:teacherOf ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0AssistantProfessor8
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:AssistantProfessor .
+				 $this0 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this0 ub:worksFor ?ub0worksFor .
+				 $this1 a ub:AssistantProfessor .
+				 $this1 ub:doctoralDegreeFrom ?ub0doctoralDegreeFrom .
+				 $this1 ub:worksFor ?ub0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0AssistantProfessor9
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:AssistantProfessor .
+				 $this0 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this0 ub:researchInterest ?ub0researchInterest .
+				 $this0 ub:name ?ub0name .
+				 $this1 a ub:AssistantProfessor .
+				 $this1 ub:undergraduateDegreeFrom ?ub0undergraduateDegreeFrom .
+				 $this1 ub:researchInterest ?ub0researchInterest .
+				 $this1 ub:name ?ub0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForub0AssistantProfessor10
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdfs" ;
+ 						 sh:namespace "http://www.w3.org/2000/01/rdf-schema/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "owl" ;
+ 						 sh:namespace "http://www.w3.org/2002/07/owl/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "ub" ;
+ 						 sh:namespace "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl/"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a ub:AssistantProfessor .
+				 $this0 ub:emailAddress ?ub0emailAddress .
+				 $this1 a ub:AssistantProfessor .
+				 $this1 ub:emailAddress ?ub0emailAddress .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path ub:emailAddress ;
 		 sh:maxCount 0 ; 
 	 ] . 
 
