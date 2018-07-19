@@ -14,10 +14,7 @@ import org.apache.jena.riot.RDFFormat;
 import org.apache.jena.util.FileManager;
 import org.topbraid.jenax.util.JenaUtil;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.StringWriter;
+import java.io.*;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -44,7 +41,6 @@ public class Modelreader {
     public void readFile(){
         model = ModelFactory.createDefaultModel();
         FileManager.get().readModel( model, Configuration.getInstance().getPath());
-
         generateInfos();
     }
 
@@ -118,6 +114,24 @@ public class Modelreader {
         }
     }
 
+    public void writeClassFile(String classname, Model model){
+        FileWriter fileWriter = null;
+        try{
+            File tmpDir = new File(Configuration.getClasspathes() + classname.replace(":", "") + ".ttl");
+            boolean exists = tmpDir.exists();
+            if(exists == true){
+                model.clearNsPrefixMap();
+            }
+            fileWriter = new FileWriter(Configuration.getClasspathes() + classname.replace(":", "") + ".ttl", true);
+            StringWriter sw = new StringWriter();
+            RDFDataMgr.write(sw, model, RDFFormat.TURTLE_BLOCKS) ;
+            fileWriter.write(sw.toString());
+            fileWriter.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public void writeFile(Lang lang, ClassFinder classFinder){
         transformToTSV(classFinder);
     }
@@ -181,5 +195,36 @@ public class Modelreader {
         }
         System.out.println("Hand hoch, dies tutet ein Brechpunkt sein.");
         writeClassFiles();
+    }
+
+    public void farmClasses() {
+        BufferedReader bufferedReader = null;
+        String filePath = Configuration.getPath();
+        File file = new File(filePath);
+        HashSet<String> classnames = new HashSet<>();
+        try {
+            bufferedReader = new BufferedReader(new FileReader(file));
+            String line;
+            while (null != (line = bufferedReader.readLine())) {
+                if (line.contains(" a ") || line.contains("rdfs:type")){
+                    String[] ary = line.split(" a ");
+                    String classname = ary[1];
+                    classnames.add(classname);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (null != bufferedReader) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        for(String s : classnames){
+            System.out.println(s);
+        }
     }
 }

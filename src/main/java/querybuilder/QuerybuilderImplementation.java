@@ -1,29 +1,24 @@
 package querybuilder;
 
-import controller.Configuration;
 import controller.Controller;
 import model.BuilderImplementation;
+import modelbuilder.Modelreader;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.util.FileManager;
-import org.apache.jena.vocabulary.OWL;
-import org.apache.jena.vocabulary.RDFS;
-import org.topbraid.shacl.util.ModelPrinter;
+import org.apache.jena.rdf.model.*;
+import org.topbraid.jenax.util.JenaUtil;
+
 
 import java.util.*;
 
 public class QuerybuilderImplementation extends BuilderImplementation implements Querybuilder{
 
     public void build(HashMap<String, String> prefixes, Set<String> key, String rdfsClass, int almostKey) {
-        OntModel m = getModel();
-        loadData( m );
-
         StringBuilder prefixSB = new StringBuilder();
 
-        //for(Map.Entry<String, String> entry : prefixes.entrySet()){
+        Model m = Modelreader.getInstance().getModel();
+
         for(Map.Entry<String, String> entry : m.getNsPrefixMap().entrySet()){
             prefixSB.append("prefix " + entry.getKey() + ": <" + entry.getValue() + ">\n");
         }
@@ -85,10 +80,6 @@ public class QuerybuilderImplementation extends BuilderImplementation implements
         return ModelFactory.createOntologyModel( OntModelSpec.OWL_MEM );
     }
 
-    protected void loadData( Model m ) {
-        FileManager.get().readModel( m, Configuration.getInstance().getPath());
-    }
-
     protected void showQuery( Model m, String q ) {
         try {
             Query query = QueryFactory.create(q);
@@ -114,163 +105,87 @@ public class QuerybuilderImplementation extends BuilderImplementation implements
         System.out.println(s);
     }
 
-    public void build1() {
-        OntModel m = getModel();
-        loadData( m );
-
+    @Override
+    public void buildClasses() {
         StringBuilder prefixSB = new StringBuilder();
 
         prefixSB.append("prefix world: <http://data.masterthesis.com/dataset/world/>\n");
         prefixSB.append("prefix schema: <http://data.masterthesis.com/schema/world/>\n");
         prefixSB.append("prefix : <http://data.masterthesis.com/dataset/world/>\n");
 
-        //for(Map.Entry<String, String> entry : prefixes.entrySet()){
+        Model m = Modelreader.getInstance().getModel();
+
         for(Map.Entry<String, String> entry : m.getNsPrefixMap().entrySet()){
             prefixSB.append("prefix " + entry.getKey() + ": <" + entry.getValue() + ">\n");
         }
 
         StringBuilder query = new StringBuilder();
         query.append(
-                //"   SELECT  $this ?schema0addressCountry ?schema0isCapital (count(?schema0addressCountry) as ?count)  \n" +
-                "SELECT ?that\n" +
-                "WHERE " +
-                "   {\n" +
-                "       ?that a schema:Person.  \n" +
-                "       ?that schema:worksFor ?schema0worksFor .\n" +
-                "       ?that schema:address ?schema0address .\n" +
-                "       { \n" +
-                "       SELECT ?schema0worksFor ?schema0address ?count\n" +
-                "       WHERE " +
-                "       {\n" +
-                "           {\n" +
-                "               SELECT ?schema0address ?schema0worksFor (count(?schema0worksFor) as ?count)\n" +
-                "               WHERE " +
-                "               {\n" +
-                "                   $this a schema:Person.\n" +
-                "                   $this schema:worksFor ?schema0worksFor .\n" +
-                "                   $this schema:address ?schema0address .\n" +
-                "               } GROUP BY  ?schema0worksFor ?schema0address \n" +
-                "           }\n" +
-                "           FILTER (?count > 2)\n" +
-                "       }\n" +
-                "       }\n" +
-                "   }\n"
-                //"   } GROUP BY $this ?schema0addressCountry ?schema0isCapital"
+                "   SELECT DISTINCT $obj \n" +
+                        "   WHERE {   \n" +
+                        "       $sub a $obj.} "
         );
 
-        String qwery = query.toString();
+        Query q = QueryFactory.create(query.toString());
+        QueryExecution qexec = QueryExecutionFactory.create(q, m );
+        ResultSet results = qexec.execSelect();
 
-        Controller.getInstance().tA_main.appendText(qwery);
-
-        showQuery(m, prefixSB.toString() + query.toString());
+        while (results.hasNext()){
+            QuerySolution querySolution = results.next();
+            buildClassfile(m.getNsURIPrefix(querySolution.get("obj").asResource().getNameSpace()) + ":" + querySolution.get("obj").asResource().getLocalName());
+        }
     }
 
-    public void build3() {
-        OntModel m = getModel();
-        loadData( m );
-
+    public void buildClassfile(String classname) {
         StringBuilder prefixSB = new StringBuilder();
 
         prefixSB.append("prefix world: <http://data.masterthesis.com/dataset/world/>\n");
         prefixSB.append("prefix schema: <http://data.masterthesis.com/schema/world/>\n");
         prefixSB.append("prefix : <http://data.masterthesis.com/dataset/world/>\n");
 
-        //for(Map.Entry<String, String> entry : prefixes.entrySet()){
+        Model m = Modelreader.getInstance().getModel();
+
         for(Map.Entry<String, String> entry : m.getNsPrefixMap().entrySet()){
             prefixSB.append("prefix " + entry.getKey() + ": <" + entry.getValue() + ">\n");
         }
 
         StringBuilder query = new StringBuilder();
         query.append(
-            //"   SELECT  $this ?schema0addressCountry ?schema0isCapital (count(?schema0addressCountry) as ?count)  \n" +
-            "   SELECT  $this \n" +
-            "   WHERE {  \n" +
-            "       $this a schema:City.  \n" +
-            "       ?this schema:isCapital ?schema0isCapital .  \n" +
-            "       ?this schema:addressCountry ?schema0addressCountry .  \n" +
-            "       ?that schema:addressCountry ?schema0addressCountry .  \n" +
-            "       ?that schema:isCapital ?schema0isCapital .  \n" +
-            "       $that a schema:City.  \n" +
-            "       FILTER (?that != ?this) \n" +
-            "   } GROUP BY $this"
-            //"   } GROUP BY $this ?schema0addressCountry ?schema0isCapital"
-         );
+                 "   SELECT  * \n" +
+                 "   WHERE {   \n" +
+                 "       $sub a " + classname + ".  \n" +
+                 "       $sub $pred $obj } "
+        );
 
-        String qwery = query.toString();
-
-        Controller.getInstance().tA_main.appendText(qwery);
-
-        showQuery(m, prefixSB.toString() + query.toString());
+        resultToModel(m, prefixSB.toString() + query.toString(), classname.replace(":", ""));
     }
 
-    public void build2() {
-        OntModel m = getModel();
-        loadData( m );
-
-        StringBuilder prefixSB = new StringBuilder();
-
-        prefixSB.append("prefix world: <http://data.masterthesis.com/dataset/world/>\n");
-        prefixSB.append("prefix schema: <http://data.masterthesis.com/schema/world/>\n");
-        prefixSB.append("prefix : <http://data.masterthesis.com/dataset/world/>\n");
-
-        //for(Map.Entry<String, String> entry : prefixes.entrySet()){
-        for(Map.Entry<String, String> entry : m.getNsPrefixMap().entrySet()){
-            prefixSB.append("prefix " + entry.getKey() + ": <" + entry.getValue() + ">\n");
+    private void resultToModel( Model m, String q , String classname) {
+        Model momo = JenaUtil.createDefaultModel();
+        momo.setNsPrefixes(m.getNsPrefixMap());
+        try {
+            Query query = QueryFactory.create(q);
+            QueryExecution qexec = QueryExecutionFactory.create( query, m );
+            try {
+                ResultSet results = qexec.execSelect();
+                while (results.hasNext()){
+                    QuerySolution querySolution = results.next();
+                    querySolution.get("sub");
+                    if (momo.getProperty(String.valueOf(querySolution.get("pred"))) == null){
+                        momo.createProperty(String.valueOf(querySolution.get("pred")));
+                    }
+                    momo.add(querySolution.getResource("sub"), momo.getProperty(String.valueOf(querySolution.get("pred"))), querySolution.get("obj"));
+                }
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+            finally {
+                qexec.close();
+                Modelreader.getInstance().writeClassFile(classname, momo);
+            }
+        } catch (QueryParseException qpe){
+            qpe.printStackTrace();
         }
-
-        StringBuilder query = new StringBuilder();
-        query.append("SELECT ?class ?target ?percentage \n" +
-                "WHERE { \n" +
-                "   ?class a schema:Person .\n" +
-                "   ?class schema:social_Rank _:bN0 .\n" +
-                "   _:bN0 schema:socialRankValue ?percentage .\n" +
-                "   _:bN0 schema:socialRankTarget ?target .\n" +
-                "FILTER (?percentage > 95) \n" +
-                "} \n" +
-                "ORDER BY ?name \n"
-                );
-
-        String qwery = query.toString();
-
-        Controller.getInstance().tA_main.appendText(qwery);
-
-        showQuery(m, prefixSB.toString() + query.toString());
-    }
-
-    @Override
-    public void build() {
-        OntModel m = getModel();
-        loadData( m );
-
-        StringBuilder prefixSB = new StringBuilder();
-
-        prefixSB.append("prefix world: <http://data.masterthesis.com/dataset/world/>\n");
-        prefixSB.append("prefix schema: <http://data.masterthesis.com/schema/world/>\n");
-        prefixSB.append("prefix : <http://data.masterthesis.com/dataset/world/>\n");
-
-        //for(Map.Entry<String, String> entry : prefixes.entrySet()){
-        for(Map.Entry<String, String> entry : m.getNsPrefixMap().entrySet()){
-            prefixSB.append("prefix " + entry.getKey() + ": <" + entry.getValue() + ">\n");
-        }
-
-        StringBuilder query = new StringBuilder();
-
-        query.append(
-                "\t\t\t ASK { \n" +
-                "\t\t\t\t $this0 a schema:Person .\n" +
-                "\t\t\t\t $this0 schema:address ?schema0address .\n" +
-                "\t\t\t\t $this0 schema:givenName \"Sebastian\" .\n" +
-                "\t\t\t\t $this1 a schema:Person .\n" +
-                "\t\t\t\t $this1 schema:address ?schema0address .\n" +
-                "\t\t\t\t $this1 schema:givenName \"Sebastian\" .\n" +
-                "\t\t\t\t FILTER ( $this0 = $this1 &&  $this1 = $this0 ) \n" +
-                "\t\t\t } \n" );
-
-        String qwery = query.toString();
-
-        Controller.getInstance().tA_main.appendText(qwery);
-
-        showQuery(m, prefixSB.toString() + query.toString());
     }
 
     private String trimVariableName(String var){

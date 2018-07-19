@@ -96,7 +96,8 @@ public class Controller {
     }
 
     public void edit_unselectAll(ActionEvent actionEvent) {
-        q.build();
+        //q.build();
+        q.buildClasses();
     }
 
     public void help_about(ActionEvent actionEvent) {

@@ -7,7 +7,11 @@ import keyfinder.VICKEY;
 import modelbuilder.ClassFinder;
 import modelbuilder.Modelreader;
 import modelbuilder.RdfClass;
+import modelbuilder.Splitter;
+import org.apache.commons.io.FileUtils;
 import org.apache.jena.riot.Lang;
+import querybuilder.Querybuilder;
+import querybuilder.QuerybuilderImplementation;
 import shaclbuilder.Shaclbuilder;
 import shaclbuilder.ShaclbuilderImplementation;
 
@@ -15,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -23,13 +28,20 @@ public class Headless {
     static Shaclbuilder s = new ShaclbuilderImplementation();
     ClassFinder cf = new ClassFinder();
     Modelreader mr = new Modelreader();
+    Querybuilder qb = new QuerybuilderImplementation();
+    Splitter sp = new Splitter();
+
+    long timestampOLD = System.currentTimeMillis();
+    long timestampNEW = System.currentTimeMillis();
 
     public static void main(String[] args){
 
         Headless headless = new Headless();
-        char para = headless.useArgs(args);
 
-        Configuration.getInstance().setPath("./src/main/resources/data/" + "Universities-10mB" + ".ttl");
+        //Configuration.getInstance().setPath("./src/main/resources/data/" + "Universities-10mB" + ".ttl");
+        Configuration.getInstance().setPath("D:/Wikidata/Splitterino/" + "SplittedWiki1" + ".ttl");
+
+        char para = headless.useArgs(args);
 
         if(para == 'c'){
             headless.complete();
@@ -42,10 +54,10 @@ public class Headless {
         }
     }
 
-    private void mineOnly() {
-        mr.readFile();
-        cf.build(mr.getModel());
-        mr.mine();
+    private long duration(){
+        System.out.println("Time needed for file reading: " + (timestampNEW - timestampOLD)/1000);
+        timestampOLD = System.currentTimeMillis();
+        return (System.currentTimeMillis() - timestampOLD)/1000;
     }
 
     private char useArgs(String[] args){
@@ -79,14 +91,37 @@ public class Headless {
         return modus;
     }
 
+    private void mineOnly() {
+
+
+        try {
+            sp.split();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Spaceships Power is on start level...");
+        Iterator it = FileUtils.iterateFiles(new File("/home/nikelski/wikidata-fragments/wd20150615/"), null, false);
+        System.out.println("GO!");
+        while(it.hasNext()){
+            System.out.println("BREAKPOINT REACHED! LAUNCH THE NUKULARS");
+            Configuration.getInstance().setPath(((File) it.next()).getAbsolutePath());
+            System.out.println("Path: " + Configuration.getInstance().getPath());
+            mr.readFile();
+            qb.buildClasses();
+            System.out.println("BREAKPOINT CLEAR! Continue journey.");
+        }
+        //cf.build(mr.getModel());
+        //mr.mine();
+        System.out.println("Mission complete!");
+    }
+
     /**
      * Method to run through the whole process
      */
     private void complete(){
         //Configuration.getInstance().setPath("D:/Wikidata/wikidata-20150615-all-BETA.ttl/wikidata-20150615-all-BETA.ttl");
-        long timestampOLD = System.currentTimeMillis();
         mr.readFile();
-        long timestampNEW = System.currentTimeMillis();
         System.out.println("Time needed for file reading: " + (timestampNEW - timestampOLD)/1000);
         timestampOLD = System.currentTimeMillis();
 
@@ -97,7 +132,7 @@ public class Headless {
 
 
 
-        timestampNEW = System.currentTimeMillis();
+
         System.out.println("Time needed for class building: " + (timestampNEW - timestampOLD)/1000);
         timestampOLD = System.currentTimeMillis();
         mr.writeFile(Lang.TSV, cf);

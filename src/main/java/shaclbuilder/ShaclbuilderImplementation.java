@@ -3,23 +3,18 @@ package shaclbuilder;
 import controller.Configuration;
 import controller.Controller;
 import model.BuilderImplementation;
-import modelbuilder.ClassFinder;
 import modelbuilder.ConditionalKey;
 import modelbuilder.RdfClass;
-import org.apache.commons.io.IOUtils;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileUtils;
 import org.topbraid.jenax.util.JenaUtil;
-import org.topbraid.shacl.model.SHFactory;
 import org.topbraid.shacl.util.ModelPrinter;
 import org.topbraid.shacl.validation.ValidationUtil;
 
 import java.io.*;
-import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.*;
 
