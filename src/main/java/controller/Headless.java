@@ -1,7 +1,5 @@
 package controller;
 
-import dependencies.GraphDependencieMiner;
-import dependencies.GraphDependencieMinerImplementation;
 import keyfinder.SAKeyAlmostKeysOneFileOneN;
 import keyfinder.VICKEY;
 import modelbuilder.ClassFinder;
@@ -10,18 +8,14 @@ import modelbuilder.RdfClass;
 import modelbuilder.Splitter;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RiotException;
 import querybuilder.Querybuilder;
 import querybuilder.QuerybuilderImplementation;
 import shaclbuilder.Shaclbuilder;
 import shaclbuilder.ShaclbuilderImplementation;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.io.*;
+import java.util.*;
 
 public class Headless {
 
@@ -31,15 +25,24 @@ public class Headless {
     Querybuilder qb = new QuerybuilderImplementation();
     Splitter sp = new Splitter();
 
-    long timestampOLD = System.currentTimeMillis();
-    long timestampNEW = System.currentTimeMillis();
+    static long timestampOLD = System.currentTimeMillis();
+    static long timestampNEW = System.currentTimeMillis();
+    static int conditionalKeyShapefiles = 6;
 
     public static void main(String[] args){
 
-        Headless headless = new Headless();
+        //evaluateAll();
+        //System.exit(0);
 
+        Headless headless = new Headless();
+        //Configuration.getInstance().setPath("C:/Users/Basti/Dropbox/Masterarbeit/2 - code/SNMasterthesis/src/main/resources/eval/sparql-test-data.ttl");
+
+        //Configuration.getInstance().setPath("./src/main/resources/data/" + "world-0.1" + ".ttl");
         //Configuration.getInstance().setPath("./src/main/resources/data/" + "Universities-10mB" + ".ttl");
-        Configuration.getInstance().setPath("D:/Wikidata/Splitterino/" + "SplittedWiki1" + ".ttl");
+        //Configuration.getInstance().setPath("D:/Wikidata/Splitterino/" + "SplittedWiki1" + ".ttl");
+        Configuration.getInstance().setPath("/home/nikelski/Headless/src/main/resources/generated/classes-wd20150615/wdnoP105.ttl");  // -------------------------------------------------
+        //Configuration.getInstance().setPath("/home/nikelski/Headless/src/main/resources/generated/classes-wd20180319/wdnoP105.ttl");  // -------------------------------------------------
+        //Configuration.getInstance().setPath("/home/nikelski/wikidata-20170821-all-BETA.ttl");
 
         char para = headless.useArgs(args);
 
@@ -50,19 +53,25 @@ public class Headless {
         } else if (para == 'r'){
             headless.readOnly();
         } else if (para == 'm'){
-            headless.mineOnly();
+            headless.mineOnly(true);
+        } else if (para == 'a'){
+            headless.mineOnly(false);
+        } else if (para == 'n'){
+            headless.mineSpecificClass(true);
+        } else if (para == 'l'){
+            headless.evaluateShacl();
         }
     }
 
-    private long duration(){
-        System.out.println("Time needed for file reading: " + (timestampNEW - timestampOLD)/1000);
+    private static long duration(){
+        //System.out.println("Time needed for file reading: " + (timestampNEW - timestampOLD));
         timestampOLD = System.currentTimeMillis();
-        return (System.currentTimeMillis() - timestampOLD)/1000;
+        return (System.currentTimeMillis() - timestampOLD);
     }
 
     private char useArgs(String[] args){
 
-        char modus = 'm';
+        char modus = 'c';
 
         for (int i = 0; i < args.length; i = i + 2){
             switch (args[i]) {
@@ -84,85 +93,89 @@ public class Headless {
                     break;
                 case "-m":
                     modus = 'm';
+                    break;
+                case "-c":
+                    modus = 'c';
+                    break;
+                case "-a":
+                    modus = 'a';
+                    break;
+                case "-n":
+                    modus = 'n';
+                    break;
+                case "-l":
+                    modus = 'l';
+                    break;
                 default:
                         break;
             }
         }
+        System.out.println("Modus: " + modus);
         return modus;
     }
 
-    private void mineOnly() {
+    private void mineOnly(boolean newStart) {
 
-
-        try {
-            sp.split();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (newStart) {
+            try {
+                sp.split();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         System.out.println("Spaceships Power is on start level...");
-        Iterator it = FileUtils.iterateFiles(new File("/home/nikelski/wikidata-fragments/wd20150615/"), null, false);
+        Iterator it = FileUtils.iterateFiles(new File("/home/nikelski/wikidata-fragments/latest-all/"), null, false);
         System.out.println("GO!");
+        int counter = 0;
         while(it.hasNext()){
             System.out.println("BREAKPOINT REACHED! LAUNCH THE NUKULARS");
-            Configuration.getInstance().setPath(((File) it.next()).getAbsolutePath());
+            String path = ((File) it.next()).getAbsolutePath();
+            //Configuration.getInstance().setPath(((File) it.next()).getAbsolutePath());
+            Configuration.getInstance().setPath(path);
             System.out.println("Path: " + Configuration.getInstance().getPath());
-            mr.readFile();
-            qb.buildClasses();
-            System.out.println("BREAKPOINT CLEAR! Continue journey.");
+            try {
+                mr.readFile();
+                qb.buildClasses();
+            }catch(RiotException e){
+                e.printStackTrace();
+            }
+            System.out.println("BASES DESTROYED: (" + counter + "/?)");
+            counter++;
+            new File(path).delete();
         }
-        //cf.build(mr.getModel());
-        //mr.mine();
         System.out.println("Mission complete!");
+    }
+
+    private void mineSpecificClass(boolean newStart){
+            if (newStart) {
+                try {
+                    sp.splitAndMine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
     }
 
     /**
      * Method to run through the whole process
      */
     private void complete(){
-        //Configuration.getInstance().setPath("D:/Wikidata/wikidata-20150615-all-BETA.ttl/wikidata-20150615-all-BETA.ttl");
-        mr.readFile();
-        System.out.println("Time needed for file reading: " + (timestampNEW - timestampOLD)/1000);
-        timestampOLD = System.currentTimeMillis();
-
-
-        cf.build(mr.getModel());
-
+        mr.readFilePlus();
+        mr.writeFile(Lang.TTL);
+        Configuration.getInstance().setPath(Configuration.getInstance().getTtlpath());
+        cf.buildPlus(mr.getModel(), "http://www.wikidata.org/prop/novalue/P105");    //-------------------------------------------------------------------------------------------
+        //cf.build(mr.getModel());
         mr.mine();
-
-
-
-
-        System.out.println("Time needed for class building: " + (timestampNEW - timestampOLD)/1000);
-        timestampOLD = System.currentTimeMillis();
         mr.writeFile(Lang.TSV, cf);
-        timestampNEW = System.currentTimeMillis();
-        System.out.println("Time needed for file creation: " + (timestampNEW - timestampOLD)/1000);
-        timestampOLD = System.currentTimeMillis();
         findKeys();
-        timestampNEW = System.currentTimeMillis();
-        System.out.println("Time needed for key finding: " + (timestampNEW - timestampOLD)/1000);
-        timestampOLD = System.currentTimeMillis();
         buildShacl();
-        timestampNEW = System.currentTimeMillis();
-        System.out.println("Time needed for creating shacl: " + (timestampNEW - timestampOLD)/1000);
-        timestampOLD = System.currentTimeMillis();
-        evaluateShacl();
-        timestampNEW = System.currentTimeMillis();
-        System.out.println("Time needed for evaluating shacl: " + (timestampNEW - timestampOLD)/1000);
+        evaluateShaclN();
     }
 
-    /**
-     * Method to run through the whole process
-     */
     private void readOnly(){
-        //Configuration.getInstance().setPath("D:/Wikidata/wikidata-20150615-all-BETA.ttl/wikidata-20150615-all-BETA.ttl");
         System.out.println("Start with the reading process:");
         mr.readFile();
-        //cf.build(mr.getModel());
-        //mr.writeFile(Lang.TSV, cf);
-        //findKeys();
-        //buildShacl();
     }
 
     private void withoutKeyFinding(){
@@ -175,28 +188,28 @@ public class Headless {
     private void findKeys(){
         String[] args = new String[2];
         args[0] = Configuration.getInstance().getTsvpath();
-        args[1] = "1";
-        try {
+        args[1] = "0";
+
+/*        try {
             SAKeyAlmostKeysOneFileOneN.main(args);
 
             cf.setAlmostKeys(mr.getModel(), SAKeyAlmostKeysOneFileOneN.almostKeys);
             System.out.println("Almost keys found and saved");
         } catch (IOException e) {
             System.out.println("Failed to find and save Almost keys");
-        }
+        }*/
+
         args = new String[1];
         args[0] = Configuration.getInstance().getTsvpath();
-        //args[0] = "./src/main/resources/data/museum.tsv";
-        /**
+
         try {
             VICKEY.main(args);
             System.out.println(VICKEY.nonKeySet);
             cf.setConditionalKeys(mr.getModel(), VICKEY.conditionalKeys);
-            System.oshut.println("Conditional keys found and saved");
+            System.out.println("Conditional keys found and saved");
         } catch (IOException | InterruptedException e) {
             System.out.println("Failed to find and save Conditional keys");
         }
-        */
     }
 
     private void showMeWhatYouGot(){
@@ -219,13 +232,132 @@ public class Headless {
     }
 
     private void buildShacl() {
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile.ttl");
+        //Configuration.getInstance().setShaclpath("C:/Users/Basti/Dropbox/Masterarbeit/2 - code/SNMasterthesis/src/main/resources/eval/sparql-shape-test.ttl"); //----------------------------
         s.buildNonKeys(mr.getModel(), cf.getClasses());
         s.buildAlmostKeys(mr.getModel(), cf.getClasses());
-        s.buildConditionalKeys(mr.getModel(), cf.getClasses());
+        conditionalKeyShapefiles = s.buildConditionalKeys(mr.getModel(), cf.getClasses());
+        System.out.println("Build Shapefiles: #" + conditionalKeyShapefiles);
+    }
+
+    private static void evaluateShaclN(){
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile.ttl");
+
+        try{
+            //s.build(Configuration.getInstance().getShaclpath().replace(".ttl", "--MaxNonKeys.ttl"));
+        } catch(Exception e){
+            System.out.println("Error during the evaluation of the MaxNonKeys");
+            e.printStackTrace();
+        }
+        try{
+            s.build(Configuration.getInstance().getShaclpath().replace(".ttl", "--AlmostKeys.ttl"));
+        } catch(Exception e){
+            System.out.println("Error during the evaluation of the AlmostKeys");
+            e.printStackTrace();
+        }
+        for (int i = 0; i <= conditionalKeyShapefiles; i++){
+            try{
+                s.build(Configuration.getInstance().getShaclpath().replace(".ttl", "--ConditionalKeys - " + i + ".ttl"));
+            } catch(Exception e){
+                System.out.println("Error during the evaluation of the ConditionalKeys");
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static void evaluateShaclHere(){
+        //Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile--ConditionalKeys - 0.ttl");
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile-NormalKeys.ttl");
+        Configuration.getInstance().setPath("/home/nikelski/Headless/src/main/resources/generated/classes-wd20160502/wdnoP102.ttl");
+        s.build();
+    }
+
+    private static void evaluateAll(){
+        // *************************************************************** P105 **************************************************************
+        /*
+            2016
+         */
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile--MaxNonKeys-P105.ttl");
+        Configuration.getInstance().setPath("/home/nikelski/Headless/src/main/resources/generated/classes-wd20160502/wdnoP105.ttl");
+        s.buildWithName("-2016-MaxNonKeys-P105");
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile--0AlmostKeys-P105.ttl");
+        s.buildWithName("-2016-AlmostKeys-P105");
+        /*
+            2017
+         */
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile--MaxNonKeys-P105.ttl");
+        Configuration.getInstance().setPath("/home/nikelski/Headless/src/main/resources/generated/classes-wd20170821/wdnoP105.ttl");
+        s.buildWithName("-2017-MaxNonKeys-P105");
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile--0AlmostKeys-P105.ttl");
+        s.buildWithName("-2017-AlmostKeys-P105");
+        /*
+            2018
+         */
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile--MaxNonKeys-P105.ttl");
+        Configuration.getInstance().setPath("/home/nikelski/Headless/src/main/resources/generated/classes-wd20180319/wdnoP105.ttl");
+        s.buildWithName("-2018-MaxNonKeys-P105");
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile--0AlmostKeys-P105.ttl");
+        s.buildWithName("-2018-AlmostKeys-P105");
+        // *************************************************************** P102 **************************************************************
+        /*
+            2016
+         */
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile--MaxNonKeys-P102.ttl");
+        Configuration.getInstance().setPath("/home/nikelski/Headless/src/main/resources/generated/classes-wd20160502/wdnoP102.ttl");
+        s.buildWithName("-2016-MaxNonKeys-P102");
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile--0AlmostKeys-P102.ttl");
+        s.buildWithName("-2016-AlmostKeys-P102");
+        /*
+            2017
+         */
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile--MaxNonKeys-P102.ttl");
+        Configuration.getInstance().setPath("/home/nikelski/Headless/src/main/resources/generated/classes-wd20170821/wdnoP102.ttl");
+        s.buildWithName("-2017-MaxNonKeys-P102");
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile--0AlmostKeys-P102.ttl");
+        s.buildWithName("-2017-AlmostKeys-P102");
+        /*
+            2018
+         */
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile--MaxNonKeys-P102.ttl");
+        Configuration.getInstance().setPath("/home/nikelski/Headless/src/main/resources/generated/classes-wd20180319/wdnoP102.ttl");
+        s.buildWithName("-2018-MaxNonKeys-P102");
+        Configuration.getInstance().setShaclpath("/home/nikelski/Headless/src/main/resources/generated/shapefile--0AlmostKeys-P102.ttl");
+        s.buildWithName("-2018-AlmostKeys-P102");
     }
 
     private static void evaluateShacl(){
-        s.build();
+        List<String> results = new LinkedList<String>();
+        boolean init = false;
+        for (int i = 1; i < 1001; i = i * 10){
+            Configuration.getInstance().setPath("/home/nikelski/lubm/lubm-" + i + "-o.ttl");
+            for (int x = 1; x < 1001; x = x * 10 ){
+                Configuration.getInstance().setShaclpath("/home/nikelski/lubm/ShapefileShaclLubm-" + x + ".ttl");
+                if(init == false){
+                    init = true;
+                    s.build();
+                }
+                timestampOLD = System.currentTimeMillis();
+                try{
+                    s.build();
+                    long evaltime = System.currentTimeMillis() - timestampOLD;
+                    String res = "Evaluation time for lubm-" + i + "with SHAQL-ShapefileLubm-" + x + ":" + evaltime + "ms.";
+                    results.add(res);
+                    FileWriter fileWriter = null;
+                    try {
+                        fileWriter = new FileWriter("eval-shaql-lubm.txt", true);
+                        fileWriter.write(res + "\n");
+                        fileWriter.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } catch(OutOfMemoryError outOfMemoryError){
+                    System.out.println("MEMORY IST ALLE");
+                }
+            }
+        }
+        for (String res : results){
+            System.out.println(res);
+        }
     }
 
     private void getInfos(){

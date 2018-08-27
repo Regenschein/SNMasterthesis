@@ -365,6 +365,5 @@ public class Controller {
         } else {
             tA_main.appendText("Please set a namespace name and a URI.\n");
         }
-
     }
 }

@@ -2,35 +2,16 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix world: <http://data.masterthesis.com/dataset/world/> .
 @prefix xsm: <http://datatypes.masterthesis.com#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ex: <https://example.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>.
 
-
-
-ex:MaxNonKeyForschema:Region
-	 a sh:NodeShape ;
-	 sh:targetClass schema:Region ;
-	 sh:property [
-		 sh:path schema:name ;
-		 sh:minCount 1 ;
-	 ].
-
-ex:MaxNonKeyForschema:City
+ex:MaxNonKeyForschema0City
 	 a sh:NodeShape ;
 	 sh:targetClass schema:City ;
 	 sh:or ( 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:isCapital ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:addressCountry ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
 		 [ 
 			 sh:and ( 
 				 [
@@ -42,7 +23,7 @@ ex:MaxNonKeyForschema:City
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:architecturalStyle ;
+					 sh:path schema:addressCountry ;
 					 sh:minCount 1 ;
 				 ] 
 				 [
@@ -53,36 +34,36 @@ ex:MaxNonKeyForschema:City
 		 ] 
 		 [ 
 			 sh:and ( 
-				 [
-					 sh:path schema:addressRegion ;
-					 sh:minCount 1 ;
-				 ] 
-				 [
-					 sh:path schema:isCapital ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:addressRegion ;
-					 sh:minCount 1 ;
-				 ] 
 				 [
 					 sh:path schema:addressCountry ;
 					 sh:minCount 1 ;
 				 ] 
+				 [
+					 sh:path schema:architecturalStyle ;
+					 sh:minCount 1 ;
+				 ] 
 			 ) 
 		 ] 
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:architecturalStyle ;
+					 sh:path schema:addressRegion ;
 					 sh:minCount 1 ;
 				 ] 
 				 [
+					 sh:path schema:architecturalStyle ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
 					 sh:path schema:addressRegion ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:isCapital ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -98,52 +79,132 @@ ex:MaxNonKeyForschema:City
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:architecturalStyle ;
+					 sh:path schema:addressCountry ;
 					 sh:minCount 1 ;
 				 ] 
 				 [
-					 sh:path schema:addressCountry ;
+					 sh:path schema:addressRegion ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:isCapital ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:architecturalStyle ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
 		 ] 
 	 ) .
+ex:MaxNonKeyForschema0Region
+	 a sh:NodeShape ;
+	 sh:targetClass schema:Region ;
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:minCount 1 ;
+	 ].
 
-ex:
-	sh:declare [
-		sh:prefix "ex" ;
-		sh:namespace <http://example.com/ns#> ;
-	] .
-
-ex:CityShape
-	a sh:NodeShape ;
-	sh:target [
-		a sh:SPARQLTarget ;
-		sh:prefixes ex: ;
-		sh:select """
-            SELECT ?schema0addressCountry ?schema0isCapital ?count
-              WHERE {
-                {
-                   SELECT  ?schema0addressCountry ?schema0isCapital (count(?schema0addressCountry) as ?count)
-                  WHERE {
-                     $this a schema:City.
-                      ?this schema:isCapital ?schema0isCapital .
-                      ?this schema:addressCountry ?schema0addressCountry .
-                    }
-                    GROUP BY  ?schema0addressCountry ?schema0isCapital
-                  }
-                FILTER (?count > 1)  }
-			""" ;
-	] .
-
-ex:MaxNonKeyForschema:Person
+ex:MaxNonKeyForschema0Person
 	 a sh:NodeShape ;
 	 sh:targetClass schema:Person ;
 	 sh:or ( 
 		 [ 
 			 sh:and ( 
 				 [
+					 sh:path schema:social_Rank ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:faction ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:givenName ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:birthDate ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:religion ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:familyName ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:faction ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:title ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:profession ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:address ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
 					 sh:path schema:worksFor ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:familyName ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:worksFor ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:familyName ;
 					 sh:minCount 1 ;
 				 ] 
 				 [
@@ -155,7 +216,43 @@ ex:MaxNonKeyForschema:Person
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:profession ;
+					 sh:path schema:givenName ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:worksFor ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:address ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:givenName ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:givenName ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:gender ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -175,7 +272,7 @@ ex:MaxNonKeyForschema:Person
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:birthDate ;
+					 sh:path schema:familyName ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -183,23 +280,7 @@ ex:MaxNonKeyForschema:Person
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:title ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:givenName ;
-					 sh:minCount 1 ;
-				 ] 
-			 ) 
-		 ] 
-		 [ 
-			 sh:and ( 
-				 [
-					 sh:path schema:religion ;
+					 sh:path schema:address ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -212,15 +293,27 @@ ex:MaxNonKeyForschema:Person
 				 ] 
 			 ) 
 		 ] 
+		 [ 
+			 sh:and ( 
+				 [
+					 sh:path schema:givenName ;
+					 sh:minCount 1 ;
+				 ] 
+				 [
+					 sh:path schema:address ;
+					 sh:minCount 1 ;
+				 ] 
+			 ) 
+		 ] 
 	 ) .
-ex:MaxNonKeyForschema:Country
+ex:MaxNonKeyForschema0Country
 	 a sh:NodeShape ;
 	 sh:targetClass schema:Country ;
 	 sh:or ( 
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:name ;
+					 sh:path schema:Population ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -236,7 +329,7 @@ ex:MaxNonKeyForschema:Country
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:Population ;
+					 sh:path schema:foundingYear ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
@@ -244,13 +337,13 @@ ex:MaxNonKeyForschema:Country
 		 [ 
 			 sh:and ( 
 				 [
-					 sh:path schema:foundingYear ;
+					 sh:path schema:name ;
 					 sh:minCount 1 ;
 				 ] 
 			 ) 
 		 ] 
 	 ) .
-ex:MaxNonKeyForschema:Place
+ex:MaxNonKeyForschema0Place
 	 a sh:NodeShape ;
 	 sh:targetClass schema:Place ;
 	 sh:property [
@@ -258,7 +351,7 @@ ex:MaxNonKeyForschema:Place
 		 sh:minCount 1 ;
 	 ].
 
-ex:MaxNonKeyForschema:Faction
+ex:MaxNonKeyForschema0Faction
 	 a sh:NodeShape ;
 	 sh:targetClass schema:Faction ;
 	 sh:or ( 
@@ -279,7 +372,7 @@ ex:MaxNonKeyForschema:Faction
 			 ) 
 		 ] 
 	 ) .
-ex:MaxNonKeyForschema:Religion
+ex:MaxNonKeyForschema0Religion
 	 a sh:NodeShape ;
 	 sh:targetClass schema:Religion ;
 	 sh:or ( 
@@ -300,3 +393,4760 @@ ex:MaxNonKeyForschema:Religion
 			 ) 
 		 ] 
 	 ) .
+schema:pre 
+	 a owl:Ontology ; 
+	 owl:imports sh: ; 
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+
+ex:AlmostKeyCheckForschema0City0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:population ?schema0population .
+				 $this1 a schema:City .
+				 $this1 schema:population ?schema0population .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:population ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 $this1 a schema:City .
+				 $this1 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:heraldicAnimal ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:addressRegion ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+schema:pre 
+	 a owl:Ontology ; 
+	 owl:imports sh: ; 
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+
+ex:AlmostKeyCheckForschema0City0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:population ?schema0population .
+				 $this1 a schema:City .
+				 $this1 schema:population ?schema0population .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:population ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 $this1 a schema:City .
+				 $this1 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:heraldicAnimal ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:addressRegion ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Region0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Region .
+				 $this0 schema:name ?schema0name .
+				 $this1 a schema:Region .
+				 $this1 schema:name ?schema0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+schema:pre 
+	 a owl:Ontology ; 
+	 owl:imports sh: ; 
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+
+ex:AlmostKeyCheckForschema0City0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:population ?schema0population .
+				 $this1 a schema:City .
+				 $this1 schema:population ?schema0population .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:population ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 $this1 a schema:City .
+				 $this1 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:heraldicAnimal ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:addressRegion ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Region0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Region .
+				 $this0 schema:name ?schema0name .
+				 $this1 a schema:Region .
+				 $this1 schema:name ?schema0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:social_Rank ?schema0social_Rank .
+				 $this1 a schema:Person .
+				 $this1 schema:social_Rank ?schema0social_Rank .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:social_Rank ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:faction ?schema0faction .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:faction ?schema0faction .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:birthDate ?schema0birthDate .
+				 $this1 a schema:Person .
+				 $this1 schema:birthDate ?schema0birthDate .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:birthDate ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:religion ?schema0religion .
+				 $this1 a schema:Person .
+				 $this1 schema:religion ?schema0religion .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:religion ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:faction ?schema0faction .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:faction ?schema0faction .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:faction ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:title ?schema0title .
+				 $this1 a schema:Person .
+				 $this1 schema:title ?schema0title .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:title ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:profession ?schema0profession .
+				 $this1 a schema:Person .
+				 $this1 schema:profession ?schema0profession .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:profession ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person8
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person9
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person10
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+schema:pre 
+	 a owl:Ontology ; 
+	 owl:imports sh: ; 
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+
+ex:AlmostKeyCheckForschema0City0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:population ?schema0population .
+				 $this1 a schema:City .
+				 $this1 schema:population ?schema0population .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:population ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 $this1 a schema:City .
+				 $this1 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:heraldicAnimal ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:addressRegion ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Region0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Region .
+				 $this0 schema:name ?schema0name .
+				 $this1 a schema:Region .
+				 $this1 schema:name ?schema0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:social_Rank ?schema0social_Rank .
+				 $this1 a schema:Person .
+				 $this1 schema:social_Rank ?schema0social_Rank .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:social_Rank ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:faction ?schema0faction .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:faction ?schema0faction .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:birthDate ?schema0birthDate .
+				 $this1 a schema:Person .
+				 $this1 schema:birthDate ?schema0birthDate .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:birthDate ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:religion ?schema0religion .
+				 $this1 a schema:Person .
+				 $this1 schema:religion ?schema0religion .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:religion ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:faction ?schema0faction .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:faction ?schema0faction .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:faction ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:title ?schema0title .
+				 $this1 a schema:Person .
+				 $this1 schema:title ?schema0title .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:title ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:profession ?schema0profession .
+				 $this1 a schema:Person .
+				 $this1 schema:profession ?schema0profession .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:profession ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person8
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person9
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person10
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:Population ?schema0Population .
+				 $this1 a schema:Country .
+				 $this1 schema:Population ?schema0Population .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:Population ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:nationalAnthem ?schema0nationalAnthem .
+				 $this1 a schema:Country .
+				 $this1 schema:nationalAnthem ?schema0nationalAnthem .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:nationalAnthem ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:foundingYear ?schema0foundingYear .
+				 $this1 a schema:Country .
+				 $this1 schema:foundingYear ?schema0foundingYear .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:foundingYear ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:name ?schema0name .
+				 $this1 a schema:Country .
+				 $this1 schema:name ?schema0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+schema:pre 
+	 a owl:Ontology ; 
+	 owl:imports sh: ; 
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+
+ex:AlmostKeyCheckForschema0City0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:population ?schema0population .
+				 $this1 a schema:City .
+				 $this1 schema:population ?schema0population .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:population ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 $this1 a schema:City .
+				 $this1 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:heraldicAnimal ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:addressRegion ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Region0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Region .
+				 $this0 schema:name ?schema0name .
+				 $this1 a schema:Region .
+				 $this1 schema:name ?schema0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:social_Rank ?schema0social_Rank .
+				 $this1 a schema:Person .
+				 $this1 schema:social_Rank ?schema0social_Rank .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:social_Rank ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:faction ?schema0faction .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:faction ?schema0faction .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:birthDate ?schema0birthDate .
+				 $this1 a schema:Person .
+				 $this1 schema:birthDate ?schema0birthDate .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:birthDate ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:religion ?schema0religion .
+				 $this1 a schema:Person .
+				 $this1 schema:religion ?schema0religion .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:religion ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:faction ?schema0faction .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:faction ?schema0faction .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:faction ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:title ?schema0title .
+				 $this1 a schema:Person .
+				 $this1 schema:title ?schema0title .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:title ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:profession ?schema0profession .
+				 $this1 a schema:Person .
+				 $this1 schema:profession ?schema0profession .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:profession ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person8
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person9
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person10
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:Population ?schema0Population .
+				 $this1 a schema:Country .
+				 $this1 schema:Population ?schema0Population .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:Population ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:nationalAnthem ?schema0nationalAnthem .
+				 $this1 a schema:Country .
+				 $this1 schema:nationalAnthem ?schema0nationalAnthem .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:nationalAnthem ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:foundingYear ?schema0foundingYear .
+				 $this1 a schema:Country .
+				 $this1 schema:foundingYear ?schema0foundingYear .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:foundingYear ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:name ?schema0name .
+				 $this1 a schema:Country .
+				 $this1 schema:name ?schema0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Place0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Place .
+				 $this0 schema:streetAddress ?schema0streetAddress .
+				 $this1 a schema:Place .
+				 $this1 schema:streetAddress ?schema0streetAddress .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:streetAddress ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+schema:pre 
+	 a owl:Ontology ; 
+	 owl:imports sh: ; 
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+
+ex:AlmostKeyCheckForschema0City0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:population ?schema0population .
+				 $this1 a schema:City .
+				 $this1 schema:population ?schema0population .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:population ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 $this1 a schema:City .
+				 $this1 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:heraldicAnimal ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:addressRegion ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Region0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Region .
+				 $this0 schema:name ?schema0name .
+				 $this1 a schema:Region .
+				 $this1 schema:name ?schema0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:social_Rank ?schema0social_Rank .
+				 $this1 a schema:Person .
+				 $this1 schema:social_Rank ?schema0social_Rank .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:social_Rank ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:faction ?schema0faction .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:faction ?schema0faction .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:birthDate ?schema0birthDate .
+				 $this1 a schema:Person .
+				 $this1 schema:birthDate ?schema0birthDate .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:birthDate ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:religion ?schema0religion .
+				 $this1 a schema:Person .
+				 $this1 schema:religion ?schema0religion .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:religion ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:faction ?schema0faction .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:faction ?schema0faction .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:faction ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:title ?schema0title .
+				 $this1 a schema:Person .
+				 $this1 schema:title ?schema0title .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:title ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:profession ?schema0profession .
+				 $this1 a schema:Person .
+				 $this1 schema:profession ?schema0profession .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:profession ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person8
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person9
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person10
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:Population ?schema0Population .
+				 $this1 a schema:Country .
+				 $this1 schema:Population ?schema0Population .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:Population ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:nationalAnthem ?schema0nationalAnthem .
+				 $this1 a schema:Country .
+				 $this1 schema:nationalAnthem ?schema0nationalAnthem .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:nationalAnthem ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:foundingYear ?schema0foundingYear .
+				 $this1 a schema:Country .
+				 $this1 schema:foundingYear ?schema0foundingYear .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:foundingYear ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:name ?schema0name .
+				 $this1 a schema:Country .
+				 $this1 schema:name ?schema0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Place0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Place .
+				 $this0 schema:streetAddress ?schema0streetAddress .
+				 $this1 a schema:Place .
+				 $this1 schema:streetAddress ?schema0streetAddress .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:streetAddress ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Faction0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Faction .
+				 $this0 schema:name ?schema0name .
+				 $this1 a schema:Faction .
+				 $this1 schema:name ?schema0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Faction1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Faction .
+				 $this0 schema:foundingDate ?schema0foundingDate .
+				 $this1 a schema:Faction .
+				 $this1 schema:foundingDate ?schema0foundingDate .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:foundingDate ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+schema:pre 
+	 a owl:Ontology ; 
+	 owl:imports sh: ; 
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+
+ex:AlmostKeyCheckForschema0City0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:population ?schema0population .
+				 $this1 a schema:City .
+				 $this1 schema:population ?schema0population .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:population ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this1 a schema:City .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:isCapital ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 $this1 a schema:City .
+				 $this1 schema:heraldicAnimal ?schema0heraldicAnimal .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:heraldicAnimal ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:addressCountry ?schema0addressCountry .
+				 $this0 schema:addressRegion ?schema0addressRegion .
+				 $this1 a schema:City .
+				 $this1 schema:addressCountry ?schema0addressCountry .
+				 $this1 schema:addressRegion ?schema0addressRegion .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:addressRegion ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0City7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:City .
+				 $this0 schema:isCapital ?schema0isCapital .
+				 $this0 schema:architecturalStyle ?schema0architecturalStyle .
+				 $this1 a schema:City .
+				 $this1 schema:isCapital ?schema0isCapital .
+				 $this1 schema:architecturalStyle ?schema0architecturalStyle .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:architecturalStyle ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Region0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Region .
+				 $this0 schema:name ?schema0name .
+				 $this1 a schema:Region .
+				 $this1 schema:name ?schema0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:social_Rank ?schema0social_Rank .
+				 $this1 a schema:Person .
+				 $this1 schema:social_Rank ?schema0social_Rank .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:social_Rank ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:faction ?schema0faction .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:faction ?schema0faction .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:birthDate ?schema0birthDate .
+				 $this1 a schema:Person .
+				 $this1 schema:birthDate ?schema0birthDate .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:birthDate ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:religion ?schema0religion .
+				 $this1 a schema:Person .
+				 $this1 schema:religion ?schema0religion .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:religion ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:faction ?schema0faction .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:faction ?schema0faction .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:faction ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:title ?schema0title .
+				 $this1 a schema:Person .
+				 $this1 schema:title ?schema0title .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:title ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:profession ?schema0profession .
+				 $this1 a schema:Person .
+				 $this1 schema:profession ?schema0profession .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:profession ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person8
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person9
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Person10
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this0 schema:worksFor ?schema0worksFor .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 $this1 schema:worksFor ?schema0worksFor .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:worksFor ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:Population ?schema0Population .
+				 $this1 a schema:Country .
+				 $this1 schema:Population ?schema0Population .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:Population ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:nationalAnthem ?schema0nationalAnthem .
+				 $this1 a schema:Country .
+				 $this1 schema:nationalAnthem ?schema0nationalAnthem .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:nationalAnthem ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:foundingYear ?schema0foundingYear .
+				 $this1 a schema:Country .
+				 $this1 schema:foundingYear ?schema0foundingYear .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:foundingYear ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Country3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Country .
+				 $this0 schema:name ?schema0name .
+				 $this1 a schema:Country .
+				 $this1 schema:name ?schema0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Place0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Place .
+				 $this0 schema:streetAddress ?schema0streetAddress .
+				 $this1 a schema:Place .
+				 $this1 schema:streetAddress ?schema0streetAddress .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:streetAddress ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Faction0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Faction .
+				 $this0 schema:name ?schema0name .
+				 $this1 a schema:Faction .
+				 $this1 schema:name ?schema0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Faction1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Faction .
+				 $this0 schema:foundingDate ?schema0foundingDate .
+				 $this1 a schema:Faction .
+				 $this1 schema:foundingDate ?schema0foundingDate .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:foundingDate ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Religion0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Religion .
+				 $this0 schema:proponents ?schema0proponents .
+				 $this1 a schema:Religion .
+				 $this1 schema:proponents ?schema0proponents .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:proponents ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:AlmostKeyCheckForschema0Religion1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes schema:pre ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Religion .
+				 $this0 schema:name ?schema0name .
+				 $this1 a schema:Religion .
+				 $this1 schema:name ?schema0name .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:name ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:gender ?schema0gender .
+				 $this1 a schema:Person .
+				 $this1 schema:gender ?schema0gender .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:gender ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:faction ?schema0faction .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:faction ?schema0faction .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:familyName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:familyName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person8
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:gender ?schema0gender .
+				 $this1 a schema:Person .
+				 $this1 schema:gender ?schema0gender .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:gender ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:faction ?schema0faction .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:faction ?schema0faction .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:familyName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:familyName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person8
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:gender ?schema0gender .
+				 $this1 a schema:Person .
+				 $this1 schema:gender ?schema0gender .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:gender ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:faction ?schema0faction .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:faction ?schema0faction .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:familyName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:familyName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person8
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:gender ?schema0gender .
+				 $this1 a schema:Person .
+				 $this1 schema:gender ?schema0gender .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:gender ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:faction ?schema0faction .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:faction ?schema0faction .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:familyName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:familyName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person8
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person0
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person1
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person2
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:givenName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person3
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:gender ?schema0gender .
+				 $this1 a schema:Person .
+				 $this1 schema:gender ?schema0gender .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:gender ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person4
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:faction ?schema0faction .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:faction ?schema0faction .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person5
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:familyName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person6
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person7
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:familyName ?schema0familyName .
+				 $this1 a schema:Person .
+				 $this1 schema:familyName ?schema0familyName .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:familyName ;
+		 sh:maxCount 0 ; 
+	 ] . 
+
+ex:ConditionalKeyCheckForschema0Person8
+	 a sh:NodeShape ;
+	 sh:target [
+		 sh:prefixes [
+			 sh:declare [ sh:prefix "schema" ;
+ 						 sh:namespace "http://data.masterthesis.com/schema/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsd" ;
+ 						 sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "world" ;
+ 						 sh:namespace "http://data.masterthesis.com/dataset/world/"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "xsm" ;
+ 						 sh:namespace "http://datatypes.masterthesis.com#"^^xsd:anyURI ;
+ 					 ]; 
+			 sh:declare [ sh:prefix "rdf" ;
+ 						 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+ 					 ]; 
+		 ] ;
+		 sh:select """ 
+			 SELECT $this0 
+			 WHERE { 
+				 $this0 a schema:Person .
+				 $this0 schema:givenName ?schema0givenName .
+				 $this0 schema:address ?schema0address .
+				 $this1 a schema:Person .
+				 $this1 schema:givenName ?schema0givenName .
+				 $this1 schema:address ?schema0address .
+				 FILTER ( $this0 != $this1 &&  $this1 != $this0 ) 
+			 } GROUP BY $this0 
+ 			 """ ;
+	 ];
+	 sh:property [
+		 sh:path schema:address ;
+		 sh:maxCount 0 ; 
+	 ] . 
+

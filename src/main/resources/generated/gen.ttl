@@ -3,38 +3,31 @@
 @prefix xsm:   <http://datatypes.masterthesis.com#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix prefernzisimo: <http://www.prefizisimo.dehe/> .
 
-world:TheOldEmpireRegion
-        a             schema:Region ;
-        schema:fauna  "Pigeon" , "Rat" ;
-        schema:flora  "City" ;
-        schema:name   "TheOldEmpire" .
+world:associationOfGears
+        a                    schema:Faction ;
+        schema:foundingDate  "932-11-23"^^xsm:date ;
+        schema:name          "Association of Gears" .
 
-world:Avurien  a              schema:Country ;
-        schema:Population     "40000"^^xsd:int ;
-        schema:foundingYear   "671"^^xsd:int ;
-        schema:localLanguage  "avurish" ;
-        schema:name           "Avurien" .
+world:churchOfAvus  a      schema:Religion ;
+        schema:hasGod      "Brobo"^^xsd:String ;
+        schema:name        "Kirche des Avus"@de , "churchOfAvus"@en ;
+        schema:proponents  "70000"^^xsd:int .
 
-world:Loui  a              schema:Person ;
-        schema:address     world:TurnipsHome ;
-        schema:birthDate   "1072-03-11"^^xsm:date ;
-        schema:familyName  "Loui" ;
-        schema:gender      schema:male ;
-        schema:givenName   "Loui" .
+world:TurnipsHome  schema:addressCity  world:Targ ;
+        schema:addressCountry  world:Avurien ;
+        schema:addressRegion   world:TimberwoodMountains ;
+        schema:streetAddress   "Handwerkwerweg 31"@de , "31 Trademann's Valley"@en .
 
-world:MountainView  a  schema:Region ;
-        schema:fauna  "Golden Eagle" , "Moose" , "Bear" ;
-        schema:flora  "Forest" , "Rocks" ;
-        schema:name   "Mountain View" .
+world:theHawks  a            schema:Faction ;
+        schema:foundingDate  "423-01-26"^^xsm:date ;
+        schema:name          "Die Falken"@de , "The Hawks"@en .
 
-world:Targ  a                      schema:City ;
-        schema:addressCountry      world:Avurien ;
-        schema:addressRegion       world:TimberwoodMountains ;
-        schema:architecturalStyle  "gothic" ;
-        schema:heraldicAnimal      "lion" ;
-        schema:population          "15000"^^xsd:int .
+world:Twighome  a              schema:Place ;
+        schema:addressCity     world:ImperialCity ;
+        schema:addressCountry  world:TheOldEmpire ;
+        schema:addressRegion   world:TheOldEmpireRegion ;
+        schema:streetAddress   "In den Gärten 7"@de , "7, the gardens "@en .
 
 world:TheOldEmpire  a          schema:Country ;
         schema:Population      "300000"^^xsd:int ;
@@ -43,122 +36,12 @@ world:TheOldEmpire  a          schema:Country ;
         schema:name            "The old empire" ;
         schema:nationalAnthem  "Through blood and stone" .
 
-world:Sharun  a                schema:Country ;
-        schema:Population      "2900000"^^xsd:int ;
-        schema:foundingYear    "-145"^^xsd:int ;
-        schema:localLanguage   "sharûn" ;
-        schema:name            "Sharûn" ;
-        schema:nationalAnthem  "Paradise on earth" .
-
-world:associationOfGears
-        a                    schema:Faction ;
-        schema:foundingDate  "932-11-23"^^xsm:date ;
-        schema:name          "Association of Gears" .
-
-world:monksOfAverno  a       schema:Faction ;
-        schema:foundingDate  "17-03-02"^^xsm:date ;
-        schema:name          "Monks of Averno" .
-
-world:Adrian  a            schema:Person ;
-        schema:address     world:GrindstoneHome ;
-        schema:birthDate   "1090-11-28" ;
-        schema:faction     world:associationOfGears ;
-        schema:familyName  "Grindstone"@en , "Wetzstein"@de ;
-        schema:gender      schema:male ;
-        schema:givenName   "Adrian" ;
-        schema:profession  world:tinkerer ;
-        schema:religion    world:churchOfAvus ;
-        schema:worksFor    world:Sebastian .
-
 world:Welf  a                      schema:City ;
         schema:addressCountry      world:Gvelien ;
         schema:addressRegion       world:TimberwoodMountains ;
         schema:architecturalStyle  "temper" ;
         schema:heraldicAnimal      "butterfly" ;
         schema:population          "13000"^^xsd:int .
-
-world:Khargh  a                schema:Country ;
-        schema:Population      "20000"^^xsd:int ;
-        schema:foundingYear    "-300"^^xsd:int ;
-        schema:localLanguage   "dwarven" ;
-        schema:name            "Khargh" ;
-        schema:nationalAnthem  "How the anvil formed us" .
-
-world:HawksNest  a             schema:Place ;
-        schema:addressCity     world:Khurag ;
-        schema:addressCountry  world:Kharg ;
-        schema:addressRegion   world:KhargRegion ;
-        schema:streetAddress   "Platz des Eisenhammers"@de , "Iron Hammer Place"@en .
-
-world:Lisa  a              schema:Person ;
-        schema:address     world:TurnipsHome ;
-        schema:birthDate   "1092-02-12"^^xsm:date ;
-        schema:familyName  "Turnip" ;
-        schema:gender      schema:female ;
-        schema:givenName   "Lisa" .
-
-world:Fintos  a            schema:Person ;
-        schema:address     world:HawksNest ;
-        schema:birthDate   "1087-04-14"^^xsm:date ;
-        schema:familyName  "Wanderfalke"@de , "peregrine"@en ;
-        schema:gender      schema:male ;
-        schema:givenName   "Fintos" ;
-        schema:title       "count"@en , "Graf"@de .
-
-world:Kingshome  a             schema:Place ;
-        schema:addressCity     world:ImperialCity ;
-        schema:addressCountry  world:TheOldEmpire ;
-        schema:addressRegion   world:TheOldEmpireRegion ;
-        schema:streetAddress   "Marsch des Ruhmes"@de , "Walk of Glory"@en .
-
-world:KhargRegion  a  schema:Region ;
-        schema:fauna  "desert mouse" ;
-        schema:flora  "barren rocks" ;
-        schema:name   "Kharg" .
-
-world:theHawks  a            schema:Faction ;
-        schema:foundingDate  "423-01-26"^^xsm:date ;
-        schema:name          "Die Falken"@de , "The Hawks"@en .
-
-world:Khurag  a                    schema:City ;
-        schema:addressCountry      world:Kharg ;
-        schema:addressRegion       world:KhargRegion ;
-        schema:architecturalStyle  "dwarven" ;
-        schema:heraldicAnimal      "boar" ;
-        schema:isCapital           true ;
-        schema:population          "4500"^^xsd:int .
-
-world:Lintfur  a           schema:Person ;
-        schema:address     world:HawksNest ;
-        schema:birthDate   "1103-04-23"^^xsm:date ;
-        schema:familyName  "Donnerwolke"@de , "Thundercloud"@en ;
-        schema:gender      schema:male ;
-        schema:givenName   "Fusselfell"@de , "Lintfur"@en .
-
-world:TimberwoodMountains
-        a             schema:Region ;
-        schema:fauna  "Moose" , "Bear" ;
-        schema:flora  "Forest" ;
-        schema:name   "Timberwood Mountains" .
-
-world:ImperialCity  a              schema:City ;
-        schema:addressCountry      world:TheOldEmpire ;
-        schema:addressRegion       world:TheOldEmpireRegion ;
-        schema:architecturalStyle  "gothic" ;
-        schema:heraldicAnimal      "Bull" ;
-        schema:isCapital           true ;
-        schema:population          "100000"^^xsd:int .
-
-world:RabitsDen  a             schema:Place ;
-        schema:addressCity     world:Welf ;
-        schema:addressCountry  world:Gvelien ;
-        schema:addressRegion   world:TimberwoodMountains ;
-        schema:streetAddress   "Straße des Ashnaf"@de , "Ashnaf's street"@en .
-
-world:TurnipsHome  schema:addressCity  world:Targ ;
-        schema:addressCountry  world:Avurien ;
-        schema:addressRegion   world:TimberwoodMountains ;
-        schema:streetAddress   "Handwerkwerweg 31"@de , "31 Trademann's Valley"@en .
 
 world:Lados  a                     schema:City ;
         schema:addressCountry      world:Avurien ;
@@ -168,25 +51,30 @@ world:Lados  a                     schema:City ;
         schema:isCapital           false ;
         schema:population          "9000"^^xsd:int .
 
-world:Fjördall  a              schema:Country ;
-        schema:Population      "230000"^^xsd:int ;
-        schema:foundingYear    "411"^^xsd:int ;
-        schema:localLanguage   "fjött" ;
-        schema:name            "Fjördall" ;
-        schema:nationalAnthem  "Fjördall Fjördall" .
+world:Sharun  a                schema:Country ;
+        schema:Population      "2900000"^^xsd:int ;
+        schema:foundingYear    "-145"^^xsd:int ;
+        schema:localLanguage   "sharûn" ;
+        schema:name            "Sharûn" ;
+        schema:nationalAnthem  "Paradise on earth" .
 
-world:Twighome  a              schema:Place ;
-        schema:addressCity     world:ImperialCity ;
-        schema:addressCountry  world:TheOldEmpire ;
-        schema:addressRegion   world:TheOldEmpireRegion ;
-        schema:streetAddress   "In den Gärten 7"@de , "7, the gardens "@en .
-
-world:Arla  a              schema:Person ;
-        schema:address     world:ArlasHome ;
-        schema:birthDate   "1099-11-23"^^xsm:date ;
-        schema:familyName  "Asura" ;
+world:Astrid  a            schema:Person ;
+        schema:address     world:RabitsDen ;
+        schema:birthDate   "1091-07-07"^^xsm:date ;
+        schema:familyName  "von Kharg" ;
         schema:gender      schema:female ;
-        schema:givenName   "Arla" .
+        schema:givenName   "Astrid" .
+
+world:TheOldEmpireRegion
+        a             schema:Region ;
+        schema:fauna  "Pigeon" , "Rat" ;
+        schema:flora  "City" ;
+        schema:name   "TheOldEmpire" .
+
+world:SonsOfBrobo  a       schema:Religion ;
+        schema:hasGod      "Brobo"^^xsd:String ;
+        schema:name        "Söhne des Brobo"@de , "SonstOfBrobo"@en ;
+        schema:proponents  "900"^^xsd:int .
 
 world:Johannes  a          schema:Person ;
         schema:address     world:Twighome ;
@@ -199,41 +87,82 @@ world:Johannes  a          schema:Person ;
         schema:religion    world:SonsOfBrobo ;
         schema:worksFor    world:Sebastian .
 
-world:churchOfAvus  a      schema:Religion ;
-        schema:hasGod      "Brobo"^^xsd:String ;
-        schema:name        "Kirche des Avus"@de , "churchOfAvus"@en ;
-        schema:proponents  "70000"^^xsd:int .
-
-world:SonsOfBrobo  a       schema:Religion ;
-        schema:hasGod      "Brobo"^^xsd:String ;
-        schema:name        "Söhne des Brobo"@de , "SonstOfBrobo"@en ;
-        schema:proponents  "900"^^xsd:int .
-
-world:Astrid  a            schema:Person ;
-        schema:address     world:RabitsDen ;
-        schema:birthDate   "1091-07-07"^^xsm:date ;
-        schema:familyName  "von Kharg" ;
-        schema:gender      schema:female ;
-        schema:givenName   "Astrid" .
+world:Kingshome  a             schema:Place ;
+        schema:addressCity     world:ImperialCity ;
+        schema:addressCountry  world:TheOldEmpire ;
+        schema:addressRegion   world:TheOldEmpireRegion ;
+        schema:streetAddress   "Marsch des Ruhmes"@de , "Walk of Glory"@en .
 
 world:Sebastian  a         schema:Person ;
         schema:address     world:Kingshome ;
         schema:birthDate   "1090-04-28"^^xsm:date ;
         schema:familyName  "Sternensänger"@de , "Starsinger"@en ;
         schema:gender      schema:male ;
-        schema:givenName   "Sebastian" .
+        schema:givenName   "Λόλο Λετάλου Ματαλάζι Μολίγκα"@el .
 
-world:ArlasHome  a             schema:Place ;
-        schema:addressCity     world:Lados ;
-        schema:addressCountry  world:Avurien ;
-        schema:addressRegion   world:MountainView ;
-        schema:streetAddress   "Birkenwaldweg 7"@de , "7 Birken forch way"@en .
+world:Loui  a              schema:Person ;
+        schema:address     world:TurnipsHome ;
+        schema:birthDate   "1072-03-11"^^xsm:date ;
+        schema:familyName  "Loui" ;
+        schema:gender      schema:male ;
+        schema:givenName   "Loui" .
 
-world:Arsenal  a               schema:Place ;
-        schema:addressCity     world:ImperialCity ;
-        schema:addressCountry  world:TheOldEmpire ;
-        schema:addressRegion   world:TheOldEmpireRegion ;
-        schema:streetAddress   "Straße des Militärs 1"@de , "Milirary way 1"@en .
+world:TimberwoodMountains
+        a             schema:Region ;
+        schema:fauna  "Moose" , "Bear" ;
+        schema:flora  "Forest" ;
+        schema:name   "Timberwood Mountains" .
+
+world:KhargRegion  a  schema:Region ;
+        schema:fauna  "desert mouse" ;
+        schema:flora  "barren rocks" ;
+        schema:name   "Kharg" .
+
+world:Adrian  a            schema:Person ;
+        schema:address     world:GrindstoneHome ;
+        schema:birthDate   "1090-11-28" ;
+        schema:faction     world:associationOfGears ;
+        schema:familyName  "Grindstone"@en , "Wetzstein"@de ;
+        schema:gender      schema:male ;
+        schema:givenName   "Adrian" ;
+        schema:profession  world:tinkerer ;
+        schema:religion    world:churchOfAvus ;
+        schema:worksFor    world:Sebastian .
+
+world:HawksNest  a             schema:Place ;
+        schema:addressCity     world:Khurag ;
+        schema:addressCountry  world:Kharg ;
+        schema:addressRegion   world:KhargRegion ;
+        schema:streetAddress   "Platz des Eisenhammers"@de , "Iron Hammer Place"@en .
+
+world:Carl  a               schema:Person ;
+        schema:address      world:TurnipsHome ;
+        schema:birthDate    "1082-01-12"^^xsm:date ;
+        schema:familyName   "Rübe"@de , "Turnip"@en ;
+        schema:gender       schema:male ;
+        schema:givenName    "Karl"@de , "Carl"@en ;
+        schema:social_Rank  [ schema:socialRankTarget  world:Loui ;
+                              schema:socialRankValue   96
+                            ] .
+
+world:MountainView  a  schema:Region ;
+        schema:fauna  "Golden Eagle" , "Moose" , "Bear" ;
+        schema:flora  "Forest" , "Rocks" ;
+        schema:name   "Mountain View" .
+
+world:Lisa2  a             schema:Person ;
+        schema:address     world:TurnipsHome ;
+        schema:birthDate   "1094-02-12"^^xsm:date ;
+        schema:familyName  "Lakeheart" ;
+        schema:gender      schema:female ;
+        schema:givenName   "Lisa" .
+
+world:Sebastian2  a        schema:Person ;
+        schema:address     world:RabitsDen ;
+        schema:birthDate   "1090-12-24"^^xsm:date ;
+        schema:familyName  "Sternensänger"@de , "Starsinger"@en ;
+        schema:gender      schema:male ;
+        schema:givenName   "Λόλο Λετάλου Ματαλάζι Μολίγκα"@el .
 
 world:Gvelien  a               schema:Country ;
         schema:Population      "1000000"^^xsd:int ;
@@ -242,9 +171,100 @@ world:Gvelien  a               schema:Country ;
         schema:name            "Gvelien" ;
         schema:nationalAnthem  "The hawk so high" .
 
-world:Carl  a              schema:Person ;
-        schema:address     world:TurnipsHome ;
-        schema:birthDate   "1082-01-12"^^xsm:date ;
-        schema:familyName  "Rübe"@de , "Turnip"@en ;
+world:Fintos  a            schema:Person ;
+        schema:address     world:HawksNest ;
+        schema:birthDate   "1087-04-14"^^xsm:date ;
+        schema:faction     world:theHawks ;
+        schema:familyName  "peregrine"@en , "Wanderfalke"@de ;
         schema:gender      schema:male ;
-        schema:givenName   "Karl"@de , "Carl"@en .
+        schema:givenName   "Fintos" ;
+        schema:title       "count"@en , "Graf"@de .
+
+world:monksOfAverno  a       schema:Faction ;
+        schema:foundingDate  "17-03-02"^^xsm:date ;
+        schema:name          "Monks of Averno" .
+
+world:Targ  a                      schema:City ;
+        schema:addressCountry      world:Avurien ;
+        schema:addressRegion       world:TimberwoodMountains ;
+        schema:architecturalStyle  "gothic" ;
+        schema:heraldicAnimal      "lion" ;
+        schema:population          "15000"^^xsd:int .
+
+world:Arla  a              schema:Person ;
+        schema:address     world:ArlasHome ;
+        schema:birthDate   "1099-11-23"^^xsm:date ;
+        schema:faction     world:associationOfGears ;
+        schema:familyName  "Asura" ;
+        schema:gender      schema:female ;
+        schema:givenName   "Arla" .
+
+world:ImperialCity  a              schema:City ;
+        schema:addressCountry      world:TheOldEmpire ;
+        schema:addressRegion       world:TheOldEmpireRegion ;
+        schema:architecturalStyle  "gothic" ;
+        schema:heraldicAnimal      "Bull" ;
+        schema:isCapital           true ;
+        schema:population          "100000"^^xsd:int .
+
+world:Arsenal  a               schema:Place ;
+        schema:addressCity     world:ImperialCity ;
+        schema:addressCountry  world:TheOldEmpire ;
+        schema:addressRegion   world:TheOldEmpireRegion ;
+        schema:streetAddress   "Straße des Militärs 1"@de , "Milirary way 1"@en .
+
+world:Khurag  a                    schema:City ;
+        schema:addressCountry      world:Kharg ;
+        schema:addressRegion       world:KhargRegion ;
+        schema:architecturalStyle  "dwarven" ;
+        schema:heraldicAnimal      "boar" ;
+        schema:isCapital           true ;
+        schema:population          "4500"^^xsd:int .
+
+world:Avurien  a              schema:Country ;
+        schema:Population     "40000"^^xsd:int ;
+        schema:foundingYear   "671"^^xsd:int ;
+        schema:localLanguage  "avurish" ;
+        schema:name           "Avurien" .
+
+world:Lintfur  a           schema:Person ;
+        schema:address     world:HawksNest ;
+        schema:birthDate   "1103-04-23"^^xsm:date ;
+        schema:faction     world:theHawks ;
+        schema:familyName  "Donnerwolke"@de , "Thundercloud"@en ;
+        schema:gender      schema:male ;
+        schema:givenName   "Fusselfell"@de , "Lintfur"@en .
+
+world:Lisa  a              schema:Person ;
+        schema:address     world:TurnipsHome ;
+        schema:birthDate   "1092-02-12"^^xsm:date ;
+        schema:faction     world:associationOfGears ;
+        schema:familyName  "Turnip" ;
+        schema:gender      schema:female ;
+        schema:givenName   "Lisa" .
+
+world:Khargh  a                schema:Country ;
+        schema:Population      "20000"^^xsd:int ;
+        schema:foundingYear    "-300"^^xsd:int ;
+        schema:localLanguage   "dwarven" ;
+        schema:name            "Khargh" ;
+        schema:nationalAnthem  "How the anvil formed us" .
+
+world:ArlasHome  a             schema:Place ;
+        schema:addressCity     world:Lados ;
+        schema:addressCountry  world:Avurien ;
+        schema:addressRegion   world:MountainView ;
+        schema:streetAddress   "Birkenwaldweg 7"@de , "7 Birken forch way"@en .
+
+world:Fjördall  a              schema:Country ;
+        schema:Population      "230000"^^xsd:int ;
+        schema:foundingYear    "411"^^xsd:int ;
+        schema:localLanguage   "fjött" ;
+        schema:name            "Fjördall" ;
+        schema:nationalAnthem  "Fjördall Fjördall" .
+
+world:RabitsDen  a             schema:Place ;
+        schema:addressCity     world:Welf ;
+        schema:addressCountry  world:Gvelien ;
+        schema:addressRegion   world:TimberwoodMountains ;
+        schema:streetAddress   "Straße des Ashnaf"@de , "Ashnaf's street"@en .

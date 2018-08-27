@@ -5,19 +5,35 @@
       <artifact name="Headless" />
     </artifacts-to-build>
   </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/modelbuilder/ConditionalKey.java" line="28" mnemonic="7" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ac2b6ad9-da68-4cb5-a7b1-ac1c10b26028" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/Splitter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/keyfinder/AlignKBs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keys.nt" beforeDir="false" afterPath="$PROJECT_DIR$/keys.nt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/Headless.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Headless.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dependencies/GraphDependencieMinerImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dependencies/GraphDependencieMinerImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelbuilder/ConditionalKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/ConditionalKey.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelbuilder/Splitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelbuilder/Splitter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/eval/sparql-shape-test.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/eval/sparql-shape-test.ttl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/eval/sparql-test-data.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/eval/sparql-test-data.ttl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/generated/gen.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generated/gen.tsv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/generated/gen.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generated/gen.ttl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/generated/shapefile.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generated/shapefile.ttl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eval/sparql-test-data.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eval/sparql-test-data.ttl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/querybuilder/Querybuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/querybuilder/Querybuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/querybuilder/QuerybuilderImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/querybuilder/QuerybuilderImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/shaclbuilder/Shaclbuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/shaclbuilder/Shaclbuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/shaclbuilder/ShaclbuilderImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/shaclbuilder/ShaclbuilderImplementation.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,105 +52,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Modelreader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="42" column="70" selection-start-line="42" selection-start-column="70" selection-end-line="42" selection-end-column="70" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4653#4654#0" expanded="true" />
-                <element signature="e#4696#4697#0" expanded="true" />
-                <element signature="method#transformToTSV#0;class#Modelreader#0" />
-                <element signature="e#5642#5643#0" expanded="true" />
-                <element signature="e#5670#5671#0" expanded="true" />
-                <element signature="method#farmClasses#0;class#Modelreader#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Headless.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/Headless.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="104" column="34" lean-forward="true" selection-start-line="104" selection-start-column="34" selection-end-line="104" selection-end-column="34" />
+            <state relative-caret-position="498">
+              <caret line="207" column="28" lean-forward="true" selection-start-line="207" selection-start-column="28" selection-end-line="207" selection-end-column="28" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#buildShacl#0;class#Headless#0" />
-                <element signature="e#7875#7876#0" expanded="true" />
-                <element signature="e#7900#7901#0" expanded="true" />
-                <element signature="method#getInfos#0;class#Headless#0" />
+                <element signature="method#duration#0;class#Headless#0" />
+                <element signature="method#useArgs#0;class#Headless#0" />
+                <element signature="method#mineOnly#0;class#Headless#0" />
+                <element signature="method#evaluateShacl#0;class#Headless#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
+      <file leaf-file-name="Modelreader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+            <state relative-caret-position="17">
+              <caret line="36" column="40" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RdfClass.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/RdfClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-              <folding>
-                <element signature="e#1632#1633#0" expanded="true" />
-                <element signature="e#1687#1688#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Splitter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Splitter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Splitter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="47" column="48" lean-forward="true" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuerybuilderImplementation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="115" column="29" selection-start-line="115" selection-start-column="18" selection-end-line="115" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#build#0;class#QuerybuilderImplementation#0" />
-                <element signature="e#3368#3369#0" expanded="true" />
-                <element signature="e#3447#3448#0" expanded="true" />
-                <element signature="method#showQuery#0;class#QuerybuilderImplementation#0" />
-                <element signature="method#trimVariableName#0;class#QuerybuilderImplementation#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Querybuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="99" column="19" lean-forward="true" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="19" />
+            <state relative-caret-position="-2721">
+              <caret line="33" column="21" lean-forward="true" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -142,21 +88,90 @@
       <file leaf-file-name="ShaclbuilderImplementation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="64" column="58" lean-forward="true" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
+            <state relative-caret-position="304">
+              <caret line="251" column="38" lean-forward="true" selection-start-line="251" selection-start-column="38" selection-end-line="251" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConditionalKey.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ConditionalKey.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="45" selection-end-column="15" />
+              <folding>
+                <element signature="e#1953#1954#0" expanded="true" />
+                <element signature="e#1989#1990#0" expanded="true" />
+                <element signature="e#2055#2056#0" expanded="true" />
+                <element signature="e#2105#2106#0" expanded="true" />
+                <element signature="e#2132#2133#0" expanded="true" />
+                <element signature="e#2157#2158#0" expanded="true" />
+                <element signature="e#2191#2192#0" expanded="true" />
+                <element signature="e#2219#2220#0" expanded="true" />
+                <element signature="e#2246#2247#0" expanded="true" />
+                <element signature="e#2271#2272#0" expanded="true" />
+                <element signature="e#2305#2306#0" expanded="true" />
+                <element signature="e#2333#2334#0" expanded="true" />
+                <element signature="e#2387#2388#0" expanded="true" />
+                <element signature="e#2421#2422#0" expanded="true" />
+                <element signature="e#2491#2492#0" expanded="true" />
+                <element signature="e#2537#2538#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClassFinder.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="100" column="32" lean-forward="true" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+              <folding>
+                <element signature="e#7617#7618#0" expanded="true" />
+                <element signature="e#7647#7648#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VICKEY.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/VICKEY.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="70" column="47" lean-forward="true" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mapping.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Mapping.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+              <folding>
+                <element signature="e#534#535#0" expanded="true" />
+                <element signature="e#569#570#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KB.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/KB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="2920" column="10" selection-start-line="2920" selection-start-column="10" selection-end-line="2920" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CSAKey.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/CSAKey.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="299" column="35" selection-start-line="299" selection-start-column="35" selection-end-line="299" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#build#0;class#ShaclbuilderImplementation#0" />
-                <element signature="method#buildNonKeys#0;class#ShaclbuilderImplementation#0" />
-                <element signature="method#buildNonKeys#1;class#ShaclbuilderImplementation#0" />
-                <element signature="method#trimAttrPlus#0;class#ShaclbuilderImplementation#0" />
-                <element signature="method#buildAlmostKeys#0;class#ShaclbuilderImplementation#0" />
-                <element signature="method#buildAlmostASKKeys#0;class#ShaclbuilderImplementation#0" />
-                <element signature="method#buildConditionalKeys#0;class#ShaclbuilderImplementation#0" />
-                <element signature="method#buildConditionalASKKeys#0;class#ShaclbuilderImplementation#0" />
-                <element signature="method#build#1;class#ShaclbuilderImplementation#0" />
-                <element signature="method#buildPrefixes#0;class#ShaclbuilderImplementation#0" />
-                <element signature="method#buildSparqlShaclKey#0;class#ShaclbuilderImplementation#0" />
               </folding>
             </state>
           </provider>
@@ -175,39 +190,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>University%&amp;%ub:name</find>
-      <find>setAlmost</find>
-      <find>ex:MaxNonKey</find>
-      <find>getSubject</find>
-      <find>.getNameSpace()</find>
+      <find>Shaclp</find>
+      <find>CSA</find>
+      <find>main</find>
+      <find>new ByteString</find>
+      <find>keyfinder.ByteString</find>
+      <find>ByteString.of</find>
+      <find>Align</find>
+      <find>KB</find>
+      <find>Mapping</find>
+      <find>kb</find>
+      <find>replace</find>
+      <find>declare</find>
+      <find>complete</find>
+      <find>buildCond</find>
+      <find>Conditional</find>
+      <find>build</find>
+      <find>keys</find>
+      <find>findK</find>
+      <find>classes</find>
       <find>read</find>
-      <find>Propert</find>
-      <find>Property</find>
-      <find>sh:path</find>
-      <find>has</find>
-      <find>=&quot;FullProfessor0&quot;</find>
-      <find>ub:telephone</find>
-      <find>FullProfessor0</find>
-      <find>TTL</find>
-      <find>hasValue</find>
-      <find>ask</find>
-      <find>schema:City</find>
-      <find>split</find>
-      <find />
-      <find>conditional</find>
-      <find>.add(</find>
-      <find>ASK</find>
-      <find>Hand</find>
-      <find>build()</find>
-      <find>print</find>
-      <find>buildClassfile</find>
-      <find>Syste</find>
-      <find>efixes</find>
-      <find>writeClass</find>
-      <find>mine</find>
+      <find>P102</find>
+      <find>buildWithName</find>
+      <find>condition</find>
+      <find>key</find>
+      <find>ConditionalKey</find>
+      <find>getC</find>
+      <find>stap</find>
+      <find>System.out.print</find>
+      <find>System.exit(0)</find>
+      <find>buildNonKeys</find>
     </findStrings>
     <dirStrings>
-      <dir />
+      <dir>C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\src\main\java\shaclbuilder</dir>
+      <dir>C:\Users\Basti\Dropbox\Masterarbeit\2 - code\SNMasterthesis\src\main\java\controller</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -216,25 +232,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ModelToTabSepTransformator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ModelToN3Transformator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ModelbuilderImplementation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/Modelbuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/data/world-0.1.tsv" />
-        <option value="$PROJECT_DIR$/src/main/java/keyfinder/CSAKey.java" />
-        <option value="$PROJECT_DIR$/src/main/java/keyfinder/VICKEY.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/ClassBuilder.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/classBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/classBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/ClassBuilder-Controller.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/generated/gen.tsv" />
-        <option value="$PROJECT_DIR$/src/main/resources/modelBuilder.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/ModelBuilderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/InstanceBuilderControlle.java" />
         <option value="$PROJECT_DIR$/src/main/resources/classBuilder.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ConditionalKey.java" />
         <option value="$PROJECT_DIR$/src/main/resources/generated/gen.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/eval/sparql-shape-test.ttl" />
         <option value="$PROJECT_DIR$/src/main/resources/eval/example-test-shape.ttl" />
         <option value="$PROJECT_DIR$/src/main/resources/data/cheeses-0.1.ttl" />
         <option value="$PROJECT_DIR$/src/main/resources/data/museum.ttl" />
@@ -253,20 +253,36 @@
         <option value="$PROJECT_DIR$/src/main/java/database/VirtuosoConnector.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/modelbuilder/Util.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java" />
         <option value="$PROJECT_DIR$/src/main/resources/Properties/config.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/dependencies/GraphDependencieMinerImplementation.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/Configuration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java" />
         <option value="$PROJECT_DIR$/src/main/resources/generated/shapefile.ttl" />
-        <option value="$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/generated/gen.tsv" />
         <option value="$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java" />
         <option value="$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/Headless.java" />
         <option value="$PROJECT_DIR$/src/main/java/modelbuilder/Splitter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dependencies/GraphDependencieMinerImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/keyfinder/SAKeyAlmostKeysOneFileOneN.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/eval/sparql-shape-test.ttl" />
+        <option value="$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl" />
+        <option value="$PROJECT_DIR$/src/main/resources/eval/sparql-test-data.ttl" />
+        <option value="$PROJECT_DIR$/src/main/java/keyfinder/VICKEY.java" />
+        <option value="$PROJECT_DIR$/src/main/java/keyfinder/ByteString.java" />
+        <option value="$PROJECT_DIR$/src/main/java/keyfinder/U.java" />
+        <option value="$PROJECT_DIR$/src/main/java/keyfinder/MiningAssistent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/keyfinder/EquivalenceRulesBinder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/Mapping.java" />
+        <option value="$PROJECT_DIR$/src/main/java/keyfinder/AMIE.java" />
+        <option value="$PROJECT_DIR$/src/main/java/keyfinder/Graph.java" />
+        <option value="$PROJECT_DIR$/src/main/java/keyfinder/AlignKBs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/Headless.java" />
+        <option value="$PROJECT_DIR$/src/main/java/keyfinder/CSAKey.java" />
+        <option value="$PROJECT_DIR$/src/main/java/keyfinder/KB.java" />
+        <option value="$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ConditionalKey.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java" />
       </list>
     </option>
   </component>
@@ -291,10 +307,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2178" />
-    <option name="y" value="-577" />
-    <option name="width" value="1553" />
-    <option name="height" value="880" />
+    <option name="x" value="1912" />
+    <option name="y" value="-756" />
+    <option name="width" value="1936" />
+    <option name="height" value="1176" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -346,6 +362,30 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dependencies" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="keyfinder" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="modelbuilder" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -355,13 +395,57 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="eval" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="ontologies" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNMasterthesis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Properties" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNMasterthesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -373,7 +457,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.14648438" />
     <property name="project.structure.side.proportion" value="0.18819503" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -680,7 +764,52 @@
       <workItem from="1531714530250" duration="26310000" />
       <workItem from="1531805769421" duration="13330000" />
       <workItem from="1531892319815" duration="6366000" />
-      <workItem from="1531976665512" duration="28449000" />
+      <workItem from="1531976665512" duration="28585000" />
+      <workItem from="1532078992063" duration="5249000" />
+      <workItem from="1532252834177" duration="7609000" />
+      <workItem from="1532320314920" duration="8510000" />
+      <workItem from="1532410297840" duration="2361000" />
+      <workItem from="1532494331640" duration="6565000" />
+      <workItem from="1532612585015" duration="2519000" />
+      <workItem from="1532698941408" duration="1106000" />
+      <workItem from="1532873045903" duration="598000" />
+      <workItem from="1532954535315" duration="4788000" />
+      <workItem from="1533019876825" duration="5609000" />
+      <workItem from="1533098702245" duration="3665000" />
+      <workItem from="1533198236674" duration="1801000" />
+      <workItem from="1533238975564" duration="637000" />
+      <workItem from="1533305108008" duration="874000" />
+      <workItem from="1533458052453" duration="7650000" />
+      <workItem from="1533471537278" duration="6706000" />
+      <workItem from="1533486026802" duration="4601000" />
+      <workItem from="1533528179791" duration="13878000" />
+      <workItem from="1533651362806" duration="5308000" />
+      <workItem from="1533703464649" duration="3290000" />
+      <workItem from="1533747675708" duration="1170000" />
+      <workItem from="1533792757116" duration="4237000" />
+      <workItem from="1533910304208" duration="5872000" />
+      <workItem from="1533993420790" duration="1194000" />
+      <workItem from="1534054245651" duration="7538000" />
+      <workItem from="1534139647555" duration="11460000" />
+      <workItem from="1534224113590" duration="2743000" />
+      <workItem from="1534256520930" duration="8029000" />
+      <workItem from="1534322620743" duration="8470000" />
+      <workItem from="1534398211726" duration="17478000" />
+      <workItem from="1534484021571" duration="18127000" />
+      <workItem from="1534683447839" duration="4163000" />
+      <workItem from="1534736597203" duration="5840000" />
+      <workItem from="1534776746956" duration="5853000" />
+      <workItem from="1534796084847" duration="5824000" />
+      <workItem from="1534829675410" duration="9834000" />
+      <workItem from="1534933832166" duration="147000" />
+      <workItem from="1534934527191" duration="4483000" />
+      <workItem from="1535000487681" duration="8640000" />
+      <workItem from="1535115630614" duration="5588000" />
+      <workItem from="1535184955042" duration="3006000" />
+      <workItem from="1535224317405" duration="2797000" />
+      <workItem from="1535265497224" duration="1190000" />
+      <workItem from="1535267191364" duration="10753000" />
+      <workItem from="1535343344562" duration="11944000" />
     </task>
     <task id="LOCAL-00001" summary="Updated dependencies&#10;Created properties for configuration&#10;started with the turtleparser">
       <created>1521727189114</created>
@@ -787,14 +916,21 @@
       <option name="project" value="LOCAL" />
       <updated>1531746340460</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="split option fixed and runable in headless mode.">
+      <created>1532021596043</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1532021596043</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1006066000" />
+    <option name="totallyTimeSpent" value="1265906000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-756" width="1936" height="1176" extended-state="7" />
+    <frame x="1912" y="-756" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -803,15 +939,15 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.503125" side_tool="true" weight="0.3289597" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50572914" side_tool="true" weight="0.3289597" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49479166" visible="true" weight="0.28491098" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4953125" weight="0.28491098" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3289597" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49794802" visible="true" weight="0.22708334" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49794802" visible="true" weight="0.16041666" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3261481" />
       <window_info id="Structure" order="1" sideWeight="0.502052" side_tool="true" weight="0.22786458" />
@@ -819,7 +955,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.496875" weight="0.3289597" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49427083" weight="0.3139644" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -851,7 +987,8 @@
     <MESSAGE value="Updates" />
     <MESSAGE value="Headless version added" />
     <MESSAGE value="split option added." />
-    <option name="LAST_COMMIT_MESSAGE" value="split option added." />
+    <MESSAGE value="split option fixed and runable in headless mode." />
+    <option name="LAST_COMMIT_MESSAGE" value="split option fixed and runable in headless mode." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -899,46 +1036,16 @@
           <option name="timeStamp" value="448" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
-          <line>64</line>
-          <properties />
-          <option name="timeStamp" value="454" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url />
-          <line>20</line>
+          <url>file://$PROJECT_DIR$/src/main/java/dependencies/GraphDependencieMinerImplementation.java</url>
+          <line>22</line>
           <properties />
           <option name="timeStamp" value="471" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url />
-          <line>182</line>
-          <properties />
-          <option name="timeStamp" value="475" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url />
-          <line>159</line>
-          <properties />
-          <option name="timeStamp" value="488" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url />
-          <line>117</line>
-          <properties />
-          <option name="timeStamp" value="491" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url />
-          <line>104</line>
-          <properties />
-          <option name="timeStamp" value="492" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="493" />
+      <option name="time" value="568" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -954,35 +1061,82 @@
         <watch expression="resource" />
         <watch expression="predicate" />
         <watch expression="((ModelCom)momo).modelReifier" custom="org.apache.jena.rdf.model.impl.ModelCom" />
+        <watch expression="t2" />
+        <watch expression="parsedArgs.first" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/database/DatabaseConnector.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/jena/jena-core/3.7.0/jena-core-3.7.0-sources.jar!/org/apache/jena/rdf/model/Model.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.5/commons-io-2.5-sources.jar!/org/apache/commons/io/FileUtils.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="408">
+          <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/jena/jena-core/3.7.0/jena-core-3.7.0.jar!/org/apache/jena/rdf/model/Model.class">
+    <entry file="jar://D:/Programme/Java904/lib/src.zip!/java.base/java/io/File.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generated/gen.tsv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+        <state relative-caret-position="17">
+          <caret line="18890" column="71" selection-start-line="18890" selection-start-column="49" selection-end-line="18890" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ConstraintBuilderController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
+        <state relative-caret-position="136">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="32" column="49" lean-forward="true" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
+        <state relative-caret-position="982">
+          <caret line="176" column="55" selection-start-line="176" selection-start-column="55" selection-end-line="176" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generated/shapefile.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="110291" column="31" selection-start-line="110291" selection-start-column="31" selection-end-line="110291" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/SAKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="56" column="67" selection-start-line="56" selection-start-column="67" selection-end-line="56" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/RdfClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/ontologies/cheese.ttl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ClassBuilderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="67" column="49" lean-forward="true" selection-start-line="67" selection-start-column="49" selection-end-line="67" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dependencies/GraphDependencieMinerImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -993,373 +1147,239 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/Keyfinder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/RockerImplementation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/eval/sparql-shape-test.ttl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/SAKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/VICKEY.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
-          <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/AlmostKeyfinderImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ClassBuilderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/database/VirtuosoConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="2" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/topbraid/shacl/1.1.0/shacl-1.1.0.jar!/org/topbraid/shacl/model/SHFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="50" column="28" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/artifacts/SNMasterthesis.xml" />
-    <entry file="file://$PROJECT_DIR$/.idea/artifacts/Headless.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1023" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/CSAKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
-          <caret line="572" column="75" selection-start-line="572" selection-start-column="75" selection-end-line="572" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/topbraid/shacl/1.1.0/shacl-1.1.0-sources.jar!/org/topbraid/shacl/model/SHFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="87" column="41" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="113" column="21" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Constraint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ConditionalKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/BuilderImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Triple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/InstanceBuilderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="194" column="106" selection-start-line="194" selection-start-column="103" selection-end-line="194" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/jena/jena-core/3.7.0/jena-core-3.7.0-sources.jar!/org/apache/jena/rdf/model/RDFNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="107" column="59" selection-start-line="107" selection-start-column="54" selection-end-line="107" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/jena/jena-core/3.7.0/jena-core-3.7.0-sources.jar!/org/apache/jena/rdf/model/Resource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="87" column="18" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
+        <state relative-caret-position="2057">
+          <caret line="121" column="27" selection-start-line="121" selection-start-column="27" selection-end-line="121" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/SAKeyAlmostKeysOneFileOneN.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="17">
+          <caret line="67" column="38" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/jena/jena-core/3.7.0/jena-core-3.7.0-sources.jar!/org/apache/jena/util/iterator/WrappedIterator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/BuilderImplementation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="89" column="9" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
+        <state relative-caret-position="51">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Properties/config.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/eval/sparql-test-data.ttl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="11" />
+        <state relative-caret-position="355">
+          <caret line="56" column="55" selection-start-line="56" selection-start-column="55" selection-end-line="56" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-          <folding>
-            <element signature="e#4035#4036#0" expanded="true" />
-            <element signature="e#4069#4070#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generated/gen.tsv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="248" selection-start-line="248" selection-end-line="248" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java">
+    <entry file="jar://$PROJECT_DIR$/lib/vickey.jar!/javatools/datatypes/Triple.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="26" column="72" selection-start-line="26" selection-start-column="72" selection-end-line="26" selection-end-column="72" />
+          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl">
+    <entry file="jar://$PROJECT_DIR$/lib/vickey.jar!/amie/data/KB.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
+        <state relative-caret-position="441">
+          <caret line="346" column="34" selection-start-line="346" selection-start-column="34" selection-end-line="346" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dependencies/GraphDependencieMiner.java">
+    <entry file="jar://$PROJECT_DIR$/lib/vickey.jar!/amie/mining/AMIE.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+        <state relative-caret-position="544">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dependencies/GraphDependencieMinerImplementation.java">
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/io/File.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/String.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/Arrays.java" />
+    <entry file="jar://$PROJECT_DIR$/lib/vickey.jar!/amie/mining/assistant/MiningAssistant.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="61" column="36" lean-forward="true" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Util.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/U.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/MiningAssistent.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/EquivalenceRulesBuilder.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="68" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="68" />
+        <state relative-caret-position="136">
+          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generated/shapefile.ttl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9609">
-          <caret line="1043" column="27" selection-start-line="1043" selection-start-column="27" selection-end-line="1043" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/jena/jena-core/3.7.0/jena-core-3.7.0-sources.jar!/org/apache/jena/rdf/model/ModelCon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="490" column="10" selection-start-line="490" selection-start-column="10" selection-end-line="490" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/jena/jena-core/3.7.0/jena-core-3.7.0-sources.jar!/org/apache/jena/rdf/model/Model.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/ByteString.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/AMIE.java" />
+    <entry file="jar://$PROJECT_DIR$/lib/vickey.jar!/amie/rosa/AlignKBs.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="75" column="17" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1972">
-          <caret line="127" column="33" selection-start-line="127" selection-start-column="33" selection-end-line="127" selection-end-column="33" />
-          <folding>
-            <element signature="e#4909#4910#0" expanded="true" />
-            <element signature="e#4939#4940#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="64" column="58" lean-forward="true" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#build#0;class#ShaclbuilderImplementation#0" />
-            <element signature="method#buildNonKeys#0;class#ShaclbuilderImplementation#0" />
-            <element signature="method#buildNonKeys#1;class#ShaclbuilderImplementation#0" />
-            <element signature="method#trimAttrPlus#0;class#ShaclbuilderImplementation#0" />
-            <element signature="method#buildAlmostKeys#0;class#ShaclbuilderImplementation#0" />
-            <element signature="method#buildAlmostASKKeys#0;class#ShaclbuilderImplementation#0" />
-            <element signature="method#buildConditionalKeys#0;class#ShaclbuilderImplementation#0" />
-            <element signature="method#buildConditionalASKKeys#0;class#ShaclbuilderImplementation#0" />
-            <element signature="method#build#1;class#ShaclbuilderImplementation#0" />
-            <element signature="method#buildPrefixes#0;class#ShaclbuilderImplementation#0" />
-            <element signature="method#buildSparqlShaclKey#0;class#ShaclbuilderImplementation#0" />
-          </folding>
+        <state relative-caret-position="595">
+          <caret line="44" column="88" selection-start-line="44" selection-start-column="88" selection-end-line="44" selection-end-column="88" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="99" column="19" lean-forward="true" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="19" />
+        <state relative-caret-position="528">
+          <caret line="366" column="9" lean-forward="true" selection-start-line="366" selection-start-column="9" selection-end-line="366" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/Querybuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/AlignKBs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/querybuilder/QuerybuilderImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="115" column="29" selection-start-line="115" selection-start-column="18" selection-end-line="115" selection-end-column="29" />
+        <state relative-caret-position="170">
+          <caret line="31" column="112" selection-start-line="31" selection-start-column="112" selection-end-line="31" selection-end-column="112" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#build#0;class#QuerybuilderImplementation#0" />
-            <element signature="e#3368#3369#0" expanded="true" />
-            <element signature="e#3447#3448#0" expanded="true" />
-            <element signature="method#showQuery#0;class#QuerybuilderImplementation#0" />
-            <element signature="method#trimVariableName#0;class#QuerybuilderImplementation#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.5/commons-io-2.5-sources.jar!/org/apache/commons/io/FileUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/world-0.1.ttl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="700" column="33" selection-start-line="700" selection-start-column="33" selection-end-line="700" selection-end-column="33" />
+        <state relative-caret-position="3672">
+          <caret line="216" column="17" selection-start-line="216" selection-start-column="17" selection-end-line="216" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/RdfClass.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/topbraid/shacl/1.1.0/shacl-1.1.0-sources.jar!/org/topbraid/shacl/engine/AbstractEngine.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/topbraid/shacl/1.1.0/shacl-1.1.0-sources.jar!/org/topbraid/shacl/validation/ValidationUtil.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Properties/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/Shaclbuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Splitter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2721">
+          <caret line="33" column="21" lean-forward="true" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/CSAKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="299" column="35" selection-start-line="299" selection-start-column="35" selection-end-line="299" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/KB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="2920" column="10" selection-start-line="2920" selection-start-column="10" selection-end-line="2920" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Mapping.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
           <folding>
-            <element signature="e#1632#1633#0" expanded="true" />
-            <element signature="e#1687#1688#0" expanded="true" />
+            <element signature="e#534#535#0" expanded="true" />
+            <element signature="e#569#570#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Modelreader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="42" column="70" selection-start-line="42" selection-start-column="70" selection-end-line="42" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4653#4654#0" expanded="true" />
-            <element signature="e#4696#4697#0" expanded="true" />
-            <element signature="method#transformToTSV#0;class#Modelreader#0" />
-            <element signature="e#5642#5643#0" expanded="true" />
-            <element signature="e#5670#5671#0" expanded="true" />
-            <element signature="method#farmClasses#0;class#Modelreader#0" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="36" column="40" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/shaclbuilder/ShaclbuilderImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="251" column="38" lean-forward="true" selection-start-line="251" selection-start-column="38" selection-end-line="251" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/keyfinder/VICKEY.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="70" column="47" lean-forward="true" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/Headless.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="104" column="34" lean-forward="true" selection-start-line="104" selection-start-column="34" selection-end-line="104" selection-end-column="34" />
+        <state relative-caret-position="498">
+          <caret line="207" column="28" lean-forward="true" selection-start-line="207" selection-start-column="28" selection-end-line="207" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#buildShacl#0;class#Headless#0" />
-            <element signature="e#7875#7876#0" expanded="true" />
-            <element signature="e#7900#7901#0" expanded="true" />
-            <element signature="method#getInfos#0;class#Headless#0" />
+            <element signature="method#duration#0;class#Headless#0" />
+            <element signature="method#useArgs#0;class#Headless#0" />
+            <element signature="method#mineOnly#0;class#Headless#0" />
+            <element signature="method#evaluateShacl#0;class#Headless#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ConditionalKey.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+        <state relative-caret-position="323">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="45" selection-end-column="15" />
+          <folding>
+            <element signature="e#1953#1954#0" expanded="true" />
+            <element signature="e#1989#1990#0" expanded="true" />
+            <element signature="e#2055#2056#0" expanded="true" />
+            <element signature="e#2105#2106#0" expanded="true" />
+            <element signature="e#2132#2133#0" expanded="true" />
+            <element signature="e#2157#2158#0" expanded="true" />
+            <element signature="e#2191#2192#0" expanded="true" />
+            <element signature="e#2219#2220#0" expanded="true" />
+            <element signature="e#2246#2247#0" expanded="true" />
+            <element signature="e#2271#2272#0" expanded="true" />
+            <element signature="e#2305#2306#0" expanded="true" />
+            <element signature="e#2333#2334#0" expanded="true" />
+            <element signature="e#2387#2388#0" expanded="true" />
+            <element signature="e#2421#2422#0" expanded="true" />
+            <element signature="e#2491#2492#0" expanded="true" />
+            <element signature="e#2537#2538#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/Splitter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelbuilder/ClassFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="47" column="48" lean-forward="true" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
+        <state relative-caret-position="359">
+          <caret line="100" column="32" lean-forward="true" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#7617#7618#0" expanded="true" />
+            <element signature="e#7647#7648#0" expanded="true" />
           </folding>
         </state>
       </provider>

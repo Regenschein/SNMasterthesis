@@ -1,12 +1,8 @@
 package modelbuilder;
 
 import controller.Configuration;
-import javatools.database.ResultIterator;
-import modelbuilder.Modelreader;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import org.apache.commons.io.output.FileWriterWithEncoding;
+import org.apache.jena.ext.com.google.common.base.Utf8;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
@@ -14,9 +10,11 @@ import org.apache.jena.riot.RDFFormat;
 import org.apache.jena.util.FileManager;
 import org.topbraid.jenax.util.JenaUtil;
 
+import javax.swing.plaf.nimbus.State;
 import java.io.*;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.function.Predicate;
 
@@ -24,6 +22,12 @@ public class Modelreader {
 
     private Model model;
     private static Modelreader modelreader;
+    private static long modelSize;
+    private static int subjectSize;
+    private static int predSize;
+    //private static HashSet<Property> propertyHashSet = new HashSet<>();
+    private static HashSet<String> propertyHashSet = new HashSet<>();
+    private static int itCounter = 0;
 
     public Modelreader(){
         this.modelreader = this;
@@ -39,8 +43,39 @@ public class Modelreader {
 
 
     public void readFile(){
+        this.model = ModelFactory.createDefaultModel();
+        FileManager.get().readModel( this.model, Configuration.getInstance().getPath());
+        generateInfos();
+    }
+
+    public void readFilePlus(){
+        this.model = ModelFactory.createDefaultModel();
+        FileManager.get().readModel( this.model, Configuration.getInstance().getPath());
+        generateInfos();
+        StmtIterator stmtIterator = this.model.listStatements();
+        HashSet<Resource> resourceHashSet = new HashSet<Resource>();
+        while (stmtIterator.hasNext()){
+            Statement fact = stmtIterator.next();
+            if(fact.getObject().toString().equals("http://wikiba.se/ontology-beta#Statement")){
+                resourceHashSet.add(fact.getSubject());
+            }
+        }
+
+        LinkedList<Statement> statements = new LinkedList<Statement>();
+        stmtIterator = this.model.listStatements();
+        while(stmtIterator.hasNext()){
+            Statement fact = stmtIterator.next();
+            if(resourceHashSet.contains(fact.getSubject())){
+                statements.add(fact);
+            }
+        }
+
+        this.model = this.model.remove(statements);
+    }
+
+    public void readFile(String path){
         model = ModelFactory.createDefaultModel();
-        FileManager.get().readModel( model, Configuration.getInstance().getPath());
+        FileManager.get().readModel( model, path);
         generateInfos();
     }
 
@@ -68,10 +103,20 @@ public class Modelreader {
 
         System.out.println("Subjects with \"a\" tag: " + subjectsWithATag.size() + "; Subjects without: \"a\" tag: " + (subjects.size() - subjectsWithATag.size()));
 
-
-
-
-        // odel.listSubjectsWithProperty()
+        modelSize += modelsize;
+        subjectSize += subjects.size();
+        for (Property p : predicates){
+            propertyHashSet.add(p.getURI());
+        }
+        itCounter++;
+        System.out.println("Iteration #" + itCounter + ": Modelsize: " + modelSize + ". subjectSize: " + subjectSize + ". propertySize: " + propertyHashSet.size());
+        try{
+            FileWriter fileWriter = new FileWriter("statistics_" +Configuration.getPath().split("/")[Configuration.getPath().split("/").length - 1].split("\\.")[0], true);
+            fileWriter.write("Iteration #" + itCounter + ": Modelsize: " + modelSize + ". subjectSize: " + subjectSize + ". propertySize: " + propertyHashSet.size() + "\n");
+            fileWriter.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void writeFile(Lang lang){
@@ -99,10 +144,11 @@ public class Modelreader {
     }
 
     public void writeClassFiles(){
-        FileWriter fileWriter = null;
+        //FileWriter fileWriter = null;
+        FileWriterWithEncoding fileWriter = null;
         try{
             for(Map.Entry<String, Model> m : models.entrySet()){
-                fileWriter = new FileWriter(Configuration.getClasspathes() + m.getKey().replace(":", "") + ".ttl");
+                fileWriter = new FileWriterWithEncoding(new File(Configuration.getClasspathes() + m.getKey().replace(":", "") + ".ttl"), "UTF-8");
                 StringWriter sw = new StringWriter();
                 RDFDataMgr.write(sw, m.getValue(), RDFFormat.TURTLE_BLOCKS) ;
                 fileWriter.write(sw.toString());
@@ -170,18 +216,19 @@ public class Modelreader {
         for (String name : ClassFinder.getInstance().getClasses().keySet()) {
             models.put(name, JenaUtil.createDefaultModel().setNsPrefixes(model.getNsPrefixMap()));
         }
-        StmtIterator si = Modelreader.getInstance().getModel().listStatements();
+        //StmtIterator si = Modelreader.getInstance().getModel().listStatements();
+        StmtIterator si = model.listStatements();
         while (si.hasNext()) {
             Statement statement = si.next();
             for (Map.Entry<String, RdfClass> rdfClass : ClassFinder.getInstance().getClasses().entrySet()) {
                 String s = "";
-                if (Modelreader.getInstance().getModel().getNsURIPrefix(statement.getSubject().getNameSpace()) == null) {
+                if (model.getNsURIPrefix(statement.getSubject().getNameSpace()) == null) {
                     s = statement.getSubject().toString();
                 } else
-                    s = Modelreader.getInstance().getModel().getNsURIPrefix(statement.getSubject().getNameSpace()) + ":" + statement.getSubject().getLocalName();
+                    s = model.getNsURIPrefix(statement.getSubject().getNameSpace()) + ":" + statement.getSubject().getLocalName();
 
                 if (rdfClass.getValue().getInstances().contains(s)) {
-                    Resource resource = Modelreader.getInstance().getModel().getResource(statement.getSubject().getURI());
+                    Resource resource = model.getResource(statement.getSubject().getURI());
                     for (StmtIterator it = resource.listProperties(); it.hasNext(); ) {
                         Statement st = it.next();
                         models.get(rdfClass.getKey()).add(resource, st.getPredicate(), st.getObject());
@@ -193,7 +240,6 @@ public class Modelreader {
                 }*/
             }
         }
-        System.out.println("Hand hoch, dies tutet ein Brechpunkt sein.");
         writeClassFiles();
     }
 

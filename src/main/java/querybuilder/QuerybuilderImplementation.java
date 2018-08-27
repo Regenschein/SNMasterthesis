@@ -136,6 +136,13 @@ public class QuerybuilderImplementation extends BuilderImplementation implements
         }
     }
 
+    @Override
+    public void buildSpecificClasses(String[] classes){
+        for (String cls : classes){
+            buildClassfile(cls);
+        }
+    }
+
     public void buildClassfile(String classname) {
         StringBuilder prefixSB = new StringBuilder();
 
